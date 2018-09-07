@@ -1,18 +1,26 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/units/Unit.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/units/player/Player.gd" type="Script" id=2]
-[ext_resource path="res://assets/human_nude_bald.png" type="Texture" id=3]
+[ext_resource path="res://scenes/units/player/player.gd" type="Script" id=2]
 
 [node name="Player" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
 
-[node name="Sprite" parent="." index="1"]
+[node name="Body" parent="BodyPivot" index="0"]
 
-texture = ExtResource( 3 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 48, 48 )
-_sections_unfolded = [ "Region" ]
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="RightPivot" parent="WeaponPivots" index="2"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="Move" parent="StateMachine" index="1"]
+
+MAX_SPRINT_SPEED = 300.0
+
+[node name="Jump" parent="StateMachine" index="2"]
+
+editor/display_folded = true
 
 
