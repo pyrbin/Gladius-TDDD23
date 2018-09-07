@@ -133,6 +133,7 @@ MAX_SPRINT_SPEED = 400.0
 
 [node name="Jump" type="Node" parent="StateMachine" index="2"]
 
+editor/display_folded = true
 script = ExtResource( 7 )
 MAX_JUMP_DISTANCE = 144
 

@@ -9,6 +9,9 @@ func _ready():
 	# Initialization here
 	pass
 
+func _input(event):
+	$StateMachine.handle_input(event)
+
 func get_movement_direction():
 	var direction = Vector2()
 	direction.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))

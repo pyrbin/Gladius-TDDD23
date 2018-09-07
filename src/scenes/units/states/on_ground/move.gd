@@ -32,7 +32,4 @@ func move(speed, direction, delta):
     direction = direction.normalized()
     speed = speed / sqrt(2) if direction.length() < 1 else speed
     velocity = direction * speed
-    owner.move_and_collide(velocity * delta)
-    if owner.get_slide_count() == 0:
-        return
-    return owner.get_slide_collision(0)
+    return owner.move_and_collide(velocity * delta)
