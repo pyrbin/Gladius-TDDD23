@@ -12,10 +12,6 @@ script = ExtResource( 2 )
 
 _sections_unfolded = [ "Region", "Transform", "Z Index" ]
 
-[node name="RightPivot" parent="WeaponPivots" index="2"]
-
-_sections_unfolded = [ "Transform" ]
-
 [node name="CameraPivot" type="Position2D" parent="." index="6"]
 
 script = ExtResource( 3 )
@@ -38,14 +34,14 @@ smoothing_enabled = false
 smoothing_speed = 10.0
 offset_v = 0.0
 offset_h = 0.0
-drag_margin_left = 0.0
-drag_margin_top = 0.0
-drag_margin_right = 0.0
-drag_margin_bottom = 0.3
+drag_margin_left = 0.06
+drag_margin_top = 0.1
+drag_margin_right = 0.06
+drag_margin_bottom = 0.1
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = true
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Drag Margin", "Editor", "Transform" ]
 
 [node name="StateMachine" parent="." index="7"]
 
