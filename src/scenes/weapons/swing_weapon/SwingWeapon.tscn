@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/weapons/Weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/weapons/swing_weapon/swing_weapon.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "swing_down"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 180.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "swing_up"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 180.0, 0.0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 21.418, 6.54583 )
+
+[node name="SwingWeapon" instance=ExtResource( 1 )]
+
+rotation = -1.5708
+script = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimationPlayer" parent="." index="0"]
+
+anims/swing_down = SubResource( 1 )
+anims/swing_up = SubResource( 3 )
+
+[node name="Pivot" parent="." index="1"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area" parent="Pivot" index="0"]
+
+editor/display_folded = false
+position = Vector2( 50, -3 )
+
+[node name="CollisionShape2D" parent="Pivot/Area" index="1"]
+
+position = Vector2( 5.81133, 2.71195 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+
