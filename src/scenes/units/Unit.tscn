@@ -1,16 +1,15 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/units/unit.gd" type="Script" id=1]
 [ext_resource path="res://scenes/common/z_index.gd" type="Script" id=2]
 [ext_resource path="res://scenes/common/health.gd" type="Script" id=3]
-[ext_resource path="res://scenes/weapons/swing_weapon/SwingWeapon.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/tilemap_1.png" type="Texture" id=5]
-[ext_resource path="res://assets/tilemap_3.png" type="Texture" id=6]
-[ext_resource path="res://assets/tilemap_0.png" type="Texture" id=7]
-[ext_resource path="res://scenes/units/unit_state_machine.gd" type="Script" id=8]
-[ext_resource path="res://scenes/units/states/on_ground/idle.gd" type="Script" id=9]
-[ext_resource path="res://scenes/units/states/on_ground/move.gd" type="Script" id=10]
-[ext_resource path="res://scenes/units/states/in_air/jump.gd" type="Script" id=11]
+[ext_resource path="res://assets/tilemap_1.png" type="Texture" id=4]
+[ext_resource path="res://assets/tilemap_3.png" type="Texture" id=5]
+[ext_resource path="res://assets/tilemap_0.png" type="Texture" id=6]
+[ext_resource path="res://scenes/units/unit_state_machine.gd" type="Script" id=7]
+[ext_resource path="res://scenes/units/states/on_ground/idle.gd" type="Script" id=8]
+[ext_resource path="res://scenes/units/states/on_ground/move.gd" type="Script" id=9]
+[ext_resource path="res://scenes/units/states/in_air/jump.gd" type="Script" id=10]
 
 [sub_resource type="RectangleShape2D" id=7]
 
@@ -99,7 +98,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 7 ), ExtResource( 7 ) ]
+"values": [ ExtResource( 6 ), ExtResource( 6 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -118,10 +117,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 5 ), ExtResource( 5 ) ]
+"values": [ ExtResource( 4 ), ExtResource( 4 ) ]
 }
 
-[node name="Unit" type="KinematicBody2D" index="0"]
+[node name="Unit" type="KinematicBody2D"]
 
 position = Vector2( 0.418694, -0.523365 )
 z_index = 1
@@ -131,7 +130,7 @@ collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Z Index" ]
-weapon_path = "res://scenes/weapons/SwingWeapon.tscn"
+weapon_path = "res://scenes/weapons/swing_weapon/SwingWeapon.tscn"
 
 [node name="Z_Index" type="Node" parent="." index="0"]
 
@@ -165,14 +164,10 @@ position = Vector2( -0.527039, 0 )
 z_index = 2
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="SwingWeapon" parent="BodyPivot/WeaponPivot" index="0" instance=ExtResource( 4 )]
-
-position = Vector2( 0.461914, 0.640455 )
-
 [node name="Body" type="Sprite" parent="BodyPivot" index="1"]
 
 z_index = 2
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 region_rect = Rect2( 0, 0, 72, 72 )
 _sections_unfolded = [ "Region", "Z Index" ]
 
@@ -181,7 +176,7 @@ _sections_unfolded = [ "Region", "Z Index" ]
 position = Vector2( -1.47588, 29.4306 )
 scale = Vector2( 0.505134, 0.234466 )
 z_index = -1
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 offset = Vector2( -1.39726, 1.21561 )
 region_rect = Rect2( 72, 72, 72, 72 )
 _sections_unfolded = [ "Offset", "Region", "Transform", "Z Index" ]
@@ -211,23 +206,23 @@ blend_times = [  ]
 
 [node name="StateMachine" type="Node" parent="." index="7"]
 
-script = ExtResource( 8 )
+script = ExtResource( 7 )
 START_STATE = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine" index="0"]
 
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 
 [node name="Move" type="Node" parent="StateMachine" index="1"]
 
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 MAX_WALK_SPEED = 200.0
 MAX_SPRINT_SPEED = 400.0
 
 [node name="Jump" type="Node" parent="StateMachine" index="2"]
 
 editor/display_folded = true
-script = ExtResource( 11 )
+script = ExtResource( 10 )
 MAX_JUMP_DISTANCE = 192
 
 [node name="Tween" type="Tween" parent="StateMachine/Jump" index="0"]

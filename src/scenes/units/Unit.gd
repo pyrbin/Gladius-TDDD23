@@ -1,7 +1,7 @@
 # Interface class for game units
 extends KinematicBody2D
 
-export (String) var weapon_path = "res://scenes/weapons/SwingWeapon.tscn"
+export (String) var weapon_path = "res://scenes/weapons/swing_weapon/SwingWeapon.tscn"
 
 const UNIT_DRAW_LAYER = 6
 const SHADOW_DRAW_LAYER = 4
@@ -20,7 +20,9 @@ var look_position = Vector2(0,0)
 func _ready():
     body.z_index = UNIT_DRAW_LAYER
     shadow.z_index = SHADOW_DRAW_LAYER
-    weapon_pivot.add_child(load(weapon_path).instance())
+    var wep = load(weapon_path)
+    var wep_inst = wep.instance()
+    weapon_pivot.add_child(wep_inst)
     weapon = weapon_pivot.get_child(0)
 
 func get_movement_direction():
