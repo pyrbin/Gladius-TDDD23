@@ -26,10 +26,12 @@ polygon = PoolVector2Array( -773.954, 788.666, -984.573, 791.826, -997.249, -995
 [node name="Player" parent="." index="1" instance=ExtResource( 2 )]
 
 editor/display_folded = true
+z_index = 0
 
 [node name="Enemy" parent="." index="2" instance=ExtResource( 3 )]
 
 editor/display_folded = true
 position = Vector2( -170.281, -43.3768 )
+z_index = 0
 
 
