@@ -33,7 +33,8 @@ func _ready():
     equip_weapon(weapon_path)
 
 func equip_weapon(wep_path):
-    weapon_pivot.add_child(load(WEAPON_FOLDER_PATH + wep_path).instance())
+    print(wep_path)
+    weapon_pivot.add_child(load(WEAPON_FOLDER_PATH + "swing_weapon/shortsword/Shortsword.tscn").instance())
     weapon = weapon_pivot.get_child(0)
     weapon.holder = self
     print("Weapon Equipped: "+weapon.weapon_name)

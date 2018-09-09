@@ -7,5 +7,6 @@
 
 script = ExtResource( 2 )
 unit_name = "enemy"
+weapon_path = "swing_weapon/shortsword/Shortsword.tscn"
 
 
