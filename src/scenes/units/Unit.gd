@@ -30,15 +30,17 @@ func _ready():
 func equip_weapon(wep_path):
     weapon_pivot.add_child(load(weapon_path).instance())
     weapon = weapon_pivot.get_child(0)
-    call_deferred("reparent_hands")
+    reparent_hands()
 
 func reparent_hands():
-    weapon_pivot.remove_child(u_hand)
-    weapon_pivot.remove_child(l_hand)
+    $BodyPivot.remove_child(u_hand)
+    $BodyPivot.remove_child(l_hand)
     weapon.u_hand_pivot.add_child(u_hand) 
-    weapon.l_hand_pivot.add_child(l_hand) 
+    weapon.l_hand_pivot.add_child(l_hand)
     u_hand.position = Vector2()
     l_hand.position = Vector2()
+    u_hand.z_index = 0
+    l_hand.z_index = 0
 
 func unequip_weapon(wep_path):
     pass

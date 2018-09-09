@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/units/player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/units/enemy/Enemy.tscn" type="PackedScene" id=3]
 
-[node name="Root" type="Node" index="0"]
+[node name="Root" type="Node"]
 
 [node name="BG" type="KinematicBody2D" parent="." index="0"]
 
@@ -28,7 +28,7 @@ polygon = PoolVector2Array( -773.954, 788.666, -984.573, 791.826, -997.249, -995
 [node name="Player" parent="." index="1" instance=ExtResource( 2 )]
 
 editor/display_folded = true
-position = Vector2( 0, 0 )
+position = Vector2( -31.7331, -22.1532 )
 z_index = 0
 _sections_unfolded = [ "Collision", "Transform", "Z Index", "collision" ]
 
