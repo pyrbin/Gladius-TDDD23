@@ -1,29 +1,47 @@
 # Interface class for game units
 extends KinematicBody2D
 
+signal unit_collided
+
 export (String) var weapon_path = "res://scenes/weapons/swing_weapon/SwingWeapon.tscn"
 
 const UNIT_DRAW_LAYER = 6
-const SHADOW_DRAW_LAYER = 4
+const SHADOW_DRAW_LAYER = 1
 
 enum LOOK_STATE {TOP_RIGHT, TOP_LEFT, BOTTOM_RIGHT, BOTTOM_LEFT}
 
 onready var shadow = $Shadow
 onready var health = $Health
 onready var weapon_pivot = $BodyPivot/WeaponPivot
+onready var u_hand = $BodyPivot/U_Hand
+onready var l_hand = $BodyPivot/L_Hand
 onready var body = $BodyPivot/Body
 
 var weapon
 var look_state = TOP_RIGHT
 var look_position = Vector2(0,0)
+var velocity = Vector2(0,0)
 
 func _ready():
     body.z_index = UNIT_DRAW_LAYER
     shadow.z_index = SHADOW_DRAW_LAYER
-    var wep = load(weapon_path)
-    var wep_inst = wep.instance()
-    weapon_pivot.add_child(wep_inst)
+    equip_weapon(weapon_path)
+
+func equip_weapon(wep_path):
+    weapon_pivot.add_child(load(weapon_path).instance())
     weapon = weapon_pivot.get_child(0)
+    call_deferred("reparent_hands")
+
+func reparent_hands():
+    weapon_pivot.remove_child(u_hand)
+    weapon_pivot.remove_child(l_hand)
+    weapon.u_hand_pivot.add_child(u_hand) 
+    weapon.l_hand_pivot.add_child(l_hand) 
+    u_hand.position = Vector2()
+    l_hand.position = Vector2()
+
+func unequip_weapon(wep_path):
+    pass
 
 func get_movement_direction():
     pass
@@ -53,3 +71,6 @@ func set_dead(value):
 
 func _physics_process(delta):
     _set_look_state(get_aim_position())
+    var co = move_and_collide(velocity * delta)
+    if co:
+        emit_signal("unit_collided", co)

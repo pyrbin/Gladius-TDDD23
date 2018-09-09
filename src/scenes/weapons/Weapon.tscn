@@ -20,7 +20,6 @@ blend_times = [  ]
 
 [node name="Area" type="Area2D" parent="Pivot" index="0"]
 
-editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -33,6 +32,10 @@ _sections_unfolded = [ "Transform" ]
 [node name="Sprite" type="Sprite" parent="Pivot/Area" index="0"]
 
 texture = ExtResource( 2 )
+
+[node name="U_Hand_Pivot" type="Position2D" parent="Pivot/Area/Sprite" index="0"]
+
+[node name="L_Hand_Pivot" type="Position2D" parent="Pivot/Area/Sprite" index="1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Area" index="1"]
 

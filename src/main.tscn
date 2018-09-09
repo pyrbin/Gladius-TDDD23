@@ -4,14 +4,15 @@
 [ext_resource path="res://scenes/units/player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/units/enemy/Enemy.tscn" type="PackedScene" id=3]
 
-[node name="Root" type="Node"]
+[node name="Root" type="Node" index="0"]
 
 [node name="BG" type="KinematicBody2D" parent="." index="0"]
 
 input_pickable = false
 collision_layer = 1
-collision_mask = 1
+collision_mask = 2
 collision/safe_margin = 0.08
+_sections_unfolded = [ "Collision" ]
 
 [node name="bg_temp" type="Sprite" parent="BG" index="0"]
 
@@ -29,11 +30,13 @@ polygon = PoolVector2Array( -773.954, 788.666, -984.573, 791.826, -997.249, -995
 editor/display_folded = true
 position = Vector2( 0, 0 )
 z_index = 0
+_sections_unfolded = [ "Collision", "Transform", "Z Index", "collision" ]
 
 [node name="Enemy" parent="." index="2" instance=ExtResource( 3 )]
 
 editor/display_folded = true
 position = Vector2( -170.281, -43.3768 )
 z_index = 0
+_sections_unfolded = [ "Collision", "Transform", "Z Index", "collision" ]
 
 
