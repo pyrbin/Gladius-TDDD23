@@ -4,11 +4,12 @@
 [ext_resource path="res://scenes/units/player/player.gd" type="Script" id=2]
 [ext_resource path="res://scenes/units/player/camera/camera_pivot.gd" type="Script" id=3]
 
-[node name="Player" groups=[
+[node name="Player" index="0" groups=[
 "Player",
 ] instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
+unit_name = "player_one"
 
 [node name="Body" parent="BodyPivot" index="3"]
 

@@ -6,6 +6,8 @@
 [node name="Weapon" type="Node2D"]
 
 script = ExtResource( 1 )
+weapon_name = ""
+weapon_type = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 
@@ -18,25 +20,35 @@ blend_times = [  ]
 
 [node name="Pivot" type="Position2D" parent="." index="1"]
 
-[node name="Area" type="Area2D" parent="Pivot" index="0"]
+[node name="Area2D" type="Area2D" parent="Pivot" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+collision_layer = 4
+collision_mask = 3
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="Pivot/Area" index="0"]
+[node name="Sprite" type="Sprite" parent="Pivot/Area2D" index="0"]
 
+editor/display_folded = true
 texture = ExtResource( 2 )
 
-[node name="U_Hand_Pivot" type="Position2D" parent="Pivot/Area/Sprite" index="0"]
+[node name="U_Hand_Pivot" type="Position2D" parent="Pivot/Area2D/Sprite" index="0"]
 
-[node name="L_Hand_Pivot" type="Position2D" parent="Pivot/Area/Sprite" index="1"]
+[node name="L_Hand_Pivot" type="Position2D" parent="Pivot/Area2D/Sprite" index="1"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Area" index="1"]
+[node name="Hitbox" type="CollisionShape2D" parent="Pivot/Area2D" index="1"]
+
+[node name="Timer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = true
+autostart = false
 
 

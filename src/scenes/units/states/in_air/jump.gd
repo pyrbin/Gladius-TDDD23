@@ -12,11 +12,9 @@ func enter():
                     Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
     owner.get_node("AnimationPlayer").stop()
     owner.get_node("AnimationPlayer").play("jump")
-    owner.get_node("Collision").disabled = true;
     tween.start()
 
 func _on_animation_finished(anim_name):
-    owner.get_node("Collision").disabled = false;
     emit_signal("finished", "idle")
 
 func _on_unit_collision(collider):

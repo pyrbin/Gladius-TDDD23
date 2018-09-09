@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/bg_temp.png" type="Texture" id=1]
 [ext_resource path="res://scenes/units/player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/units/enemy/Enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/theme1.ogg" type="AudioStream" id=3]
+[ext_resource path="res://scenes/units/enemy/Enemy.tscn" type="PackedScene" id=4]
 
-[node name="Root" type="Node"]
+[node name="Root" type="Node" index="0"]
 
 [node name="BG" type="KinematicBody2D" parent="." index="0"]
 
+editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 2
@@ -31,12 +33,20 @@ editor/display_folded = true
 position = Vector2( -31.7331, -22.1532 )
 z_index = 0
 _sections_unfolded = [ "Collision", "Transform", "Z Index", "collision" ]
+weapon_path = "swing_weapon/shortsword/Shortsword.tscn"
 
-[node name="Enemy" parent="." index="2" instance=ExtResource( 3 )]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2"]
 
-editor/display_folded = true
-position = Vector2( -170.281, -43.3768 )
-z_index = 0
-_sections_unfolded = [ "Collision", "Transform", "Z Index", "collision" ]
+stream = ExtResource( 3 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Master"
+
+[node name="Enemy" parent="." index="3" instance=ExtResource( 4 )]
+
+position = Vector2( -406.723, -116.679 )
+weapon_path = "swing_weapon/shortsword/Shortsword.tscn"
 
 

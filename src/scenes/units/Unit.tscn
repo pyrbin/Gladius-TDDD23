@@ -12,7 +12,7 @@
 [ext_resource path="res://scenes/units/states/on_ground/move.gd" type="Script" id=10]
 [ext_resource path="res://scenes/units/states/in_air/jump.gd" type="Script" id=11]
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 15.6056 )
@@ -126,7 +126,7 @@ tracks/2/keys = {
 "values": [ Vector2( 1.73692, 29.5 ), Vector2( 1.73692, 29.5 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 
 resource_name = "Bottom_Right"
 length = 0.1
@@ -169,7 +169,7 @@ tracks/2/keys = {
 "values": [ Vector2( -1.34736, 29.5 ), Vector2( -1.34736, 29.5 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=7]
 
 resource_name = "Top_Left"
 length = 0.1
@@ -212,9 +212,8 @@ tracks/2/keys = {
 "values": [ Vector2( 1.73692, 29.5 ), Vector2( 1.73692, 29.5 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=8]
 
-resource_name = "Top_Right"
 length = 0.1
 loop = true
 step = 0.1
@@ -257,6 +256,7 @@ tracks/2/keys = {
 
 [node name="Unit" type="KinematicBody2D" groups=[
 "Units",
+"Hitable",
 ]]
 
 position = Vector2( 0.418694, -0.523365 )
@@ -267,7 +267,8 @@ collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Z Index", "collision" ]
-weapon_path = "res://scenes/weapons/swing_weapon/SwingWeapon.tscn"
+unit_name = "generic_unit"
+weapon_path = "swing_weapon/shortsword/Shortword.tscn"
 
 [node name="Z_Index" type="Node" parent="." index="0"]
 
@@ -285,7 +286,7 @@ minHealth = 0
 position = Vector2( -2.48344, 18.9494 )
 scale = Vector2( 1.42755, 1.06179 )
 z_index = 4096
-shape = SubResource( 7 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="BodyPivot" type="Position2D" parent="." index="3"]
@@ -351,9 +352,9 @@ playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/Bottom_Left = SubResource( 5 )
-anims/Bottom_Right = SubResource( 8 )
-anims/Top_Left = SubResource( 9 )
-anims/Top_Right = SubResource( 6 )
+anims/Bottom_Right = SubResource( 9 )
+anims/Top_Left = SubResource( 7 )
+anims/Top_Right = SubResource( 8 )
 blend_times = [  ]
 
 [node name="StateMachine" type="Node" parent="." index="7"]

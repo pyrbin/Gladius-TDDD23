@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/weapons/swing_weapon/SwingWeapon.tscn" type="PackedScene" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 24.1621, 6.25678 )
+
+[node name="Shortsword" instance=ExtResource( 1 )]
+
+weapon_name = "shortsword"
+weapon_type = 0
+
+[node name="Sprite" parent="Pivot/Area2D" index="0"]
+
+editor/display_folded = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="U_Hand_Pivot" parent="Pivot/Area2D/Sprite" index="0"]
+
+position = Vector2( -20.9105, 1.61541 )
+
+[node name="L_Hand_Pivot" parent="Pivot/Area2D/Sprite" index="1"]
+
+position = Vector2( -19.2054, -2.51285 )
+
+[node name="Hitbox" parent="Pivot/Area2D" index="1"]
+
+position = Vector2( -0.161659, 0.217795 )
+shape = SubResource( 1 )
+
+[node name="Swipe" parent="Pivot/Area2D" index="2"]
+
+position = Vector2( 0.000392914, -41.9411 )
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="Timer" parent="." index="2"]
+
+wait_time = 0.35
+
+
