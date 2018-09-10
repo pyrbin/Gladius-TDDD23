@@ -32,7 +32,6 @@ editor/display_folded = true
 position = Vector2( -31.7331, -22.1532 )
 z_index = 0
 _sections_unfolded = [ "Collision", "Transform", "Z Index", "collision" ]
-weapon_path = "swing_weapon/shortsword/Shortsword.tscn"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2"]
 
