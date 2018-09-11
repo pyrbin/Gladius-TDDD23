@@ -268,7 +268,8 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Z Index", "collision" ]
 unit_name = "generic_unit"
 weapon_path = "swing_weapon/shortsword/Shortword.tscn"
-use_hands = false
+use_hands = true
+use_holster = true
 reach = 30.001
 
 [node name="Z_Index" type="Node" parent="." index="0"]
@@ -296,13 +297,12 @@ _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="U_Hand_Pivot" type="Position2D" parent="Pivot" index="0"]
 
-position = Vector2( -12, 12 )
+position = Vector2( -9, 16 )
 z_index = 5
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="U_Hand" type="Sprite" parent="Pivot/U_Hand_Pivot" index="0"]
 
-position = Vector2( 2.34761, 5.18926 )
 z_index = 1
 texture = ExtResource( 4 )
 region_enabled = true
@@ -311,8 +311,8 @@ _sections_unfolded = [ "Region", "Transform", "Z Index" ]
 
 [node name="L_Hand_Pivot" type="Position2D" parent="Pivot" index="1"]
 
-position = Vector2( 11.5954, 17.9151 )
-z_index = -1
+position = Vector2( 9, 16 )
+z_index = 5
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="L_Hand" type="Sprite" parent="Pivot/L_Hand_Pivot" index="0"]
@@ -335,7 +335,7 @@ _sections_unfolded = [ "Offset", "Z Index" ]
 
 [node name="Legs" type="Sprite" parent="Pivot/Container" index="0"]
 
-z_index = 4
+z_index = 3
 texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 360, 0, 72, 72 )
@@ -367,7 +367,7 @@ texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 72, 72 )
 region_filter_clip = true
-_sections_unfolded = [ "Offset", "Region", "Transform", "Z Index" ]
+_sections_unfolded = [ "Offset", "Region", "Transform", "Visibility", "Z Index" ]
 
 [node name="Shadow" type="Sprite" parent="." index="4"]
 
@@ -435,5 +435,12 @@ playback_speed = 1.0
 playback/active = false
 playback/repeat = false
 playback/speed = 1.0
+
+[node name="HolsterTimer" type="Timer" parent="." index="8"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = true
 
 

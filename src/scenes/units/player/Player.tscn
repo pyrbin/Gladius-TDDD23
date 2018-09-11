@@ -13,14 +13,6 @@ unit_name = "player_one"
 weapon_path = "swing_weapon/shortsword/Shortsword.tscn"
 use_hands = true
 
-[node name="U_Hand" parent="Pivot/U_Hand_Pivot" index="0"]
-
-position = Vector2( 3.05056, 5.57975 )
-
-[node name="L_Hand" parent="Pivot/L_Hand_Pivot" index="0"]
-
-position = Vector2( -1.40194, 0.0440369 )
-
 [node name="WeaponPivot" parent="Pivot" index="2"]
 
 position = Vector2( 0, 15 )

@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/theme1.ogg" type="AudioStream" id=3]
 [ext_resource path="res://scenes/units/enemy/Enemy.tscn" type="PackedScene" id=4]
 
-[node name="Root" type="Node"]
+[node name="Root" type="Node" index="0"]
 
 [node name="BG" type="KinematicBody2D" parent="." index="0"]
 
@@ -43,40 +43,60 @@ autoplay = true
 mix_target = 0
 bus = "Master"
 
-[node name="Enemy" parent="." index="3" instance=ExtResource( 4 )]
+[node name="Battalion1" type="Position2D" parent="." index="3"]
 
 editor/display_folded = true
+
+[node name="Enemy" parent="Battalion1" index="0" instance=ExtResource( 4 )]
+
 position = Vector2( -424.014, -105.331 )
-reach = 40
 
-[node name="Enemy2" parent="." index="4" instance=ExtResource( 4 )]
+[node name="Enemy2" parent="Battalion1" index="1" instance=ExtResource( 4 )]
 
-editor/display_folded = true
 position = Vector2( -403.481, -178.28 )
-reach = 40
 
-[node name="Enemy3" parent="." index="5" instance=ExtResource( 4 )]
+[node name="Enemy3" parent="Battalion1" index="2" instance=ExtResource( 4 )]
 
-editor/display_folded = true
 position = Vector2( -271.633, -161.529 )
-reach = 40
 
-[node name="Enemy4" parent="." index="6" instance=ExtResource( 4 )]
+[node name="Enemy4" parent="Battalion1" index="3" instance=ExtResource( 4 )]
 
-editor/display_folded = true
 position = Vector2( -339.178, -71.8292 )
-reach = 40
 
-[node name="Enemy5" parent="." index="7" instance=ExtResource( 4 )]
+[node name="Enemy5" parent="Battalion1" index="4" instance=ExtResource( 4 )]
 
-editor/display_folded = true
 position = Vector2( -522.36, -69.1274 )
-reach = 40
 
-[node name="Enemy6" parent="." index="8" instance=ExtResource( 4 )]
+[node name="Enemy6" parent="Battalion1" index="5" instance=ExtResource( 4 )]
 
-editor/display_folded = true
 position = Vector2( -530.465, -143.697 )
-reach = 40
+
+[node name="Battalion2" type="Position2D" parent="." index="4"]
+
+position = Vector2( 599.827, -284.009 )
+
+[node name="Enemy" parent="Battalion2" index="0" instance=ExtResource( 4 )]
+
+position = Vector2( -408.11, 92.3387 )
+
+[node name="Enemy2" parent="Battalion2" index="1" instance=ExtResource( 4 )]
+
+position = Vector2( -387.576, 19.3902 )
+
+[node name="Enemy3" parent="Battalion2" index="2" instance=ExtResource( 4 )]
+
+position = Vector2( -255.729, 36.1413 )
+
+[node name="Enemy4" parent="Battalion2" index="3" instance=ExtResource( 4 )]
+
+position = Vector2( -323.274, 125.841 )
+
+[node name="Enemy5" parent="Battalion2" index="4" instance=ExtResource( 4 )]
+
+position = Vector2( -506.455, 128.543 )
+
+[node name="Enemy6" parent="Battalion2" index="5" instance=ExtResource( 4 )]
+
+position = Vector2( -514.561, 53.9732 )
 
 

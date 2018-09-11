@@ -1,8 +1,9 @@
 extends Node
 
-enum ATTACK_STATE { IDLE, ATTACKING }
+enum ATTACK_STATE { IDLE, ATTACKING, HOLSTERED }
 
 const HITABLE_GROUP_NAME = "Hitable"
+const HOLSTER_OFFSET = Vector2(0,0)
 onready var cooldown_timer = $Timer
 
 # Data
@@ -16,8 +17,17 @@ onready var l_hand_pivot = $Pivot/Area2D/Sprite/L_Hand_Pivot
 
 var attack_state = IDLE
 var holder = null
-
 var _current_hit_targets = []
+
+func set_holstered(b):
+    if b:
+        attack_state = HOLSTERED
+        $Pivot/Area2D.rotation = 0
+        $Pivot.rotation = 0
+        $Pivot.position = Vector2(0,0)
+        $Pivot/Area2D.position = Vector2(0,0) + HOLSTER_OFFSET
+    else:
+        attack_state = IDLE
 
 func _ready():
     $Pivot/Area2D/Hitbox.disabled = true
@@ -34,6 +44,9 @@ func is_ready():
 
 func is_idle():
     return attack_state == IDLE
+
+func is_holstered():
+    return attack_state == HOLSTERED
 
 func attack_lmb():
     pass
