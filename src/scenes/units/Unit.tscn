@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/units/unit.gd" type="Script" id=1]
 [ext_resource path="res://scenes/common/z_index.gd" type="Script" id=2]
@@ -9,12 +9,6 @@
 [ext_resource path="res://scenes/units/states/on_ground/idle.gd" type="Script" id=7]
 [ext_resource path="res://scenes/units/states/on_ground/move.gd" type="Script" id=8]
 [ext_resource path="res://scenes/units/states/in_air/jump.gd" type="Script" id=9]
-
-[sub_resource type="CapsuleShape2D" id=9]
-
-custom_solver_bias = 0.0
-radius = 9.1684
-height = 37.6371
 
 [sub_resource type="Animation" id=2]
 
@@ -283,12 +277,13 @@ health = 1
 maxHealth = 1
 minHealth = 0
 
-[node name="Collision" type="CollisionShape2D" parent="." index="2"]
+[node name="Collision" type="CollisionPolygon2D" parent="." index="2"]
 
 position = Vector2( 1.86922, 6.14645 )
 scale = Vector2( 1.42755, 1.06179 )
 z_index = 4096
-shape = SubResource( 9 )
+build_mode = 0
+polygon = PoolVector2Array( -3.27831, -16.9355, 2.80758, -17.1326, 2.80758, -14.5695, 5.0073, -14.4709, 4.93398, -3.23253, 0.901159, -2.8382, 0.901159, -0.176485, 2.73426, -0.47223, 2.66094, 2.48524, 4.714, 2.48524, 4.78733, 6.13278, 6.98705, 6.32994, 6.98705, 11.8505, 5.15395, 12.0477, 4.64995, 24.5099, 4.6877, 24.3677, 4.90721, 25.2531, 2.93163, 25.3121, 2.93163, 28.2043, 0.912144, 28.1453, 0.736538, 19.5867, -3.34633, 19.6457, -3.30243, 25.2531, -5.49751, 25.3121, -5.49751, 27.9092, -7.47309, 28.0863, -7.42919, 12.0906, -9.53648, 11.9135, -9.75599, 6.83735, -7.6487, 6.7193, -7.58106, 2.7438, -5.45111, 2.61363, -5.51566, -0.336797, -3.57935, -0.119853 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Pivot" type="Position2D" parent="." index="3"]

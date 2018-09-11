@@ -49,7 +49,10 @@ texture = ExtResource( 3 )
 
 [node name="L_Hand_Pivot" type="Position2D" parent="Pivot/Area2D/Sprite" index="1"]
 
-[node name="Hitbox" type="CollisionShape2D" parent="Pivot/Area2D" index="1"]
+[node name="Hitbox" type="CollisionPolygon2D" parent="Pivot/Area2D" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array(  )
 
 [node name="Timer" type="Timer" parent="." index="3"]
 

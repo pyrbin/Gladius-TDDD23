@@ -4,18 +4,29 @@
 [ext_resource path="res://scenes/units/player/player.gd" type="Script" id=2]
 [ext_resource path="res://scenes/units/player/camera/camera_pivot.gd" type="Script" id=3]
 
-[node name="Player" index="0" groups=[
+[node name="Player" groups=[
 "Player",
 ] instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
 unit_name = "player_one"
 weapon_path = "swing_weapon/shortsword/Shortsword.tscn"
-use_hands = true
+
+[node name="Collision" parent="." index="2"]
+
+visible = false
 
 [node name="WeaponPivot" parent="Pivot" index="2"]
 
 position = Vector2( 0, 15 )
+
+[node name="Legs" parent="Pivot/Container" index="0"]
+
+visible = false
+
+[node name="Chest" parent="Pivot/Container" index="2"]
+
+visible = true
 
 [node name="Shadow" parent="." index="4"]
 
@@ -33,7 +44,7 @@ position = Vector2( 0, -1.50735 )
 anchor_mode = 1
 rotating = false
 current = true
-zoom = Vector2( 0.75, 0.75 )
+zoom = Vector2( 0.55, 0.55 )
 limit_left = -10000000
 limit_top = -10000000
 limit_right = 10000000
@@ -53,6 +64,34 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = true
 _sections_unfolded = [ "Drag Margin", "Editor", "Transform" ]
+
+[node name="TextEdit" type="RichTextLabel" parent="CameraPivot/Camera2D" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 101.0
+margin_top = 149.0
+margin_right = 328.0
+margin_bottom = 178.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "AVE, IMPERATOR alpha.0.01"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
 
 [node name="StateMachine" parent="." index="8"]
 

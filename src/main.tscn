@@ -5,11 +5,10 @@
 [ext_resource path="res://assets/theme1.ogg" type="AudioStream" id=3]
 [ext_resource path="res://scenes/units/enemy/Enemy.tscn" type="PackedScene" id=4]
 
-[node name="Root" type="Node" index="0"]
+[node name="Main" type="Node"]
 
 [node name="BG" type="KinematicBody2D" parent="." index="0"]
 
-editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 2
@@ -18,7 +17,7 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="bg_temp" type="Sprite" parent="BG" index="0"]
 
-position = Vector2( 0, -0.323532 )
+position = Vector2( 0.316254, -0.323532 )
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
