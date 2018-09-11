@@ -210,6 +210,7 @@ tracks/1/keys = {
 "Hitable",
 ]]
 
+editor/display_folded = true
 position = Vector2( 0.418694, -0.523365 )
 z_index = 1
 input_pickable = false
@@ -243,10 +244,12 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="BodyPivot" type="Position2D" parent="." index="3"]
 
+editor/display_folded = true
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="U_Hand_Pivot" type="Position2D" parent="BodyPivot" index="0"]
 
+editor/display_folded = true
 position = Vector2( -12, 12 )
 z_index = 5
 _sections_unfolded = [ "Transform", "Z Index" ]
