@@ -20,34 +20,39 @@ var holder = null
 var _current_hit_targets = []
 
 func _ready():
-	$Pivot/Area2D/Hitbox.disabled = true
-	$Pivot/Area2D.connect("body_entered", self, "_on_body_entered_root")
-	anim_player.connect("animation_finished", self, "_on_animation_finished")
+    $Pivot/Area2D/Hitbox.disabled = true
+    $Pivot/Area2D.connect("body_entered", self, "_on_body_entered_root")
+    anim_player.connect("animation_finished", self, "_on_animation_finished")
 
 func is_ready():
-	return attack_state == IDLE && cooldown_timer.is_stopped()
+    return attack_state == IDLE && cooldown_timer.is_stopped()
 
 func is_idle():
-	return attack_state == IDLE
+    return attack_state == IDLE
 
-func attack():
-	$Pivot/Area2D/Hitbox.disabled = false
-	attack_state = ATTACKING
-	cooldown_timer.start()
+func attack_lmb():
+    pass
+func attack_rmb():
+    pass
+    
+func attack(type):
+    $Pivot/Area2D/Hitbox.disabled = false
+    attack_state = ATTACKING
+    cooldown_timer.start()
 
 func is_hitable(body):
-	return body != holder and body.is_in_group(HITABLE_GROUP_NAME) and !_current_hit_targets.has(body)
+    return body != holder and body.is_in_group(HITABLE_GROUP_NAME) and !_current_hit_targets.has(body)
 
 func _on_body_entered_root(body):
-	if not is_hitable(body):
-		return
-	_current_hit_targets.append(body)
-	_on_body_entered(body)
+    if not is_hitable(body):
+        return
+    _current_hit_targets.append(body)
+    _on_body_entered(body)
 
 func _on_body_entered(body):
-	pass
+    pass
 
 func _on_animation_finished(anim):
-	$Pivot/Area2D/Hitbox.disabled = true
-	_current_hit_targets.clear()
-	attack_state = IDLE
+    $Pivot/Area2D/Hitbox.disabled = true
+    _current_hit_targets.clear()
+    attack_state = IDLE

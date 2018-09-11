@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/human_nude_bald_Layer 0.png-a39e9c6627e04050cab1bf7204225848.stex"
+path="res://.import/gladiator_mini.png-e4117931a51b149396b378266c4174bd.stex"
 
 [deps]
 
-source_file="res://assets/human_nude_bald_Layer 0.png"
-dest_files=[ "res://.import/human_nude_bald_Layer 0.png-a39e9c6627e04050cab1bf7204225848.stex" ]
+source_file="res://assets/gladiator_mini.png"
+dest_files=[ "res://.import/gladiator_mini.png-e4117931a51b149396b378266c4174bd.stex" ]
 
 [params]
 

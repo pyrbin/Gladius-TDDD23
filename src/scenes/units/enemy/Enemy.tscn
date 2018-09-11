@@ -5,6 +5,7 @@
 
 [node name="Enemy" index="0" instance=ExtResource( 1 )]
 
+position = Vector2( 0.418694, -0.523365 )
 script = ExtResource( 2 )
 unit_name = "enemy"
 weapon_path = "swing_weapon/shortsword/Shortsword.tscn"

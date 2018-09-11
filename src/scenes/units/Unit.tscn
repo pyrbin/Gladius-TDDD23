@@ -3,9 +3,9 @@
 [ext_resource path="res://scenes/units/unit.gd" type="Script" id=1]
 [ext_resource path="res://scenes/common/z_index.gd" type="Script" id=2]
 [ext_resource path="res://scenes/common/health.gd" type="Script" id=3]
-[ext_resource path="res://assets/tilemap_4.png" type="Texture" id=4]
-[ext_resource path="res://assets/gladiator.png" type="Texture" id=5]
-[ext_resource path="res://assets/tilemap_3.png" type="Texture" id=6]
+[ext_resource path="res://assets/gladiator_mini.png" type="Texture" id=4]
+[ext_resource path="res://assets/gladiator_mini_mini.png" type="Texture" id=5]
+[ext_resource path="res://assets/shadow.png" type="Texture" id=6]
 [ext_resource path="res://scenes/units/unit_state_machine.gd" type="Script" id=7]
 [ext_resource path="res://scenes/units/states/on_ground/idle.gd" type="Script" id=8]
 [ext_resource path="res://scenes/units/states/on_ground/move.gd" type="Script" id=9]
@@ -110,7 +110,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1.73692, 29.5 ), Vector2( 1.73692, 29.5 ) ]
+"values": [ Vector2( -1.26088, 32.34 ), Vector2( -1.26088, 32.34 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -141,7 +141,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -1.34736, 29.5 ), Vector2( -1.34736, 29.5 ) ]
+"values": [ Vector2( 1.33488, 32.0245 ), Vector2( 1.33488, 32.0245 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -234,6 +234,7 @@ minHealth = 0
 
 [node name="Collision" type="CollisionShape2D" parent="." index="2"]
 
+visible = false
 position = Vector2( -2.48344, 18.9494 )
 scale = Vector2( 1.42755, 1.06179 )
 z_index = 4096
@@ -243,27 +244,38 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 [node name="BodyPivot" type="Position2D" parent="." index="3"]
 
 _sections_unfolded = [ "Transform", "Z Index" ]
-__meta__ = {
-"_edit_group_": true
-}
 
-[node name="U_Hand" type="Sprite" parent="BodyPivot" index="0"]
+[node name="U_Hand_Pivot" type="Position2D" parent="BodyPivot" index="0"]
 
-visible = false
-position = Vector2( -15.4533, 8.84299 )
-z_index = 7
+position = Vector2( -12, 12 )
+z_index = 5
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="U_Hand" type="Sprite" parent="BodyPivot/U_Hand_Pivot" index="0"]
+
+position = Vector2( 1.7677, -0.377872 )
+z_index = 1
 texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 105, 33, 12, 12 )
+_sections_unfolded = [ "Region", "Transform", "Z Index" ]
 
-[node name="L_Hand" type="Sprite" parent="BodyPivot" index="1"]
+[node name="L_Hand_Pivot" type="Position2D" parent="BodyPivot" index="1"]
 
-visible = false
-position = Vector2( 9.44931, 9.09875 )
-z_index = 7
+position = Vector2( 8, 12 )
+z_index = -1
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="L_Hand" type="Sprite" parent="BodyPivot/L_Hand_Pivot" index="0"]
+
 texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 105, 33, 12, 12 )
+_sections_unfolded = [ "Region", "Transform", "Z Index" ]
 
 [node name="WeaponPivot" type="Position2D" parent="BodyPivot" index="2"]
 
-position = Vector2( -0.527039, 0 )
+position = Vector2( 2.48779, 12.7296 )
 z_index = 2
 _sections_unfolded = [ "Transform", "Z Index" ]
 
@@ -273,11 +285,11 @@ z_index = 2
 texture = ExtResource( 5 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Offset", "Region", "Z Index" ]
+_sections_unfolded = [ "Offset", "Region", "Transform", "Z Index" ]
 
 [node name="Shadow" type="Sprite" parent="." index="4"]
 
-position = Vector2( -1.34736, 29.5 )
+position = Vector2( 1.1771, 32.1822 )
 rotation = 0.00174533
 scale = Vector2( 0.505134, 0.234466 )
 z_index = -1

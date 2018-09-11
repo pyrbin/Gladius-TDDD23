@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tilemap_4.png-12276825d26a2fe102818e4453e1fe2c.stex"
+path="res://.import/swing.png-bb2e3f7a403304d60ea108e61c1ca359.stex"
 
 [deps]
 
-source_file="res://assets/tilemap_4.png"
-dest_files=[ "res://.import/tilemap_4.png-12276825d26a2fe102818e4453e1fe2c.stex" ]
+source_file="res://assets/swing.png"
+dest_files=[ "res://.import/swing.png-bb2e3f7a403304d60ea108e61c1ca359.stex" ]
 
 [params]
 

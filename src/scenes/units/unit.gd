@@ -8,8 +8,8 @@ export (String) var unit_name = ""
 export (String) var weapon_path = "swing_weapon/shortsword/Shortsword.tscn"
 
 onready var shadow = $Shadow
-onready var u_hand = $BodyPivot/U_Hand
-onready var l_hand = $BodyPivot/L_Hand
+onready var u_hand = $BodyPivot/U_Hand_Pivot/U_Hand
+onready var l_hand = $BodyPivot/L_Hand_Pivot/L_Hand
 onready var body = $BodyPivot/Body
 onready var sprite_player = $SpritePlayer
 onready var weapon_pivot = $BodyPivot/WeaponPivot
@@ -18,7 +18,7 @@ onready var health = $Health
 const UNIT_DRAW_LAYER = 6
 const SHADOW_DRAW_LAYER = 1
 const WEAPON_DRAW_LAYER = 7
-const WEAPON_DRAW_LAYER_TOP_OFFSET = -5
+const WEAPON_DRAW_LAYER_TOP_OFFSET = 0
 const WEAPON_FOLDER_PATH = "res://scenes/weapons/"
 
 var look_state = TOP_RIGHT
@@ -47,7 +47,10 @@ func get_movement_direction():
     pass
 
 func left_attack_weapon():
-    weapon.attack();
+    weapon.attack(0);
+
+func right_attack_weapon():
+    weapon.attack(1);
 
 func get_aim_position():
     pass
@@ -66,9 +69,9 @@ func _set_look_state(look_position):
 
     match look_state:
         TOP_LEFT:
-            sprite_player.play("Top_Left")
+            sprite_player.play("Bottom_Left")
         TOP_RIGHT:
-            sprite_player.play("Top_Right")
+            sprite_player.play("Bottom_Right")
         BOTTOM_LEFT:
             sprite_player.play("Bottom_Left")
         BOTTOM_RIGHT:
@@ -76,14 +79,15 @@ func _set_look_state(look_position):
     _determine_wep_z_index()
 
 func reparent_hands():
-    $BodyPivot.remove_child(u_hand)
-    $BodyPivot.remove_child(l_hand)
+    $BodyPivot/U_Hand_Pivot.remove_child(u_hand)
+    $BodyPivot/L_Hand_Pivot.remove_child(l_hand)
     weapon.u_hand_pivot.add_child(u_hand) 
     weapon.l_hand_pivot.add_child(l_hand)
     u_hand.position = Vector2()
     l_hand.position = Vector2()
     u_hand.z_index = 0
     l_hand.z_index = 0
+
 func _determine_wep_z_index():
     if look_state == TOP_LEFT or look_state == TOP_RIGHT:
         weapon_pivot.z_index = WEAPON_DRAW_LAYER + WEAPON_DRAW_LAYER_TOP_OFFSET

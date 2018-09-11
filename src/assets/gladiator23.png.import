@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tilemap_2.png-e4189093eb5cad2b966333c4494cefd3.stex"
+path="res://.import/gladiator23.png-e0bb1839ad6892fd62ea8bcd9e82a990.stex"
 
 [deps]
 
-source_file="res://assets/tilemap_2.png"
-dest_files=[ "res://.import/tilemap_2.png-e4189093eb5cad2b966333c4494cefd3.stex" ]
+source_file="res://assets/gladiator23.png"
+dest_files=[ "res://.import/gladiator23.png-e0bb1839ad6892fd62ea8bcd9e82a990.stex" ]
 
 [params]
 

@@ -1,8 +1,94 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/weapons/Weapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/weapons/swing_weapon/swing_weapon.gd" type="Script" id=2]
-[ext_resource path="res://assets/tilemap_5.png" type="Texture" id=3]
+[ext_resource path="res://assets/swing.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "stab_down"
+length = 0.4
+loop = false
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -90.0, 0.0, 0.0, -90.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/Area2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.25, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 30, 0 ), Vector2( 30, 0 ), Vector2( 65, 0 ), Vector2( 60, 0 ), Vector2( 30, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+
+resource_name = "stab_up"
+length = 0.4
+loop = false
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -90.0, -180.0, -180.0, -90.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/Area2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.25, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 30, 0 ), Vector2( 30, 0 ), Vector2( 65, 0 ), Vector2( 60, 0 ), Vector2( 30, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
 
 [sub_resource type="Animation" id=1]
 
@@ -96,10 +182,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.18, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.18, 0.18, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -0.0526276, 41.7654 ), Vector2( -0.0526276, 41.7654 ), Vector2( -2.99213, -38.9798 ) ]
+"values": [ Vector2( 3.80518, 32.2566 ), Vector2( 3.80518, 32.2566 ), Vector2( -0.0526276, 41.7654 ), Vector2( -2.99213, -38.9798 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("Pivot/Area2D/Sprite:flip_v")
@@ -113,18 +199,6 @@ tracks/4/keys = {
 "update": 1,
 "values": [ true, false ]
 }
-tracks/5/type = "value"
-tracks/5/path = NodePath("Pivot/Area2D/Sprite:scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = false
-tracks/5/keys = {
-"times": PoolRealArray( 0, 0.09, 0.18 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
-}
 
 [node name="SwingWeapon" instance=ExtResource( 1 )]
 
@@ -135,19 +209,23 @@ weapon_name = "swing_weapon"
 
 [node name="AnimationPlayer" parent="." index="0"]
 
+anims/stab_down = SubResource( 3 )
+anims/stab_up = SubResource( 4 )
 anims/swing_down = SubResource( 1 )
 anims/swing_up = SubResource( 2 )
 
 [node name="Pivot" parent="." index="1"]
 
+rotation = -1.24836e-007
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Area2D" parent="Pivot" index="0"]
 
-position = Vector2( 50, 0 )
+position = Vector2( 30, 0 )
 
 [node name="Sprite" parent="Pivot/Area2D" index="0"]
 
+flip_v = true
 _sections_unfolded = [ "Offset" ]
 
 [node name="Swipe" type="Sprite" parent="Pivot/Area2D" index="2"]
