@@ -6,18 +6,20 @@ enum LOOK_STATE {TOP_RIGHT, TOP_LEFT, BOTTOM_RIGHT, BOTTOM_LEFT}
 
 export (String) var unit_name = ""
 export (String) var weapon_path = "swing_weapon/shortsword/Shortsword.tscn"
+export (bool) var use_hands = false
+export (float) var reach = 40
 
 onready var shadow = $Shadow
-onready var u_hand = $BodyPivot/U_Hand_Pivot/U_Hand
-onready var l_hand = $BodyPivot/L_Hand_Pivot/L_Hand
-onready var body = $BodyPivot/Body
+onready var u_hand = $Pivot/U_Hand_Pivot/U_Hand
+onready var l_hand = $Pivot/L_Hand_Pivot/L_Hand
+onready var body = $Pivot/Container/Body
 onready var sprite_player = $SpritePlayer
-onready var weapon_pivot = $BodyPivot/WeaponPivot
+onready var weapon_pivot = $Pivot/WeaponPivot
 onready var health = $Health
 
-const UNIT_DRAW_LAYER = 6
+const UNIT_DRAW_LAYER = 2
 const SHADOW_DRAW_LAYER = 1
-const WEAPON_DRAW_LAYER = 7
+const WEAPON_DRAW_LAYER = 6
 const WEAPON_DRAW_LAYER_TOP_OFFSET = 0
 const WEAPON_FOLDER_PATH = "res://scenes/weapons/"
 
@@ -30,20 +32,27 @@ var weapon
 func _ready():
     body.z_index = UNIT_DRAW_LAYER
     shadow.z_index = SHADOW_DRAW_LAYER
+
+    if use_hands:
+        u_hand.show()
+        l_hand.show()
+    else:
+        u_hand.hide()
+        l_hand.hide()
+
     equip_weapon(weapon_path)
 
 func equip_weapon(wep_path):
-    print(wep_path)
     weapon_pivot.add_child(load(WEAPON_FOLDER_PATH + "swing_weapon/shortsword/Shortsword.tscn").instance())
     weapon = weapon_pivot.get_child(0)
     weapon.holder = self
-    print("Weapon Equipped: "+weapon.weapon_name)
-    reparent_hands()
+    weapon.set_reach(reach)
+    print("Weapon Equipped: "+weapon.data.identifier)
+
+    if use_hands:
+        reparent_hands()
 
 func unequip_weapon(wep_path):
-    pass
-
-func get_movement_direction():
     pass
 
 func left_attack_weapon():
@@ -55,6 +64,9 @@ func right_attack_weapon():
 func get_aim_position():
     pass
 
+func get_movement_direction():
+    pass
+    
 func _set_look_state(look_position):
     if dead:
         return
@@ -70,17 +82,25 @@ func _set_look_state(look_position):
     match look_state:
         TOP_LEFT:
             sprite_player.play("Bottom_Left")
+            _flip_armor(true)
         TOP_RIGHT:
             sprite_player.play("Bottom_Right")
+            _flip_armor(false)
         BOTTOM_LEFT:
             sprite_player.play("Bottom_Left")
+            _flip_armor(true)
         BOTTOM_RIGHT:
             sprite_player.play("Bottom_Right")
-    _determine_wep_z_index()
+            _flip_armor(false)
 
+    _determine_wep_z_index()
+func _flip_armor(b):
+    $Pivot/Container/Legs.set_flip_h(b)
+    $Pivot/Container/Chest.set_flip_h(b)
+    $Pivot/Container/Helm.set_flip_h(b)
 func reparent_hands():
-    $BodyPivot/U_Hand_Pivot.remove_child(u_hand)
-    $BodyPivot/L_Hand_Pivot.remove_child(l_hand)
+    $Pivot/U_Hand_Pivot.remove_child(u_hand)
+    $Pivot/L_Hand_Pivot.remove_child(l_hand)
     weapon.u_hand_pivot.add_child(u_hand) 
     weapon.l_hand_pivot.add_child(l_hand)
     u_hand.position = Vector2()

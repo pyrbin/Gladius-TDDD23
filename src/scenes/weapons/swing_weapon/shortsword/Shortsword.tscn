@@ -10,12 +10,18 @@ extents = Vector2( 15.3977, 4.12007 )
 
 [node name="Shortsword" instance=ExtResource( 1 )]
 
-weapon_name = "shortsword"
-weapon_type = 0
+rotation = -1.5708
+
+[node name="Data" parent="." index="0"]
+
+identifier = "shortsword"
+type = 0
+damage = 20.0
+speed = 400.0
+cooldown = 0.43
 
 [node name="Sprite" parent="Pivot/Area2D" index="0"]
 
-editor/display_folded = false
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 432, 32, 40, 14 )
@@ -23,12 +29,12 @@ _sections_unfolded = [ "Offset", "Region", "Transform" ]
 
 [node name="U_Hand_Pivot" parent="Pivot/Area2D/Sprite" index="0"]
 
-position = Vector2( -16.3802, 0.0224997 )
+position = Vector2( -16.7108, 1.3447 )
 _sections_unfolded = [ "Z Index" ]
 
 [node name="L_Hand_Pivot" parent="Pivot/Area2D/Sprite" index="1"]
 
-position = Vector2( -16.5506, -0.0106548 )
+position = Vector2( -15.3386, -2.32451 )
 z_index = -1
 _sections_unfolded = [ "Z Index" ]
 
@@ -40,10 +46,11 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Swipe" parent="Pivot/Area2D" index="2"]
 
+position = Vector2( 3.76268, -32.1493 )
 scale = Vector2( 0.632893, 0.813814 )
 _sections_unfolded = [ "Offset", "Transform", "Visibility" ]
 
-[node name="Timer" parent="." index="2"]
+[node name="Timer" parent="." index="3"]
 
 wait_time = 0.35
 

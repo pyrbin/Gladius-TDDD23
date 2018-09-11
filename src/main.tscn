@@ -9,6 +9,7 @@
 
 [node name="BG" type="KinematicBody2D" parent="." index="0"]
 
+editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 2
@@ -44,6 +45,38 @@ bus = "Master"
 
 [node name="Enemy" parent="." index="3" instance=ExtResource( 4 )]
 
-position = Vector2( -406.723, -116.679 )
+editor/display_folded = true
+position = Vector2( -424.014, -105.331 )
+reach = 40
+
+[node name="Enemy2" parent="." index="4" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+position = Vector2( -403.481, -178.28 )
+reach = 40
+
+[node name="Enemy3" parent="." index="5" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+position = Vector2( -271.633, -161.529 )
+reach = 40
+
+[node name="Enemy4" parent="." index="6" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+position = Vector2( -339.178, -71.8292 )
+reach = 40
+
+[node name="Enemy5" parent="." index="7" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+position = Vector2( -522.36, -69.1274 )
+reach = 40
+
+[node name="Enemy6" parent="." index="8" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+position = Vector2( -530.465, -143.697 )
+reach = 40
 
 

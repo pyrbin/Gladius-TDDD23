@@ -1,16 +1,16 @@
 extends Node
 
 enum ATTACK_STATE { IDLE, ATTACKING }
-enum WEAPON_TYPE { SWING, STAB, RANGED }
-
-export (String) var weapon_name = ""
-export (WEAPON_TYPE) var weapon_type = SWING
 
 const HITABLE_GROUP_NAME = "Hitable"
-
-onready var anim_player = $AnimationPlayer
 onready var cooldown_timer = $Timer
+
+# Data
+onready var data = $Data
+
+# Visuals
 onready var wep_sprite = $Pivot/Area2D/Sprite
+onready var anim_player = $AnimationPlayer
 onready var u_hand_pivot = $Pivot/Area2D/Sprite/U_Hand_Pivot
 onready var l_hand_pivot = $Pivot/Area2D/Sprite/L_Hand_Pivot
 
@@ -21,8 +21,13 @@ var _current_hit_targets = []
 
 func _ready():
     $Pivot/Area2D/Hitbox.disabled = true
+    anim_player.playback_speed = 1/(data.speed/1000)
+    cooldown_timer.wait_time = data.cooldown
     $Pivot/Area2D.connect("body_entered", self, "_on_body_entered_root")
     anim_player.connect("animation_finished", self, "_on_animation_finished")
+
+func set_reach(offset):
+    $Pivot/Area2D.position = Vector2(offset, $Pivot/Area2D.position.y)
 
 func is_ready():
     return attack_state == IDLE && cooldown_timer.is_stopped()

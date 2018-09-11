@@ -4,13 +4,32 @@
 [ext_resource path="res://scenes/units/player/player.gd" type="Script" id=2]
 [ext_resource path="res://scenes/units/player/camera/camera_pivot.gd" type="Script" id=3]
 
-[node name="Player" groups=[
+[node name="Player" index="0" groups=[
 "Player",
 ] instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
 unit_name = "player_one"
 weapon_path = "swing_weapon/shortsword/Shortsword.tscn"
+use_hands = true
+
+[node name="U_Hand" parent="Pivot/U_Hand_Pivot" index="0"]
+
+position = Vector2( 3.05056, 5.57975 )
+
+[node name="L_Hand" parent="Pivot/L_Hand_Pivot" index="0"]
+
+position = Vector2( -1.40194, 0.0440369 )
+
+[node name="WeaponPivot" parent="Pivot" index="2"]
+
+position = Vector2( 0, 15 )
+
+[node name="Shadow" parent="." index="4"]
+
+modulate = Color( 1, 1, 1, 0.513804 )
+position = Vector2( -0.322533, 31.0924 )
+offset = Vector2( -2.60715, 5.09113 )
 
 [node name="CameraPivot" type="Position2D" parent="." index="6"]
 
@@ -22,7 +41,7 @@ position = Vector2( 0, -1.50735 )
 anchor_mode = 1
 rotating = false
 current = true
-zoom = Vector2( 1, 1 )
+zoom = Vector2( 0.75, 0.75 )
 limit_left = -10000000
 limit_top = -10000000
 limit_right = 10000000
