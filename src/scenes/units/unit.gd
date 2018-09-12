@@ -24,6 +24,7 @@ onready var weapon_pivot = $Pivot/WeaponPivot
 
 # data 
 onready var holster_timer = $HolsterTimer
+onready var inventory = $Inventory
 onready var health = $Health
 
 # constans
@@ -34,6 +35,7 @@ const WEAPON_DRAW_LAYER = 5
 const WEAPON_DRAW_LAYER_TOP_OFFSET = 0
 const WEAPON_FOLDER_PATH = "res://scenes/weapons/"
 const WEAPON_HOLSTER_ROT = -90
+
 # member variables
 var look_state = TOP_RIGHT
 var look_position = Vector2(0,0)

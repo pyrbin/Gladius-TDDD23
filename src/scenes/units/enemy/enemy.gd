@@ -2,7 +2,6 @@ extends "res://scenes/units/unit.gd"
 
 var event_move_down = null
 
-
 func _ready():
 	event_move_down = InputMap.get_action_list("move_down")
 

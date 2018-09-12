@@ -1,10 +1,20 @@
 extends "res://scenes/units/unit.gd"
 
+var inventory_controller
+var toggle = true
 func _ready():
-	pass
+	inventory_controller = get_tree().get_root().get_node("/root/Game/GUI/PlayerInventory")
+	inventory_controller.connect_to_inventory(inventory)
 
 func _input(event):
 	$StateMachine.handle_input(event)
+	if (Input.is_key_pressed(KEY_ESCAPE)):
+		if toggle: 
+			inventory_controller.hide()
+			toggle = not toggle
+		else:
+			inventory_controller.show()
+			toggle = not toggle
 
 func _physics_process(delta):
 

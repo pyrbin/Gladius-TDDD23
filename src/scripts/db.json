@@ -1,0 +1,29 @@
+{
+    "0": {
+        "NAME": "armor 1",
+        "ICON": "res://assets/icon.png",
+        "TYPE": 0,
+        "SLOT": 0,
+        "DESC": "this is armor i like it",
+        "ATTRIBUTES": {}
+    },
+    "1": {
+        "NAME": "armor 2",
+        "ICON": "res://assets/icon.png",
+        "TYPE": 0,
+        "SLOT": 0,
+        "DESC": "this is armor i like sdasdit",
+        "ATTRIBUTES": {
+            "HEALTH": 200,
+            "STAMINA": 20
+        }
+    },
+    "2": {
+        "NAME": "armor 3",
+        "ICON": "res://assets/icon.png",
+        "TYPE": 0,
+        "SLOT": 0,
+        "DESC": "thisasdasd is armor i like it",
+        "ATTRIBUTES": {}
+    }
+}
