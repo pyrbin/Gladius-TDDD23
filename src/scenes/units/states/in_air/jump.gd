@@ -3,8 +3,10 @@ extends "../motion.gd"
 export (int) var MAX_JUMP_DISTANCE = 1000
 onready var tween = get_node("Tween")
 
-func enter():
+func _ready():
     owner.connect("unit_collided", self, "_on_unit_collision")
+
+func enter():
     var direction = owner.get_movement_direction().normalized()
     var distance = MAX_JUMP_DISTANCE
     tween.interpolate_property(owner, "position",

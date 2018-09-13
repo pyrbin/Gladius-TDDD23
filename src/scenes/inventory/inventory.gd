@@ -14,12 +14,10 @@ const INVENTORY_MAX_SIZE = 6
 var _inventory_array = []
 var _equipment_dict  = {}
 
-var _size = 0
-
 func _ready():
-	_size = clamp(inventory_size, 1, INVENTORY_MAX_SIZE)
-	_inventory_array.resize(_size)
-	for i in range(_size):
+	var size = clamp(inventory_size, 1, INVENTORY_MAX_SIZE)
+	_inventory_array.resize(size)
+	for i in range(size):
 		_inventory_array[i] = null
 		
 	_equipment_dict = {
@@ -30,29 +28,46 @@ func _ready():
 		Equippable.SLOT.SPECIAL : null
 	}
 
+func equip(slot, item):
+	if item.type != ItemData.ITEM_TYPE.EQUIPPABLE:
+		return
+	_equipment_dict[slot] = item
+
 func _in_bounds(slot):
-	return slot <= _size
+	return slot <= _inventory_array.size()
 
 func _valid_id(item_id):
 	return typeof(item_id) == TYPE_INT && ItemDatabase.has_item(item_id)
 
 func set (slot, item_id):
-	if (not _in_bounds(slot) or not _valid_id(item_id)):
+	if slot == null: 
+		return
+	if not _in_bounds(slot):
 		return false
+	if not _valid_id(item_id):
+		delete(slot)
 	_inventory_array[slot] = item_id
 	emit_signal("value_changed", slot)
+
+func append(item_id):
+	set(get_empty_slot(), item_id)
 
 func delete(slot):
 	_inventory_array[slot] = null
 	emit_signal("value_changed", slot)
 
-func set_if_empty (slot, item_id):
-	if (not _in_bounds(slot) or not _valid_id(item_id)):
-		return false
-	if _inventory_array[slot] != null:
-		return false
-	_inventory_array[slot] = item_id
-	emit_signal("value_changed", slot)
+func get_empty_slot ():
+	for i in range(0, _inventory_array.size()):
+		if _inventory_array[i] == null:
+			return i
+	return -1
+
+func move_item(from, to):
+	var tmp = _inventory_array[to]
+	_inventory_array[to] = _inventory_array[from]
+	_inventory_array[from] = tmp
+	emit_signal("value_changed", from)
+	emit_signal("value_changed", to)
 
 func has(item_id):
 	return _inventory_array.has(item_id)

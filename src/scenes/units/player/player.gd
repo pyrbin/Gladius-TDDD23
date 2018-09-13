@@ -1,10 +1,18 @@
 extends "res://scenes/units/unit.gd"
 
 var inventory_controller
+var equipment_controller
+
 var toggle = true
 func _ready():
 	inventory_controller = get_tree().get_root().get_node("/root/Game/GUI/PlayerInventory")
+	equipment_controller = get_tree().get_root().get_node("/root/Game/GUI/PlayerEquipment")
+
 	inventory_controller.connect_to_inventory(inventory)
+	equipment_controller.connect_to_inventory(equipment)
+
+	inventory_controller.connect_container(equipment_controller)
+	equipment_controller.connect_container(inventory_controller)
 
 func _input(event):
 	$StateMachine.handle_input(event)

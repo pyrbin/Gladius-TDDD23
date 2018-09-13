@@ -25,6 +25,7 @@ onready var weapon_pivot = $Pivot/WeaponPivot
 # data 
 onready var holster_timer = $HolsterTimer
 onready var inventory = $Inventory
+onready var equipment = $Equipment
 onready var health = $Health
 
 # constans

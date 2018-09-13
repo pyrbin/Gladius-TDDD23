@@ -12,7 +12,7 @@ script = ExtResource( 2 )
 unit_name = "player_one"
 weapon_path = "swing_weapon/shortsword/Shortsword.tscn"
 
-[node name="Collision" parent="." index="3"]
+[node name="Collision" parent="." index="4"]
 
 visible = false
 
@@ -27,12 +27,6 @@ visible = false
 [node name="Chest" parent="Pivot/Container" index="2"]
 
 visible = true
-
-[node name="Shadow" parent="." index="5"]
-
-modulate = Color( 1, 1, 1, 0.513804 )
-position = Vector2( -0.322533, 31.0924 )
-offset = Vector2( -2.60715, 5.09113 )
 
 [node name="CameraPivot" type="Position2D" parent="." index="6"]
 
@@ -64,6 +58,12 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = true
 _sections_unfolded = [ "Drag Margin", "Editor", "Transform" ]
+
+[node name="Shadow" parent="." index="7"]
+
+modulate = Color( 1, 1, 1, 0.513804 )
+position = Vector2( -0.322533, 31.0924 )
+offset = Vector2( -2.60715, 5.09113 )
 
 [node name="Move" parent="StateMachine" index="1"]
 

@@ -8,8 +8,8 @@ func handle_input(event):
     if lmb:
         owner.left_attack_weapon();
 
-    if rmb:
-        owner.right_attack_weapon();
+   # if rmb:
+   #    owner.right_attack_weapon();
 
     if event.is_action_pressed("jump"):
         emit_signal("finished", "jump")

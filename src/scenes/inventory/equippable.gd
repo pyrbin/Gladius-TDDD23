@@ -7,7 +7,7 @@ var slot = null
 var attributes = {}
 var node_path = ""
 
-func _init(id, name, icon, slot, attributes).(id, ITEM_TYPE.EQUIPPABLE, name, icon):
+func _init(id, name, desc, icon, slot, attributes).(id, ITEM_TYPE.EQUIPPABLE, name, desc, icon):
     self.slot = slot
     self.attributes = attributes
 

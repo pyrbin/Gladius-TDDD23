@@ -32,11 +32,13 @@ func attack_lmb():
 			swing_state = DOWN
 
 func attack_rmb():
-	match swing_state:
-		DOWN:
-			anim_player.play("stab_down")
-		UP:
-			anim_player.play("stab_up")
+#match swing_state:
+#		DOWN:
+#			anim_player.play("stab_down")
+#		UP:
+#			anim_player.play("stab_up")
+	pass
+
 
 func attack(type):
 	if not is_ready():

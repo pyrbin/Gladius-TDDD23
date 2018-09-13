@@ -11,7 +11,7 @@
 [ext_resource path="res://scenes/units/states/on_ground/move.gd" type="Script" id=9]
 [ext_resource path="res://scenes/units/states/in_air/jump.gd" type="Script" id=10]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 
 length = 0.7
 loop = true
@@ -53,7 +53,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 3 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 
 length = 0.4
 loop = false
@@ -107,7 +107,7 @@ tracks/3/keys = {
 "values": [ Rect2( 216, 0, 72, 72 ), Rect2( 0, 0, 72, 72 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 
 length = 0.3
 loop = true
@@ -173,7 +173,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 3 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 
 resource_name = "Bottom_Left"
 length = 0.1
@@ -192,7 +192,7 @@ tracks/0/keys = {
 "values": [ true, true ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 
 resource_name = "Bottom_Right"
 length = 0.1
@@ -211,7 +211,7 @@ tracks/0/keys = {
 "values": [ false, false ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 
 resource_name = "Top_Left"
 length = 0.1
@@ -230,7 +230,7 @@ tracks/0/keys = {
 "values": [ true, true ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 
 length = 0.1
 loop = true
@@ -272,18 +272,23 @@ reach = 30.001
 script = ExtResource( 2 )
 inventory_size = 6
 
-[node name="Z_Index" type="Node" parent="." index="1"]
+[node name="Equipment" type="Node" parent="." index="1"]
+
+script = ExtResource( 2 )
+inventory_size = 6
+
+[node name="Z_Index" type="Node" parent="." index="2"]
 
 script = ExtResource( 3 )
 
-[node name="Health" type="Node" parent="." index="2"]
+[node name="Health" type="Node" parent="." index="3"]
 
 script = ExtResource( 4 )
 health = 1
 maxHealth = 1
 minHealth = 0
 
-[node name="Collision" type="CollisionPolygon2D" parent="." index="3"]
+[node name="Collision" type="CollisionPolygon2D" parent="." index="4"]
 
 position = Vector2( 1.86922, 6.14645 )
 scale = Vector2( 1.42755, 1.06179 )
@@ -292,7 +297,7 @@ build_mode = 0
 polygon = PoolVector2Array( -3.27831, -16.9355, 2.80758, -17.1326, 2.80758, -14.5695, 5.0073, -14.4709, 4.93398, -3.23253, 0.901159, -2.8382, 0.901159, -0.176485, 2.73426, -0.47223, 2.66094, 2.48524, 4.714, 2.48524, 4.78733, 6.13278, 6.98705, 6.32994, 6.98705, 11.8505, 5.15395, 12.0477, 4.64995, 24.5099, 4.6877, 24.3677, 4.90721, 25.2531, 2.93163, 25.3121, 2.93163, 28.2043, 0.912144, 28.1453, 0.736538, 19.5867, -3.34633, 19.6457, -3.30243, 25.2531, -5.49751, 25.3121, -5.49751, 27.9092, -7.47309, 28.0863, -7.42919, 12.0906, -9.53648, 11.9135, -9.75599, 6.83735, -7.6487, 6.7193, -7.58106, 2.7438, -5.45111, 2.61363, -5.51566, -0.336797, -3.57935, -0.119853 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="Pivot" type="Position2D" parent="." index="4"]
+[node name="Pivot" type="Position2D" parent="." index="5"]
 
 editor/display_folded = true
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
@@ -371,7 +376,7 @@ region_rect = Rect2( 0, 0, 72, 72 )
 region_filter_clip = true
 _sections_unfolded = [ "Offset", "Region", "Transform", "Visibility", "Z Index" ]
 
-[node name="Shadow" type="Sprite" parent="." index="5"]
+[node name="Shadow" type="Sprite" parent="." index="6"]
 
 modulate = Color( 1, 1, 1, 0.475137 )
 position = Vector2( -1.26088, 32.34 )
@@ -383,32 +388,32 @@ offset = Vector2( -1.39726, 1.21561 )
 region_rect = Rect2( 0, 0, 72, 72 )
 _sections_unfolded = [ "Offset", "Region", "Transform", "Visibility", "Z Index" ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
 
 root_node = NodePath("..")
 autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/idle = SubResource( 2 )
-anims/jump = SubResource( 3 )
-anims/move = SubResource( 4 )
+anims/idle = SubResource( 1 )
+anims/jump = SubResource( 2 )
+anims/move = SubResource( 3 )
 blend_times = [  ]
 
-[node name="SpritePlayer" type="AnimationPlayer" parent="." index="7"]
+[node name="SpritePlayer" type="AnimationPlayer" parent="." index="8"]
 
 root_node = NodePath("..")
 autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/Bottom_Left = SubResource( 5 )
-anims/Bottom_Right = SubResource( 6 )
-anims/Top_Left = SubResource( 7 )
-anims/Top_Right = SubResource( 8 )
+anims/Bottom_Left = SubResource( 4 )
+anims/Bottom_Right = SubResource( 5 )
+anims/Top_Left = SubResource( 6 )
+anims/Top_Right = SubResource( 7 )
 blend_times = [  ]
 
-[node name="StateMachine" type="Node" parent="." index="8"]
+[node name="StateMachine" type="Node" parent="." index="9"]
 
 editor/display_folded = true
 script = ExtResource( 7 )
@@ -439,7 +444,7 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[node name="HolsterTimer" type="Timer" parent="." index="9"]
+[node name="HolsterTimer" type="Timer" parent="." index="10"]
 
 process_mode = 1
 wait_time = 2.0

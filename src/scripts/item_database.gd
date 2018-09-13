@@ -16,7 +16,14 @@ func _ready():
         var int_id = int(i)
         match int(it["TYPE"]):
             ItemData.ITEM_TYPE.EQUIPPABLE:
-                _item_database[int_id] = Equippable.new(int_id, it["NAME"], it["ICON"], it["SLOT"], it["ATTRIBUTES"])
+                _item_database[int_id] = Equippable.new(
+                    int_id, 
+                    it["NAME"],
+                    it["DESC"],
+                    it["ICON"], 
+                    it["SLOT"], 
+                    it["ATTRIBUTES"]
+                )
 
 func has_item(id):
     return _item_database.has(id)
