@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scenes/inventory/inventory_controller.gd" type="Script" id=1]
+[ext_resource path="res://scenes/item_container/container_controller.gd" type="Script" id=1]
 [ext_resource path="res://assets/icon.png" type="Texture" id=2]
 [ext_resource path="res://assets/shadow.png" type="Texture" id=3]
 
@@ -45,7 +45,7 @@ z_index = 100
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="Inventory_List" type="ItemList" parent="Panel" index="1"]
+[node name="Container_List" type="ItemList" parent="Panel" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -191,11 +191,11 @@ text = "DELETE"
 flat = false
 align = 1
 
-[connection signal="item_rmb_selected" from="Panel/Inventory_List" to="." method="_on_Inventory_item_rmb_selected"]
+[connection signal="item_rmb_selected" from="Panel/Container_List" to="." method="_on_Container_List_item_rmb_selected"]
 
-[connection signal="mouse_entered" from="Panel/Inventory_List" to="." method="_on_Inventory_List_mouse_entered"]
+[connection signal="mouse_entered" from="Panel/Container_List" to="." method="_on_Container_List_mouse_entered"]
 
-[connection signal="mouse_exited" from="Panel/Inventory_List" to="." method="_on_Inventory_List_mouse_exited"]
+[connection signal="mouse_exited" from="Panel/Container_List" to="." method="_on_Container_List_mouse_exited"]
 
 [connection signal="pressed" from="Panel/Button" to="." method="_on_Button_pressed"]
 

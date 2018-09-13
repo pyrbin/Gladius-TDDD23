@@ -1,29 +1,29 @@
 {
     "0": {
-        "NAME": "armor 1",
-        "ICON": "res://assets/icon.png",
+        "NAME": "HELMET 1",
+        "ICON": "res://assets/items/item_Animation 1_0.png",
         "TYPE": 1,
         "SLOT": 0,
-        "DESC": "this is armor i like it",
+        "DESC": "This is a helmet made of 1",
         "ATTRIBUTES": {}
     },
     "1": {
-        "NAME": "armor 2",
-        "ICON": "res://assets/icon.png",
+        "NAME": "ARMOR 1",
+        "ICON": "res://assets/items/item_Animation 1_1.png",
         "TYPE": 1,
-        "SLOT": 0,
-        "DESC": "this is armor i like sdasdit",
+        "SLOT": 1,
+        "DESC": "This is armor i like sdasdit",
         "ATTRIBUTES": {
             "HEALTH": 200,
             "STAMINA": 20
         }
     },
     "2": {
-        "NAME": "armor 3",
-        "ICON": "res://assets/icon.png",
+        "NAME": "LEGGINGS 2",
+        "ICON": "res://assets/items/item_Animation 1_2.png",
         "TYPE": 1,
-        "SLOT": 0,
-        "DESC": "thisasdasd is armor i like it",
+        "SLOT": 2,
+        "DESC": "This is a legs made of 2",
         "ATTRIBUTES": {}
     }
 }

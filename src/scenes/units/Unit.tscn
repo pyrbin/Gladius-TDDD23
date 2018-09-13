@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenes/units/unit.gd" type="Script" id=1]
-[ext_resource path="res://scenes/inventory/inventory.gd" type="Script" id=2]
+[ext_resource path="res://scenes/item_container/item_container.gd" type="Script" id=2]
 [ext_resource path="res://scenes/common/z_index.gd" type="Script" id=3]
 [ext_resource path="res://scenes/common/health.gd" type="Script" id=4]
 [ext_resource path="res://assets/gladiator_mini_mini.png" type="Texture" id=5]
@@ -248,7 +248,7 @@ tracks/0/keys = {
 "values": [ false, false ]
 }
 
-[node name="Unit" type="KinematicBody2D" groups=[
+[node name="Unit" type="KinematicBody2D" index="0" groups=[
 "Units",
 "Hitable",
 ]]
@@ -270,12 +270,12 @@ reach = 30.001
 [node name="Inventory" type="Node" parent="." index="0"]
 
 script = ExtResource( 2 )
-inventory_size = 6
+container_slots = [ -1, -1, -1, -1, -1, -1 ]
 
 [node name="Equipment" type="Node" parent="." index="1"]
 
 script = ExtResource( 2 )
-inventory_size = 6
+container_slots = [ 0, 1, 2, 3 ]
 
 [node name="Z_Index" type="Node" parent="." index="2"]
 

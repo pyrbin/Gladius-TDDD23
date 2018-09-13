@@ -3,8 +3,8 @@
 
 extends Node
 
-const Equippable = preload("res://scenes/inventory/equippable.gd")
-const ItemData = preload("res://scenes/inventory/item_data.gd")
+const Equippable = preload("res://scenes/items/equippable.gd")
+const ItemData = preload("res://scenes/items/item_data.gd")
 
 var _url_database_item = "res://scripts/db.json"
 var _item_database = {}
