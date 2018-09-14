@@ -1,18 +1,18 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://scenes/ui/container_controller/ContainerController.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/ui/interact_controller/InteractController.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/ui_controllers/container_controller/ContainerController.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/ui_controllers/interact_controller/InteractController.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/theme1.ogg" type="AudioStream" id=3]
 [ext_resource path="res://assets/bg_temp.png" type="Texture" id=4]
 [ext_resource path="res://scenes/units/player/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/items/Item.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/units/enemy/Enemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/interactable/item/Item.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/interactable/lootable/Lootable.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/units/enemy/Enemy.tscn" type="PackedScene" id=8]
 
 [node name="Game" type="Node"]
 
 [node name="GUI" type="CanvasLayer" parent="." index="0"]
 
-editor/display_folded = true
 layer = 100
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -52,12 +52,12 @@ _sections_unfolded = [ "Rect", "Size Flags", "Theme" ]
 
 [node name="PlayerEquipment" parent="GUI" index="1" instance=ExtResource( 1 )]
 
-margin_left = 522.0
-margin_top = 4.0
-margin_right = 1025.0
-margin_bottom = 156.0
+margin_left = 504.0
+margin_top = -1.0
+margin_right = 1007.0
+margin_bottom = 151.0
 
-[node name="PickupController" parent="GUI" index="2" instance=ExtResource( 2 )]
+[node name="InteractController" parent="GUI" index="2" instance=ExtResource( 2 )]
 
 margin_left = 5.0
 margin_top = 58.0
@@ -65,6 +65,7 @@ margin_right = 350.0
 margin_bottom = 128.0
 rect_pivot_offset = Vector2( 247.085, 95.4352 )
 _sections_unfolded = [ "Rect" ]
+player_equipment_controller = NodePath("../PlayerEquipment")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="1"]
 
@@ -110,49 +111,95 @@ reach = 33.0
 
 [node name="Item" parent="World/Root_Items" index="0" instance=ExtResource( 6 )]
 
-position = Vector2( 106.998, -85.6774 )
+position = Vector2( 558.232, -208.667 )
+item_id = 1337
+
+[node name="Item5" parent="World/Root_Items" index="1" instance=ExtResource( 6 )]
+
+position = Vector2( 308.18, -3.41275 )
+item_id = 1
+
+[node name="Item8" parent="World/Root_Items" index="2" instance=ExtResource( 6 )]
+
+position = Vector2( 555.788, 29.9818 )
+item_id = 5
+
+[node name="Item2" parent="World/Root_Items" index="3" instance=ExtResource( 6 )]
+
+position = Vector2( 374.215, -215.597 )
+item_id = 3
+
+[node name="Item6" parent="World/Root_Items" index="4" instance=ExtResource( 6 )]
+
+position = Vector2( 282.176, -79.5749 )
 item_id = 3002
 
-[node name="Item2" parent="World/Root_Items" index="1" instance=ExtResource( 6 )]
+[node name="Item9" parent="World/Root_Items" index="5" instance=ExtResource( 6 )]
 
-position = Vector2( 28.0516, -108.897 )
-item_id = 4
+position = Vector2( 616.936, -136.59 )
+item_id = 3002
 
-[node name="Item3" parent="World/Root_Items" index="2" instance=ExtResource( 6 )]
+[node name="Item3" parent="World/Root_Items" index="6" instance=ExtResource( 6 )]
 
-position = Vector2( 212.482, -66.4383 )
+position = Vector2( 295.561, -170.695 )
+item_id = 5
+
+[node name="Item4" parent="World/Root_Items" index="7" instance=ExtResource( 6 )]
+
+position = Vector2( 437.284, 40.2614 )
 item_id = 3001
+
+[node name="Item7" parent="World/Root_Items" index="8" instance=ExtResource( 6 )]
+
+position = Vector2( 628.693, -42.8177 )
+item_id = 7
+
+[node name="Lootable" parent="World/Root_Items" index="9" instance=ExtResource( 7 )]
+
+position = Vector2( 261.191, 156.442 )
+container_items = [ -1, 1337, 3, -1, 3001, -1 ]
+container_slots_types = [ -1, -1, -1, -1, -1, -1 ]
+container_controller = NodePath("../../../GUI/PlayerEquipment")
+
+[node name="Lootable2" parent="World/Root_Items" index="10" instance=ExtResource( 7 )]
+
+position = Vector2( 359.882, 196.218 )
+container_items = [ -1, 1337, 3, -1, 3001, -1 ]
+container_slots_types = [ -1, -1, -1, -1, -1, -1 ]
+container_controller = NodePath("../../../GUI/PlayerEquipment")
 
 [node name="Root_Units" type="Node2D" parent="World" index="3" groups=[
 "Root_Units",
 ]]
 
+editor/display_folded = true
+
 [node name="Battalion" type="Position2D" parent="World/Root_Units" index="0"]
 
 editor/display_folded = true
 
-[node name="Enemy" parent="World/Root_Units/Battalion" index="0" instance=ExtResource( 7 )]
+[node name="Enemy" parent="World/Root_Units/Battalion" index="0" instance=ExtResource( 8 )]
 
-position = Vector2( -160.634, -71.509 )
+position = Vector2( 364.835, -100.975 )
 rotation = 0.0
 z_index = 1
 reach = 13.5
 
-[node name="Enemy2" parent="World/Root_Units/Battalion" index="1" instance=ExtResource( 7 )]
+[node name="Enemy2" parent="World/Root_Units/Battalion" index="1" instance=ExtResource( 8 )]
 
 position = Vector2( -218.351, -70.8456 )
 rotation = 0.0
 z_index = 1
 reach = 13.5
 
-[node name="Enemy4" parent="World/Root_Units/Battalion" index="2" instance=ExtResource( 7 )]
+[node name="Enemy4" parent="World/Root_Units/Battalion" index="2" instance=ExtResource( 8 )]
 
 position = Vector2( -179.21, -120.602 )
 rotation = 0.0
 z_index = 1
 reach = 13.5
 
-[node name="Enemy3" parent="World/Root_Units/Battalion" index="3" instance=ExtResource( 7 )]
+[node name="Enemy3" parent="World/Root_Units/Battalion" index="3" instance=ExtResource( 8 )]
 
 position = Vector2( -197.122, -21.0893 )
 rotation = 0.0
@@ -164,28 +211,28 @@ reach = 13.5
 editor/display_folded = true
 position = Vector2( 270.581, 33.4739 )
 
-[node name="Enemy" parent="World/Root_Units/Battalion9" index="0" instance=ExtResource( 7 )]
+[node name="Enemy" parent="World/Root_Units/Battalion9" index="0" instance=ExtResource( 8 )]
 
 position = Vector2( -160.634, -71.509 )
 rotation = 0.0
 z_index = 1
 reach = 13.5
 
-[node name="Enemy2" parent="World/Root_Units/Battalion9" index="1" instance=ExtResource( 7 )]
+[node name="Enemy2" parent="World/Root_Units/Battalion9" index="1" instance=ExtResource( 8 )]
 
 position = Vector2( -218.351, -70.8456 )
 rotation = 0.0
 z_index = 1
 reach = 13.5
 
-[node name="Enemy4" parent="World/Root_Units/Battalion9" index="2" instance=ExtResource( 7 )]
+[node name="Enemy4" parent="World/Root_Units/Battalion9" index="2" instance=ExtResource( 8 )]
 
 position = Vector2( -179.21, -120.602 )
 rotation = 0.0
 z_index = 1
 reach = 13.5
 
-[node name="Enemy3" parent="World/Root_Units/Battalion9" index="3" instance=ExtResource( 7 )]
+[node name="Enemy3" parent="World/Root_Units/Battalion9" index="3" instance=ExtResource( 8 )]
 
 position = Vector2( -197.122, -21.0893 )
 rotation = 0.0
@@ -197,28 +244,28 @@ reach = 13.5
 editor/display_folded = true
 position = Vector2( 225.473, -285.599 )
 
-[node name="Enemy" parent="World/Root_Units/Battalion5" index="0" instance=ExtResource( 7 )]
+[node name="Enemy" parent="World/Root_Units/Battalion5" index="0" instance=ExtResource( 8 )]
 
 position = Vector2( -160.634, -71.509 )
 rotation = 0.0
 z_index = 1
 reach = 13.5
 
-[node name="Enemy2" parent="World/Root_Units/Battalion5" index="1" instance=ExtResource( 7 )]
+[node name="Enemy2" parent="World/Root_Units/Battalion5" index="1" instance=ExtResource( 8 )]
 
 position = Vector2( -218.351, -70.8456 )
 rotation = 0.0
 z_index = 1
 reach = 13.5
 
-[node name="Enemy4" parent="World/Root_Units/Battalion5" index="2" instance=ExtResource( 7 )]
+[node name="Enemy4" parent="World/Root_Units/Battalion5" index="2" instance=ExtResource( 8 )]
 
 position = Vector2( -179.21, -120.602 )
 rotation = 0.0
 z_index = 1
 reach = 13.5
 
-[node name="Enemy3" parent="World/Root_Units/Battalion5" index="3" instance=ExtResource( 7 )]
+[node name="Enemy3" parent="World/Root_Units/Battalion5" index="3" instance=ExtResource( 8 )]
 
 position = Vector2( -197.122, -21.0893 )
 rotation = 0.0
@@ -230,28 +277,28 @@ reach = 13.5
 editor/display_folded = true
 position = Vector2( 496.054, -252.125 )
 
-[node name="Enemy" parent="World/Root_Units/Battalion11" index="0" instance=ExtResource( 7 )]
+[node name="Enemy" parent="World/Root_Units/Battalion11" index="0" instance=ExtResource( 8 )]
 
 position = Vector2( -160.634, -71.509 )
 rotation = 0.0
 z_index = 1
 reach = 13.5
 
-[node name="Enemy2" parent="World/Root_Units/Battalion11" index="1" instance=ExtResource( 7 )]
+[node name="Enemy2" parent="World/Root_Units/Battalion11" index="1" instance=ExtResource( 8 )]
 
 position = Vector2( -218.351, -70.8456 )
 rotation = 0.0
 z_index = 1
 reach = 13.5
 
-[node name="Enemy4" parent="World/Root_Units/Battalion11" index="2" instance=ExtResource( 7 )]
+[node name="Enemy4" parent="World/Root_Units/Battalion11" index="2" instance=ExtResource( 8 )]
 
 position = Vector2( -179.21, -120.602 )
 rotation = 0.0
 z_index = 1
 reach = 13.5
 
-[node name="Enemy3" parent="World/Root_Units/Battalion11" index="3" instance=ExtResource( 7 )]
+[node name="Enemy3" parent="World/Root_Units/Battalion11" index="3" instance=ExtResource( 8 )]
 
 position = Vector2( -197.122, -21.0893 )
 rotation = 0.0
@@ -263,7 +310,7 @@ reach = 13.5
 editor/display_folded = true
 position = Vector2( -152.253, -74.0371 )
 
-[node name="Enemy" parent="World/Root_Units/Battalion2" index="0" instance=ExtResource( 7 )]
+[node name="Enemy" parent="World/Root_Units/Battalion2" index="0" instance=ExtResource( 8 )]
 
 position = Vector2( -160.634, -71.509 )
 rotation = 0.0
@@ -271,7 +318,7 @@ z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
-[node name="Enemy2" parent="World/Root_Units/Battalion2" index="1" instance=ExtResource( 7 )]
+[node name="Enemy2" parent="World/Root_Units/Battalion2" index="1" instance=ExtResource( 8 )]
 
 position = Vector2( -218.351, -70.8456 )
 rotation = 0.0
@@ -279,7 +326,7 @@ z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
-[node name="Enemy4" parent="World/Root_Units/Battalion2" index="2" instance=ExtResource( 7 )]
+[node name="Enemy4" parent="World/Root_Units/Battalion2" index="2" instance=ExtResource( 8 )]
 
 position = Vector2( -179.21, -120.602 )
 rotation = 0.0
@@ -287,7 +334,7 @@ z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
-[node name="Enemy3" parent="World/Root_Units/Battalion2" index="3" instance=ExtResource( 7 )]
+[node name="Enemy3" parent="World/Root_Units/Battalion2" index="3" instance=ExtResource( 8 )]
 
 position = Vector2( -197.122, -21.0893 )
 rotation = 0.0
@@ -300,7 +347,7 @@ container_slots_types = [ 0, 1, 2, -1 ]
 editor/display_folded = true
 position = Vector2( 118.328, -40.5632 )
 
-[node name="Enemy" parent="World/Root_Units/Battalion8" index="0" instance=ExtResource( 7 )]
+[node name="Enemy" parent="World/Root_Units/Battalion8" index="0" instance=ExtResource( 8 )]
 
 position = Vector2( -160.634, -71.509 )
 rotation = 0.0
@@ -308,7 +355,7 @@ z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
-[node name="Enemy2" parent="World/Root_Units/Battalion8" index="1" instance=ExtResource( 7 )]
+[node name="Enemy2" parent="World/Root_Units/Battalion8" index="1" instance=ExtResource( 8 )]
 
 position = Vector2( -218.351, -70.8456 )
 rotation = 0.0
@@ -316,7 +363,7 @@ z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
-[node name="Enemy4" parent="World/Root_Units/Battalion8" index="2" instance=ExtResource( 7 )]
+[node name="Enemy4" parent="World/Root_Units/Battalion8" index="2" instance=ExtResource( 8 )]
 
 position = Vector2( -179.21, -120.602 )
 rotation = 0.0
@@ -324,7 +371,7 @@ z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
-[node name="Enemy3" parent="World/Root_Units/Battalion8" index="3" instance=ExtResource( 7 )]
+[node name="Enemy3" parent="World/Root_Units/Battalion8" index="3" instance=ExtResource( 8 )]
 
 position = Vector2( -197.122, -21.0893 )
 rotation = 0.0
@@ -337,7 +384,7 @@ container_slots_types = [ 0, 1, 2, -1 ]
 editor/display_folded = true
 position = Vector2( 73.22, -359.636 )
 
-[node name="Enemy" parent="World/Root_Units/Battalion4" index="0" instance=ExtResource( 7 )]
+[node name="Enemy" parent="World/Root_Units/Battalion4" index="0" instance=ExtResource( 8 )]
 
 position = Vector2( -160.634, -71.509 )
 rotation = 0.0
@@ -345,7 +392,7 @@ z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
-[node name="Enemy2" parent="World/Root_Units/Battalion4" index="1" instance=ExtResource( 7 )]
+[node name="Enemy2" parent="World/Root_Units/Battalion4" index="1" instance=ExtResource( 8 )]
 
 position = Vector2( -218.351, -70.8456 )
 rotation = 0.0
@@ -353,7 +400,7 @@ z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
-[node name="Enemy4" parent="World/Root_Units/Battalion4" index="2" instance=ExtResource( 7 )]
+[node name="Enemy4" parent="World/Root_Units/Battalion4" index="2" instance=ExtResource( 8 )]
 
 position = Vector2( -179.21, -120.602 )
 rotation = 0.0
@@ -361,7 +408,7 @@ z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
-[node name="Enemy3" parent="World/Root_Units/Battalion4" index="3" instance=ExtResource( 7 )]
+[node name="Enemy3" parent="World/Root_Units/Battalion4" index="3" instance=ExtResource( 8 )]
 
 position = Vector2( -197.122, -21.0893 )
 rotation = 0.0
@@ -374,7 +421,7 @@ container_slots_types = [ 0, 1, 2, -1 ]
 editor/display_folded = true
 position = Vector2( 343.801, -326.162 )
 
-[node name="Enemy" parent="World/Root_Units/Battalion12" index="0" instance=ExtResource( 7 )]
+[node name="Enemy" parent="World/Root_Units/Battalion12" index="0" instance=ExtResource( 8 )]
 
 position = Vector2( -160.634, -71.509 )
 rotation = 0.0
@@ -382,7 +429,7 @@ z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
-[node name="Enemy2" parent="World/Root_Units/Battalion12" index="1" instance=ExtResource( 7 )]
+[node name="Enemy2" parent="World/Root_Units/Battalion12" index="1" instance=ExtResource( 8 )]
 
 position = Vector2( -218.351, -70.8456 )
 rotation = 0.0
@@ -390,7 +437,7 @@ z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
-[node name="Enemy4" parent="World/Root_Units/Battalion12" index="2" instance=ExtResource( 7 )]
+[node name="Enemy4" parent="World/Root_Units/Battalion12" index="2" instance=ExtResource( 8 )]
 
 position = Vector2( -179.21, -120.602 )
 rotation = 0.0
@@ -398,7 +445,7 @@ z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
-[node name="Enemy3" parent="World/Root_Units/Battalion12" index="3" instance=ExtResource( 7 )]
+[node name="Enemy3" parent="World/Root_Units/Battalion12" index="3" instance=ExtResource( 8 )]
 
 position = Vector2( -197.122, -21.0893 )
 rotation = 0.0
@@ -411,7 +458,7 @@ container_slots_types = [ 0, 1, 2, -1 ]
 editor/display_folded = true
 position = Vector2( -203.729, 95.055 )
 
-[node name="Enemy" parent="World/Root_Units/Battalion3" index="0" instance=ExtResource( 7 )]
+[node name="Enemy" parent="World/Root_Units/Battalion3" index="0" instance=ExtResource( 8 )]
 
 position = Vector2( -160.634, -71.509 )
 rotation = 0.0
@@ -419,7 +466,7 @@ z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
-[node name="Enemy2" parent="World/Root_Units/Battalion3" index="1" instance=ExtResource( 7 )]
+[node name="Enemy2" parent="World/Root_Units/Battalion3" index="1" instance=ExtResource( 8 )]
 
 position = Vector2( -218.351, -70.8456 )
 rotation = 0.0
@@ -427,7 +474,7 @@ z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
-[node name="Enemy4" parent="World/Root_Units/Battalion3" index="2" instance=ExtResource( 7 )]
+[node name="Enemy4" parent="World/Root_Units/Battalion3" index="2" instance=ExtResource( 8 )]
 
 position = Vector2( -179.21, -120.602 )
 rotation = 0.0
@@ -435,7 +482,7 @@ z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
-[node name="Enemy3" parent="World/Root_Units/Battalion3" index="3" instance=ExtResource( 7 )]
+[node name="Enemy3" parent="World/Root_Units/Battalion3" index="3" instance=ExtResource( 8 )]
 
 position = Vector2( -197.122, -21.0893 )
 rotation = 0.0
@@ -448,7 +495,7 @@ container_slots_types = [ 0, 1, 2, -1 ]
 editor/display_folded = true
 position = Vector2( 66.8516, 128.529 )
 
-[node name="Enemy" parent="World/Root_Units/Battalion10" index="0" instance=ExtResource( 7 )]
+[node name="Enemy" parent="World/Root_Units/Battalion10" index="0" instance=ExtResource( 8 )]
 
 position = Vector2( -160.634, -71.509 )
 rotation = 0.0
@@ -456,7 +503,7 @@ z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
-[node name="Enemy2" parent="World/Root_Units/Battalion10" index="1" instance=ExtResource( 7 )]
+[node name="Enemy2" parent="World/Root_Units/Battalion10" index="1" instance=ExtResource( 8 )]
 
 position = Vector2( -218.351, -70.8456 )
 rotation = 0.0
@@ -464,7 +511,7 @@ z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
-[node name="Enemy4" parent="World/Root_Units/Battalion10" index="2" instance=ExtResource( 7 )]
+[node name="Enemy4" parent="World/Root_Units/Battalion10" index="2" instance=ExtResource( 8 )]
 
 position = Vector2( -179.21, -120.602 )
 rotation = 0.0
@@ -472,7 +519,7 @@ z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
-[node name="Enemy3" parent="World/Root_Units/Battalion10" index="3" instance=ExtResource( 7 )]
+[node name="Enemy3" parent="World/Root_Units/Battalion10" index="3" instance=ExtResource( 8 )]
 
 position = Vector2( -197.122, -21.0893 )
 rotation = 0.0
@@ -485,7 +532,7 @@ container_slots_types = [ 0, 1, 2, -1 ]
 editor/display_folded = true
 position = Vector2( 21.744, -190.544 )
 
-[node name="Enemy" parent="World/Root_Units/Battalion6" index="0" instance=ExtResource( 7 )]
+[node name="Enemy" parent="World/Root_Units/Battalion6" index="0" instance=ExtResource( 8 )]
 
 position = Vector2( -160.634, -71.509 )
 rotation = 0.0
@@ -493,7 +540,7 @@ z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
-[node name="Enemy2" parent="World/Root_Units/Battalion6" index="1" instance=ExtResource( 7 )]
+[node name="Enemy2" parent="World/Root_Units/Battalion6" index="1" instance=ExtResource( 8 )]
 
 position = Vector2( -218.351, -70.8456 )
 rotation = 0.0
@@ -501,7 +548,7 @@ z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
-[node name="Enemy4" parent="World/Root_Units/Battalion6" index="2" instance=ExtResource( 7 )]
+[node name="Enemy4" parent="World/Root_Units/Battalion6" index="2" instance=ExtResource( 8 )]
 
 position = Vector2( -179.21, -120.602 )
 rotation = 0.0
@@ -509,7 +556,7 @@ z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
-[node name="Enemy3" parent="World/Root_Units/Battalion6" index="3" instance=ExtResource( 7 )]
+[node name="Enemy3" parent="World/Root_Units/Battalion6" index="3" instance=ExtResource( 8 )]
 
 position = Vector2( -197.122, -21.0893 )
 rotation = 0.0
@@ -522,7 +569,7 @@ container_slots_types = [ 0, 1, 2, -1 ]
 editor/display_folded = true
 position = Vector2( 292.325, -157.07 )
 
-[node name="Enemy" parent="World/Root_Units/Battalion7" index="0" instance=ExtResource( 7 )]
+[node name="Enemy" parent="World/Root_Units/Battalion7" index="0" instance=ExtResource( 8 )]
 
 position = Vector2( -160.634, -71.509 )
 rotation = 0.0
@@ -530,7 +577,7 @@ z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
-[node name="Enemy2" parent="World/Root_Units/Battalion7" index="1" instance=ExtResource( 7 )]
+[node name="Enemy2" parent="World/Root_Units/Battalion7" index="1" instance=ExtResource( 8 )]
 
 position = Vector2( -218.351, -70.8456 )
 rotation = 0.0
@@ -538,7 +585,7 @@ z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
-[node name="Enemy4" parent="World/Root_Units/Battalion7" index="2" instance=ExtResource( 7 )]
+[node name="Enemy4" parent="World/Root_Units/Battalion7" index="2" instance=ExtResource( 8 )]
 
 position = Vector2( -179.21, -120.602 )
 rotation = 0.0
@@ -546,7 +593,7 @@ z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
-[node name="Enemy3" parent="World/Root_Units/Battalion7" index="3" instance=ExtResource( 7 )]
+[node name="Enemy3" parent="World/Root_Units/Battalion7" index="3" instance=ExtResource( 8 )]
 
 position = Vector2( -197.122, -21.0893 )
 rotation = 0.0

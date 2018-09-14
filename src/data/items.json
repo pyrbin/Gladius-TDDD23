@@ -68,8 +68,8 @@
         "SPRITE": "weapon/iron_weapon/iron_shortsword.png",
         "ATTRIBUTES": {
             "DAMAGE" : 5,
-            "ATTACK_SPEED": 400,
-            "COOLDOWN" : 0.45
+            "ATTACK_SPEED": 200,
+            "COOLDOWN" : 0.5
         },
         "WEAPON_TYPE": 0,
         "MODEL" : "swing_weapon/shortsword/Shortsword.tscn"
@@ -83,10 +83,25 @@
         "SPRITE": "weapon/bronze_weapon/bronze_shortsword.png",
         "ATTRIBUTES": {
             "DAMAGE" : 3,
-            "ATTACK_SPEED": 450,
-            "COOLDOWN" : 0.46
+            "ATTACK_SPEED": 200,
+            "COOLDOWN" : 0.5
         },
         "WEAPON_TYPE": 0,
         "MODEL" : "swing_weapon/shortsword/Shortsword.tscn"
+    },
+    "1337": {
+        "NAME": "666 D3StR0Y3R of R4nD0.0M XD",
+        "ICON": "weapon/doom_weapon/666_mace_icon.png",
+        "TYPE": 1,
+        "SLOT": 3,
+        "DESC": "dis wepon will C0NzVME URZ hehehee",
+        "SPRITE": "weapon/doom_weapon/666_mace.png",
+        "ATTRIBUTES": {
+            "DAMAGE" : 666,
+            "ATTACK_SPEED": 110,
+            "COOLDOWN" : 0.150
+        },
+        "WEAPON_TYPE": 0,
+        "MODEL" : "swing_weapon/mace/Mace.tscn"
     }
 }

@@ -6,8 +6,8 @@ extends Node
 
 signal value_changed(slot)
 
-const ItemData = preload("../items/item_data.gd")
-const Equippable = preload("../items/equippable.gd")
+const ItemData = preload("res://data/item_data.gd")
+const Equippable = preload("res://data/equippable.gd")
 
 var _item_container_array = []
 var _item_type_array = []

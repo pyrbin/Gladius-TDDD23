@@ -258,9 +258,9 @@ tracks/0/keys = {
 }
 
 [node name="Unit" type="KinematicBody2D" groups=[
-"Hitable",
-"Units",
 "Z_Index",
+"Units",
+"Hitable",
 ]]
 
 position = Vector2( 0.576477, -0.523365 )
@@ -415,7 +415,7 @@ _sections_unfolded = [ "Material", "Offset", "Region", "Transform", "Visibility"
 
 [node name="Shadow" type="Sprite" parent="Visuals" index="1"]
 
-modulate = Color( 1, 1, 1, 0.475137 )
+modulate = Color( 1, 1, 1, 0.480392 )
 position = Vector2( -1.26088, 32.34 )
 rotation = 0.00174533
 scale = Vector2( 0.505134, 0.234466 )

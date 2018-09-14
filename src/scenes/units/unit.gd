@@ -34,7 +34,7 @@ onready var health = $Health
 
 # constans
 const WEAPON_FOLDER_PATH = "res://scenes/weapons/"
-const Equippable = preload("../items/equippable.gd")
+const Equippable = preload("res://data/equippable.gd")
 
 # member variables
 var look_state = TOP_RIGHT

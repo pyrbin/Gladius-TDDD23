@@ -9,7 +9,7 @@ func handle_input(event):
     if lmb:
         owner.left_attack_weapon();
     elif interact:
-        owner.pickup_item();
+        owner.on_interact();
    # if rmb:
    #    owner.right_attack_weapon();
 

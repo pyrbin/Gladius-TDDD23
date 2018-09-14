@@ -2,7 +2,7 @@ extends Node
 
 enum ATTACK_STATE { IDLE, ATTACKING, HOLSTERED }
 
-const WeaponData = preload("res://scenes/items/weapon_data.gd")
+const WeaponData = preload("res://data/weapon_data.gd")
 const HITABLE_GROUP_NAME = "Hitable"
 export (Vector2) var holster_offset = Vector2(52,0)
 
@@ -34,7 +34,6 @@ func load_weapon(weapon_data):
     is_loaded = true
 
 func _ready():
-    $Pivot/Area2D/Hitbox.disabled = true
     $Pivot/Area2D.connect("body_entered", self, "_on_body_entered_root")
     anim_player.connect("animation_finished", self, "_on_animation_finished")
 
@@ -57,7 +56,6 @@ func attack_rmb():
     
 func attack(type):
     if not is_loaded: return
-    $Pivot/Area2D/Hitbox.disabled = false
     attack_state = ATTACKING
     cooldown_timer.start()
 
@@ -65,7 +63,7 @@ func is_hitable(body):
     return body != holder and body.is_in_group(HITABLE_GROUP_NAME) and !_current_hit_targets.has(body)
 
 func _on_body_entered_root(body):
-    if not is_hitable(body):
+    if not is_hitable(body) or attack_state != ATTACKING:
         return
     _current_hit_targets.append(body)
     _on_body_entered(body)
@@ -74,6 +72,5 @@ func _on_body_entered(body):
     pass
 
 func _on_animation_finished(anim):
-    $Pivot/Area2D/Hitbox.disabled = true
     _current_hit_targets.clear()
     attack_state = IDLE
