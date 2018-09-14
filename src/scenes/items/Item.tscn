@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/items/item.gd" type="Script" id=1]
-[ext_resource path="res://scenes/common/z_index.gd" type="Script" id=2]
-[ext_resource path="res://shaders/pixel_outline.shader" type="Shader" id=3]
-[ext_resource path="res://assets/items/unknown_icon.png" type="Texture" id=4]
-[ext_resource path="res://assets/shadow.png" type="Texture" id=5]
+[ext_resource path="res://shaders/pixel_outline.shader" type="Shader" id=2]
+[ext_resource path="res://assets/items/unknown_icon.png" type="Texture" id=3]
+[ext_resource path="res://assets/shadow.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -15,7 +14,7 @@ radius = 19.5377
 
 resource_name = "item_material"
 render_priority = 0
-shader = ExtResource( 3 )
+shader = ExtResource( 2 )
 shader_param/intensity = 100
 shader_param/sizex = 64.0
 shader_param/sizey = 64.0
@@ -53,7 +52,10 @@ tracks/1/keys = {
 "values": [ Vector2( 0.442151, 0.442151 ), Vector2( 0.49918, 0.510577 ), Vector2( 0.442151, 0.442151 ) ]
 }
 
-[node name="Item" type="Area2D"]
+[node name="Item" type="Area2D" groups=[
+"Items",
+"Z_Index",
+]]
 
 position = Vector2( 1.62109, 0.540344 )
 input_pickable = true
@@ -67,16 +69,12 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Pickable", "Transform", "Visibility", "Z Index" ]
 item_id = null
 
-[node name="Z_Index" type="Node" parent="." index="0"]
-
-script = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
 shape = SubResource( 1 )
 _sections_unfolded = [ "Material", "Visibility" ]
 
-[node name="Position2D" type="Position2D" parent="." index="2"]
+[node name="Position2D" type="Position2D" parent="." index="1"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -84,20 +82,20 @@ _sections_unfolded = [ "Transform" ]
 
 material = SubResource( 2 )
 scale = Vector2( 1.05012, 0.989764 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Animation", "Material", "Pause", "Transform", "Visibility" ]
 
-[node name="Shadow" type="Sprite" parent="." index="3"]
+[node name="Shadow" type="Sprite" parent="." index="2"]
 
 visible = false
 modulate = Color( 1, 1, 1, 0.491726 )
 position = Vector2( 0, 7 )
 scale = Vector2( 0.442151, 0.442151 )
 z_index = -1
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 
 root_node = NodePath("..")
 autoplay = ""

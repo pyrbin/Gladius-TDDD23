@@ -84,7 +84,7 @@
         "ATTRIBUTES": {
             "DAMAGE" : 3,
             "ATTACK_SPEED": 450,
-            "COOLDOWN" : 0.45
+            "COOLDOWN" : 0.46
         },
         "WEAPON_TYPE": 0,
         "MODEL" : "swing_weapon/shortsword/Shortsword.tscn"

@@ -4,7 +4,7 @@ enum ATTACK_STATE { IDLE, ATTACKING, HOLSTERED }
 
 const WeaponData = preload("res://scenes/items/weapon_data.gd")
 const HITABLE_GROUP_NAME = "Hitable"
-const HOLSTER_OFFSET = Vector2(0,0)
+export (Vector2) var holster_offset = Vector2(52,0)
 
 onready var cooldown_timer = $Timer
 
@@ -22,28 +22,9 @@ var attack_state = IDLE
 var holder = null
 var _current_hit_targets = []
 
-var before_holster_pivot_rot 
-var before_holster_pivot_pos
-var before_holster_area2d_rot 
-var before_holster_area2d_pos
-
 func set_holstered(b):
-    if b:
-        before_holster_pivot_rot = $Pivot.rotation
-        before_holster_pivot_pos = $Pivot.position
-        before_holster_area2d_rot = $Pivot/Area2D.rotation
-        before_holster_area2d_pos = $Pivot/Area2D.position
-        attack_state = HOLSTERED
-        $Pivot/Area2D.rotation = 0
-        $Pivot.rotation = 0
-        $Pivot.position = Vector2(0,0)
-        $Pivot/Area2D.position = Vector2(0,0) + HOLSTER_OFFSET
-    else:
-        $Pivot/Area2D.rotation = before_holster_area2d_rot
-        $Pivot.rotation = before_holster_pivot_rot
-        $Pivot.position = before_holster_pivot_pos
-        $Pivot/Area2D.position = before_holster_area2d_pos
-        attack_state = IDLE
+    hide() if b else show()
+    attack_state = HOLSTERED if b else IDLE
 
 func load_weapon(weapon_data):
     data = weapon_data

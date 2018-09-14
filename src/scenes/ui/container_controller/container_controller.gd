@@ -72,7 +72,7 @@ func drop_item(index):
     var instance = item_scene.instance()
     items_root_node.add_child(instance)
     instance.set_item(item)
-    instance.position = item_container_owner.global_position
+    instance.position = item_container_owner.global_position - Vector2(0, 10)
 
 func _on_item_container_changed(slot):
     _update_item_slot(slot)

@@ -12,6 +12,7 @@
 
 [node name="GUI" type="CanvasLayer" parent="." index="0"]
 
+editor/display_folded = true
 layer = 100
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -80,7 +81,6 @@ _sections_unfolded = [ "Material", "Visibility", "Z Index" ]
 
 [node name="BG" type="KinematicBody2D" parent="World" index="0"]
 
-editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 2
@@ -99,6 +99,10 @@ build_mode = 0
 polygon = PoolVector2Array( -773.954, 788.666, -984.573, 791.826, -997.249, -995.481, 1011.89, -995.481, 1005.55, 798.164, 733.016, 791.826, 739.354, -710.273, -775.42, -710.273 )
 
 [node name="Player" parent="World" index="1" instance=ExtResource( 5 )]
+
+position = Vector2( 468.78, -80.0995 )
+rotation = 0.0
+reach = 33.0
 
 [node name="Root_Items" type="Node2D" parent="World" index="2" groups=[
 "Root_Items",
@@ -123,31 +127,138 @@ item_id = 3001
 "Root_Units",
 ]]
 
-editor/display_folded = true
-
 [node name="Battalion" type="Position2D" parent="World/Root_Units" index="0"]
+
+editor/display_folded = true
 
 [node name="Enemy" parent="World/Root_Units/Battalion" index="0" instance=ExtResource( 7 )]
 
 position = Vector2( -160.634, -71.509 )
+rotation = 0.0
+z_index = 1
 reach = 13.5
 
 [node name="Enemy2" parent="World/Root_Units/Battalion" index="1" instance=ExtResource( 7 )]
 
 position = Vector2( -218.351, -70.8456 )
+rotation = 0.0
+z_index = 1
 reach = 13.5
 
 [node name="Enemy4" parent="World/Root_Units/Battalion" index="2" instance=ExtResource( 7 )]
 
 position = Vector2( -179.21, -120.602 )
+rotation = 0.0
+z_index = 1
 reach = 13.5
 
 [node name="Enemy3" parent="World/Root_Units/Battalion" index="3" instance=ExtResource( 7 )]
 
 position = Vector2( -197.122, -21.0893 )
+rotation = 0.0
+z_index = 1
 reach = 13.5
 
-[node name="Battalion2" type="Position2D" parent="World/Root_Units" index="1"]
+[node name="Battalion9" type="Position2D" parent="World/Root_Units" index="1"]
+
+editor/display_folded = true
+position = Vector2( 270.581, 33.4739 )
+
+[node name="Enemy" parent="World/Root_Units/Battalion9" index="0" instance=ExtResource( 7 )]
+
+position = Vector2( -160.634, -71.509 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+
+[node name="Enemy2" parent="World/Root_Units/Battalion9" index="1" instance=ExtResource( 7 )]
+
+position = Vector2( -218.351, -70.8456 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+
+[node name="Enemy4" parent="World/Root_Units/Battalion9" index="2" instance=ExtResource( 7 )]
+
+position = Vector2( -179.21, -120.602 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+
+[node name="Enemy3" parent="World/Root_Units/Battalion9" index="3" instance=ExtResource( 7 )]
+
+position = Vector2( -197.122, -21.0893 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+
+[node name="Battalion5" type="Position2D" parent="World/Root_Units" index="2"]
+
+editor/display_folded = true
+position = Vector2( 225.473, -285.599 )
+
+[node name="Enemy" parent="World/Root_Units/Battalion5" index="0" instance=ExtResource( 7 )]
+
+position = Vector2( -160.634, -71.509 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+
+[node name="Enemy2" parent="World/Root_Units/Battalion5" index="1" instance=ExtResource( 7 )]
+
+position = Vector2( -218.351, -70.8456 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+
+[node name="Enemy4" parent="World/Root_Units/Battalion5" index="2" instance=ExtResource( 7 )]
+
+position = Vector2( -179.21, -120.602 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+
+[node name="Enemy3" parent="World/Root_Units/Battalion5" index="3" instance=ExtResource( 7 )]
+
+position = Vector2( -197.122, -21.0893 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+
+[node name="Battalion11" type="Position2D" parent="World/Root_Units" index="3"]
+
+editor/display_folded = true
+position = Vector2( 496.054, -252.125 )
+
+[node name="Enemy" parent="World/Root_Units/Battalion11" index="0" instance=ExtResource( 7 )]
+
+position = Vector2( -160.634, -71.509 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+
+[node name="Enemy2" parent="World/Root_Units/Battalion11" index="1" instance=ExtResource( 7 )]
+
+position = Vector2( -218.351, -70.8456 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+
+[node name="Enemy4" parent="World/Root_Units/Battalion11" index="2" instance=ExtResource( 7 )]
+
+position = Vector2( -179.21, -120.602 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+
+[node name="Enemy3" parent="World/Root_Units/Battalion11" index="3" instance=ExtResource( 7 )]
+
+position = Vector2( -197.122, -21.0893 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+
+[node name="Battalion2" type="Position2D" parent="World/Root_Units" index="4"]
 
 editor/display_folded = true
 position = Vector2( -152.253, -74.0371 )
@@ -155,28 +266,147 @@ position = Vector2( -152.253, -74.0371 )
 [node name="Enemy" parent="World/Root_Units/Battalion2" index="0" instance=ExtResource( 7 )]
 
 position = Vector2( -160.634, -71.509 )
+rotation = 0.0
+z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
 [node name="Enemy2" parent="World/Root_Units/Battalion2" index="1" instance=ExtResource( 7 )]
 
 position = Vector2( -218.351, -70.8456 )
+rotation = 0.0
+z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
 [node name="Enemy4" parent="World/Root_Units/Battalion2" index="2" instance=ExtResource( 7 )]
 
 position = Vector2( -179.21, -120.602 )
+rotation = 0.0
+z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
 [node name="Enemy3" parent="World/Root_Units/Battalion2" index="3" instance=ExtResource( 7 )]
 
 position = Vector2( -197.122, -21.0893 )
+rotation = 0.0
+z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
-[node name="Battalion3" type="Position2D" parent="World/Root_Units" index="2"]
+[node name="Battalion8" type="Position2D" parent="World/Root_Units" index="5"]
+
+editor/display_folded = true
+position = Vector2( 118.328, -40.5632 )
+
+[node name="Enemy" parent="World/Root_Units/Battalion8" index="0" instance=ExtResource( 7 )]
+
+position = Vector2( -160.634, -71.509 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+container_slots_types = [ 0, 1, 2, -1 ]
+
+[node name="Enemy2" parent="World/Root_Units/Battalion8" index="1" instance=ExtResource( 7 )]
+
+position = Vector2( -218.351, -70.8456 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+container_slots_types = [ 0, 1, 2, -1 ]
+
+[node name="Enemy4" parent="World/Root_Units/Battalion8" index="2" instance=ExtResource( 7 )]
+
+position = Vector2( -179.21, -120.602 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+container_slots_types = [ 0, 1, 2, -1 ]
+
+[node name="Enemy3" parent="World/Root_Units/Battalion8" index="3" instance=ExtResource( 7 )]
+
+position = Vector2( -197.122, -21.0893 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+container_slots_types = [ 0, 1, 2, -1 ]
+
+[node name="Battalion4" type="Position2D" parent="World/Root_Units" index="6"]
+
+editor/display_folded = true
+position = Vector2( 73.22, -359.636 )
+
+[node name="Enemy" parent="World/Root_Units/Battalion4" index="0" instance=ExtResource( 7 )]
+
+position = Vector2( -160.634, -71.509 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+container_slots_types = [ 0, 1, 2, -1 ]
+
+[node name="Enemy2" parent="World/Root_Units/Battalion4" index="1" instance=ExtResource( 7 )]
+
+position = Vector2( -218.351, -70.8456 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+container_slots_types = [ 0, 1, 2, -1 ]
+
+[node name="Enemy4" parent="World/Root_Units/Battalion4" index="2" instance=ExtResource( 7 )]
+
+position = Vector2( -179.21, -120.602 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+container_slots_types = [ 0, 1, 2, -1 ]
+
+[node name="Enemy3" parent="World/Root_Units/Battalion4" index="3" instance=ExtResource( 7 )]
+
+position = Vector2( -197.122, -21.0893 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+container_slots_types = [ 0, 1, 2, -1 ]
+
+[node name="Battalion12" type="Position2D" parent="World/Root_Units" index="7"]
+
+editor/display_folded = true
+position = Vector2( 343.801, -326.162 )
+
+[node name="Enemy" parent="World/Root_Units/Battalion12" index="0" instance=ExtResource( 7 )]
+
+position = Vector2( -160.634, -71.509 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+container_slots_types = [ 0, 1, 2, -1 ]
+
+[node name="Enemy2" parent="World/Root_Units/Battalion12" index="1" instance=ExtResource( 7 )]
+
+position = Vector2( -218.351, -70.8456 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+container_slots_types = [ 0, 1, 2, -1 ]
+
+[node name="Enemy4" parent="World/Root_Units/Battalion12" index="2" instance=ExtResource( 7 )]
+
+position = Vector2( -179.21, -120.602 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+container_slots_types = [ 0, 1, 2, -1 ]
+
+[node name="Enemy3" parent="World/Root_Units/Battalion12" index="3" instance=ExtResource( 7 )]
+
+position = Vector2( -197.122, -21.0893 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+container_slots_types = [ 0, 1, 2, -1 ]
+
+[node name="Battalion3" type="Position2D" parent="World/Root_Units" index="8"]
 
 editor/display_folded = true
 position = Vector2( -203.729, 95.055 )
@@ -184,24 +414,143 @@ position = Vector2( -203.729, 95.055 )
 [node name="Enemy" parent="World/Root_Units/Battalion3" index="0" instance=ExtResource( 7 )]
 
 position = Vector2( -160.634, -71.509 )
+rotation = 0.0
+z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
 [node name="Enemy2" parent="World/Root_Units/Battalion3" index="1" instance=ExtResource( 7 )]
 
 position = Vector2( -218.351, -70.8456 )
+rotation = 0.0
+z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
 [node name="Enemy4" parent="World/Root_Units/Battalion3" index="2" instance=ExtResource( 7 )]
 
 position = Vector2( -179.21, -120.602 )
+rotation = 0.0
+z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
 [node name="Enemy3" parent="World/Root_Units/Battalion3" index="3" instance=ExtResource( 7 )]
 
 position = Vector2( -197.122, -21.0893 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+container_slots_types = [ 0, 1, 2, -1 ]
+
+[node name="Battalion10" type="Position2D" parent="World/Root_Units" index="9"]
+
+editor/display_folded = true
+position = Vector2( 66.8516, 128.529 )
+
+[node name="Enemy" parent="World/Root_Units/Battalion10" index="0" instance=ExtResource( 7 )]
+
+position = Vector2( -160.634, -71.509 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+container_slots_types = [ 0, 1, 2, -1 ]
+
+[node name="Enemy2" parent="World/Root_Units/Battalion10" index="1" instance=ExtResource( 7 )]
+
+position = Vector2( -218.351, -70.8456 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+container_slots_types = [ 0, 1, 2, -1 ]
+
+[node name="Enemy4" parent="World/Root_Units/Battalion10" index="2" instance=ExtResource( 7 )]
+
+position = Vector2( -179.21, -120.602 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+container_slots_types = [ 0, 1, 2, -1 ]
+
+[node name="Enemy3" parent="World/Root_Units/Battalion10" index="3" instance=ExtResource( 7 )]
+
+position = Vector2( -197.122, -21.0893 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+container_slots_types = [ 0, 1, 2, -1 ]
+
+[node name="Battalion6" type="Position2D" parent="World/Root_Units" index="10"]
+
+editor/display_folded = true
+position = Vector2( 21.744, -190.544 )
+
+[node name="Enemy" parent="World/Root_Units/Battalion6" index="0" instance=ExtResource( 7 )]
+
+position = Vector2( -160.634, -71.509 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+container_slots_types = [ 0, 1, 2, -1 ]
+
+[node name="Enemy2" parent="World/Root_Units/Battalion6" index="1" instance=ExtResource( 7 )]
+
+position = Vector2( -218.351, -70.8456 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+container_slots_types = [ 0, 1, 2, -1 ]
+
+[node name="Enemy4" parent="World/Root_Units/Battalion6" index="2" instance=ExtResource( 7 )]
+
+position = Vector2( -179.21, -120.602 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+container_slots_types = [ 0, 1, 2, -1 ]
+
+[node name="Enemy3" parent="World/Root_Units/Battalion6" index="3" instance=ExtResource( 7 )]
+
+position = Vector2( -197.122, -21.0893 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+container_slots_types = [ 0, 1, 2, -1 ]
+
+[node name="Battalion7" type="Position2D" parent="World/Root_Units" index="11"]
+
+editor/display_folded = true
+position = Vector2( 292.325, -157.07 )
+
+[node name="Enemy" parent="World/Root_Units/Battalion7" index="0" instance=ExtResource( 7 )]
+
+position = Vector2( -160.634, -71.509 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+container_slots_types = [ 0, 1, 2, -1 ]
+
+[node name="Enemy2" parent="World/Root_Units/Battalion7" index="1" instance=ExtResource( 7 )]
+
+position = Vector2( -218.351, -70.8456 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+container_slots_types = [ 0, 1, 2, -1 ]
+
+[node name="Enemy4" parent="World/Root_Units/Battalion7" index="2" instance=ExtResource( 7 )]
+
+position = Vector2( -179.21, -120.602 )
+rotation = 0.0
+z_index = 1
+reach = 13.5
+container_slots_types = [ 0, 1, 2, -1 ]
+
+[node name="Enemy3" parent="World/Root_Units/Battalion7" index="3" instance=ExtResource( 7 )]
+
+position = Vector2( -197.122, -21.0893 )
+rotation = 0.0
+z_index = 1
 reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 

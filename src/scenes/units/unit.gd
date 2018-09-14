@@ -9,7 +9,6 @@ enum LOOK_STATE {TOP_RIGHT, TOP_LEFT, BOTTOM_RIGHT, BOTTOM_LEFT}
 
 # exports
 export (String) var unit_name = ""
-export (String) var weapon_path = "swing_weapon/shortsword/Shortsword.tscn"
 export (bool) var use_hands = false
 export (bool) var use_holster = true
 export (float) var reach = 40
@@ -18,28 +17,23 @@ export (Array, int) var equipped_items = []
 export (Array, int) var container_slots_types = []
 
 # visuals
-onready var body = $Pivot/Container/Body
+onready var body = $Visuals/Pivot/Container/Body
 onready var sprite_player = $SpritePlayer
-onready var weapon_pivot = $Pivot/WeaponPivot
-onready var shadow = $Shadow
-onready var u_hand = $Pivot/U_Hand_Pivot/U_Hand
-onready var l_hand = $Pivot/L_Hand_Pivot/L_Hand
-onready var legs = $Pivot/Container/Legs
-onready var chest = $Pivot/Container/Chest
-onready var helm = $Pivot/Container/Helm
+onready var weapon_pivot = $Visuals/Pivot/WeaponPivot
+onready var shadow = $Visuals/Shadow
+onready var u_hand = $Visuals/Pivot/U_Hand_Pivot/U_Hand
+onready var l_hand = $Visuals/Pivot/L_Hand_Pivot/L_Hand
+onready var legs = $Visuals/Pivot/Container/Legs
+onready var chest = $Visuals/Pivot/Container/Chest
+onready var holster = $Visuals/Pivot/Container/Chest/Holster
+onready var helm = $Visuals/Pivot/Container/Helm
 
 # data 
 onready var holster_timer = $HolsterTimer
 onready var health = $Health
 
 # constans
-const UNIT_DRAW_LAYER = 1
-const SHADOW_DRAW_LAYER = 1
-const WEAPON_HOLSTERED_DRAW_LAYER = -4
-const WEAPON_DRAW_LAYER = 6
-const WEAPON_DRAW_LAYER_TOP_OFFSET = 0
 const WEAPON_FOLDER_PATH = "res://scenes/weapons/"
-const WEAPON_HOLSTER_ROT = -90
 const Equippable = preload("../items/equippable.gd")
 
 # member variables
@@ -47,12 +41,11 @@ var look_state = TOP_RIGHT
 var look_position = Vector2(0,0)
 var velocity = Vector2(0,0)
 var dead = false
-var weapon
-var equipment
-var test = false
+var weapon = null
+var weapon_sprite = null
+var equipment = null
+
 func _ready():
-    body.z_index = UNIT_DRAW_LAYER
-    shadow.z_index = SHADOW_DRAW_LAYER
 
     if use_hands:
         u_hand.show()
@@ -70,7 +63,6 @@ func _ready():
     equipment.init(container_slots_types, equipped_items)
     equipment.connect("value_changed", self, "_on_equipment_change")
     _equip_equipments();
-    # equip_weapon(weapon_path)
 
 func equip_weapon(wep_data):
     weapon_pivot.add_child(load(wep_data.model).instance())
@@ -79,6 +71,7 @@ func equip_weapon(wep_data):
     wep.holder = self
     wep.set_reach(reach)
     weapon = wep
+    weapon_sprite = weapon.wep_sprite
     if use_hands:
         _hands_on_weapon(true)
     if use_holster:
@@ -86,8 +79,9 @@ func equip_weapon(wep_data):
 
 func unequip_weapon():
     if not weapon: return
+    unholster_weapon()
     _hands_on_weapon(false)
-    weapon.set_visible(false)
+    weapon.hide()
     weapon_pivot.remove_child(weapon)
     weapon = null
     pass
@@ -95,20 +89,18 @@ func unequip_weapon():
 func holster_weapon():
     if not weapon:
         return
-    weapon.set_holstered(true)
-    weapon_pivot.rotation = 0
-    weapon_pivot.rotation = WEAPON_HOLSTER_ROT
-    weapon.z_index = WEAPON_HOLSTERED_DRAW_LAYER
     _hands_on_weapon(false)
+    weapon.set_holstered(true)
+    holster.set_texture(load(weapon.data.sprite))
+    holster.show() 
+    holster.set_offset(weapon.holster_offset)
 
 func unholster_weapon():
     if not weapon or not weapon.is_holstered():
         return
+    _hands_on_weapon(true)
     weapon.set_holstered(false)
-    weapon.set_reach(reach)
-    weapon.z_index = 0
-    if use_hands:
-        _hands_on_weapon(true)
+    holster.hide()
 
 func left_attack_weapon():
     if not weapon: return
@@ -141,7 +133,7 @@ func _set_look_state(look_position):
     else:
         look_state = BOTTOM_LEFT if look_position.y > body.global_position.y else TOP_LEFT
     
-    if weapon && weapon.is_idle():
+    if weapon and (weapon.is_idle() || weapon.is_holstered()):
         weapon_pivot.look_at(get_aim_position())
 
     match look_state:
@@ -157,37 +149,30 @@ func _set_look_state(look_position):
         BOTTOM_RIGHT:
             sprite_player.play("Bottom_Right")
             _flip_armor(false)
-    _determine_wep_z_index()
 
 func _flip_armor(b):
     legs.set_flip_h(b)
     chest.set_flip_h(b)
     helm.set_flip_h(b)
     if weapon && weapon.is_holstered():
-        var mod = -1 if b else 1
-        weapon_pivot.rotation = mod * WEAPON_HOLSTER_ROT
+        var mod =  -60 if b else -50
+        holster.rotation = mod
 
 func _hands_on_weapon(b):
     if b:
-        $Pivot/U_Hand_Pivot.remove_child(u_hand)
-        $Pivot/L_Hand_Pivot.remove_child(l_hand)
+        $Visuals/Pivot/U_Hand_Pivot.remove_child(u_hand)
+        $Visuals/Pivot/L_Hand_Pivot.remove_child(l_hand)
         weapon.u_hand_pivot.add_child(u_hand) 
         weapon.l_hand_pivot.add_child(l_hand)
     else:
         weapon.u_hand_pivot.remove_child(u_hand) 
         weapon.l_hand_pivot.remove_child(l_hand)
-        $Pivot/U_Hand_Pivot.add_child(u_hand)
-        $Pivot/L_Hand_Pivot.add_child(l_hand)
+        $Visuals/Pivot/U_Hand_Pivot.add_child(u_hand)
+        $Visuals/Pivot/L_Hand_Pivot.add_child(l_hand)
     u_hand.position = Vector2()
     l_hand.position = Vector2()
     u_hand.z_index = 0
     l_hand.z_index = 0
-    
-func _determine_wep_z_index():
-    if look_state == TOP_LEFT or look_state == TOP_RIGHT:
-        weapon_pivot.z_index = WEAPON_DRAW_LAYER + WEAPON_DRAW_LAYER_TOP_OFFSET
-    else:
-        weapon_pivot.z_index = WEAPON_DRAW_LAYER
 
 func set_dead(value):
     dead = value
@@ -211,7 +196,6 @@ func _update_equipment_slot(slot):
             return
         elif equippable:
             equip_weapon(equippable)
-            test = true
         return
 
     if type == Equippable.SLOT.WEAPON: return

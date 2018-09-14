@@ -20,6 +20,7 @@ dout="*res://scripts/global/dout.gd"
 gb_DataParser="*res://scripts/global/gb_data_parser.gd"
 gb_ItemDatabase="*res://scripts/global/gb_item_database.gd"
 gb_Utils="*res://scripts/global/gb_utils.gd"
+gb_Z_Index_Orderer="*res://scripts/global/gb_z_index_orderer.gd"
 
 [importer_defaults]
 
