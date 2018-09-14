@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/weapons/swing_weapon/swing_weapon.gd" type="Script" id=2]
 [ext_resource path="res://assets/swing.png" type="Texture" id=3]
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=1]
 
 resource_name = "stab_down"
 length = 1.0
@@ -47,7 +47,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=2]
 
 resource_name = "stab_up"
 length = 1.0
@@ -206,8 +206,8 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="AnimationPlayer" parent="." index="1"]
 
-anims/stab_down = SubResource( 5 )
-anims/stab_up = SubResource( 6 )
+anims/stab_down = SubResource( 1 )
+anims/stab_up = SubResource( 2 )
 anims/swing_down = SubResource( 3 )
 anims/swing_up = SubResource( 4 )
 
@@ -221,7 +221,7 @@ position = Vector2( 30, 0 )
 
 [node name="Sprite" parent="Pivot/Area2D" index="0"]
 
-_sections_unfolded = [ "Offset" ]
+_sections_unfolded = [ "Material", "Offset" ]
 
 [node name="Swipe" type="Sprite" parent="Pivot/Area2D" index="2"]
 

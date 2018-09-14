@@ -20,16 +20,17 @@ cooldown = 0.4
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 432, 32, 40, 14 )
-_sections_unfolded = [ "Offset", "Region", "Transform" ]
+region_filter_clip = true
+_sections_unfolded = [ "Material", "Offset", "Region", "Transform" ]
 
 [node name="U_Hand_Pivot" parent="Pivot/Area2D/Sprite" index="0"]
 
-position = Vector2( -16.7108, 1.3447 )
+position = Vector2( -17.6949, 1.56353 )
 _sections_unfolded = [ "Z Index" ]
 
 [node name="L_Hand_Pivot" parent="Pivot/Area2D/Sprite" index="1"]
 
-position = Vector2( -15.3386, -2.32451 )
+position = Vector2( -16.3227, -2.10568 )
 z_index = -1
 _sections_unfolded = [ "Z Index" ]
 

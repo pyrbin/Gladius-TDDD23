@@ -1,0 +1,62 @@
+{
+    "0": {
+        "NAME": "Iron Helmet",
+        "ICON": "armor/iron_armor/iron_armor_helm_icon.png",
+        "TYPE": 1,
+        "SLOT": 0,
+        "DESC": "A helmet made of iron",
+        "SPRITE": "armor/iron_armor/iron_armor_helm.png",
+        "ATTRIBUTES": {}
+    },
+    "1": {
+        "NAME": "Iron Chest",
+        "ICON": "armor/iron_armor/iron_armor_chest_icon.png",
+        "TYPE": 1,
+        "SLOT": 1,
+        "DESC": "A chest made of iron",
+        "SPRITE": "armor/iron_armor/iron_armor_chest.png",
+        "ATTRIBUTES": {
+            "HEALTH": 200,
+            "STAMINA": 20
+        }
+    },
+    "2": {
+        "NAME": "Iron Leggings",
+        "ICON": "armor/iron_armor/iron_armor_legs_icon.png",
+        "TYPE": 1,
+        "SLOT": 2,
+        "DESC": "A pair of leggings made of iron",
+        "SPRITE": "armor/iron_armor/iron_armor_legs.png",
+        "ATTRIBUTES": {}
+    },
+    "3": {
+        "NAME": "Gold Helmet",
+        "ICON": "armor/gold_armor/gold_armor_helm_icon.png",
+        "TYPE": 1,
+        "SLOT": 0,
+        "DESC": "A helmet made of gold",
+        "SPRITE": "armor/gold_armor/gold_armor_helm.png",
+        "ATTRIBUTES": {}
+    },
+    "4": {
+        "NAME": "Gold Chest",
+        "ICON": "armor/gold_armor/gold_armor_chest_icon.png",
+        "TYPE": 1,
+        "SLOT": 1,
+        "DESC": "A chest made of gold",
+        "SPRITE": "armor/gold_armor/gold_armor_chest.png",
+        "ATTRIBUTES": {
+            "HEALTH": 200,
+            "STAMINA": 20
+        }
+    },
+    "5": {
+        "NAME": "Gold Leggings",
+        "ICON": "armor/gold_armor/gold_armor_legs_icon.png",
+        "TYPE": 1,
+        "SLOT": 2,
+        "DESC": "A pair of leggings made of gold",
+        "SPRITE": "armor/gold_armor/gold_armor_legs.png",
+        "ATTRIBUTES": {}
+    }
+}

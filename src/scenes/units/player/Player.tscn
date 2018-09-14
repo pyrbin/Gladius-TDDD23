@@ -11,25 +11,55 @@
 script = ExtResource( 2 )
 unit_name = "player_one"
 weapon_path = "swing_weapon/shortsword/Shortsword.tscn"
+equipped_items = [ 0, 1, 2, -1 ]
 
-[node name="Collision" parent="." index="4"]
+[node name="Move" parent="StateMachine" index="1"]
 
-visible = false
+MAX_SPRINT_SPEED = 300.0
+
+[node name="Pivot" parent="." index="3"]
+
+editor/display_folded = false
+
+[node name="U_Hand" parent="Pivot/U_Hand_Pivot" index="0"]
+
+_sections_unfolded = [ "Material", "Region", "Transform", "Z Index" ]
+
+[node name="L_Hand" parent="Pivot/L_Hand_Pivot" index="0"]
+
+_sections_unfolded = [ "Material", "Region", "Transform", "Z Index" ]
 
 [node name="WeaponPivot" parent="Pivot" index="2"]
 
 position = Vector2( 0, 15 )
+z_index = 5
 
-[node name="Legs" parent="Pivot/Container" index="0"]
+[node name="Body" parent="Pivot/Container" index="0"]
+
+z_index = 1
+
+[node name="Legs" parent="Pivot/Container" index="1"]
 
 visible = false
+z_index = 3
 
-[node name="Chest" parent="Pivot/Container" index="2"]
+[node name="Helm" parent="Pivot/Container" index="2"]
 
-visible = true
+z_index = 2
+
+[node name="Chest" parent="Pivot/Container" index="3"]
+
+z_index = 2
+
+[node name="Shadow" parent="." index="4"]
+
+modulate = Color( 1, 1, 1, 0.513804 )
+position = Vector2( -0.322533, 31.0924 )
+offset = Vector2( -2.60715, 5.09113 )
 
 [node name="CameraPivot" type="Position2D" parent="." index="6"]
 
+editor/display_folded = true
 script = ExtResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="CameraPivot" index="0"]
@@ -58,15 +88,5 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = true
 _sections_unfolded = [ "Drag Margin", "Editor", "Transform" ]
-
-[node name="Shadow" parent="." index="7"]
-
-modulate = Color( 1, 1, 1, 0.513804 )
-position = Vector2( -0.322533, 31.0924 )
-offset = Vector2( -2.60715, 5.09113 )
-
-[node name="Move" parent="StateMachine" index="1"]
-
-MAX_SPRINT_SPEED = 300.0
 
 

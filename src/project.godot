@@ -16,8 +16,10 @@ config/icon="res://assets/sword.png"
 
 [autoload]
 
-DataParser="*res://scripts/data_parser.gd"
-ItemDatabase="*res://scripts/item_database.gd"
+dout="*res://scripts/global/dout.gd"
+gb_DataParser="*res://scripts/global/gb_data_parser.gd"
+gb_ItemDatabase="*res://scripts/global/gb_item_database.gd"
+gb_Utils="*res://scripts/global/gb_utils.gd"
 
 [importer_defaults]
 
@@ -58,6 +60,8 @@ right_attack=[ Object(InputEventMouseButton,"resource_local_to_scene":false,"res
 left_attack=[ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
  ]
 sprint=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"unicode":0,"echo":false,"script":null)
+ ]
+interact=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"unicode":0,"echo":false,"script":null)
  ]
 
 [rendering]

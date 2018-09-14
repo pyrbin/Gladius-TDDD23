@@ -44,6 +44,7 @@ _sections_unfolded = [ "Collision", "Transform" ]
 [node name="Sprite" type="Sprite" parent="Pivot/Area2D" index="0"]
 
 texture = ExtResource( 3 )
+_sections_unfolded = [ "Material" ]
 
 [node name="U_Hand_Pivot" type="Position2D" parent="Pivot/Area2D/Sprite" index="0"]
 
