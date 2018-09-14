@@ -1,36 +1,22 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://scenes/weapons/swing_weapon/SwingWeapon.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/gladiator_mini.png" type="Texture" id=2]
 
 [node name="Shortsword" instance=ExtResource( 1 )]
 
-rotation = -1.5708
-
-[node name="Data" parent="." index="0"]
-
-identifier = "shortsword"
-type = 0
-damage = 20.0
-speed = 300.0
-cooldown = 0.4
-
 [node name="Sprite" parent="Pivot/Area2D" index="0"]
 
-texture = ExtResource( 2 )
-region_enabled = true
 region_rect = Rect2( 432, 32, 40, 14 )
 region_filter_clip = true
-_sections_unfolded = [ "Material", "Offset", "Region", "Transform" ]
 
 [node name="U_Hand_Pivot" parent="Pivot/Area2D/Sprite" index="0"]
 
-position = Vector2( -17.6949, 1.56353 )
+position = Vector2( -17.6368, 0.814079 )
 _sections_unfolded = [ "Z Index" ]
 
 [node name="L_Hand_Pivot" parent="Pivot/Area2D/Sprite" index="1"]
 
-position = Vector2( -16.3227, -2.10568 )
+position = Vector2( -15.9649, -0.756664 )
 z_index = -1
 _sections_unfolded = [ "Z Index" ]
 
@@ -46,7 +32,7 @@ position = Vector2( 3.76268, -32.1493 )
 scale = Vector2( 0.632893, 0.813814 )
 _sections_unfolded = [ "Offset", "Transform", "Visibility" ]
 
-[node name="Timer" parent="." index="3"]
+[node name="Timer" parent="." index="2"]
 
 wait_time = 0.35
 

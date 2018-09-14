@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/units/player/player.gd" type="Script" id=2]
 [ext_resource path="res://scenes/units/player/camera/camera_pivot.gd" type="Script" id=3]
 
-[node name="Player" groups=[
+[node name="Player" index="0" groups=[
 "Player",
 ] instance=ExtResource( 1 )]
 
@@ -27,29 +27,28 @@ _sections_unfolded = [ "Material", "Region", "Transform", "Z Index" ]
 
 [node name="L_Hand" parent="Pivot/L_Hand_Pivot" index="0"]
 
-_sections_unfolded = [ "Material", "Region", "Transform", "Z Index" ]
+_sections_unfolded = [ "Material", "Region", "Transform", "Visibility", "Z Index" ]
 
 [node name="WeaponPivot" parent="Pivot" index="2"]
 
 position = Vector2( 0, 15 )
 z_index = 5
 
-[node name="Body" parent="Pivot/Container" index="0"]
+[node name="Legs" parent="Pivot/Container" index="0"]
 
-z_index = 1
-
-[node name="Legs" parent="Pivot/Container" index="1"]
-
-visible = false
 z_index = 3
 
-[node name="Helm" parent="Pivot/Container" index="2"]
+[node name="Helm" parent="Pivot/Container" index="1"]
 
 z_index = 2
 
-[node name="Chest" parent="Pivot/Container" index="3"]
+[node name="Chest" parent="Pivot/Container" index="2"]
 
 z_index = 2
+
+[node name="Body" parent="Pivot/Container" index="3"]
+
+z_index = 1
 
 [node name="Shadow" parent="." index="4"]
 

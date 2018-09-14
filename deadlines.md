@@ -7,7 +7,7 @@ personal deadlines every week
 * camera system  <b>✓sortadone</b>
 
 ## Week 37
-* Item, containers and equipment systems
+* Item, containers and equipment systems <b>✓sortadone</b>
 * Item database + attributes <b>✓sortadone</b>
 * Consumables
 ## Week 38

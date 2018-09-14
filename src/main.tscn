@@ -8,7 +8,7 @@
 [ext_resource path="res://scenes/items/Item.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/units/enemy/Enemy.tscn" type="PackedScene" id=7]
 
-[node name="Game" type="Node" index="0"]
+[node name="Game" type="Node"]
 
 [node name="GUI" type="CanvasLayer" parent="." index="0"]
 
@@ -104,12 +104,10 @@ polygon = PoolVector2Array( -773.954, 788.666, -984.573, 791.826, -997.249, -995
 "Root_Items",
 ]]
 
-editor/display_folded = true
-
 [node name="Item" parent="World/Root_Items" index="0" instance=ExtResource( 6 )]
 
 position = Vector2( 106.998, -85.6774 )
-item_id = 3
+item_id = 3002
 
 [node name="Item2" parent="World/Root_Items" index="1" instance=ExtResource( 6 )]
 
@@ -119,7 +117,7 @@ item_id = 4
 [node name="Item3" parent="World/Root_Items" index="2" instance=ExtResource( 6 )]
 
 position = Vector2( 212.482, -66.4383 )
-item_id = 5
+item_id = 3001
 
 [node name="Root_Units" type="Node2D" parent="World" index="3" groups=[
 "Root_Units",
@@ -132,18 +130,22 @@ editor/display_folded = true
 [node name="Enemy" parent="World/Root_Units/Battalion" index="0" instance=ExtResource( 7 )]
 
 position = Vector2( -160.634, -71.509 )
+reach = 13.5
 
 [node name="Enemy2" parent="World/Root_Units/Battalion" index="1" instance=ExtResource( 7 )]
 
 position = Vector2( -218.351, -70.8456 )
+reach = 13.5
 
 [node name="Enemy4" parent="World/Root_Units/Battalion" index="2" instance=ExtResource( 7 )]
 
 position = Vector2( -179.21, -120.602 )
+reach = 13.5
 
 [node name="Enemy3" parent="World/Root_Units/Battalion" index="3" instance=ExtResource( 7 )]
 
 position = Vector2( -197.122, -21.0893 )
+reach = 13.5
 
 [node name="Battalion2" type="Position2D" parent="World/Root_Units" index="1"]
 
@@ -153,21 +155,25 @@ position = Vector2( -152.253, -74.0371 )
 [node name="Enemy" parent="World/Root_Units/Battalion2" index="0" instance=ExtResource( 7 )]
 
 position = Vector2( -160.634, -71.509 )
+reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
 [node name="Enemy2" parent="World/Root_Units/Battalion2" index="1" instance=ExtResource( 7 )]
 
 position = Vector2( -218.351, -70.8456 )
+reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
 [node name="Enemy4" parent="World/Root_Units/Battalion2" index="2" instance=ExtResource( 7 )]
 
 position = Vector2( -179.21, -120.602 )
+reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
 [node name="Enemy3" parent="World/Root_Units/Battalion2" index="3" instance=ExtResource( 7 )]
 
 position = Vector2( -197.122, -21.0893 )
+reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
 [node name="Battalion3" type="Position2D" parent="World/Root_Units" index="2"]
@@ -178,21 +184,25 @@ position = Vector2( -203.729, 95.055 )
 [node name="Enemy" parent="World/Root_Units/Battalion3" index="0" instance=ExtResource( 7 )]
 
 position = Vector2( -160.634, -71.509 )
+reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
 [node name="Enemy2" parent="World/Root_Units/Battalion3" index="1" instance=ExtResource( 7 )]
 
 position = Vector2( -218.351, -70.8456 )
+reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
 [node name="Enemy4" parent="World/Root_Units/Battalion3" index="2" instance=ExtResource( 7 )]
 
 position = Vector2( -179.21, -120.602 )
+reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
 [node name="Enemy3" parent="World/Root_Units/Battalion3" index="3" instance=ExtResource( 7 )]
 
 position = Vector2( -197.122, -21.0893 )
+reach = 13.5
 container_slots_types = [ 0, 1, 2, -1 ]
 
 

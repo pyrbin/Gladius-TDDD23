@@ -58,5 +58,35 @@
         "DESC": "A pair of leggings made of gold",
         "SPRITE": "armor/gold_armor/gold_armor_legs.png",
         "ATTRIBUTES": {}
+    },
+    "3001": {
+        "NAME": "Iron Shortsword",
+        "ICON": "weapon/iron_weapon/iron_shortsword_icon.png",
+        "TYPE": 1,
+        "SLOT": 3,
+        "DESC": "A short little sword very bad I think",
+        "SPRITE": "weapon/iron_weapon/iron_shortsword.png",
+        "ATTRIBUTES": {
+            "DAMAGE" : 5,
+            "ATTACK_SPEED": 400,
+            "COOLDOWN" : 0.45
+        },
+        "WEAPON_TYPE": 0,
+        "MODEL" : "swing_weapon/shortsword/Shortsword.tscn"
+    },
+    "3002": {
+        "NAME": "Bronze Shortsword",
+        "ICON": "weapon/bronze_weapon/bronze_shortsword_icon.png",
+        "TYPE": 1,
+        "SLOT": 3,
+        "DESC": "A short little sword very bad I think of bronze tho",
+        "SPRITE": "weapon/bronze_weapon/bronze_shortsword.png",
+        "ATTRIBUTES": {
+            "DAMAGE" : 3,
+            "ATTACK_SPEED": 450,
+            "COOLDOWN" : 0.45
+        },
+        "WEAPON_TYPE": 0,
+        "MODEL" : "swing_weapon/shortsword/Shortsword.tscn"
     }
 }

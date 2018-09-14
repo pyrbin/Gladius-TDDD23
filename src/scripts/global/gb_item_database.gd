@@ -4,6 +4,7 @@
 extends Node
 
 const Equippable = preload("res://scenes/items/equippable.gd")
+const WeaponData = preload("res://scenes/items/weapon_data.gd")
 const ItemData = preload("res://scenes/items/item_data.gd")
 
 var _url_database_item = "res://data/items.json"
@@ -14,17 +15,28 @@ func _ready():
     for i in db_string:
         var it = db_string[i]
         var int_id = int(i)
-        match int(it["TYPE"]):
-            ItemData.ITEM_TYPE.EQUIPPABLE:
-                _item_database[int_id] = Equippable.new(
-                    int_id, 
-                    it["NAME"],
-                    it["DESC"],
-                    it["ICON"],
-                    it["SPRITE"],
-                    it["SLOT"], 
-                    it["ATTRIBUTES"]
-                )
+        if it["TYPE"] == ItemData.ITEM_TYPE.EQUIPPABLE and it["SLOT"] != Equippable.SLOT.WEAPON:
+            _item_database[int_id] = Equippable.new(
+                int_id, 
+                it["NAME"],
+                it["DESC"],
+                it["ICON"],
+                it["SPRITE"],
+                it["SLOT"], 
+                it["ATTRIBUTES"]
+            )
+        elif it["TYPE"] == ItemData.ITEM_TYPE.EQUIPPABLE and it["SLOT"] == Equippable.SLOT.WEAPON:
+            _item_database[int_id] = WeaponData.new(
+                int_id, 
+                it["NAME"],
+                it["DESC"],
+                it["ICON"],
+                it["SPRITE"],
+                it["SLOT"], 
+                it["ATTRIBUTES"],
+                it["WEAPON_TYPE"],
+                it["MODEL"]
+            )
 
 func has_item(id):
     return _item_database.has(id)

@@ -28,6 +28,10 @@ func set_item(item_id):
 	set_visible(true)
 	visible = true
 	if (sprite && anim):
+		if item_data.slot == Equippable.SLOT.WEAPON:
+			sprite.rotation = 100
+		else:
+			sprite.rotation = 0
 		var icon = load(item_data.icon)
 		sprite.set_texture(icon if icon != null else load(UNKNOWN_ICON_PATH))
 		anim.play("idle")

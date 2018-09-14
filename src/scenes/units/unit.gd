@@ -49,7 +49,7 @@ var velocity = Vector2(0,0)
 var dead = false
 var weapon
 var equipment
-
+var test = false
 func _ready():
     body.z_index = UNIT_DRAW_LAYER
     shadow.z_index = SHADOW_DRAW_LAYER
@@ -70,19 +70,26 @@ func _ready():
     equipment.init(container_slots_types, equipped_items)
     equipment.connect("value_changed", self, "_on_equipment_change")
     _equip_equipments();
-    equip_weapon(weapon_path)
+    # equip_weapon(weapon_path)
 
-func equip_weapon(wep_path):
-    weapon_pivot.add_child(load(WEAPON_FOLDER_PATH + "swing_weapon/shortsword/Shortsword.tscn").instance())
-    weapon = weapon_pivot.get_child(0)
-    weapon.holder = self
-    weapon.set_reach(reach)
+func equip_weapon(wep_data):
+    weapon_pivot.add_child(load(wep_data.model).instance())
+    var wep = weapon_pivot.get_child(0)
+    wep.load_weapon(wep_data)
+    wep.holder = self
+    wep.set_reach(reach)
+    weapon = wep
     if use_hands:
         _hands_on_weapon(true)
     if use_holster:
         holster_timer.start()
 
-func unequip_weapon(wep_path):
+func unequip_weapon():
+    if not weapon: return
+    _hands_on_weapon(false)
+    weapon.set_visible(false)
+    weapon_pivot.remove_child(weapon)
+    weapon = null
     pass
 
 func holster_weapon():
@@ -104,6 +111,7 @@ func unholster_weapon():
         _hands_on_weapon(true)
 
 func left_attack_weapon():
+    if not weapon: return
     if weapon.is_holstered():
         unholster_weapon();
     weapon.attack(0)
@@ -111,6 +119,7 @@ func left_attack_weapon():
         holster_timer.start()
 
 func right_attack_weapon():
+    if not weapon: return
     if weapon.is_holstered():
         unholster_weapon();
     weapon.attack(1)
@@ -132,7 +141,7 @@ func _set_look_state(look_position):
     else:
         look_state = BOTTOM_LEFT if look_position.y > body.global_position.y else TOP_LEFT
     
-    if weapon.is_idle():
+    if weapon && weapon.is_idle():
         weapon_pivot.look_at(get_aim_position())
 
     match look_state:
@@ -154,7 +163,7 @@ func _flip_armor(b):
     legs.set_flip_h(b)
     chest.set_flip_h(b)
     helm.set_flip_h(b)
-    if weapon.is_holstered():
+    if weapon && weapon.is_holstered():
         var mod = -1 if b else 1
         weapon_pivot.rotation = mod * WEAPON_HOLSTER_ROT
 
@@ -188,12 +197,22 @@ func set_dead(value):
 func _on_collision(body):
     pass
 
-func _visualize_equipment_slot(slot):
-    var armor_id = equipment.get(slot)
+func _update_equipment_slot(slot):
+    var equip_id = equipment.get(slot)
     var type = equipment.get_type(slot)
-    var armor = gb_ItemDatabase.get_item(armor_id)
+    var equippable = gb_ItemDatabase.get_item(equip_id)
     var texture = null
     var armor_sprite = null
+
+    # TODO: fix the if clauses, do i even know what DRY means?
+    if type == Equippable.SLOT.WEAPON: 
+        if weapon:
+            unequip_weapon()
+            return
+        elif equippable:
+            equip_weapon(equippable)
+            test = true
+        return
 
     if type == Equippable.SLOT.WEAPON: return
     if type == -1: return
@@ -203,22 +222,21 @@ func _visualize_equipment_slot(slot):
         Equippable.SLOT.CHEST: armor_sprite = chest
         Equippable.SLOT.LEGS: armor_sprite = legs
     
-    if armor != null: 
-        texture = armor.sprite
+    if equippable != null: 
+        texture = equippable.sprite
 
     armor_sprite.set_texture(load(texture) if texture else null)
-    armor_sprite.set_visible(texture != null)
 
 func _on_equipment_change(slot):
-    _visualize_equipment_slot(slot)
+    _update_equipment_slot(slot)
 
 func _equip_equipments():
     for i in equipment.size():
-        _visualize_equipment_slot(i)
+        _update_equipment_slot(i)
 
 func _physics_process(delta):
     _set_look_state(get_aim_position())
-    if holster_timer.is_stopped() && not weapon.is_holstered() && use_holster:
+    if holster_timer.is_stopped() && weapon && weapon.is_ready() && use_holster:
         holster_weapon()
     var collision = move_and_collide(velocity * delta)
     if collision:

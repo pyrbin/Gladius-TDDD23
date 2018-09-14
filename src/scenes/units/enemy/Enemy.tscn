@@ -10,7 +10,6 @@ collision_mask = 5
 script = ExtResource( 2 )
 unit_name = "enemy"
 weapon_path = "swing_weapon/shortsword/Shortsword.tscn"
-reach = 30.002
 equipped_items = [ 0, 4, 2, -1 ]
 
 
