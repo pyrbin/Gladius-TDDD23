@@ -4,13 +4,13 @@
 [ext_resource path="res://scenes/units/player/player.gd" type="Script" id=2]
 [ext_resource path="res://scenes/units/player/camera/camera_pivot.gd" type="Script" id=3]
 
-[node name="Player" groups=[
+[node name="Player" index="0" groups=[
 "Player",
 ] instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
 unit_name = "player_one"
-equipped_items = [ 0, 1, 2, -1 ]
+equipped_items = [ -1, -1, -1, -1, -1 ]
 
 [node name="Move" parent="StateMachine" index="1"]
 
@@ -26,7 +26,7 @@ position = Vector2( 0, -1.50735 )
 anchor_mode = 1
 rotating = false
 current = true
-zoom = Vector2( 0.55, 0.55 )
+zoom = Vector2( 0.8, 0.8 )
 limit_left = -10000000
 limit_top = -10000000
 limit_right = 10000000

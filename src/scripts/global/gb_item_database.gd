@@ -3,6 +3,7 @@
 
 extends Node
 
+const Consumable = preload("res://data/consumable.gd")
 const Equippable = preload("res://data/equippable.gd")
 const WeaponData = preload("res://data/weapon_data.gd")
 const ItemData = preload("res://data/item_data.gd")
@@ -15,17 +16,7 @@ func _ready():
     for i in db_string:
         var it = db_string[i]
         var int_id = int(i)
-        if it["TYPE"] == ItemData.ITEM_TYPE.EQUIPPABLE and it["SLOT"] != Equippable.SLOT.WEAPON:
-            _item_database[int_id] = Equippable.new(
-                int_id, 
-                it["NAME"],
-                it["DESC"],
-                it["ICON"],
-                it["SPRITE"],
-                it["SLOT"], 
-                it["ATTRIBUTES"]
-            )
-        elif it["TYPE"] == ItemData.ITEM_TYPE.EQUIPPABLE and it["SLOT"] == Equippable.SLOT.WEAPON:
+        if it["TYPE"] == ItemData.ITEM_TYPE.EQUIPPABLE and it["SLOT"] == Equippable.SLOT.WEAPON:
             _item_database[int_id] = WeaponData.new(
                 int_id, 
                 it["NAME"],
@@ -36,6 +27,27 @@ func _ready():
                 it["ATTRIBUTES"],
                 it["WEAPON_TYPE"],
                 it["MODEL"]
+            )
+        elif it["TYPE"] == ItemData.ITEM_TYPE.EQUIPPABLE and it["SLOT"] == Equippable.SLOT.SPECIAL:
+            _item_database[int_id] = Consumable.new(
+                int_id, 
+                it["NAME"],
+                it["DESC"],
+                it["ICON"],
+                it["SPRITE"],
+                it["SLOT"], 
+                it["ATTRIBUTES"],
+                it["COOLDOWN"]
+            )
+        elif it["TYPE"] == ItemData.ITEM_TYPE.EQUIPPABLE:
+            _item_database[int_id] = Equippable.new(
+                int_id, 
+                it["NAME"],
+                it["DESC"],
+                it["ICON"],
+                it["SPRITE"],
+                it["SLOT"], 
+                it["ATTRIBUTES"]
             )
 
 func has_item(id):

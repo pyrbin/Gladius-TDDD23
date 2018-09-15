@@ -103,5 +103,17 @@
         },
         "WEAPON_TYPE": 0,
         "MODEL" : "swing_weapon/mace/Mace.tscn"
+    },
+    "4001": {
+        "NAME": "Potion of Health",
+        "ICON": "consumable/potion_of_health_icon.png",
+        "TYPE": 1,
+        "SLOT": 4,
+        "DESC": "nice and healthy potion",
+        "SPRITE": "consumable/potion_of_health_icon.png",
+        "ATTRIBUTES": {
+            "HEALTH" : 100
+        },
+        "COOLDOWN": 20
     }
 }

@@ -276,7 +276,7 @@ use_hands = true
 use_holster = true
 reach = 30.0
 equipped_items = null
-container_slots_types = [ 0, 1, 2, 3 ]
+container_slots_types = [ 0, 1, 2, 3, 4 ]
 
 [node name="StateMachine" type="Node" parent="." index="0"]
 

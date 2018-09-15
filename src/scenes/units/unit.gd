@@ -198,7 +198,8 @@ func _update_equipment_slot(slot):
             equip_weapon(equippable)
         return
 
-    if type == Equippable.SLOT.WEAPON: return
+    if type == Equippable.SLOT.WEAPON || type == Equippable.SLOT.SPECIAL: return
+        
     if type == -1: return
 
     match type:

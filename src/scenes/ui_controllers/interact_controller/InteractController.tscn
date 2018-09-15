@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scenes/ui_controllers/interact_controller/interact_controller.gd" type="Script" id=1]
 
-[node name="InterractController" type="Control" index="0"]
+[node name="InterractController" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -50,7 +50,7 @@ _sections_unfolded = [ "Size Flags" ]
 [node name="Timer" type="Timer" parent="." index="1"]
 
 process_mode = 1
-wait_time = 0.3
+wait_time = 0.44
 one_shot = true
 autostart = false
 

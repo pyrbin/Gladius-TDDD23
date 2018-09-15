@@ -22,5 +22,4 @@ func to_dict(data):
     var dict = .to_dict(data)
     dict["WEAPON_TYPE"] = weapon_type
     dict["MODEL"] = sprite.split(WEAPON_PATH)[1]
-    dict["ATTRIBUTES"] = attributes
     return dict

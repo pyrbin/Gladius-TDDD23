@@ -9,10 +9,11 @@ const ItemData = preload("res://data/item_data.gd")
 const Equippable = preload("res://data/equippable.gd")
 
 const EMPTY_IMAGE_PATH = "res://assets/slot_0.png"
-const WEAPON_IMAGE_PATH = "res://assets/slot_4.png"
 const HELM_IMAGE_PATH = "res://assets/slot_1.png"
 const CHEST_IMAGE_PATH = "res://assets/slot_2.png"
 const LEGS_IMAGE_PATH = "res://assets/slot_3.png"
+const WEAPON_IMAGE_PATH = "res://assets/slot_4.png"
+const CONSUMABLE_IMAGE_PATH = "res://assets/slot_5.png"
 const UNKNOWN_ICON_PATH = "res://assets/items/unknown_icon.png"
 
 onready var container_list = $Panel/Container_List
@@ -215,8 +216,6 @@ func _set_empty(slot):
 
 func _get_slot_image(slot):
     match item_container.get_type(slot):
-        -1:
-            return load(EMPTY_IMAGE_PATH)
         Equippable.SLOT.HELM:
             return load(HELM_IMAGE_PATH)
         Equippable.SLOT.CHEST:
@@ -225,6 +224,9 @@ func _get_slot_image(slot):
             return load(LEGS_IMAGE_PATH)
         Equippable.SLOT.WEAPON:
             return load(WEAPON_IMAGE_PATH)
+        Equippable.SLOT.SPECIAL:
+            return load(CONSUMABLE_IMAGE_PATH)
+    return load(EMPTY_IMAGE_PATH)
 
 func _on_Button_pressed():
     if not item_container:
