@@ -9,11 +9,9 @@
 [ext_resource path="res://scenes/units/enemy/Enemy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/interface/Interface.tscn" type="PackedScene" id=8]
 
-[node name="Root" type="Node"]
+[node name="Root" type="Node" index="0"]
 
 [node name="Game" type="Node" parent="." index="0"]
-
-editor/display_folded = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Game" index="0"]
 
@@ -58,8 +56,6 @@ reach = 33.0
 "Root_Items",
 ]]
 
-editor/display_folded = true
-
 [node name="Item" parent="Game/World/Root_Items" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( 558.232, -208.667 )
@@ -86,9 +82,19 @@ texture = ExtResource( 6 )
 container_items = [ 3, 4, 5, 3002, 3001, -1 ]
 container_slots_types = [ -1, -1, -1, -1, -1, -1 ]
 
+[node name="Lootable3" parent="Game/World/Root_Items" index="4" instance=ExtResource( 5 )]
+
+position = Vector2( 100.831, -66.5163 )
+lootable_name = "Bag of Loot"
+texture = ExtResource( 6 )
+container_items = [ 6, 7, 8, 3001, 1337, 4001 ]
+container_slots_types = [ -1, -1, -1, -1, -1, -1 ]
+
 [node name="Root_Units" type="Node2D" parent="Game/World" index="3" groups=[
 "Root_Units",
 ]]
+
+editor/display_folded = true
 
 [node name="Enemy" parent="Game/World/Root_Units" index="0" instance=ExtResource( 7 )]
 

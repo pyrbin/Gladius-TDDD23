@@ -59,6 +59,36 @@
         "SPRITE": "armor/gold_armor/gold_armor_legs.png",
         "ATTRIBUTES": {}
     },
+    "6": {
+        "NAME": "Plate Helmet",
+        "ICON": "armor/plate_armor/armor_icon_0.png",
+        "TYPE": 1,
+        "SLOT": 0,
+        "DESC": "A helmet made of plated iron",
+        "SPRITE": "armor/plate_armor/plate_armor_helm.png",
+        "ATTRIBUTES": {}
+    },
+    "7": {
+        "NAME": "Plate Chest",
+        "ICON": "armor/plate_armor/armor_icon_1.png",
+        "TYPE": 1,
+        "SLOT": 1,
+        "DESC": "A chest made of plated iron",
+        "SPRITE": "armor/plate_armor/plate_armor_chest.png",
+        "ATTRIBUTES": {
+            "HEALTH": 200,
+            "STAMINA": 20
+        }
+    },
+    "8": {
+        "NAME": "Plate Leggings",
+        "ICON": "armor/plate_armor/armor_icon_2.png",
+        "TYPE": 1,
+        "SLOT": 2,
+        "DESC": "A pair of leggings made of plated iron",
+        "SPRITE": "armor/plate_armor/plate_armor_legs.png",
+        "ATTRIBUTES": {}
+    },
     "3001": {
         "NAME": "Iron Shortsword",
         "ICON": "weapon/iron_weapon/iron_shortsword_icon.png",
