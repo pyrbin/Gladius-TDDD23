@@ -4,6 +4,7 @@ onready var anim_player = $AnimationPlayer
 onready var sprite = $Pivot/Sprite
 onready var player = null
 onready var outline_color = Color(0,0,0,0)
+
 var interactable = true
 
 func _ready():

@@ -1,0 +1,102 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/interface/character_panel/CharacterPanel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/interface/player_action_bar/PlayerActionBar.tscn" type="PackedScene" id=2]
+
+[node name="Interface" type="Control"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_right = 2.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="MenuButton" type="Button" parent="." index="0"]
+
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -56.0
+margin_top = -44.0
+margin_right = -5.0
+margin_bottom = -4.0
+rect_min_size = Vector2( 40, 40 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "MENU"
+flat = false
+align = 1
+_sections_unfolded = [ "Margin" ]
+
+[node name="CharacterPanel" parent="." index="1" instance=ExtResource( 1 )]
+
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -201.0
+margin_top = 55.0
+margin_right = 199.0
+margin_bottom = 235.0
+_sections_unfolded = [ "Margin", "Mouse", "Rect", "Size Flags", "Theme" ]
+
+[node name="PlayerActionBar" parent="." index="2" instance=ExtResource( 2 )]
+
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -344.0
+margin_top = -127.0
+margin_right = 344.0
+margin_bottom = -18.0
+_sections_unfolded = [ "Margin", "Rect", "custom_constants" ]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." index="3"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 5.0
+margin_top = 9.0
+margin_right = 219.0
+margin_bottom = 24.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+size_flags_stretch_ratio = 2.0
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "alpha build 0.0.1.TriHard"
+scroll_active = false
+scroll_following = true
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "Rect", "Size Flags", "Theme" ]
+
+

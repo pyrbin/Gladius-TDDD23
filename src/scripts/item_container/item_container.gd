@@ -11,7 +11,7 @@ const Equippable = preload("res://data/equippable.gd")
 
 var _item_container_array = []
 var _item_type_array = []
-
+var test = true
 # container_slots - specify the container size + container types
 # NOTE: should not use the same equip types multiple times (not supported)
 func init(container_slots, start_equipped_items):

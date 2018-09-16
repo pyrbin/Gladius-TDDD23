@@ -8,14 +8,13 @@ signal unit_collided
 enum LOOK_STATE {TOP_RIGHT, TOP_LEFT, BOTTOM_RIGHT, BOTTOM_LEFT}
 
 # exports
-export (String) var unit_name = ""
 export (bool) var use_hands = false
 export (bool) var use_holster = true
 export (float) var reach = 40
 
-export (Array, int) var equipped_items = []
-export (Array, int) var container_slots_types = []
-
+export (Array, int) var equipment_container_slots = [3]
+export (Array, int) var equipped_items = [3]
+export (Array, int) var equipped_weapons = [2]
 # visuals
 onready var body = $Visuals/Pivot/Container/Body
 onready var sprite_player = $SpritePlayer
@@ -43,10 +42,11 @@ var velocity = Vector2(0,0)
 var dead = false
 var weapon = null
 var weapon_sprite = null
+
 var equipment = null
+var action_equipment = null
 
 func _ready():
-
     if use_hands:
         u_hand.show()
         l_hand.show()
@@ -59,10 +59,42 @@ func _ready():
     body.modulate = skin_color
     u_hand.modulate = skin_color
     l_hand.modulate = skin_color
-    equipment = load("res://scenes/item_container/item_container.gd").new()
-    equipment.init(container_slots_types, equipped_items)
+
+    var item_container = load("res://scripts/item_container/item_container.gd")
+    equipment = item_container.new()
+    action_equipment = item_container.new()
+    equipment.init(equipment_container_slots, equipped_items)
+    action_equipment.init([3, 4], equipped_weapons)
     equipment.connect("value_changed", self, "_on_equipment_change")
-    _equip_equipments();
+    action_equipment.connect("value_changed", self, "_on_action_equipment_change")
+    _equip_equipments()
+    _setup()
+    
+func _setup():
+    pass
+
+func add_item(item_id):
+    var item = gb_ItemDatabase.get_item(item_id)
+    if item == null: return
+    if item.slot == Equippable.SLOT.WEAPON || item.slot == Equippable.SLOT.SPECIAL:
+        var slot = action_equipment.get_equip_slot(item.slot)
+        drop_item(slot, action_equipment)
+        action_equipment.set(slot, item_id)
+    else:
+        var slot = equipment.get_equip_slot(item.slot)
+        drop_item(slot, equipment)
+        equipment.set(slot, item_id)
+
+# TODO: this function is not DRY, repeated in "scenes/interactable/lootable/lootable.gd"
+func drop_item(index, item_container, offset = Vector2(0, -10)):
+    if item_container != equipment and item_container != action_equipment: return
+    var item = item_container.get(index)
+    item_container.delete(index)
+    if item == null: return
+    var instance = load("res://scenes/interactable/item/Item.tscn").instance()
+    get_tree().get_nodes_in_group("Root_Items")[0].add_child(instance)
+    instance.set_item(item)
+    instance.position = global_position + offset
 
 func equip_weapon(wep_data):
     weapon_pivot.add_child(load(wep_data.model).instance())
@@ -101,6 +133,9 @@ func unholster_weapon():
     _hands_on_weapon(true)
     weapon.set_holstered(false)
     holster.hide()
+
+func use_consumable():
+    pass
 
 func left_attack_weapon():
     if not weapon: return
@@ -182,24 +217,23 @@ func set_dead(value):
 func _on_collision(body):
     pass
 
-func _update_equipment_slot(slot):
-    var equip_id = equipment.get(slot)
-    var type = equipment.get_type(slot)
+# use_action_equipment = true (action_equipment), use_action_equipment = false (equipment)
+func _update_equipment_slot(slot, use_action_equipment):
+    var equip_id = equipment.get(slot) if not use_action_equipment else action_equipment.get(slot)
+    var type = equipment.get_type(slot) if not use_action_equipment else action_equipment.get_type(slot)
     var equippable = gb_ItemDatabase.get_item(equip_id)
     var texture = null
     var armor_sprite = null
 
-    # TODO: fix the if clauses, do i even know what DRY means?
     if type == Equippable.SLOT.WEAPON: 
         if weapon:
             unequip_weapon()
-            return
-        elif equippable:
+        if equippable:
             equip_weapon(equippable)
         return
-
+    
     if type == Equippable.SLOT.WEAPON || type == Equippable.SLOT.SPECIAL: return
-        
+    if use_action_equipment: return
     if type == -1: return
 
     match type:
@@ -213,11 +247,16 @@ func _update_equipment_slot(slot):
     armor_sprite.set_texture(load(texture) if texture else null)
 
 func _on_equipment_change(slot):
-    _update_equipment_slot(slot)
+    _update_equipment_slot(slot, false)
+
+func _on_action_equipment_change(slot):
+    _update_equipment_slot(slot, true)
 
 func _equip_equipments():
     for i in equipment.size():
-        _update_equipment_slot(i)
+        _update_equipment_slot(i, false)
+    for i in action_equipment.size():
+        _update_equipment_slot(i, true)
 
 func _physics_process(delta):
     _set_look_state(get_aim_position())

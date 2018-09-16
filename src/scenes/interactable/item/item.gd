@@ -12,7 +12,6 @@ func get_action_string():
 	if item_data == null: return
 	return "pickup: [code][color=blue][b]" + item_data.name + "[/b][/color][/code] \n"
 
-
 func set_item(item_id):
 	var item = gb_ItemDatabase.get_item(item_id)
 	if item == null:
@@ -34,10 +33,8 @@ func set_item(item_id):
 
 func interact():
 	var item = gb_ItemDatabase.get_item(item_id)
-	var slot = player.equipment.get_equip_slot(item.slot)
 	player.queue_interactable(self, false)
-	player.equipment_controller.drop_item(slot)
-	player.equipment.set(slot, item_id)
+	player.add_item(item_id)
 	visible = false
 	set_shader_color()
 	queue_free()

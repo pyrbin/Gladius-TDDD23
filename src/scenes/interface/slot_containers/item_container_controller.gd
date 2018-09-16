@@ -4,7 +4,7 @@ export (PackedScene) var item_scene
 
 signal on_disconnect
 
-const Container = preload("../../item_container/item_container.gd")
+const Container = preload("res://scripts/item_container/item_container.gd")
 const ItemData = preload("res://data/item_data.gd")
 const Equippable = preload("res://data/equippable.gd")
 
@@ -16,7 +16,7 @@ const WEAPON_IMAGE_PATH = "res://assets/slot_4.png"
 const CONSUMABLE_IMAGE_PATH = "res://assets/slot_5.png"
 const UNKNOWN_ICON_PATH = "res://assets/items/unknown_icon.png"
 
-onready var container_list = $Panel/Container_List
+onready var container_list = $Panel/ItemList
 onready var item_menu = $Panel/ItemMenu_WindowDialog
 onready var item_menu_icon = $Panel/ItemMenu_WindowDialog/ItemMenu_Icon
 onready var item_menu_info = $Panel/ItemMenu_WindowDialog/ItemMenu_Info
@@ -75,15 +75,6 @@ func disconnect_item_container():
     item_container = null
     item_container_owner = null
 
-func drop_item(index, container = item_container, c_owner = item_container_owner, offset = Vector2(0, -10)):
-    var item = container.get(index)
-    container.delete(index)
-    if item == null: return
-    var instance = item_scene.instance()
-    items_root_node.add_child(instance)
-    instance.set_item(item)
-    instance.position = c_owner.global_position + offset
-
 func _on_item_container_changed(slot):
     _update_item_slot(slot)
 
@@ -97,14 +88,20 @@ func _input(event):
     if (event is InputEventMouseMotion):
         hovered_item_index = _get_hovered_slot()
         if hovered_item_index >= 0 and (hovered_controller.item_container.get(hovered_item_index) or is_dragging_item):
+            selected_item_index = hovered_item_index
             hovered_controller.container_list.select(hovered_item_index, true)
+        elif selected_item_index != null && hovered_controller.container_list.is_selected(selected_item_index):
+            hovered_controller.container_list.unselect(selected_item_index)
+
     if (event is InputEventMouseButton):
-        if event.button_index == BUTTON_LEFT and event.pressed and cursor_inside_container_list:
+        if event.button_index == BUTTON_LEFT and event.pressed and hovered_item_index != -1:
             mouse_button_released = false
             _begin_drag_item(hovered_item_index)
         if event.button_index == BUTTON_LEFT and not event.pressed and is_dragging_item:
             mouse_button_released = true
             _end_drag_item(hovered_item_index, hovered_controller)
+        if event.button_index == BUTTON_RIGHT and event.pressed and not is_dragging_item and hovered_item_index != -1:
+            _on_Container_List_item_rmb_selected(hovered_item_index, Vector2())
 
 func _process(delta):
     if (is_dragging_item):
@@ -137,16 +134,15 @@ func _begin_drag_item(index):
     _set_empty(index)
     dragged_item_index = index
     is_dragging_item = true
+    hovered_controller.container_list.unselect(selected_item_index)
+
 
 func _end_drag_item(index, container):
     set_process(false)
     dragged_item_sprite.hide()
     is_dragging_item = false
     if index == -1 or index == null:
-        #if cursor_inside_container_list:
-        #    _update_item_slot(dragged_item_index) 
-        #else: 
-        drop_item(dragged_item_index)
+        item_container_owner.drop_item(dragged_item_index, item_container)
     if container.is_visible() and container != self:
         transfer_item(dragged_item_index, index, container)
     else:
@@ -181,7 +177,6 @@ func _on_Container_List_item_rmb_selected(index, at_position):
 
     str_item_info += "\n" + item_data.desc + ""
     item_menu_info.set_bbcode(str_item_info)
-    selected_item_index = index
     item_menu.popup()
 
 func _on_Container_List_mouse_entered():

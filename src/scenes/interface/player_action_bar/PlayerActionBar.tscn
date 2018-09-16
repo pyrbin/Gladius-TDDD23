@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/interface/player_action_bar/player_action_bar.gd" type="Script" id=1]
+[ext_resource path="res://scenes/interface/progess_bars/lifebar/LifeBar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/interface/progess_bars/energybar/EnergyBar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/interface/slot_containers/ActionSlotContainer.tscn" type="PackedScene" id=4]
+
+[node name="PlayerActionBar" type="HBoxContainer"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/separation = 0
+alignment = 0
+script = ExtResource( 1 )
+_sections_unfolded = [ "custom_constants" ]
+
+[node name="StatusBars" type="VBoxContainer" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 468.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 400, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/separation = 0
+alignment = 0
+_sections_unfolded = [ "Margin", "Rect", "custom_constants" ]
+
+[node name="LifeBar" parent="StatusBars" index="0" instance=ExtResource( 2 )]
+
+[node name="Bar" parent="StatusBars" index="1" instance=ExtResource( 3 )]
+
+margin_top = 48.0
+margin_bottom = 96.0
+
+[node name="ActionSlotContainer" parent="." index="1" instance=ExtResource( 4 )]
+
+margin_left = 468.0
+margin_right = 688.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 0, 0 )
+
+

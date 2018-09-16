@@ -258,8 +258,8 @@ tracks/0/keys = {
 }
 
 [node name="Unit" type="KinematicBody2D" groups=[
-"Z_Index",
 "Units",
+"Z_Index",
 "Hitable",
 ]]
 
@@ -271,12 +271,12 @@ collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Z Index", "collision" ]
-unit_name = "generic_unit"
 use_hands = true
 use_holster = true
 reach = 30.0
+equipment_container_slots = null
 equipped_items = null
-container_slots_types = [ 0, 1, 2, 3, 4 ]
+equipped_weapons = null
 
 [node name="StateMachine" type="Node" parent="." index="0"]
 

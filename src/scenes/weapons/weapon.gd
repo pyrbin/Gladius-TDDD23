@@ -34,6 +34,7 @@ func load_weapon(weapon_data):
     is_loaded = true
 
 func _ready():
+    $Pivot/Area2D/Hitbox.disabled = true
     $Pivot/Area2D.connect("body_entered", self, "_on_body_entered_root")
     anim_player.connect("animation_finished", self, "_on_animation_finished")
 
@@ -56,6 +57,7 @@ func attack_rmb():
     
 func attack(type):
     if not is_loaded: return
+    $Pivot/Area2D/Hitbox.disabled = false
     attack_state = ATTACKING
     cooldown_timer.start()
 
@@ -73,4 +75,5 @@ func _on_body_entered(body):
 
 func _on_animation_finished(anim):
     _current_hit_targets.clear()
+    $Pivot/Area2D/Hitbox.disabled = true
     attack_state = IDLE

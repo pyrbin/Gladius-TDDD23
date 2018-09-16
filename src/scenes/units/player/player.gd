@@ -2,26 +2,24 @@ extends "res://scenes/units/unit.gd"
 
 signal on_interactable_join
 signal on_interact
+signal player_loaded
+
 var interactable_list = []
-var equipment_controller
 
 var toggle = true
-func _ready():
-    #inventory_controller = get_tree().get_root().get_node("/root/Game/GUI/PlayerInventory")
-    equipment_controller = get_tree().get_root().get_node("/root/Game/GUI/PlayerEquipment")
-    #inventory_controller.connect_to_item_container(inventory)
-    equipment_controller.connect_to_item_container(equipment, self)
-    #inventory_controller.connect_controller(equipment_controller)
-    #equipment_controller.connect_controller(inventory_controller)
+var pressed = false
+
+func _setup():
+    print("init player")
+    emit_signal("player_loaded")
 
 func _input(event):
-    if (Input.is_key_pressed(KEY_ESCAPE)):
-        if toggle: 
-            toggle = not toggle
-            equipment_controller.hide()
-        else:
-            toggle = not toggle
-            equipment_controller.show()
+
+    if event.is_action_pressed("ui_character_panel"):
+        var menu = get_tree().get_nodes_in_group("Character_Panel")[0]
+        menu.show() if toggle else menu.hide()
+        toggle = not toggle
+
     $StateMachine.handle_input(event)
 
 func _process(delta):
