@@ -8,10 +8,11 @@ func _ready():
 func get_movement_direction():
 	#return (get_node("/root/Root/Player").position - position).normalized()
 	return Vector2()
+
 func get_aim_position():
 	return Vector2()
 
-func _physics_process(delta):
+func _process(delta):
 #	for e in event_move_down:
 #		e.pressed = true
 #		$StateMachine.handle_input(e)

@@ -85,6 +85,8 @@ func _load_items():
         _update_item_slot(slot)
 
 func _input(event):
+    if !owner.is_visible(): return
+
     if (event is InputEventMouseMotion):
         hovered_item_index = _get_hovered_slot()
         if hovered_item_index >= 0 and (hovered_controller.item_container.get(hovered_item_index) or is_dragging_item):
@@ -134,7 +136,8 @@ func _begin_drag_item(index):
     _set_empty(index)
     dragged_item_index = index
     is_dragging_item = true
-    hovered_controller.container_list.unselect(selected_item_index)
+    if selected_item_index:
+        hovered_controller.container_list.unselect(selected_item_index)
 
 
 func _end_drag_item(index, container):

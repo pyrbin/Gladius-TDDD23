@@ -257,7 +257,7 @@ tracks/0/keys = {
 "values": [ false, false ]
 }
 
-[node name="Unit" type="KinematicBody2D" groups=[
+[node name="Unit" type="KinematicBody2D" index="0" groups=[
 "Units",
 "Z_Index",
 "Hitable",
@@ -397,11 +397,12 @@ _sections_unfolded = [ "Region", "Transform", "Z Index" ]
 [node name="Holster" type="Sprite" parent="Visuals/Pivot/Container/Chest" index="0"]
 
 visible = false
+show_behind_parent = true
 position = Vector2( -0.576477, 10 )
 rotation = 0.610865
 z_index = -1
 texture = ExtResource( 9 )
-_sections_unfolded = [ "Offset", "Transform", "Z Index" ]
+_sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
 
 [node name="Body" type="Sprite" parent="Visuals/Pivot/Container" index="3"]
 

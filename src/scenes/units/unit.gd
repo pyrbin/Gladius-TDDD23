@@ -15,6 +15,7 @@ export (float) var reach = 40
 export (Array, int) var equipment_container_slots = [3]
 export (Array, int) var equipped_items = [3]
 export (Array, int) var equipped_weapons = [2]
+
 # visuals
 onready var body = $Visuals/Pivot/Container/Body
 onready var sprite_player = $SpritePlayer
@@ -158,6 +159,7 @@ func get_aim_position():
 
 func get_movement_direction():
     pass
+    
     
 func _set_look_state(look_position):
     if dead:
