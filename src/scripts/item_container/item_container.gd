@@ -85,7 +85,7 @@ func has(item_id):
 	return _item_container_array.has(item_id)
 
 func get(slot):
-	return _item_container_array[slot]
+	return _item_container_array[int(slot)]
 
 func get_type(slot):
 	return _item_type_array[slot]

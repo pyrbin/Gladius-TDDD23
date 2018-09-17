@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://scenes/interface/player_action_bar/player_action_bar.gd" type="Script" id=1]
-[ext_resource path="res://scenes/interface/progess_bars/lifebar/LifeBar.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/interface/progess_bars/energybar/EnergyBar.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/interface/slot_containers/ActionSlotContainer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://themes/default.theme" type="Theme" id=1]
+[ext_resource path="res://scenes/interface/player_action_bar/player_action_bar.gd" type="Script" id=2]
+[ext_resource path="res://scenes/interface/progess_bars/lifebar/LifeBar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/interface/progess_bars/energybar/EnergyBar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/interface/slot_containers/ItemContainerController.tscn" type="PackedScene" id=5]
 
-[node name="PlayerActionBar" type="HBoxContainer"]
+[node name="PlayerActionBar" type="HBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -19,10 +20,11 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+theme = ExtResource( 1 )
 custom_constants/separation = 0
 alignment = 0
-script = ExtResource( 1 )
-_sections_unfolded = [ "custom_constants" ]
+script = ExtResource( 2 )
+_sections_unfolded = [ "Theme", "custom_constants" ]
 
 [node name="StatusBars" type="VBoxContainer" parent="." index="0"]
 
@@ -31,7 +33,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 468.0
-margin_bottom = 109.0
+margin_bottom = 100.0
 rect_min_size = Vector2( 400, 0 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -43,18 +45,61 @@ custom_constants/separation = 0
 alignment = 0
 _sections_unfolded = [ "Margin", "Rect", "custom_constants" ]
 
-[node name="LifeBar" parent="StatusBars" index="0" instance=ExtResource( 2 )]
+[node name="LifeBar" parent="StatusBars" index="0" instance=ExtResource( 3 )]
 
-[node name="Bar" parent="StatusBars" index="1" instance=ExtResource( 3 )]
+[node name="MarginContainer" type="MarginContainer" parent="StatusBars" index="1"]
 
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 48.0
-margin_bottom = 96.0
+margin_right = 468.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/margin_right = 0
+custom_constants/margin_top = 4
+custom_constants/margin_left = 100
+custom_constants/margin_bottom = 0
+_sections_unfolded = [ "custom_constants" ]
 
-[node name="ActionSlotContainer" parent="." index="1" instance=ExtResource( 4 )]
+[node name="Bar" parent="StatusBars/MarginContainer" index="0" instance=ExtResource( 4 )]
 
+margin_left = 100.0
+margin_top = 4.0
+margin_bottom = 52.0
+
+[node name="MarginContainer" type="MarginContainer" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 468.0
-margin_right = 688.0
-margin_bottom = 109.0
-rect_min_size = Vector2( 0, 0 )
+margin_right = 568.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/margin_left = 4
+_sections_unfolded = [ "Margin", "custom_constants" ]
+
+[node name="ItemSlotContainer" parent="MarginContainer" index="0" groups=[
+"ActionBar_ItemContainer",
+] instance=ExtResource( 5 )]
+
+margin_left = 4.0
+margin_right = 100.0
+margin_bottom = 100.0
+_sections_unfolded = [ "Anchor", "Margin", "Rect", "custom_constants" ]
 
 
