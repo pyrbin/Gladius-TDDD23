@@ -14,12 +14,10 @@ func _setup():
     emit_signal("player_loaded")
 
 func _input(event):
-
     if event.is_action_pressed("ui_character_panel"):
         var menu = get_tree().get_nodes_in_group("Character_Panel")[0]
         menu.show() if toggle else menu.hide()
         toggle = not toggle
-
     $StateMachine.handle_input(event)
 
 func _process(delta):

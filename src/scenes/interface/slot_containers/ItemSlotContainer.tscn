@@ -1,10 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/interface/slot_containers/item_slot_container.gd" type="Script" id=1]
 [ext_resource path="res://scenes/interface/slot_containers/ItemSlot.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/interface/slot_containers/KeyItemSlot.tscn" type="PackedScene" id=3]
 
-[node name="ItemListContainer" type="HBoxContainer" index="0"]
+[node name="ItemListContainer" type="HBoxContainer"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -22,6 +21,5 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "custom_constants" ]
 item_size = Vector2( 96, 96 )
 item_slot_scene = ExtResource( 2 )
-key_item_slot_scene = ExtResource( 3 )
 
 

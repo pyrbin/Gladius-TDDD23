@@ -8,7 +8,21 @@
 collision_layer = 6
 collision_mask = 5
 script = ExtResource( 2 )
-unit_name = "enemy"
 equipped_items = [ 0, 4, 2, -1 ]
+
+[node name="Stats" parent="." index="1"]
+
+max_health = 100
+max_endurance = 100
+health = 100
+endurance = 100
+power = 0
+attack_speed = 1
+movement_speed = 1
+crit_chance = 0
+
+[node name="Visuals" parent="." index="3"]
+
+editor/display_folded = true
 
 

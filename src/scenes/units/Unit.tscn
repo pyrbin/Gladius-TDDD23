@@ -1,22 +1,23 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scenes/units/unit.gd" type="Script" id=1]
 [ext_resource path="res://scenes/units/unit_state_machine.gd" type="Script" id=2]
 [ext_resource path="res://scenes/units/states/on_ground/idle.gd" type="Script" id=3]
 [ext_resource path="res://scenes/units/states/on_ground/move.gd" type="Script" id=4]
 [ext_resource path="res://scenes/units/states/in_air/jump.gd" type="Script" id=5]
-[ext_resource path="res://scenes/common/health.gd" type="Script" id=6]
-[ext_resource path="res://shaders/pixel_outline.shader" type="Shader" id=7]
-[ext_resource path="res://assets/gladiator/hand_6x6.png" type="Texture" id=8]
-[ext_resource path="res://assets/items/weapon/iron_weapon/iron_shortsword.png" type="Texture" id=9]
-[ext_resource path="res://assets/gladiator_mini_mini.png" type="Texture" id=10]
-[ext_resource path="res://assets/shadow.png" type="Texture" id=11]
+[ext_resource path="res://scenes/units/states/dead.gd" type="Script" id=6]
+[ext_resource path="res://scenes/units/unit_stats.gd" type="Script" id=7]
+[ext_resource path="res://shaders/pixel_outline.shader" type="Shader" id=8]
+[ext_resource path="res://assets/gladiator/hand_6x6.png" type="Texture" id=9]
+[ext_resource path="res://assets/items/weapon/iron_weapon/iron_shortsword.png" type="Texture" id=10]
+[ext_resource path="res://assets/gladiator_mini_mini.png" type="Texture" id=11]
+[ext_resource path="res://assets/shadow.png" type="Texture" id=12]
 
 [sub_resource type="ShaderMaterial" id=1]
 
 resource_name = "hand_material"
 render_priority = 0
-shader = ExtResource( 7 )
+shader = ExtResource( 8 )
 shader_param/intensity = 60
 shader_param/sizex = 6.0
 shader_param/sizey = 6.0
@@ -257,10 +258,10 @@ tracks/0/keys = {
 "values": [ false, false ]
 }
 
-[node name="Unit" type="KinematicBody2D" groups=[
-"Units",
+[node name="Unit" type="KinematicBody2D" index="0" groups=[
 "Z_Index",
 "Hitable",
+"Units",
 ]]
 
 position = Vector2( 0.576477, -0.523365 )
@@ -280,7 +281,6 @@ equipped_weapons = null
 
 [node name="StateMachine" type="Node" parent="." index="0"]
 
-editor/display_folded = true
 script = ExtResource( 2 )
 START_STATE = NodePath("Idle")
 
@@ -309,12 +309,22 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[node name="Health" type="Node" parent="." index="1"]
+[node name="Dead" type="Node" parent="StateMachine" index="3"]
 
 script = ExtResource( 6 )
-health = 1
-maxHealth = 1
-minHealth = 0
+
+[node name="Stats" type="Node" parent="." index="1"]
+
+script = ExtResource( 7 )
+_sections_unfolded = [ "Pause" ]
+max_health = 100
+max_endurance = 100
+health = 100
+endurance = 100
+power = 0
+attack_speed = 1
+movement_speed = 1
+crit_chance = 0
 
 [node name="Collision" type="CollisionPolygon2D" parent="." index="2"]
 
@@ -328,10 +338,12 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Visuals" type="Position2D" parent="." index="3"]
 
+editor/display_folded = true
 position = Vector2( -0.58837, -11.1091 )
 
 [node name="Pivot" type="Position2D" parent="Visuals" index="0"]
 
+editor/display_folded = true
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="U_Hand_Pivot" type="Position2D" parent="Visuals/Pivot" index="0"]
@@ -345,7 +357,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 material = SubResource( 1 )
 z_index = 1
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 region_rect = Rect2( 321, 39, 6, 6 )
 _sections_unfolded = [ "Region", "Transform", "Z Index" ]
 
@@ -359,7 +371,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 [node name="L_Hand" type="Sprite" parent="Visuals/Pivot/L_Hand_Pivot" index="0"]
 
 material = SubResource( 1 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 region_rect = Rect2( 321, 39, 6, 6 )
 _sections_unfolded = [ "Region", "Transform", "Z Index" ]
 
@@ -401,14 +413,14 @@ show_behind_parent = true
 position = Vector2( -0.576477, 10 )
 rotation = 0.610865
 z_index = -1
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 _sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
 
 [node name="Body" type="Sprite" parent="Visuals/Pivot/Container" index="3"]
 
 position = Vector2( -4.47035e-007, 0 )
 z_index = 2
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 72, 72 )
 region_filter_clip = true
@@ -420,7 +432,7 @@ modulate = Color( 1, 1, 1, 0.480392 )
 position = Vector2( -1.26088, 32.34 )
 rotation = 0.00174533
 scale = Vector2( 0.505134, 0.234466 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 offset = Vector2( -1.39726, 1.21561 )
 region_rect = Rect2( 0, 0, 72, 72 )
 _sections_unfolded = [ "Offset", "Region", "Transform", "Visibility", "Z Index" ]
@@ -456,5 +468,7 @@ process_mode = 1
 wait_time = 4.0
 one_shot = true
 autostart = true
+
+[connection signal="curr_health_zero" from="Stats" to="." method="_on_Stats_curr_health_zero"]
 
 

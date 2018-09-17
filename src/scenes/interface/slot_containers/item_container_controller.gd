@@ -1,6 +1,6 @@
 extends Control
 
-export (PackedScene) var item_scene
+export (PackedScene) var key_slot_scene
 
 signal on_disconnect
 
@@ -17,10 +17,10 @@ const CONSUMABLE_IMAGE_PATH = "res://assets/slot_5.png"
 const UNKNOWN_ICON_PATH = "res://assets/items/unknown_icon.png"
 
 onready var container_list = $Panel/ItemList
-onready var item_menu = $Panel/ItemMenu_WindowDialog
-onready var item_menu_icon = $Panel/ItemMenu_WindowDialog/ItemMenu_Icon
-onready var item_menu_info = $Panel/ItemMenu_WindowDialog/ItemMenu_Info
-onready var dragged_item_sprite = $Panel/DraggedItem_Sprite
+onready var item_menu = null
+onready var item_menu_icon = null
+onready var item_menu_info = null
+onready var dragged_item_sprite = null
 
 var selected_item_index = null
 var dragged_item_index = null
@@ -40,6 +40,9 @@ var _item_keys = []
 func _ready():
     set_process(false)
     hovered_controller = self
+    item_menu = get_tree().get_nodes_in_group("ItemMenu_Inspection")[0]
+    item_menu_icon = item_menu.get_node("ItemMenu_Icon")
+    item_menu_info = item_menu.get_node("ItemMenu_Info")
 
 func connect_controller(controller):
     if not _connected_container_controllers.has(controller):
@@ -77,6 +80,15 @@ func _load_items():
     container_list.clear()
     for slot in range(0, item_container.size()):
         container_list.add_item()
+        if _item_keys and _item_keys[slot]:
+            var key = key_slot_scene.instance()
+            var item_slot = container_list.get_item(slot)
+            key.get_node("Label").set_text(_item_keys[slot])
+            # TODO: remove hardcoding of key_item actionbar
+            var pos_x = (container_list.item_size.x * (slot+1)) - (container_list.item_size.x/2) - 19 + slot*4
+            var pos_y = (container_list.item_size.y) - 14
+            key.rect_position = Vector2(pos_x, pos_y)
+            add_child(key)
         _update_item_slot(slot)
 
     var full_size = container_list.get_full_size()
@@ -93,6 +105,7 @@ func _input(event):
         if hovered_item_index >= 0 and (hovered_controller.item_container.get(hovered_item_index) or is_dragging_item):
             selected_item_index = hovered_item_index
             hovered_controller.container_list.select(hovered_item_index)
+
         elif selected_item_index != null && hovered_controller.container_list.is_selected(selected_item_index):
             hovered_controller.container_list.unselect(selected_item_index)
 
@@ -207,8 +220,6 @@ func _update_item_slot(slot):
     container_list.set_item_metadata(slot, item)
     container_list.set_item_tooltip(slot, item.name)
     container_list.set_item_tooltip_enabled(slot, true)
-    if _item_keys.size() > 0 and _item_keys[slot]:
-        container_list.get_item(slot).set_key(_item_keys[slot])
 
 func _set_empty(slot):
     container_list.set_item_icon(slot, _get_slot_image(slot))

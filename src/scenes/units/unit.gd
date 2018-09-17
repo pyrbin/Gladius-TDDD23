@@ -30,7 +30,7 @@ onready var helm = $Visuals/Pivot/Container/Helm
 
 # data 
 onready var holster_timer = $HolsterTimer
-onready var health = $Health
+onready var stats = $Stats
 
 # constans
 const WEAPON_FOLDER_PATH = "res://scenes/weapons/"
@@ -47,6 +47,8 @@ var weapon_sprite = null
 var equipment = null
 var action_equipment = null
 
+#   Setup functions
+#   =========================
 func _ready():
     if use_hands:
         u_hand.show()
@@ -73,68 +75,8 @@ func _ready():
     
 func _setup():
     pass
-
-func add_item(item_id):
-    var item = gb_ItemDatabase.get_item(item_id)
-    if item == null: return
-    if item.slot == Equippable.SLOT.WEAPON || item.slot == Equippable.SLOT.SPECIAL:
-        var slot = action_equipment.get_equip_slot(item.slot)
-        drop_item(slot, action_equipment)
-        action_equipment.set(slot, item_id)
-    else:
-        var slot = equipment.get_equip_slot(item.slot)
-        drop_item(slot, equipment)
-        equipment.set(slot, item_id)
-
-# TODO: this function is not DRY, repeated in "scenes/interactable/lootable/lootable.gd"
-func drop_item(index, item_container, offset = Vector2(0, -10)):
-    if item_container != equipment and item_container != action_equipment: return
-    var item = item_container.get(index)
-    item_container.delete(index)
-    if item == null: return
-    var instance = load("res://scenes/interactable/item/Item.tscn").instance()
-    get_tree().get_nodes_in_group("Root_Items")[0].add_child(instance)
-    instance.set_item(item)
-    instance.position = global_position + offset
-
-func equip_weapon(wep_data):
-    weapon_pivot.add_child(load(wep_data.model).instance())
-    var wep = weapon_pivot.get_child(0)
-    wep.load_weapon(wep_data)
-    wep.holder = self
-    wep.set_reach(reach)
-    weapon = wep
-    weapon_sprite = weapon.wep_sprite
-    if use_hands:
-        _hands_on_weapon(true)
-    if use_holster:
-        holster_timer.start()
-
-func unequip_weapon():
-    if not weapon: return
-    unholster_weapon()
-    _hands_on_weapon(false)
-    weapon.hide()
-    weapon_pivot.remove_child(weapon)
-    weapon = null
-    pass
-
-func holster_weapon():
-    if not weapon:
-        return
-    _hands_on_weapon(false)
-    weapon.set_holstered(true)
-    holster.set_texture(load(weapon.data.sprite))
-    holster.show() 
-    holster.set_offset(weapon.holster_offset)
-
-func unholster_weapon():
-    if not weapon or not weapon.is_holstered():
-        return
-    _hands_on_weapon(true)
-    weapon.set_holstered(false)
-    holster.hide()
-
+#   Unit ingame actions
+#   =========================
 func use_consumable():
     pass
 
@@ -147,20 +89,11 @@ func left_attack_weapon():
         holster_timer.start()
 
 func right_attack_weapon():
-    if not weapon: return
-    if weapon.is_holstered():
-        unholster_weapon();
-    weapon.attack(1)
-    if use_holster:
-        holster_timer.start()
-
-func get_aim_position():
-    pass
-
-func get_movement_direction():
-    pass
+    stats.set_modifier(stats.ATTR.HEALTH, 0, stats.MODIFIER.PERCENT)
+    print(stats.final_stat(stats.ATTR.HEALTH))
     
-    
+#   Sprite manipulation
+#   =========================
 func _set_look_state(look_position):
     if dead:
         return
@@ -210,16 +143,70 @@ func _hands_on_weapon(b):
     l_hand.position = Vector2()
     u_hand.z_index = 0
     l_hand.z_index = 0
-
-func set_dead(value):
-    dead = value
-    set_process_input(not value)
-    set_physics_process(not value)
-
-func _on_collision(body):
+    
+func equip_weapon(wep_data):
+    weapon_pivot.add_child(load(wep_data.model).instance())
+    var wep = weapon_pivot.get_child(0)
+    wep.load_weapon(wep_data)
+    wep.holder = self
+    wep.set_reach(reach)
+    weapon = wep
+    weapon_sprite = weapon.wep_sprite
+    if use_hands:
+        _hands_on_weapon(true)
+    if use_holster:
+        holster_timer.start()
+    
+func unequip_weapon():
+    if not weapon: return
+    unholster_weapon()
+    _hands_on_weapon(false)
+    weapon.hide()
+    weapon_pivot.remove_child(weapon)
+    weapon = null
     pass
 
-# use_action_equipment = true (action_equipment), use_action_equipment = false (equipment)
+func holster_weapon():
+    if not weapon:
+        return
+    _hands_on_weapon(false)
+    weapon.set_holstered(true)
+    holster.set_texture(load(weapon.data.sprite))
+    holster.show() 
+    holster.set_offset(weapon.holster_offset)
+
+func unholster_weapon():
+    if not weapon or not weapon.is_holstered():
+        return
+    _hands_on_weapon(true)
+    weapon.set_holstered(false)
+    holster.hide()
+
+#   Equipment functions
+#   =========================
+func add_item(item_id):
+    var item = gb_ItemDatabase.get_item(item_id)
+    if item == null: return
+    if item.slot == Equippable.SLOT.WEAPON || item.slot == Equippable.SLOT.SPECIAL:
+        var slot = action_equipment.get_equip_slot(item.slot)
+        drop_item(slot, action_equipment)
+        action_equipment.set(slot, item_id)
+    else:
+        var slot = equipment.get_equip_slot(item.slot)
+        drop_item(slot, equipment)
+        equipment.set(slot, item_id)
+
+# TODO: this function is not DRY, repeated in "scenes/interactable/lootable/lootable.gd"
+func drop_item(index, item_container, offset = Vector2(0, -10)):
+    if item_container != equipment and item_container != action_equipment: return
+    var item = item_container.get(index)
+    item_container.delete(index)
+    if item == null: return
+    var instance = load("res://scenes/interactable/item/Item.tscn").instance()
+    get_tree().get_nodes_in_group("Root_Items")[0].add_child(instance)
+    instance.set_item(item)
+    instance.position = global_position + offset
+
 func _update_equipment_slot(slot, use_action_equipment):
     var equip_id = equipment.get(slot) if not use_action_equipment else action_equipment.get(slot)
     var type = equipment.get_type(slot) if not use_action_equipment else action_equipment.get_type(slot)
@@ -260,6 +247,10 @@ func _equip_equipments():
     for i in action_equipment.size():
         _update_equipment_slot(i, true)
 
+
+
+#   Process loop
+#   =========================
 func _physics_process(delta):
     _set_look_state(get_aim_position())
     if holster_timer.is_stopped() && weapon && weapon.is_ready() && use_holster:
@@ -269,3 +260,19 @@ func _physics_process(delta):
         _on_collision(collision)
         emit_signal("unit_collided", collision)
     velocity = Vector2()
+
+func set_dead(value):
+    dead = value
+    set_physics_process(not value)
+
+func get_aim_position():
+    pass
+
+func get_movement_direction():
+    pass
+
+func _on_collision(body):
+    pass
+
+func _on_Stats_curr_health_zero():
+	set_dead(true)

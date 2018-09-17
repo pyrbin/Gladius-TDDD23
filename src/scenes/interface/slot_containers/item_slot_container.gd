@@ -2,8 +2,6 @@ extends HBoxContainer
 
 export (Vector2) var item_size = Vector2()
 export (PackedScene) var item_slot_scene = null
-export (PackedScene) var key_item_slot_scene = null
-
 var selected = null
 
 # TODO: add array to store items slots not the node hierachy
@@ -27,12 +25,10 @@ func set_item_tooltip_enabled(index, enabled):
 	if _invalid_index(index): return
 	get_child(index).set_tooltip_enabled(enabled)
 
-func add_item(key = null):
-	var item_scene = item_slot_scene if not key else key_item_slot_scene
+func add_item():
+	var item_scene = item_slot_scene
 	var item_slot = item_scene.instance()
 	item_slot.set_item_size(item_size)
-	if key:
-		item_slot.set_key(key)
 	add_child(item_slot)
 	set_size(get_full_size())
 	rect_min_size = get_full_size()

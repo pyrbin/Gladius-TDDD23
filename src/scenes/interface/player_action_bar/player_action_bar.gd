@@ -12,7 +12,7 @@ func _ready():
         _on_player_loaded()
     
 func _on_player_loaded():
-    $MarginContainer/ItemSlotContainer.connect_to_item_container(player.action_equipment, player)
+    $MarginContainer/ItemSlotContainer.connect_to_item_container(player.action_equipment, player, ["M1", "Q"])
     #$MarginContainer/ItemSlotContainer.connect_controller(other_controller)
 
 

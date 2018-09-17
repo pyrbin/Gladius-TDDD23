@@ -13,7 +13,7 @@ func get_aim_position():
 	return Vector2()
 
 func _process(delta):
-#	for e in event_move_down:
-#		e.pressed = true
-#		$StateMachine.handle_input(e)
+	for e in event_move_down:
+		e.pressed = true
+		$StateMachine.handle_input(e)
 	pass

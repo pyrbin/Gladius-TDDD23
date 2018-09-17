@@ -12,7 +12,7 @@
 script = ExtResource( 2 )
 equipment_container_slots = [ 0, 1, 2 ]
 equipped_items = [ -1, -1, -1 ]
-equipped_weapons = [ 3002, 4001 ]
+equipped_weapons = [ -1, -1 ]
 
 [node name="Move" parent="StateMachine" index="1"]
 
@@ -32,7 +32,7 @@ position = Vector2( 0, -1.50735 )
 anchor_mode = 1
 rotating = false
 current = true
-zoom = Vector2( 0.8, 0.8 )
+zoom = Vector2( 0.5, 0.5 )
 limit_left = -10000000
 limit_top = -10000000
 limit_right = 10000000
