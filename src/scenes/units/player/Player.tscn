@@ -6,7 +6,7 @@
 [ext_resource path="res://scenes/units/player/camera/player_camera.gd" type="Script" id=4]
 [ext_resource path="res://scenes/units/player/interact_controller.gd" type="Script" id=5]
 
-[node name="Player" groups=[
+[node name="Player" index="0" groups=[
 "Player",
 ] instance=ExtResource( 1 )]
 

@@ -66,6 +66,7 @@ reach = 33.0
 [node name="Boss" parent="Game/World" index="2" instance=ExtResource( 5 )]
 
 position = Vector2( 166.013, -194.022 )
+equipped_items = [ 6, 7, 8, -1 ]
 
 [node name="Root_Items" type="Node2D" parent="Game/World" index="3" groups=[
 "Root_Items",
