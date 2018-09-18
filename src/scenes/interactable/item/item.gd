@@ -6,35 +6,36 @@ export (int) var item_id
 onready var item_data = null
 
 func _ready():
-	set_item(item_id)
-	
+    set_item(item_id)
+    anim_player.play("idle")
+        
 func get_action_string():
-	if item_data == null: return
-	return "pickup: [code][color=blue][b]" + item_data.name + "[/b][/color][/code] \n"
+    if item_data == null: return
+    return "pickup: [code][color=blue][b]" + item_data.name + "[/b][/color][/code] \n"
 
 func set_item(item_id):
-	var item = gb_ItemDatabase.get_item(item_id)
-	if item == null:
-		interactable = false
-		set_visible(false)
-		return
-	self.item_id = item_id
-	item_data = item
-	set_visible(true)
-	interactable = true
-	if (sprite && anim_player):
-		if item_data.slot == Equippable.SLOT.WEAPON:
-			sprite.rotation = 100
-		else:
-			sprite.rotation = 0
-		var icon = load(item_data.icon)
-		sprite.set_texture(icon if icon != null else load(UNKNOWN_ICON_PATH))
-		set_shader_color()
+    var item = gb_ItemDatabase.get_item(item_id)
+    if item == null:
+        interactable = false
+        set_visible(false)
+        return
+    self.item_id = item_id
+    item_data = item
+    set_visible(true)
+    interactable = true
+    if (sprite && anim_player):
+        if item_data.slot == Equippable.SLOT.WEAPON:
+            sprite.rotation = 100
+        else:
+            sprite.rotation = 0
+        var icon = load(item_data.icon)
+        sprite.set_texture(icon if icon != null else load(UNKNOWN_ICON_PATH))
+        set_shader_color()
 
 func interact():
-	var item = gb_ItemDatabase.get_item(item_id)
-	player.queue_interactable(self, false)
-	player.add_item(item_id)
-	visible = false
-	set_shader_color()
-	queue_free()
+    var item = gb_ItemDatabase.get_item(item_id)
+    player.queue_interactable(self, false)
+    player.add_item(item_id)
+    visible = false
+    set_shader_color()
+    queue_free()

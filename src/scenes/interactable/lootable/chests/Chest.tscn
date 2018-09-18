@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/interactable/lootable/Lootable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/lootables/chest/chest_0.png" type="Texture" id=2]
+
+[node name="Chest" instance=ExtResource( 1 )]
+
+texture = ExtResource( 2 )
+idle_jump = false
+remove_on_use = false
+
+[node name="Pivot" parent="." index="2"]
+
+position = Vector2( -0.631111, -1.06164 )
+
+[node name="Sprite" parent="Pivot" index="0"]
+
+texture = ExtResource( 2 )
+
+[node name="Shadow" parent="." index="3"]
+
+position = Vector2( -0.946671, 20.5008 )
+
+

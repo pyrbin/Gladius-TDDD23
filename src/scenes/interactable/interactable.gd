@@ -13,7 +13,6 @@ func _ready():
     connect("body_entered", self, "_on_body_entered")
     connect("body_exited", self, "_on_body_exited")
     player = get_tree().get_nodes_in_group("Player")[0]
-    anim_player.play("idle")
     set_shader_color()
     set_process(false)
 

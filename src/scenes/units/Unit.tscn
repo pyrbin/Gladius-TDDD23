@@ -413,6 +413,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Visuals" type="Position2D" parent="." index="3"]
 
+editor/display_folded = true
 position = Vector2( -0.58837, -11.1091 )
 
 [node name="Pivot" type="Position2D" parent="Visuals" index="0"]

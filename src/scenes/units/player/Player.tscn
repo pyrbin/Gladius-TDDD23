@@ -19,10 +19,6 @@ equipped_weapons = [ -1, -1 ]
 
 MAX_SPRINT_SPEED = 300.0
 
-[node name="Visuals" parent="." index="3"]
-
-editor/display_folded = true
-
 [node name="U_Hand_Pivot" parent="Visuals/Pivot" index="0"]
 
 editor/display_folded = false
