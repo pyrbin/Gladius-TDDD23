@@ -4,8 +4,8 @@ signal on_interactable_join
 signal on_interact
 signal player_loaded
 
+onready var camera = $CameraPivot/Camera2D
 var interactable_list = []
-
 var toggle = true
 var pressed = false
 

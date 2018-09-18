@@ -82,12 +82,17 @@ func _on_body_entered(body):
     var dir = Vector2(-cos(angle), -sin(angle))
     _target = body
     _target.take_damage(data.attributes["DAMAGE"], owner)
+    if holder ==  get_tree().get_nodes_in_group("Player")[0]:
+        holder.camera.shake(0.25, 20, 3.5)
     _knockback_force = dir * KNOCKBACK_FORCE
+    var time = 0.2
     if _target.dead:
-        _knockback_force *= 4
-    knockback_tween.interpolate_property(self, "_knockback_force", _knockback_force, Vector2(), 0.2,
+        time *= 1.5
+        _knockback_force *= 2.5
+    knockback_tween.interpolate_property(self, "_knockback_force", _knockback_force, Vector2(), time,
         Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
     knockback_tween.start()
+
 func _on_animation_finished(anim):
     _current_hit_targets.clear()
     _target = null
