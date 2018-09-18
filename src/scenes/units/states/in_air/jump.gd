@@ -17,7 +17,8 @@ func enter():
     tween.start()
 
 func _on_animation_finished(anim_name):
-    emit_signal("finished", "idle")
+    if anim_name == "jump":
+        emit_signal("finished", "idle")
 
 func _on_unit_collision(collider):
     tween.stop_all()

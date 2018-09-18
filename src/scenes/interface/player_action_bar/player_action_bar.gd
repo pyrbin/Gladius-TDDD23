@@ -1,6 +1,10 @@
 extends HBoxContainer
 
+onready var life_bar = $StatusBars/LifeBar/TextureProgress
+onready var energy_bar = $StatusBars/MarginContainer/EnergyBar/TextureProgress
+
 var player
+var stats
 var other_controller
 
 func _ready():
@@ -13,6 +17,9 @@ func _ready():
     
 func _on_player_loaded():
     $MarginContainer/ItemSlotContainer.connect_to_item_container(player.action_equipment, player, ["M1", "Q"])
-    #$MarginContainer/ItemSlotContainer.connect_controller(other_controller)
+    stats = player.stats
 
-
+func _process(delta):
+    if stats:
+        life_bar.value = (stats.final_stat("HEALTH")/stats.get_attribute("HEALTH"))
+        energy_bar.value = (stats.final_stat("ENDURANCE")/stats.get_attribute("ENDURANCE"))

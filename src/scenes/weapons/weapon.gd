@@ -71,7 +71,10 @@ func _on_body_entered_root(body):
     _on_body_entered(body)
 
 func _on_body_entered(body):
-    pass
+    var angle = holder.position.angle_to_point(holder.get_aim_position())
+    var dir = Vector2(-cos(angle), -sin(angle))
+    body.velocity = dir * 20
+    body.stats.mod_modifier("HEALTH", -0.25, "PERCENT")
 
 func _on_animation_finished(anim):
     _current_hit_targets.clear()

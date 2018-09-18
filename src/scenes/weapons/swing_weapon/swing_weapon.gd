@@ -39,7 +39,3 @@ func attack(type):
 
 	return .attack(type)
 
-func _on_body_entered(body):
-	var angle = holder.position.angle_to_point(holder.get_aim_position())
-	var dir = Vector2(-cos(angle), -sin(angle))
-	body.move_and_slide(dir * 3500)

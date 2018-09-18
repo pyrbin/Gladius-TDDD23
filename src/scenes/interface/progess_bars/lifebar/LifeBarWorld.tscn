@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/interface/progess_bars/Bar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/interface/world_life_bar_bg.png" type="Texture" id=2]
+[ext_resource path="res://assets/interface/world_life_bar_fill.png" type="Texture" id=3]
+
+[node name="LifeBarWorld" instance=ExtResource( 1 )]
+
+margin_right = 120.0
+margin_bottom = 20.0
+
+[node name="TextureProgress" parent="." index="0"]
+
+margin_right = 120.0
+margin_bottom = 20.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
+_sections_unfolded = [ "Margin", "Radial Fill", "Rect", "Textures" ]
+
+

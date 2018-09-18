@@ -90,7 +90,6 @@ func left_attack_weapon():
 
 func right_attack_weapon():
     stats.set_modifier(stats.ATTR.HEALTH, 0, stats.MODIFIER.PERCENT)
-    print(stats.final_stat(stats.ATTR.HEALTH))
     
 #   Sprite manipulation
 #   =========================
@@ -274,5 +273,8 @@ func get_movement_direction():
 func _on_collision(body):
     pass
 
-func _on_Stats_curr_health_zero():
+func _on_Stats_on_health_zero():
 	set_dead(true)
+
+func _on_Stats_on_revive():
+	set_dead(false)

@@ -20,7 +20,7 @@ onready var container_list = $Panel/ItemList
 onready var item_menu = null
 onready var item_menu_icon = null
 onready var item_menu_info = null
-onready var dragged_item_sprite = null
+onready var dragged_item_sprite = $Panel/DraggedItem_Sprite
 
 var selected_item_index = null
 var dragged_item_index = null

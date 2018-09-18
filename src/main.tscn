@@ -41,7 +41,6 @@ _sections_unfolded = [ "Material", "Visibility", "Z Index" ]
 
 [node name="BG" type="KinematicBody2D" parent="Game/World" index="0"]
 
-editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 2
@@ -107,10 +106,1298 @@ container_slots_types = [ -1, -1, -1, -1, -1, -1 ]
 "Root_Units",
 ]]
 
-[node name="Enemy" parent="Game/World/Root_Units" index="0" instance=ExtResource( 8 )]
+position = Vector2( 151.688, -105.118 )
+
+[node name="Battlion" type="Position2D" parent="Game/World/Root_Units" index="0"]
+
+editor/display_folded = true
+position = Vector2( -444.268, 539.469 )
+
+[node name="Enemy" parent="Game/World/Root_Units/Battlion" index="0" instance=ExtResource( 8 )]
 
 position = Vector2( 215.605, -207.407 )
 equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
-equipped_weapons = [ -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy8" parent="Game/World/Root_Units/Battlion" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 287.779, -348.054 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy2" parent="Game/World/Root_Units/Battlion" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 95.5725, -200.187 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy7" parent="Game/World/Root_Units/Battlion" index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 167.747, -340.834 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy3" parent="Game/World/Root_Units/Battlion" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 131.673, -265.167 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy5" parent="Game/World/Root_Units/Battlion" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 203.847, -405.814 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy4" parent="Game/World/Root_Units/Battlion" index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 218.313, -298.56 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy6" parent="Game/World/Root_Units/Battlion" index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 290.487, -439.206 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Battlion11" type="Position2D" parent="Game/World/Root_Units" index="1"]
+
+editor/display_folded = true
+position = Vector2( -784.264, 431.289 )
+
+[node name="Enemy" parent="Game/World/Root_Units/Battlion11" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( 215.605, -207.407 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy8" parent="Game/World/Root_Units/Battlion11" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 287.779, -348.054 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy2" parent="Game/World/Root_Units/Battlion11" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 95.5725, -200.187 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy7" parent="Game/World/Root_Units/Battlion11" index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 167.747, -340.834 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy3" parent="Game/World/Root_Units/Battlion11" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 131.673, -265.167 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy5" parent="Game/World/Root_Units/Battlion11" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 203.847, -405.814 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy4" parent="Game/World/Root_Units/Battlion11" index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 218.313, -298.56 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy6" parent="Game/World/Root_Units/Battlion11" index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 290.487, -439.206 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Battlion17" type="Position2D" parent="Game/World/Root_Units" index="2"]
+
+editor/display_folded = true
+position = Vector2( -951.171, 907.282 )
+
+[node name="Enemy" parent="Game/World/Root_Units/Battlion17" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( 215.605, -207.407 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy8" parent="Game/World/Root_Units/Battlion17" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 287.779, -348.054 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy2" parent="Game/World/Root_Units/Battlion17" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 95.5725, -200.187 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy7" parent="Game/World/Root_Units/Battlion17" index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 167.747, -340.834 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy3" parent="Game/World/Root_Units/Battlion17" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 131.673, -265.167 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy5" parent="Game/World/Root_Units/Battlion17" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 203.847, -405.814 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy4" parent="Game/World/Root_Units/Battlion17" index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 218.313, -298.56 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy6" parent="Game/World/Root_Units/Battlion17" index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 290.487, -439.206 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Battlion23" type="Position2D" parent="Game/World/Root_Units" index="3"]
+
+position = Vector2( -623.539, 1000.01 )
+
+[node name="Enemy" parent="Game/World/Root_Units/Battlion23" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( 249.009, -165.652 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy8" parent="Game/World/Root_Units/Battlion23" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 287.779, -348.054 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy2" parent="Game/World/Root_Units/Battlion23" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 118.955, -133.38 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy7" parent="Game/World/Root_Units/Battlion23" index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 167.747, -340.834 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy3" parent="Game/World/Root_Units/Battlion23" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 131.673, -265.167 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy5" parent="Game/World/Root_Units/Battlion23" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 203.847, -405.814 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy4" parent="Game/World/Root_Units/Battlion23" index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 218.313, -298.56 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy6" parent="Game/World/Root_Units/Battlion23" index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 250.402, -581.172 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Battlion2" type="Position2D" parent="Game/World/Root_Units" index="4"]
+
+editor/display_folded = true
+position = Vector2( -22.316, 53.0007 )
+
+[node name="Enemy" parent="Game/World/Root_Units/Battlion2" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( 215.605, -207.407 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy8" parent="Game/World/Root_Units/Battlion2" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 287.779, -348.054 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy2" parent="Game/World/Root_Units/Battlion2" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 95.5725, -200.187 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy7" parent="Game/World/Root_Units/Battlion2" index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 167.747, -340.834 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy3" parent="Game/World/Root_Units/Battlion2" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 131.673, -265.167 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy5" parent="Game/World/Root_Units/Battlion2" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 203.847, -405.814 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy4" parent="Game/World/Root_Units/Battlion2" index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 218.313, -298.56 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy6" parent="Game/World/Root_Units/Battlion2" index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 290.487, -439.206 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Battlion10" type="Position2D" parent="Game/World/Root_Units" index="5"]
+
+editor/display_folded = true
+position = Vector2( -362.312, -55.1797 )
+
+[node name="Enemy" parent="Game/World/Root_Units/Battlion10" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( 215.605, -207.407 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy8" parent="Game/World/Root_Units/Battlion10" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 287.779, -348.054 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy2" parent="Game/World/Root_Units/Battlion10" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 95.5725, -200.187 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy7" parent="Game/World/Root_Units/Battlion10" index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 167.747, -340.834 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy3" parent="Game/World/Root_Units/Battlion10" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 131.673, -265.167 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy5" parent="Game/World/Root_Units/Battlion10" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 203.847, -405.814 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy4" parent="Game/World/Root_Units/Battlion10" index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 218.313, -298.56 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy6" parent="Game/World/Root_Units/Battlion10" index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 290.487, -439.206 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Battlion16" type="Position2D" parent="Game/World/Root_Units" index="6"]
+
+editor/display_folded = true
+position = Vector2( -529.219, 420.814 )
+
+[node name="Enemy" parent="Game/World/Root_Units/Battlion16" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( 215.605, -207.407 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy8" parent="Game/World/Root_Units/Battlion16" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 287.779, -348.054 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy2" parent="Game/World/Root_Units/Battlion16" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 95.5725, -200.187 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy7" parent="Game/World/Root_Units/Battlion16" index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 167.747, -340.834 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy3" parent="Game/World/Root_Units/Battlion16" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 131.673, -265.167 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy5" parent="Game/World/Root_Units/Battlion16" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 203.847, -405.814 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy4" parent="Game/World/Root_Units/Battlion16" index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 218.313, -298.56 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy6" parent="Game/World/Root_Units/Battlion16" index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 290.487, -439.206 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Battlion22" type="Position2D" parent="Game/World/Root_Units" index="7"]
+
+editor/display_folded = true
+position = Vector2( -201.586, 513.54 )
+
+[node name="Enemy" parent="Game/World/Root_Units/Battlion22" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( 215.605, -207.407 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy8" parent="Game/World/Root_Units/Battlion22" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 287.779, -348.054 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy2" parent="Game/World/Root_Units/Battlion22" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 95.5725, -200.187 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy7" parent="Game/World/Root_Units/Battlion22" index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 167.747, -340.834 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy3" parent="Game/World/Root_Units/Battlion22" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 131.673, -265.167 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy5" parent="Game/World/Root_Units/Battlion22" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 203.847, -405.814 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy4" parent="Game/World/Root_Units/Battlion22" index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 218.313, -298.56 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy6" parent="Game/World/Root_Units/Battlion22" index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 290.487, -439.206 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Battlion3" type="Position2D" parent="Game/World/Root_Units" index="8"]
+
+editor/display_folded = true
+position = Vector2( -177.235, -5.41452 )
+
+[node name="Enemy" parent="Game/World/Root_Units/Battlion3" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( 215.605, -207.407 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy8" parent="Game/World/Root_Units/Battlion3" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 287.779, -348.054 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy2" parent="Game/World/Root_Units/Battlion3" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 95.5725, -200.187 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy7" parent="Game/World/Root_Units/Battlion3" index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 167.747, -340.834 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy3" parent="Game/World/Root_Units/Battlion3" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 131.673, -265.167 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy5" parent="Game/World/Root_Units/Battlion3" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 203.847, -405.814 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy4" parent="Game/World/Root_Units/Battlion3" index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 218.313, -298.56 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy6" parent="Game/World/Root_Units/Battlion3" index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 290.487, -439.206 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Battlion8" type="Position2D" parent="Game/World/Root_Units" index="9"]
+
+editor/display_folded = true
+position = Vector2( -517.23, -113.595 )
+
+[node name="Enemy" parent="Game/World/Root_Units/Battlion8" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( 215.605, -207.407 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy8" parent="Game/World/Root_Units/Battlion8" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 287.779, -348.054 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy2" parent="Game/World/Root_Units/Battlion8" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 95.5725, -200.187 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy7" parent="Game/World/Root_Units/Battlion8" index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 167.747, -340.834 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy3" parent="Game/World/Root_Units/Battlion8" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 131.673, -265.167 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy5" parent="Game/World/Root_Units/Battlion8" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 203.847, -405.814 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy4" parent="Game/World/Root_Units/Battlion8" index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 218.313, -298.56 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy6" parent="Game/World/Root_Units/Battlion8" index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 290.487, -439.206 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Battlion15" type="Position2D" parent="Game/World/Root_Units" index="10"]
+
+editor/display_folded = true
+position = Vector2( -684.137, 362.399 )
+
+[node name="Enemy" parent="Game/World/Root_Units/Battlion15" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( 215.605, -207.407 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy8" parent="Game/World/Root_Units/Battlion15" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 287.779, -348.054 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy2" parent="Game/World/Root_Units/Battlion15" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 95.5725, -200.187 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy7" parent="Game/World/Root_Units/Battlion15" index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 167.747, -340.834 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy3" parent="Game/World/Root_Units/Battlion15" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 131.673, -265.167 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy5" parent="Game/World/Root_Units/Battlion15" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 203.847, -405.814 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy4" parent="Game/World/Root_Units/Battlion15" index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 218.313, -298.56 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy6" parent="Game/World/Root_Units/Battlion15" index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 290.487, -439.206 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Battlion21" type="Position2D" parent="Game/World/Root_Units" index="11"]
+
+editor/display_folded = true
+position = Vector2( -356.505, 455.125 )
+
+[node name="Enemy" parent="Game/World/Root_Units/Battlion21" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( 215.605, -207.407 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy8" parent="Game/World/Root_Units/Battlion21" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 287.779, -348.054 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy2" parent="Game/World/Root_Units/Battlion21" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 95.5725, -200.187 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy7" parent="Game/World/Root_Units/Battlion21" index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 167.747, -340.834 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy3" parent="Game/World/Root_Units/Battlion21" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 131.673, -265.167 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy5" parent="Game/World/Root_Units/Battlion21" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 203.847, -405.814 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy4" parent="Game/World/Root_Units/Battlion21" index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 218.313, -298.56 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy6" parent="Game/World/Root_Units/Battlion21" index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 290.487, -439.206 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Battlion4" type="Position2D" parent="Game/World/Root_Units" index="12"]
+
+editor/display_folded = true
+position = Vector2( -322.91, 261.478 )
+
+[node name="Enemy" parent="Game/World/Root_Units/Battlion4" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( 215.605, -207.407 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy8" parent="Game/World/Root_Units/Battlion4" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 287.779, -348.054 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy2" parent="Game/World/Root_Units/Battlion4" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 95.5725, -200.187 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy7" parent="Game/World/Root_Units/Battlion4" index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 167.747, -340.834 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy3" parent="Game/World/Root_Units/Battlion4" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 131.673, -265.167 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy5" parent="Game/World/Root_Units/Battlion4" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 203.847, -405.814 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy4" parent="Game/World/Root_Units/Battlion4" index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 218.313, -298.56 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy6" parent="Game/World/Root_Units/Battlion4" index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 290.487, -439.206 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Battlion9" type="Position2D" parent="Game/World/Root_Units" index="13"]
+
+editor/display_folded = true
+position = Vector2( -662.905, 153.298 )
+
+[node name="Enemy" parent="Game/World/Root_Units/Battlion9" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( 215.605, -207.407 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy8" parent="Game/World/Root_Units/Battlion9" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 287.779, -348.054 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy2" parent="Game/World/Root_Units/Battlion9" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 95.5725, -200.187 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy7" parent="Game/World/Root_Units/Battlion9" index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 167.747, -340.834 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy3" parent="Game/World/Root_Units/Battlion9" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 131.673, -265.167 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy5" parent="Game/World/Root_Units/Battlion9" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 203.847, -405.814 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy4" parent="Game/World/Root_Units/Battlion9" index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 218.313, -298.56 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy6" parent="Game/World/Root_Units/Battlion9" index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 290.487, -439.206 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Battlion14" type="Position2D" parent="Game/World/Root_Units" index="14"]
+
+editor/display_folded = true
+position = Vector2( -829.812, 629.292 )
+
+[node name="Enemy" parent="Game/World/Root_Units/Battlion14" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( 215.605, -207.407 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy8" parent="Game/World/Root_Units/Battlion14" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 287.779, -348.054 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy2" parent="Game/World/Root_Units/Battlion14" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 95.5725, -200.187 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy7" parent="Game/World/Root_Units/Battlion14" index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 167.747, -340.834 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy3" parent="Game/World/Root_Units/Battlion14" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 131.673, -265.167 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy5" parent="Game/World/Root_Units/Battlion14" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 203.847, -405.814 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy4" parent="Game/World/Root_Units/Battlion14" index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 218.313, -298.56 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy6" parent="Game/World/Root_Units/Battlion14" index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 290.487, -439.206 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Battlion25" type="Position2D" parent="Game/World/Root_Units" index="15"]
+
+editor/display_folded = true
+position = Vector2( -467.106, 755.422 )
+
+[node name="Enemy" parent="Game/World/Root_Units/Battlion25" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( 215.605, -207.407 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy8" parent="Game/World/Root_Units/Battlion25" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 287.779, -348.054 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy2" parent="Game/World/Root_Units/Battlion25" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 95.5725, -200.187 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy7" parent="Game/World/Root_Units/Battlion25" index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 167.747, -340.834 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy3" parent="Game/World/Root_Units/Battlion25" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 131.673, -265.167 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy5" parent="Game/World/Root_Units/Battlion25" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 203.847, -405.814 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy4" parent="Game/World/Root_Units/Battlion25" index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 218.313, -298.56 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy6" parent="Game/World/Root_Units/Battlion25" index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 290.487, -439.206 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Battlion5" type="Position2D" parent="Game/World/Root_Units" index="16"]
+
+editor/display_folded = true
+position = Vector2( -138.625, 303.973 )
+
+[node name="Enemy" parent="Game/World/Root_Units/Battlion5" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( 215.605, -207.407 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy8" parent="Game/World/Root_Units/Battlion5" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 287.779, -348.054 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy2" parent="Game/World/Root_Units/Battlion5" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 95.5725, -200.187 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy7" parent="Game/World/Root_Units/Battlion5" index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 167.747, -340.834 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy3" parent="Game/World/Root_Units/Battlion5" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 131.673, -265.167 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy5" parent="Game/World/Root_Units/Battlion5" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 203.847, -405.814 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy4" parent="Game/World/Root_Units/Battlion5" index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 218.313, -298.56 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy6" parent="Game/World/Root_Units/Battlion5" index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 290.487, -439.206 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Battlion12" type="Position2D" parent="Game/World/Root_Units" index="17"]
+
+editor/display_folded = true
+position = Vector2( -478.621, 195.793 )
+
+[node name="Enemy" parent="Game/World/Root_Units/Battlion12" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( 215.605, -207.407 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy8" parent="Game/World/Root_Units/Battlion12" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 287.779, -348.054 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy2" parent="Game/World/Root_Units/Battlion12" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 95.5725, -200.187 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy7" parent="Game/World/Root_Units/Battlion12" index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 167.747, -340.834 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy3" parent="Game/World/Root_Units/Battlion12" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 131.673, -265.167 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy5" parent="Game/World/Root_Units/Battlion12" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 203.847, -405.814 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy4" parent="Game/World/Root_Units/Battlion12" index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 218.313, -298.56 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy6" parent="Game/World/Root_Units/Battlion12" index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 290.487, -439.206 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Battlion18" type="Position2D" parent="Game/World/Root_Units" index="18"]
+
+editor/display_folded = true
+position = Vector2( -645.528, 671.787 )
+
+[node name="Enemy" parent="Game/World/Root_Units/Battlion18" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( 215.605, -207.407 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy8" parent="Game/World/Root_Units/Battlion18" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 287.779, -348.054 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy2" parent="Game/World/Root_Units/Battlion18" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 95.5725, -200.187 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy7" parent="Game/World/Root_Units/Battlion18" index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 167.747, -340.834 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy3" parent="Game/World/Root_Units/Battlion18" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 131.673, -265.167 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy5" parent="Game/World/Root_Units/Battlion18" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 203.847, -405.814 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy4" parent="Game/World/Root_Units/Battlion18" index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 218.313, -298.56 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy6" parent="Game/World/Root_Units/Battlion18" index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 290.487, -439.206 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Battlion20" type="Position2D" parent="Game/World/Root_Units" index="19"]
+
+position = Vector2( -317.896, 764.513 )
+
+[node name="Enemy" parent="Game/World/Root_Units/Battlion20" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( 215.605, -207.407 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy8" parent="Game/World/Root_Units/Battlion20" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 287.779, -348.054 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy2" parent="Game/World/Root_Units/Battlion20" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 33.7758, -163.443 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy7" parent="Game/World/Root_Units/Battlion20" index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 167.747, -340.834 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy3" parent="Game/World/Root_Units/Battlion20" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 131.673, -265.167 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy5" parent="Game/World/Root_Units/Battlion20" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 203.847, -405.814 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy4" parent="Game/World/Root_Units/Battlion20" index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 218.313, -298.56 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy6" parent="Game/World/Root_Units/Battlion20" index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 290.487, -439.206 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Battlion6" type="Position2D" parent="Game/World/Root_Units" index="20"]
+
+editor/display_folded = true
+position = Vector2( -252.995, 580.135 )
+
+[node name="Enemy" parent="Game/World/Root_Units/Battlion6" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( 215.605, -207.407 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy8" parent="Game/World/Root_Units/Battlion6" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 287.779, -348.054 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy2" parent="Game/World/Root_Units/Battlion6" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 95.5725, -200.187 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy7" parent="Game/World/Root_Units/Battlion6" index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 167.747, -340.834 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy3" parent="Game/World/Root_Units/Battlion6" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 131.673, -265.167 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy5" parent="Game/World/Root_Units/Battlion6" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 203.847, -405.814 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy4" parent="Game/World/Root_Units/Battlion6" index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 218.313, -298.56 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy6" parent="Game/World/Root_Units/Battlion6" index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 290.487, -439.206 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Battlion13" type="Position2D" parent="Game/World/Root_Units" index="21"]
+
+editor/display_folded = true
+position = Vector2( -592.991, 471.954 )
+
+[node name="Enemy" parent="Game/World/Root_Units/Battlion13" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( 215.605, -207.407 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy8" parent="Game/World/Root_Units/Battlion13" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 287.779, -348.054 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy2" parent="Game/World/Root_Units/Battlion13" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 95.5725, -200.187 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy7" parent="Game/World/Root_Units/Battlion13" index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 167.747, -340.834 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy3" parent="Game/World/Root_Units/Battlion13" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 131.673, -265.167 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy5" parent="Game/World/Root_Units/Battlion13" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 203.847, -405.814 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy4" parent="Game/World/Root_Units/Battlion13" index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 218.313, -298.56 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy6" parent="Game/World/Root_Units/Battlion13" index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 290.487, -439.206 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Battlion19" type="Position2D" parent="Game/World/Root_Units" index="22"]
+
+position = Vector2( -759.898, 947.948 )
+
+[node name="Enemy" parent="Game/World/Root_Units/Battlion19" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( 192.222, -153.961 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy8" parent="Game/World/Root_Units/Battlion19" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 287.779, -348.054 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy2" parent="Game/World/Root_Units/Battlion19" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 95.5725, -200.187 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy7" parent="Game/World/Root_Units/Battlion19" index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 167.747, -340.834 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy3" parent="Game/World/Root_Units/Battlion19" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 131.673, -265.167 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy5" parent="Game/World/Root_Units/Battlion19" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 203.847, -405.814 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy4" parent="Game/World/Root_Units/Battlion19" index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 218.313, -298.56 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy6" parent="Game/World/Root_Units/Battlion19" index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 290.487, -439.206 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Battlion24" type="Position2D" parent="Game/World/Root_Units" index="23"]
+
+position = Vector2( -432.265, 1040.67 )
+
+[node name="Enemy" parent="Game/World/Root_Units/Battlion24" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( 364.251, -381.106 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy8" parent="Game/World/Root_Units/Battlion24" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 287.779, -348.054 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy2" parent="Game/World/Root_Units/Battlion24" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 279.293, -225.24 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy7" parent="Game/World/Root_Units/Battlion24" index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 167.747, -340.834 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy3" parent="Game/World/Root_Units/Battlion24" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 131.673, -265.167 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy5" parent="Game/World/Root_Units/Battlion24" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 203.847, -405.814 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy4" parent="Game/World/Root_Units/Battlion24" index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 218.313, -298.56 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Enemy6" parent="Game/World/Root_Units/Battlion24" index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 290.487, -439.206 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
+
+[node name="Battlion7" type="Position2D" parent="Game/World/Root_Units" index="24"]
+
+position = Vector2( 299.328, 485.291 )
+
+[node name="Enemy" parent="Game/World/Root_Units/Battlion7" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( 131.852, -422.279 )
+scale = Vector2( 1, 1 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy8" parent="Game/World/Root_Units/Battlion7" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 98.983, -319.323 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 1337, -1 ]
+
+[node name="Enemy2" parent="Game/World/Root_Units/Battlion7" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 28.5209, -348.251 )
+scale = Vector2( 1, 1 )
+equipment_container_slots = [ 0, 1, 2, -1, -1, -1 ]
+equipped_weapons = [ 3001, -1 ]
 
 
