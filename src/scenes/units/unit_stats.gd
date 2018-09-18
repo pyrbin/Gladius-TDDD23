@@ -27,25 +27,27 @@ enum ATTR {
 enum MODIFIER { PERCENT, VALUE }
 
 # Start values
-export (int) var health = 100
-export (int) var endurance = 100
-export (int) var power = 0
-export (int) var attack_speed = 1
-export (int) var movement_speed = 1
-export (int) var crit_chance = 0
+export (float) var health = 100
+export (float) var endurance = 100
+export (float) var power = 0
+export (float) var attack_speed = 1
+export (float) var movement_speed = 1
+export (float) var crit_chance = 0
 
 onready var attributes = {
-	ATTR.HEALTH: 0,
-	ATTR.ENDURANCE: 0,
-	ATTR.POWER : 0,
-	ATTR.ATK_SPEED : 0,
-	ATTR.MOV_SPEED : 0,
-	ATTR.CRIT : 0
+	ATTR.HEALTH: 0.0,
+	ATTR.ENDURANCE: 0.0,
+	ATTR.POWER : 0.0,
+	ATTR.ATK_SPEED : 0.0,
+	ATTR.MOV_SPEED : 0.0,
+	ATTR.CRIT : 0.0
 }
 onready var mod_percent = {}
 onready var mod_value= {}
-
+var regenerating_endurance = false
 func _ready():
+	set_process(true)
+	$EnduranceRegen.connect("timeout", self, "_on_regen_endurance")
 	mod_percent = gb_Utils.deep_copy(attributes)
 	for p in mod_percent:
 		mod_percent[p] = 1
@@ -57,6 +59,18 @@ func _ready():
 	attributes[ATTR.MOV_SPEED] = movement_speed
 	attributes[ATTR.CRIT] = crit_chance
 
+func _on_regen_endurance():
+	mod_modifier("ENDURANCE", 3, "VALUE")
+
+func _process(d):
+	if final_stat("ENDURANCE") < get_attribute("ENDURANCE") && !regenerating_endurance:
+		regenerating_endurance = true
+		$EnduranceRegen.start()
+	elif final_stat("ENDURANCE") >= get_attribute("ENDURANCE"):
+		regenerating_endurance = false
+		$EnduranceRegen.stop()
+
+# TODO: combine all modifications to a single dict for easier management
 func final_stat(stat_key):
 	if typeof(stat_key) == TYPE_STRING: 
 		stat_key = str_to_attr(stat_key)

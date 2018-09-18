@@ -4,6 +4,7 @@ enum ATTACK_STATE { IDLE, ATTACKING, HOLSTERED }
 
 const WeaponData = preload("res://data/weapon_data.gd")
 const HITABLE_GROUP_NAME = "Hitable"
+const KNOCKBACK_FORCE = 1600
 export (Vector2) var holster_offset = Vector2(52,0)
 
 onready var cooldown_timer = $Timer
@@ -73,8 +74,8 @@ func _on_body_entered_root(body):
 func _on_body_entered(body):
     var angle = holder.position.angle_to_point(holder.get_aim_position())
     var dir = Vector2(-cos(angle), -sin(angle))
-    body.velocity = dir * 20
-    body.stats.mod_modifier("HEALTH", -0.25, "PERCENT")
+    body.velocity = dir * KNOCKBACK_FORCE
+    body.take_damage(data.attributes["DAMAGE"], owner)
 
 func _on_animation_finished(anim):
     _current_hit_targets.clear()

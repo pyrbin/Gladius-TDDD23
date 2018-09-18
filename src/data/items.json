@@ -97,8 +97,8 @@
         "DESC": "A short little sword very bad I think",
         "SPRITE": "weapon/iron_weapon/iron_shortsword.png",
         "ATTRIBUTES": {
-            "DAMAGE" : 5,
-            "ATTACK_SPEED": 200,
+            "DAMAGE" : 15,
+            "ATTACK_SPEED": 350,
             "COOLDOWN" : 0.5
         },
         "WEAPON_TYPE": 0,
@@ -112,8 +112,8 @@
         "DESC": "A short little sword very bad I think of bronze tho",
         "SPRITE": "weapon/bronze_weapon/bronze_shortsword.png",
         "ATTRIBUTES": {
-            "DAMAGE" : 3,
-            "ATTACK_SPEED": 200,
+            "DAMAGE" : 10,
+            "ATTACK_SPEED": 350,
             "COOLDOWN" : 0.5
         },
         "WEAPON_TYPE": 0,
@@ -127,8 +127,8 @@
         "DESC": "dis wepon will C0NzVME URZ hehehee",
         "SPRITE": "weapon/doom_weapon/666_mace.png",
         "ATTRIBUTES": {
-            "DAMAGE" : 666,
-            "ATTACK_SPEED": 110,
+            "DAMAGE" : 10000000,
+            "ATTACK_SPEED": 140,
             "COOLDOWN" : 0.150
         },
         "WEAPON_TYPE": 0,

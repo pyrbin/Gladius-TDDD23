@@ -8,6 +8,7 @@
 ] instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 item_id = null
 
 

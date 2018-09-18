@@ -5,7 +5,8 @@ func _ready():
         "idle": $Idle,
         "move": $Move,
         "jump": $Jump,
-        "dead": $Dead
+        "dead": $Dead,
+        "stagger": $Stagger
     }
     owner.get_node("AnimationPlayer").connect("animation_finished", self, "_on_animation_finished")
 

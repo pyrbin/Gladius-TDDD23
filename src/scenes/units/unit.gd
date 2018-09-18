@@ -3,6 +3,7 @@ extends KinematicBody2D
 
 #signals
 signal unit_collided
+signal took_damage(amount, actor)
 
 # enums
 enum LOOK_STATE {TOP_RIGHT, TOP_LEFT, BOTTOM_RIGHT, BOTTOM_LEFT}
@@ -90,7 +91,12 @@ func left_attack_weapon():
 
 func right_attack_weapon():
     stats.set_modifier(stats.ATTR.HEALTH, 0, stats.MODIFIER.PERCENT)
-    
+
+func take_damage(amount, actor, mod="VALUE"):
+    print(amount)
+    stats.mod_modifier("HEALTH", -amount, mod)
+    emit_signal("took_damage", amount, actor)
+
 #   Sprite manipulation
 #   =========================
 func _set_look_state(look_position):
