@@ -43,13 +43,15 @@ _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="Pivot/Area2D" index="0"]
 
-editor/display_folded = true
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Material" ]
 
 [node name="U_Hand_Pivot" type="Position2D" parent="Pivot/Area2D/Sprite" index="0"]
 
 [node name="L_Hand_Pivot" type="Position2D" parent="Pivot/Area2D/Sprite" index="1"]
+
+z_index = -1
+_sections_unfolded = [ "Z Index" ]
 
 [node name="Hitbox" type="CollisionPolygon2D" parent="Pivot/Area2D" index="1"]
 

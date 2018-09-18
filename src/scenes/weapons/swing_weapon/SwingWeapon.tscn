@@ -101,6 +101,7 @@ anims/swing_up = SubResource( 2 )
 
 [node name="Pivot" parent="." index="2"]
 
+rotation = 3.14159
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Area2D" parent="Pivot" index="0"]
@@ -111,6 +112,7 @@ position = Vector2( 30, 0 )
 
 texture = ExtResource( 3 )
 offset = Vector2( 52, 0 )
+flip_v = true
 _sections_unfolded = [ "Material", "Offset", "Transform" ]
 
 [node name="U_Hand_Pivot" parent="Pivot/Area2D/Sprite" index="0"]
@@ -123,6 +125,7 @@ position = Vector2( -68.1531, -2.31665 )
 
 [node name="Swish" type="Sprite" parent="." index="3"]
 
+visible = false
 position = Vector2( 0, 19 )
 rotation = 1.5708
 _sections_unfolded = [ "Transform" ]

@@ -325,8 +325,8 @@ tracks/0/keys = {
 
 [node name="Unit" type="KinematicBody2D" groups=[
 "Units",
-"Hitable",
 "Z_Index",
+"Hitable",
 ]]
 
 position = Vector2( 0.576477, -0.523365 )
@@ -414,7 +414,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 [node name="Visuals" type="Position2D" parent="." index="3"]
 
 editor/display_folded = true
-position = Vector2( -0.58837, -11.1091 )
+position = Vector2( -0.477157, -29.5153 )
 
 [node name="Pivot" type="Position2D" parent="Visuals" index="0"]
 
@@ -451,7 +451,7 @@ _sections_unfolded = [ "Region", "Transform", "Z Index" ]
 
 [node name="WeaponPivot" type="Position2D" parent="Visuals/Pivot" index="2"]
 
-position = Vector2( -4.76837e-007, 13 )
+position = Vector2( -2.79397e-009, 15.9238 )
 z_index = 5
 _sections_unfolded = [ "Transform", "Z Index" ]
 

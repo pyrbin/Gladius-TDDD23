@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/interactable/interactable.gd" type="Script" id=1]
-[ext_resource path="res://shaders/pixel_outline.shader" type="Shader" id=2]
-[ext_resource path="res://assets/items/unknown_icon.png" type="Texture" id=3]
-[ext_resource path="res://assets/shadow.png" type="Texture" id=4]
+[ext_resource path="res://assets/shadow.png" type="Texture" id=2]
+[ext_resource path="res://shaders/pixel_outline.shader" type="Shader" id=3]
+[ext_resource path="res://assets/items/unknown_icon.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=1]
 
@@ -12,7 +12,7 @@ length = 1.0
 loop = true
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("Pivot:position")
+tracks/0/path = NodePath("Visuals/Pivot:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -32,7 +32,7 @@ radius = 38.6931
 [sub_resource type="ShaderMaterial" id=3]
 
 render_priority = 0
-shader = ExtResource( 2 )
+shader = ExtResource( 3 )
 shader_param/intensity = 72
 shader_param/sizex = 72.0
 shader_param/sizey = 72.0
@@ -52,6 +52,7 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 
@@ -65,27 +66,34 @@ blend_times = [  ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
+position = Vector2( -0.364784, -18.7194 )
 shape = SubResource( 2 )
 
-[node name="Pivot" type="Position2D" parent="." index="2"]
+[node name="Visuals" type="Position2D" parent="." index="2"]
 
-z_index = 1
-_sections_unfolded = [ "Transform", "Z Index" ]
+editor/display_folded = true
+position = Vector2( -0.364784, -18.7194 )
 
-[node name="Sprite" type="Sprite" parent="Pivot" index="0"]
-
-material = SubResource( 3 )
-position = Vector2( 0.250351, 0.250343 )
-z_index = 1
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Material", "Z Index" ]
-
-[node name="Shadow" type="Sprite" parent="." index="3"]
+[node name="Shadow" type="Sprite" parent="Visuals" index="0"]
 
 modulate = Color( 1, 1, 1, 0.480392 )
 position = Vector2( 0, 20.0275 )
 scale = Vector2( 0.505134, 0.234466 )
-texture = ExtResource( 4 )
+texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="Pivot" type="Position2D" parent="Visuals" index="1"]
+
+editor/display_folded = true
+z_index = 1
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Sprite" type="Sprite" parent="Visuals/Pivot" index="0"]
+
+material = SubResource( 3 )
+position = Vector2( 0.250351, 0.250343 )
+z_index = 1
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Material", "Z Index" ]
 
 

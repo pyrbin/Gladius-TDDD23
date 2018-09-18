@@ -9,16 +9,21 @@ texture = ExtResource( 2 )
 idle_jump = false
 remove_on_use = false
 
-[node name="Pivot" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( -0.631111, -1.06164 )
+position = Vector2( 0, -4.93989 )
 
-[node name="Sprite" parent="Pivot" index="0"]
+[node name="Visuals" parent="." index="2"]
+
+editor/display_folded = false
+position = Vector2( 0, -18.9734 )
+
+[node name="Pivot" parent="Visuals" index="1"]
+
+editor/display_folded = false
+
+[node name="Sprite" parent="Visuals/Pivot" index="0"]
 
 texture = ExtResource( 2 )
-
-[node name="Shadow" parent="." index="3"]
-
-position = Vector2( -0.946671, 20.5008 )
 
 

@@ -37,8 +37,4 @@ remove_on_use = true
 anims/open = SubResource( 1 )
 _sections_unfolded = [ "Playback Options" ]
 
-[node name="Pivot" parent="." index="2"]
-
-position = Vector2( 0, -11.7157 )
-
 

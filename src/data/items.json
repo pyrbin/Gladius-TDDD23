@@ -145,5 +145,35 @@
             "HEALTH" : 100
         },
         "COOLDOWN": 20
+    },
+    "3003": {
+        "NAME": "Iron Longspear",
+        "ICON": "weapon/iron_weapon/iron_spear_icon.png",
+        "TYPE": 1,
+        "SLOT": 3,
+        "DESC": "A short long spear very bad I think",
+        "SPRITE": "weapon/iron_weapon/iron_spear.png",
+        "ATTRIBUTES": {
+            "DAMAGE" : 35,
+            "ATTACK_SPEED": 300,
+            "COOLDOWN" : 0.6
+        },
+        "WEAPON_TYPE": 1,
+        "MODEL" : "stab_weapon/spear/Spear.tscn"
+    },
+    "3004": {
+        "NAME": "Iron Dagger",
+        "ICON": "weapon/iron_weapon/iron_dagger_icon.png",
+        "TYPE": 1,
+        "SLOT": 3,
+        "DESC": "A dagger very bad I think",
+        "SPRITE": "weapon/iron_weapon/iron_dagger.png",
+        "ATTRIBUTES": {
+            "DAMAGE" : 10,
+            "ATTACK_SPEED": 250,
+            "COOLDOWN" : 0.28
+        },
+        "WEAPON_TYPE": 1,
+        "MODEL" : "stab_weapon/dagger/Dagger.tscn"
     }
 }
