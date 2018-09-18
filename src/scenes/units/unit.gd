@@ -93,7 +93,6 @@ func right_attack_weapon():
     stats.set_modifier(stats.ATTR.HEALTH, 0, stats.MODIFIER.PERCENT)
 
 func take_damage(amount, actor, mod="VALUE"):
-    print(amount)
     stats.mod_modifier("HEALTH", -amount, mod)
     emit_signal("took_damage", amount, actor)
 
@@ -257,9 +256,13 @@ func _equip_equipments():
 #   Process loop
 #   =========================
 func _physics_process(delta):
-    _set_look_state(get_aim_position())
-    if holster_timer.is_stopped() && weapon && weapon.is_ready() && use_holster:
-        holster_weapon()
+    if !dead:
+        _set_look_state(get_aim_position())
+        if holster_timer.is_stopped() && weapon && weapon.is_ready() && use_holster:
+            holster_weapon()
+    _handle_collision(delta)  
+
+func _handle_collision(delta):
     var collision = move_and_collide(velocity * delta)
     if collision:
         _on_collision(collision)
@@ -268,7 +271,6 @@ func _physics_process(delta):
 
 func set_dead(value):
     dead = value
-    set_physics_process(not value)
 
 func get_aim_position():
     pass
