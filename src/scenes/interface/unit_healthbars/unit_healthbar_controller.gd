@@ -1,9 +1,16 @@
 extends Control
 
-var enemies
+export (bool) var disabled = false
+const MAX_DISTANCE_TO_RENDER = 700
+onready var life_bar = $LifeBarWorld/TextureProgress
+var bar_hidden = false
 var player
 
 func _ready():
+    set_process(not disabled)
+    set_physics_process(not disabled)
+    set_process_input(not disabled)
+    show() if not disabled else hide()
     player = get_tree().get_nodes_in_group("Player")[0]
     if not player:
         player.connect("player_loaded", self, "_on_player_loaded")
@@ -11,12 +18,18 @@ func _ready():
         _on_player_loaded()
     
 func _on_player_loaded():
-	pass
+    pass
+
+func in_radius_of_player():
+    return player.global_position.distance_to(owner.global_position) <= MAX_DISTANCE_TO_RENDER
 
 func _process(delta):
-	var i = 0
-	enemies = get_tree().get_nodes_in_group("Enemies")
-	for enemy in enemies:
-		if enemy.position.distance_to(player.position) > 200: continue
-		i+=1
-	print(i)
+    if owner.dead or not in_radius_of_player():
+        if not bar_hidden: 
+            life_bar.hide()
+            bar_hidden = true
+        return
+    life_bar.value = (owner.stats.final_stat("HEALTH")/owner.stats.get_attribute("HEALTH"))
+    if bar_hidden:
+        life_bar.show()
+        bar_hidden = false

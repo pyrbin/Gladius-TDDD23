@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/units/player/camera/camera_pivot.gd" type="Script" id=3]
 [ext_resource path="res://scenes/units/player/interact_controller.gd" type="Script" id=4]
 
-[node name="Player" groups=[
+[node name="Player" index="0" groups=[
 "Player",
 ] instance=ExtResource( 1 )]
 
@@ -18,9 +18,14 @@ equipped_weapons = [ -1, -1 ]
 
 MAX_SPRINT_SPEED = 300.0
 
-[node name="Visuals" parent="." index="3"]
+[node name="WorldUI" parent="Visuals/Pivot/Container" index="0"]
 
-editor/display_folded = true
+editor/display_folded = false
+
+[node name="UnitHealthBarController" parent="Visuals/Pivot/Container/WorldUI" index="0"]
+
+visible = false
+disabled = true
 
 [node name="CameraPivot" type="Position2D" parent="." index="6"]
 
@@ -32,7 +37,7 @@ position = Vector2( 0, -1.50735 )
 anchor_mode = 1
 rotating = false
 current = true
-zoom = Vector2( 0.5, 0.5 )
+zoom = Vector2( 0.6, 0.6 )
 limit_left = -10000000
 limit_top = -10000000
 limit_right = 10000000

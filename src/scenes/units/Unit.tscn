@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scenes/units/unit.gd" type="Script" id=1]
 [ext_resource path="res://scenes/units/unit_state_machine.gd" type="Script" id=2]
@@ -9,9 +9,10 @@
 [ext_resource path="res://scenes/units/unit_stats.gd" type="Script" id=7]
 [ext_resource path="res://shaders/pixel_outline.shader" type="Shader" id=8]
 [ext_resource path="res://assets/gladiator/hand_6x6.png" type="Texture" id=9]
-[ext_resource path="res://assets/items/weapon/iron_weapon/iron_shortsword.png" type="Texture" id=10]
-[ext_resource path="res://assets/gladiator_mini_mini.png" type="Texture" id=11]
-[ext_resource path="res://assets/shadow.png" type="Texture" id=12]
+[ext_resource path="res://scenes/interface/unit_healthbars/UnitHealthBarController.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/items/weapon/iron_weapon/iron_shortsword.png" type="Texture" id=11]
+[ext_resource path="res://assets/gladiator_mini_mini.png" type="Texture" id=12]
+[ext_resource path="res://assets/shadow.png" type="Texture" id=13]
 
 [sub_resource type="ShaderMaterial" id=1]
 
@@ -403,7 +404,6 @@ position = Vector2( -0.58837, -11.1091 )
 
 [node name="Pivot" type="Position2D" parent="Visuals" index="0"]
 
-editor/display_folded = true
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="U_Hand_Pivot" type="Position2D" parent="Visuals/Pivot" index="0"]
@@ -445,20 +445,46 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 _sections_unfolded = [ "Offset", "Z Index" ]
 
-[node name="Legs" type="Sprite" parent="Visuals/Pivot/Container" index="0"]
+[node name="WorldUI" type="Control" parent="Visuals/Pivot/Container" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 33.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="UnitHealthBarController" parent="Visuals/Pivot/Container/WorldUI" index="0" instance=ExtResource( 10 )]
+
+margin_left = -10.0
+margin_top = -30.0
+margin_right = 50.0
+margin_bottom = -21.0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Legs" type="Sprite" parent="Visuals/Pivot/Container" index="1"]
 
 z_index = 4
 region_enabled = true
 region_rect = Rect2( 0, 0, 72, 72 )
 _sections_unfolded = [ "Region", "Z Index" ]
 
-[node name="Helm" type="Sprite" parent="Visuals/Pivot/Container" index="1"]
+[node name="Helm" type="Sprite" parent="Visuals/Pivot/Container" index="2"]
 
 z_index = 3
 region_rect = Rect2( 0, 72, 72, 72 )
 _sections_unfolded = [ "Region", "Transform", "Z Index" ]
 
-[node name="Chest" type="Sprite" parent="Visuals/Pivot/Container" index="2"]
+[node name="Chest" type="Sprite" parent="Visuals/Pivot/Container" index="3"]
 
 z_index = 3
 region_rect = Rect2( 72, 72, 72, 72 )
@@ -471,14 +497,14 @@ show_behind_parent = true
 position = Vector2( -0.576477, 10 )
 rotation = 0.610865
 z_index = -1
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
 
-[node name="Body" type="Sprite" parent="Visuals/Pivot/Container" index="3"]
+[node name="Body" type="Sprite" parent="Visuals/Pivot/Container" index="4"]
 
 position = Vector2( -4.47035e-007, 0 )
 z_index = 2
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 72, 72 )
 region_filter_clip = true
@@ -490,7 +516,7 @@ modulate = Color( 1, 1, 1, 0.480392 )
 position = Vector2( -1.26088, 32.34 )
 rotation = 0.00174533
 scale = Vector2( 0.505134, 0.234466 )
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 offset = Vector2( -1.39726, 1.21561 )
 region_rect = Rect2( 0, 0, 72, 72 )
 _sections_unfolded = [ "Offset", "Region", "Transform", "Visibility", "Z Index" ]

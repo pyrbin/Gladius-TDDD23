@@ -1,11 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/interface/character_panel/CharacterPanel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/interface/player_action_bar/PlayerActionBar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/interface/slot_containers/ItemMenu_WindowDialog.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/interface/unit_healthbars/UnitHealthBarController.tscn" type="PackedScene" id=4]
 
-[node name="Interface" type="Control" index="0"]
+[node name="Interface" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -103,7 +102,5 @@ scroll_following = true
 selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Rect", "Size Flags", "Theme" ]
-
-[node name="UnitHealthBarController" parent="." index="5" instance=ExtResource( 4 )]
 
 
