@@ -43,7 +43,7 @@ func interact():
         print(container)
 
         if container.get(i) == null: continue
-        drop_item(i, container, Vector2(-50 + (c * 20), 0))
+        drop_item(i, container, Vector2(-40 + (c * 20), 15))
         c+=1
     interactable = false
     anim_player.play("open")

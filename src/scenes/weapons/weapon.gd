@@ -6,7 +6,7 @@ enum ATTACK_STATE { IDLE, ATTACKING, HOLSTERED }
 
 const WeaponData = preload("res://data/weapon_data.gd")
 const HITABLE_GROUP_NAME = "Hitable"
-const KNOCKBACK_FORCE = 300
+const KNOCKBACK_FORCE = 200
 
 onready var wep_sprite = $Pivot/Area2D/Sprite
 onready var anim_player = $AnimationPlayer
@@ -63,10 +63,11 @@ func attack_rmb():
     pass
     
 func attack(type):
-    if not _is_loaded: return
+    if not _is_loaded: return false
     $Pivot/Area2D/Hitbox.disabled = false
     _attack_state = ATTACKING
     cooldown_timer.start()
+    return true
 
 func is_hitable(body):
     return body != holder and body.is_in_group(HITABLE_GROUP_NAME) and !_current_hit_targets.has(body)
@@ -78,17 +79,20 @@ func _on_body_entered_root(body):
     _on_body_entered(body)
 
 func _on_body_entered(body):
-    var angle = holder.position.angle_to_point(holder.get_aim_position())
-    var dir = Vector2(-cos(angle), -sin(angle))
     _target = body
     _target.take_damage(data.attributes["DAMAGE"], owner)
     if holder ==  get_tree().get_nodes_in_group("Player")[0]:
         holder.camera.shake(0.25, 20, 3.5)
+    _knockback()
+
+func _knockback():
+    var angle = holder.position.angle_to_point(holder.get_aim_position())
+    var dir = Vector2(-cos(angle), -sin(angle))
     _knockback_force = dir * KNOCKBACK_FORCE
     var time = 0.2
     if _target.dead:
         time *= 1.5
-        _knockback_force *= 2.5
+        _knockback_force *= 1.5
     knockback_tween.interpolate_property(self, "_knockback_force", _knockback_force, Vector2(), time,
         Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
     knockback_tween.start()

@@ -21,11 +21,12 @@ func _input(event):
     $StateMachine.handle_input(event)
 
 func _process(delta):
-    if (Input.is_action_pressed("left_attack")):
+    """if (Input.is_action_pressed("left_attack")):
         var events = InputMap.get_action_list("left_attack")
         for e in events:
             e.pressed = true
-            $StateMachine.handle_input(e)
+            $StateMachine.handle_input(e)"""
+    pass
         
 func get_movement_direction():
     var direction = Vector2()

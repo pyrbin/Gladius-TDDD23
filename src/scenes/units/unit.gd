@@ -4,6 +4,7 @@ extends KinematicBody2D
 #signals
 signal unit_collided
 signal took_damage(amount, actor)
+signal attacking
 
 # enums
 enum LOOK_STATE {TOP_RIGHT, TOP_LEFT, BOTTOM_RIGHT, BOTTOM_LEFT}
@@ -85,7 +86,8 @@ func left_attack_weapon():
     if not weapon: return
     if weapon.is_holstered():
         unholster_weapon();
-    weapon.attack(0)
+    if weapon.attack(0):
+        emit_signal("attacking")
     if use_holster:
         holster_timer.start()
 
