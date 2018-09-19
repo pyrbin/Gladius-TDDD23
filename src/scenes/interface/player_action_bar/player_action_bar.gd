@@ -4,7 +4,7 @@ onready var life_bar = $StatusBars/LifeBar/TextureProgress
 onready var energy_bar = $StatusBars/MarginContainer/EnergyBar/TextureProgress
 
 var player
-var stats
+var status
 var other_controller
 
 func _ready():
@@ -17,9 +17,9 @@ func _ready():
     
 func _on_player_loaded():
     $MarginContainer/ItemSlotContainer.connect_to_item_container(player.action_equipment, player, ["M1", "Q"])
-    stats = player.stats
+    status = player.status
 
 func _process(delta):
-    if stats:
-        life_bar.value = (stats.final_stat("HEALTH")/stats.get_attribute("HEALTH"))
-        energy_bar.value = (stats.final_stat("ENDURANCE")/stats.get_attribute("ENDURANCE"))
+    if status:
+        life_bar.value = (status.health/status.max_health)
+        energy_bar.value = float(status.endurance)/status.max_endurance

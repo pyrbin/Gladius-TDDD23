@@ -26,7 +26,6 @@ var _target = null
 var _current_hit_targets = []
 
 func _ready():
-    $Pivot/Area2D/Hitbox.disabled = true
     $Pivot/Area2D.connect("body_entered", self, "_on_body_entered_root")
     anim_player.connect("animation_finished", self, "_on_animation_finished")
 
@@ -64,32 +63,33 @@ func attack_rmb():
     
 func attack(type):
     if not _is_loaded: return false
-    $Pivot/Area2D/Hitbox.disabled = false
     _attack_state = ATTACKING
     cooldown_timer.start()
     return true
 
 func is_hitable(body):
-    return body != holder and body.is_in_group(HITABLE_GROUP_NAME) and !_current_hit_targets.has(body)
+    return body != holder and body.is_in_group(HITABLE_GROUP_NAME) and !_current_hit_targets.has(body) and not body.iframe
 
 func _on_body_entered_root(body):
-    if not is_hitable(body) or _attack_state != ATTACKING:
-        return
+    if _attack_state != ATTACKING: return
+    if not is_hitable(body): return
     _current_hit_targets.append(body)
     _on_body_entered(body)
 
 func _on_body_entered(body):
     _target = body
-    _target.take_damage(data.attributes["DAMAGE"], owner)
-    if holder ==  get_tree().get_nodes_in_group("Player")[0]:
+    _target.deal_damage(data.attributes["DAMAGE"], self)
+    if holder == get_tree().get_nodes_in_group("Player")[0]:
+        gb_Utils.freeze_time(0.075)
         holder.camera.shake(0.25, 20, 3.5)
-    _knockback()
+    if body != get_tree().get_nodes_in_group("Player")[0]:
+        _knockback()
 
 func _knockback():
     var angle = holder.position.angle_to_point(holder.get_aim_position())
     var dir = Vector2(-cos(angle), -sin(angle))
     _knockback_force = dir * KNOCKBACK_FORCE
-    var time = 0.2
+    var time = 0.12
     if _target.dead:
         time *= 1.5
         _knockback_force *= 1.5
@@ -100,5 +100,4 @@ func _knockback():
 func _on_animation_finished(anim):
     _current_hit_targets.clear()
     _target = null
-    $Pivot/Area2D/Hitbox.disabled = true
     _attack_state = IDLE

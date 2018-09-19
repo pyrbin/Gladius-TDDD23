@@ -22,7 +22,6 @@ func update(delta):
         var anim_player = owner.get_node("AnimationPlayer")
         anim_player.get_animation("move").loop = false
         emit_signal("finished", "idle")
-        
     speed = MAX_SPRINT_SPEED if sprinting else MAX_WALK_SPEED
     move(speed, movement_direction, delta)
     return .update(delta)
@@ -32,3 +31,4 @@ func move(speed, direction, delta):
     speed = speed / sqrt(2) if direction.length() < 1 else speed
     velocity = direction * speed
     owner.velocity = velocity
+

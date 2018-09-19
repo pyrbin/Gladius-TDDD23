@@ -40,8 +40,6 @@ func drop_item(index, item_container = container, offset = Vector2(0, -10)):
 func interact():
     var c = 0
     for i in range(0, container.size()):
-        print(container)
-
         if container.get(i) == null: continue
         drop_item(i, container, Vector2(-40 + (c * 20), 15))
         c+=1

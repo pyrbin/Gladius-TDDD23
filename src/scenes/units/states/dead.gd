@@ -9,8 +9,8 @@ func enter():
 
 func handle_input(event):
     var rmb = event.is_action_pressed("right_attack")
-    if rmb && owner && owner.stats:
-        owner.stats.set_modifier("HEALTH", 1, "PERCENT")
+    if rmb && owner && owner.status:
+        owner.status.heal(owner.status.max_health)
     return .handle_input(event)
 
 func update(delta):

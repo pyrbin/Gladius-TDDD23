@@ -57,7 +57,6 @@ _sections_unfolded = [ "Z Index" ]
 
 build_mode = 0
 polygon = PoolVector2Array(  )
-disabled = true
 
 [node name="Timer" type="Timer" parent="." index="3"]
 

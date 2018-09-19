@@ -1,8 +1,15 @@
 extends Node
 
-func dout(node, message):
-    print(node.name + ": "+String(message))
 
+
+func freeze_time(time):
+    get_tree().paused = true
+    yield(get_tree().create_timer(time), 'timeout')
+    get_tree().paused = false
+
+static func dout(node, message):
+    print(node.name + ": "+String(message))
+    
 static func deep_copy(v):
     var t = typeof(v)
     if t == TYPE_DICTIONARY:

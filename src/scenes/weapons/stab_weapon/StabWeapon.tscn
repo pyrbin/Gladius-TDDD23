@@ -20,7 +20,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 30, 0 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 40, 0 ), Vector2( 0, 0 ) ]
 }
 
 [node name="StabWeapon" instance=ExtResource( 1 )]
@@ -44,7 +44,6 @@ position = Vector2( 30, 0 )
 
 [node name="Sprite" parent="Pivot/Area2D" index="0"]
 
-editor/display_folded = false
 texture = ExtResource( 3 )
 
 [node name="U_Hand_Pivot" parent="Pivot/Area2D/Sprite" index="0"]

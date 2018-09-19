@@ -10,9 +10,11 @@
 collision_layer = 6
 collision_mask = 5
 script = ExtResource( 2 )
-equipped_items = [ 0, 4, 2, -1 ]
+equipment_container_slots = [ 0, 1, 2 ]
+equipped_items = [ 0, 4, 2 ]
+equipped_weapons = [ 3004, -1 ]
 
-[node name="Visuals" parent="." index="3"]
+[node name="Visuals" parent="." index="4"]
 
 editor/display_folded = true
 

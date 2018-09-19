@@ -15,8 +15,8 @@ func handle_input(event):
     if rmb:
         owner.right_attack_weapon();
 
-    if event.is_action_pressed("jump") && owner.stats.final_stat("ENDURANCE") >= 20:
-        owner.stats.mod_modifier("ENDURANCE", -20, "VALUE")
+    if event.is_action_pressed("jump") && owner.status.endurance >= 20:
+        owner.status.mod_endurance(-20)
         emit_signal("finished", "jump")
         
     return .handle_input(event)

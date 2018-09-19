@@ -20,6 +20,11 @@ equipped_weapons = [ -1, -1 ]
 
 MAX_SPRINT_SPEED = 300.0
 
+[node name="Status" parent="." index="1"]
+
+health = 10000.0
+max_health = 10000.0
+
 [node name="U_Hand_Pivot" parent="Visuals/Pivot" index="0"]
 
 editor/display_folded = false

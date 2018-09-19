@@ -98,8 +98,8 @@
         "SPRITE": "weapon/iron_weapon/iron_shortsword.png",
         "ATTRIBUTES": {
             "DAMAGE" : 15,
-            "ATTACK_SPEED": 350,
-            "COOLDOWN" : 0.5
+            "ATTACK_SPEED": 4350,
+            "COOLDOWN" : 0.6
         },
         "WEAPON_TYPE": 0,
         "MODEL" : "swing_weapon/shortsword/Shortsword.tscn"

@@ -15,7 +15,6 @@ func attack_rmb():
 	pass
 
 func _on_body_entered(body):
-	print(_current_hit_targets.size())
 	if _current_hit_targets.size() > 1:
 		return
 	else:

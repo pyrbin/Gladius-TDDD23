@@ -32,7 +32,8 @@ onready var helm = $Visuals/Pivot/Container/Helm
 
 # data 
 onready var holster_timer = $HolsterTimer
-onready var stats = $Stats
+onready var status = $Status
+onready var attr = $Attributes
 
 # constans
 const WEAPON_FOLDER_PATH = "res://scenes/weapons/"
@@ -45,7 +46,8 @@ var velocity = Vector2(0,0)
 var dead = false
 var weapon = null
 var weapon_sprite = null
-
+var iframe = false
+var skin_color = null
 var equipment = null
 var action_equipment = null
 
@@ -60,7 +62,7 @@ func _ready():
         l_hand.hide()
     randomize()
     var skin_tones = [Color("#8d5524"), Color("#c68642"), Color("#f1c27d"), Color("#f1c27d"), Color("#ffdbac")]
-    var skin_color = skin_tones[randi()%skin_tones.size()]
+    skin_color = skin_tones[randi()%skin_tones.size()]
     body.modulate = skin_color
     u_hand.modulate = skin_color
     l_hand.modulate = skin_color
@@ -92,10 +94,12 @@ func left_attack_weapon():
         holster_timer.start()
 
 func right_attack_weapon():
-    stats.set_modifier(stats.ATTR.HEALTH, 0, stats.MODIFIER.PERCENT)
+    status.damage(status.max_health)
 
-func take_damage(amount, actor, mod="VALUE"):
-    stats.mod_modifier("HEALTH", -amount, mod)
+func deal_damage(amount, actor):
+    if self.is_a_parent_of(actor):
+        return
+    status.damage(amount)
     emit_signal("took_damage", amount, actor)
 
 #   Sprite manipulation
@@ -283,8 +287,9 @@ func get_movement_direction():
 func _on_collision(body):
     pass
 
-func _on_Stats_on_health_zero():
-	set_dead(true)
+func _on_Status_on_health_zero():
+    set_dead(true)
 
-func _on_Stats_on_revive():
-	set_dead(false)
+
+func _on_Status_on_revive():
+    set_dead(false)
