@@ -42,8 +42,10 @@ onready var attributes = {
 	ATTR.MOV_SPEED : 0.0,
 	ATTR.CRIT : 0.0
 }
+onready var mod_total = {}
 onready var mod_percent = {}
 onready var mod_value= {}
+
 var regenerating_endurance = false
 func _ready():
 	set_process(true)

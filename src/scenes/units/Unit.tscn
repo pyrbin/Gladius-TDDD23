@@ -323,10 +323,10 @@ tracks/0/keys = {
 "values": [ false, false ]
 }
 
-[node name="Unit" type="KinematicBody2D" groups=[
-"Units",
-"Z_Index",
+[node name="Unit" type="KinematicBody2D" index="0" groups=[
 "Hitable",
+"Z_Index",
+"Units",
 ]]
 
 position = Vector2( 0.576477, -0.523365 )
@@ -346,7 +346,6 @@ equipped_weapons = null
 
 [node name="StateMachine" type="Node" parent="." index="0"]
 
-editor/display_folded = true
 script = ExtResource( 2 )
 START_STATE = NodePath("Idle")
 
@@ -362,7 +361,6 @@ MAX_SPRINT_SPEED = 400.0
 
 [node name="Jump" type="Node" parent="StateMachine" index="2"]
 
-editor/display_folded = true
 script = ExtResource( 5 )
 JUMP_FORCE = 800
 
@@ -403,7 +401,6 @@ autostart = false
 
 [node name="Collision" type="CollisionPolygon2D" parent="." index="2"]
 
-visible = false
 position = Vector2( 1.86922, 6.14645 )
 scale = Vector2( 1.42755, 1.06179 )
 z_index = 4096
@@ -450,7 +447,7 @@ _sections_unfolded = [ "Region", "Transform", "Z Index" ]
 
 [node name="WeaponPivot" type="Position2D" parent="Visuals/Pivot" index="2"]
 
-position = Vector2( -2.79397e-009, 15.9238 )
+position = Vector2( -2.79397e-09, 15.9238 )
 z_index = 5
 _sections_unfolded = [ "Transform", "Z Index" ]
 
@@ -504,7 +501,7 @@ _sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
 
 [node name="Body" type="Sprite" parent="Visuals/Pivot/Container" index="4"]
 
-position = Vector2( -4.47035e-007, 0 )
+position = Vector2( -4.47035e-07, 0 )
 z_index = 2
 texture = ExtResource( 13 )
 region_enabled = true

@@ -155,7 +155,7 @@
         "SPRITE": "weapon/iron_weapon/iron_spear.png",
         "ATTRIBUTES": {
             "DAMAGE" : 35,
-            "ATTACK_SPEED": 300,
+            "ATTACK_SPEED": 400,
             "COOLDOWN" : 0.6
         },
         "WEAPON_TYPE": 1,
@@ -169,9 +169,9 @@
         "DESC": "A dagger very bad I think",
         "SPRITE": "weapon/iron_weapon/iron_dagger.png",
         "ATTRIBUTES": {
-            "DAMAGE" : 10,
-            "ATTACK_SPEED": 250,
-            "COOLDOWN" : 0.28
+            "DAMAGE" : 20,
+            "ATTACK_SPEED": 200,
+            "COOLDOWN" : 0.22
         },
         "WEAPON_TYPE": 1,
         "MODEL" : "stab_weapon/dagger/Dagger.tscn"

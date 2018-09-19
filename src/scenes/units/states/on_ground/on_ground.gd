@@ -7,14 +7,16 @@ func handle_input(event):
     var lmb = event.is_action_pressed("left_attack")
     var rmb = event.is_action_pressed("right_attack")
     var interact = event.is_action_pressed("interact")
+    var consumable = event.is_action_pressed("special")
 
     if lmb:
-        owner.left_attack_weapon();
+        owner.left_attack_weapon()
     elif interact:
-        owner.on_interact();
+        owner.on_interact()
+    if consumable:
+        owner.use_consumable()
     if rmb:
         owner.right_attack_weapon();
-
     if event.is_action_pressed("jump") && owner.stats.final_stat("ENDURANCE") >= 20:
         owner.stats.mod_modifier("ENDURANCE", -20, "VALUE")
         emit_signal("finished", "jump")
