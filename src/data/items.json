@@ -98,8 +98,8 @@
         "SPRITE": "weapon/iron_weapon/iron_shortsword.png",
         "ATTRIBUTES": {
             "DAMAGE" : 15,
-            "ATTACK_SPEED": 4350,
-            "COOLDOWN" : 0.6
+            "ATTACK_SPEED": 650,
+            "COOLDOWN" : 0.8
         },
         "WEAPON_TYPE": 0,
         "MODEL" : "swing_weapon/shortsword/Shortsword.tscn"
@@ -170,10 +170,26 @@
         "SPRITE": "weapon/iron_weapon/iron_dagger.png",
         "ATTRIBUTES": {
             "DAMAGE" : 10,
-            "ATTACK_SPEED": 250,
-            "COOLDOWN" : 0.28
+            "ATTACK_SPEED": 350,
+            "COOLDOWN" : 0.4
         },
         "WEAPON_TYPE": 1,
         "MODEL" : "stab_weapon/dagger/Dagger.tscn"
+    },
+    "3005": {
+        "NAME": "Iron Crossbow",
+        "ICON": "weapon/iron_weapon/iron_crossbow_icon.png",
+        "TYPE": 1,
+        "SLOT": 3,
+        "DESC": "A dagger very bad I think",
+        "SPRITE": "weapon/iron_weapon/iron_crossbow.png",
+        "ATTRIBUTES": {
+            "DAMAGE" : 10,
+            "ATTACK_SPEED": 350,
+            "COOLDOWN" : 0.8
+        },
+        "WEAPON_TYPE": 2,
+        "AMMO": "",
+        "MODEL" : "ranged_weapon/crossbow/Crossbow.tscn"
     }
 }

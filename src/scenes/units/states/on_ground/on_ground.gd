@@ -4,8 +4,8 @@ func _ready():
     owner.connect("took_damage", self, "_on_took_damage")
 
 func handle_input(event):
-    var lmb = event.is_action_pressed("left_attack")
-    var rmb = event.is_action_pressed("right_attack")
+    var lmb = event.is_action_pressed("attack")
+    var rmb = event.is_action_pressed("block")
     var interact = event.is_action_pressed("interact")
 
     if lmb:

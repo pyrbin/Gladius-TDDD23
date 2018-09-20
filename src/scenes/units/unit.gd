@@ -88,7 +88,7 @@ func left_attack_weapon():
     if not weapon: return
     if weapon.is_holstered():
         unholster_weapon();
-    if weapon.attack(0):
+    if weapon.attack():
         emit_signal("attacking")
     if use_holster:
         holster_timer.start()

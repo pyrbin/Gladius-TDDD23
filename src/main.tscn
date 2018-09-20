@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/interface/Interface.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/theme1.ogg" type="AudioStream" id=2]
 [ext_resource path="res://assets/bg_temp.png" type="Texture" id=3]
 [ext_resource path="res://scenes/units/player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/interactable/lootable/chests/Chest.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/units/enemy/boss/Boss.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/units/enemy/Enemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/weapons/ranged_weapon/Projectile.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/units/enemy/boss/Boss.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/units/enemy/Enemy.tscn" type="PackedScene" id=8]
 
 [node name="Root" type="Node"]
 
@@ -68,6 +69,8 @@ reach = 33.0
 "Root_Items",
 ]]
 
+editor/display_folded = true
+
 [node name="Chest" parent="Game/World/Root_Items" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 581.717, -37.6731 )
@@ -78,75 +81,86 @@ container_items = [ 0, 1, 2, 3001 ]
 
 position = Vector2( 525.635, 34.9903 )
 lootable_name = "Chest"
-container_items = [ 3002, 3003, 3004, 1337 ]
+container_items = [ 3002, 3003, 3004, 3005 ]
 
-[node name="Root_Units" type="Node2D" parent="Game/World" index="3" groups=[
+[node name="Root_Projs" type="Node2D" parent="Game/World" index="3" groups=[
+"Root_Projs",
+]]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="Root_Units" type="Node2D" parent="Game/World" index="4" groups=[
 "Root_Units",
 ]]
 
+editor/display_folded = true
 position = Vector2( 151.688, -105.118 )
 
-[node name="Boss" parent="Game/World/Root_Units" index="0" instance=ExtResource( 6 )]
+[node name="Projectile" parent="Game/World/Root_Units" index="0" instance=ExtResource( 6 )]
+
+position = Vector2( 230.973, 36.5278 )
+
+[node name="Boss" parent="Game/World/Root_Units" index="1" instance=ExtResource( 7 )]
 
 position = Vector2( -10.945, 398.446 )
 equipped_items = [ 6, 7, 8, -1 ]
 
-[node name="Enemy" parent="Game/World/Root_Units" index="1" instance=ExtResource( 7 )]
+[node name="Enemy" parent="Game/World/Root_Units" index="2" instance=ExtResource( 8 )]
 
 position = Vector2( 88.4445, -75.6105 )
 
-[node name="Enemy2" parent="Game/World/Root_Units" index="2" instance=ExtResource( 7 )]
+[node name="Enemy2" parent="Game/World/Root_Units" index="3" instance=ExtResource( 8 )]
 
 position = Vector2( -48.7359, 8.32225 )
 equipped_weapons = [ 3001, -1 ]
 
-[node name="Enemy3" parent="Game/World/Root_Units" index="3" instance=ExtResource( 7 )]
+[node name="Enemy3" parent="Game/World/Root_Units" index="4" instance=ExtResource( 8 )]
 
 position = Vector2( -37.0034, -87.343 )
 equipped_weapons = [ 3001, -1 ]
 
-[node name="Enemy4" parent="Game/World/Root_Units" index="4" instance=ExtResource( 7 )]
+[node name="Enemy4" parent="Game/World/Root_Units" index="5" instance=ExtResource( 8 )]
 
 position = Vector2( 55.9544, -179.398 )
 equipped_weapons = [ 3001, -1 ]
 
-[node name="Enemy5" parent="Game/World/Root_Units" index="5" instance=ExtResource( 7 )]
+[node name="Enemy5" parent="Game/World/Root_Units" index="6" instance=ExtResource( 8 )]
 
 position = Vector2( 210.282, -225.426 )
 
-[node name="Enemy6" parent="Game/World/Root_Units" index="6" instance=ExtResource( 7 )]
+[node name="Enemy6" parent="Game/World/Root_Units" index="7" instance=ExtResource( 8 )]
 
 position = Vector2( 364.61, -206.473 )
 
-[node name="Enemy7" parent="Game/World/Root_Units" index="7" instance=ExtResource( 7 )]
+[node name="Enemy7" parent="Game/World/Root_Units" index="8" instance=ExtResource( 8 )]
 
 position = Vector2( 517.133, -211.888 )
 
-[node name="Enemy8" parent="Game/World/Root_Units" index="8" instance=ExtResource( 7 )]
+[node name="Enemy8" parent="Game/World/Root_Units" index="9" instance=ExtResource( 8 )]
 
 position = Vector2( 692.219, -231.743 )
 
-[node name="Enemy9" parent="Game/World/Root_Units" index="9" instance=ExtResource( 7 )]
+[node name="Enemy9" parent="Game/World/Root_Units" index="10" instance=ExtResource( 8 )]
 
 position = Vector2( 610.994, -92.758 )
 
-[node name="Enemy10" parent="Game/World/Root_Units" index="10" instance=ExtResource( 7 )]
+[node name="Enemy10" parent="Game/World/Root_Units" index="11" instance=ExtResource( 8 )]
 
 position = Vector2( 461.178, -90.0505 )
 
-[node name="Enemy11" parent="Game/World/Root_Units" index="11" instance=ExtResource( 7 )]
+[node name="Enemy11" parent="Game/World/Root_Units" index="12" instance=ExtResource( 8 )]
 
 position = Vector2( -146.206, -223.621 )
 
-[node name="Enemy12" parent="Game/World/Root_Units" index="12" instance=ExtResource( 7 )]
+[node name="Enemy12" parent="Game/World/Root_Units" index="13" instance=ExtResource( 8 )]
 
 position = Vector2( -302.339, -58.4629 )
 
-[node name="Enemy13" parent="Game/World/Root_Units" index="13" instance=ExtResource( 7 )]
+[node name="Enemy13" parent="Game/World/Root_Units" index="14" instance=ExtResource( 8 )]
 
 position = Vector2( -323.097, 95.865 )
 
-[node name="Enemy14" parent="Game/World/Root_Units" index="14" instance=ExtResource( 7 )]
+[node name="Enemy14" parent="Game/World/Root_Units" index="15" instance=ExtResource( 8 )]
 
 position = Vector2( -163.354, -36.8028 )
 

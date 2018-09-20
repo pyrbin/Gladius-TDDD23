@@ -14,16 +14,16 @@ position = Vector2( 34.1902, 0 )
 [node name="Sprite" parent="Pivot/Area2D" index="0"]
 
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Material", "Transform" ]
+_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform" ]
 
 [node name="U_Hand_Pivot" parent="Pivot/Area2D/Sprite" index="0"]
 
-position = Vector2( -62.7799, 0.0568759 )
+position = Vector2( -63.0273, -0.215255 )
 _sections_unfolded = [ "Z Index" ]
 
 [node name="L_Hand_Pivot" parent="Pivot/Area2D/Sprite" index="1"]
 
-position = Vector2( -66.2947, 1.0154 )
+position = Vector2( -66.5421, 0.743269 )
 
 [node name="Hitbox" parent="Pivot/Area2D" index="1"]
 

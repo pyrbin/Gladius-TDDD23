@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/weapons/Weapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/weapons/swing_weapon/swing_weapon.gd" type="Script" id=2]
 [ext_resource path="res://assets/items/weapon/iron_weapon/iron_shortsword.png" type="Texture" id=3]
-[ext_resource path="res://scenes/weapons/swing_weapon/weapon_trail.gd" type="Script" id=4]
 
 [sub_resource type="Animation" id=1]
 
@@ -116,24 +115,11 @@ offset = Vector2( 52, 0 )
 flip_v = true
 _sections_unfolded = [ "Material", "Offset", "Transform" ]
 
-[node name="Line2D" type="Line2D" parent="Pivot/Area2D/Sprite" index="0"]
-
-position = Vector2( -30, 0 )
-rotation = -3.14159
-points = PoolVector2Array(  )
-width = 10.0
-default_color = Color( 0.4, 0.5, 1, 1 )
-texture_mode = 1061981323
-sharp_limit = 2.0
-round_precision = 8
-script = ExtResource( 4 )
-_sections_unfolded = [ "Capping", "Transform" ]
-
-[node name="U_Hand_Pivot" parent="Pivot/Area2D/Sprite" index="1"]
+[node name="U_Hand_Pivot" parent="Pivot/Area2D/Sprite" index="0"]
 
 position = Vector2( -68.6019, 1.09366 )
 
-[node name="L_Hand_Pivot" parent="Pivot/Area2D/Sprite" index="2"]
+[node name="L_Hand_Pivot" parent="Pivot/Area2D/Sprite" index="1"]
 
 position = Vector2( -68.1531, -2.31665 )
 

@@ -8,7 +8,7 @@ func enter():
     reviving = false
 
 func handle_input(event):
-    var rmb = event.is_action_pressed("right_attack")
+    var rmb = event.is_action_pressed("block")
     if rmb && owner && owner.status:
         owner.status.heal(owner.status.max_health)
     return .handle_input(event)

@@ -20,10 +20,23 @@ equipped_weapons = [ -1, -1 ]
 
 MAX_SPRINT_SPEED = 300.0
 
-[node name="Status" parent="." index="1"]
+[node name="Status" parent="." index="2"]
 
 health = 10000.0
 max_health = 10000.0
+
+[node name="Collision" parent="." index="3"]
+
+visible = false
+polygon = PoolVector2Array( -3.75836, -42.438, 4.43363, -42.3086, 4.71486, -0.021493, 0.305949, 0.303298, 0.310607, -7.92921, -3.97564, -7.93359, -3.85793, 0.463692, -8.02181, 0.62408, -7.99759, -42.185 )
+
+[node name="Visuals" parent="." index="4"]
+
+editor/display_folded = true
+
+[node name="Pivot" parent="Visuals" index="0"]
+
+editor/display_folded = true
 
 [node name="U_Hand_Pivot" parent="Visuals/Pivot" index="0"]
 
@@ -32,10 +45,6 @@ editor/display_folded = false
 [node name="U_Hand" parent="Visuals/Pivot/U_Hand_Pivot" index="0"]
 
 _sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
-
-[node name="L_Hand_Pivot" parent="Visuals/Pivot" index="1"]
-
-editor/display_folded = false
 
 [node name="L_Hand" parent="Visuals/Pivot/L_Hand_Pivot" index="0"]
 
@@ -62,6 +71,7 @@ _sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
 
 [node name="CameraPivot" type="Position2D" parent="." index="6"]
 
+editor/display_folded = true
 script = ExtResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="CameraPivot" index="0"]
@@ -94,6 +104,7 @@ _sections_unfolded = [ "Drag Margin", "Editor", "Transform" ]
 
 [node name="InteractController" type="Node" parent="." index="7"]
 
+editor/display_folded = true
 script = ExtResource( 6 )
 pickup_color = Color( 0, 1, 0, 1 )
 

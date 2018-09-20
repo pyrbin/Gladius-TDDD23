@@ -14,6 +14,7 @@ onready var u_hand_pivot = $Pivot/Area2D/Sprite/U_Hand_Pivot
 onready var l_hand_pivot = $Pivot/Area2D/Sprite/L_Hand_Pivot
 onready var knockback_tween = $KnockbackTween
 onready var cooldown_timer = $Timer
+onready var hitbox = $Pivot/Area2D/Hitbox
 
 var data = null
 var holder = null
@@ -28,7 +29,7 @@ var _current_hit_targets = []
 func _ready():
     $Pivot/Area2D.connect("body_entered", self, "_on_body_entered_root")
     anim_player.connect("animation_finished", self, "_on_animation_finished")
-
+    hitbox.disabled = true
 func _physics_process(d):
     if knockback_tween.is_active() && _target:
         _target.velocity = _knockback_force
@@ -56,14 +57,15 @@ func is_idle():
 func is_holstered():
     return _attack_state == HOLSTERED && _is_loaded
 
-func attack_lmb():
+func _action_attack():
     pass
-func attack_rmb():
-    pass
-    
-func attack(type):
+
+func attack():
     if not _is_loaded: return false
+    if not is_ready(): return false
+    hitbox.disabled = false
     _attack_state = ATTACKING
+    _action_attack()
     cooldown_timer.start()
     return true
 
@@ -86,7 +88,7 @@ func _on_body_entered(body):
         _knockback()
 
 func _knockback():
-    var angle = holder.position.angle_to_point(holder.get_aim_position())
+    var angle = holder.global_position.angle_to_point(holder.get_aim_position())
     var dir = Vector2(-cos(angle), -sin(angle))
     _knockback_force = dir * KNOCKBACK_FORCE
     var time = 0.12
@@ -101,3 +103,5 @@ func _on_animation_finished(anim):
     _current_hit_targets.clear()
     _target = null
     _attack_state = IDLE
+    hitbox.disabled = true
+

@@ -342,7 +342,7 @@ tracks/0/keys = {
 "values": [ false, false ]
 }
 
-[node name="Unit" type="KinematicBody2D" index="0" groups=[
+[node name="Unit" type="KinematicBody2D" groups=[
 "Units",
 "Hitable",
 "Z_Index",

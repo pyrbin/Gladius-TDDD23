@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/weapons/Weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/weapons/ranged_weapon/ranged_weapon.gd" type="Script" id=2]
+[ext_resource path="res://assets/items/weapon/iron_weapon/iron_crossbow.png" type="Texture" id=3]
+[ext_resource path="res://scenes/weapons/ranged_weapon/Projectile.tscn" type="PackedScene" id=4]
+
+[node name="RangedWeapon" index="0" instance=ExtResource( 1 )]
+
+script = ExtResource( 2 )
+
+[node name="Pivot" parent="." index="2"]
+
+position = Vector2( 60, 0 )
+
+[node name="Sprite" parent="Pivot/Area2D" index="0"]
+
+texture = ExtResource( 3 )
+
+[node name="Projectile_Pivot" type="Position2D" parent="Pivot/Area2D/Sprite" index="2"]
+
+position = Vector2( -50.8526, 0 )
+
+[node name="Projectile" parent="Pivot/Area2D/Sprite/Projectile_Pivot" index="0" instance=ExtResource( 4 )]
+
+
