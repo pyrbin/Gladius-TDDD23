@@ -7,10 +7,11 @@
 [ext_resource path="res://scenes/units/player/camera/player_camera.gd" type="Script" id=5]
 [ext_resource path="res://scenes/units/player/interact_controller.gd" type="Script" id=6]
 
-[node name="Player" groups=[
+[node name="Player" index="0" groups=[
 "Player",
 ] instance=ExtResource( 1 )]
 
+collision_mask = 9
 script = ExtResource( 2 )
 equipment_container_slots = [ 0, 1, 2 ]
 equipped_items = [ -1, -1, -1 ]
@@ -29,18 +30,6 @@ max_health = 10000.0
 
 visible = false
 polygon = PoolVector2Array( -3.75836, -42.438, 4.43363, -42.3086, 4.71486, -0.021493, 0.305949, 0.303298, 0.310607, -7.92921, -3.97564, -7.93359, -3.85793, 0.463692, -8.02181, 0.62408, -7.99759, -42.185 )
-
-[node name="Visuals" parent="." index="4"]
-
-editor/display_folded = true
-
-[node name="Pivot" parent="Visuals" index="0"]
-
-editor/display_folded = true
-
-[node name="U_Hand_Pivot" parent="Visuals/Pivot" index="0"]
-
-editor/display_folded = false
 
 [node name="U_Hand" parent="Visuals/Pivot/U_Hand_Pivot" index="0"]
 
@@ -71,6 +60,7 @@ disabled = true
 
 [node name="Chest" parent="Visuals/Pivot/Container" index="3"]
 
+editor/display_folded = true
 _sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
 
 [node name="CameraPivot" type="Position2D" parent="." index="6"]

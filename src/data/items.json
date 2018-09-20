@@ -185,11 +185,11 @@
         "SPRITE": "weapon/iron_weapon/iron_crossbow.png",
         "ATTRIBUTES": {
             "DAMAGE" : 10,
-            "ATTACK_SPEED": 350,
-            "COOLDOWN" : 0.8
+            "ATTACK_SPEED": 1650,
+            "COOLDOWN" : 0.1,
+            "AMMO": "weapon/iron_weapon/iron_arrow.png"
         },
         "WEAPON_TYPE": 2,
-        "AMMO": "",
         "MODEL" : "ranged_weapon/crossbow/Crossbow.tscn"
     }
 }

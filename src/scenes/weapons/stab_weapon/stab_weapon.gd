@@ -3,6 +3,9 @@ extends "../weapon.gd"
 func _ready():
 	wep_sprite.set_flip_v(false)
 
+func _setup():
+	pass
+
 func _action_attack():
 	anim_player.play("stab")
 

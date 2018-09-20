@@ -29,6 +29,7 @@ var _current_hit_targets = []
 func _ready():
     $Pivot/Area2D.connect("body_entered", self, "_on_body_entered_root")
     anim_player.connect("animation_finished", self, "_on_animation_finished")
+    cooldown_timer.connect("timeout", self, "_on_cooldown_finished")
     hitbox.disabled = true
 func _physics_process(d):
     if knockback_tween.is_active() && _target:
@@ -44,7 +45,11 @@ func load_weapon(weapon_data):
     anim_player.playback_speed = 1/(data.attributes["ATTACK_SPEED"]/1000.0)
     cooldown_timer.wait_time = data.attributes["COOLDOWN"]
     _is_loaded = true
-
+    _setup()
+    
+func _setup():
+    pass
+    
 func set_reach(offset):
     $Pivot/Area2D.position = Vector2(offset, $Pivot/Area2D.position.y)
 
@@ -70,7 +75,7 @@ func attack():
     return true
 
 func is_hitable(body):
-    return body != holder and body.is_in_group(HITABLE_GROUP_NAME) and !_current_hit_targets.has(body) and not body.iframe
+    return body != holder && body.is_in_group(HITABLE_GROUP_NAME) && !_current_hit_targets.has(body) && !body.iframe
 
 func _on_body_entered_root(body):
     if _attack_state != ATTACKING: return
@@ -82,9 +87,9 @@ func _on_body_entered(body):
     _target = body
     _target.deal_damage(data.attributes["DAMAGE"], self)
     if holder == get_tree().get_nodes_in_group("Player")[0]:
-        gb_Utils.freeze_time(0.075)
-        holder.camera.shake(0.25, 20, 3.5)
-    if body != get_tree().get_nodes_in_group("Player")[0]:
+        gb_Utils.freeze_time(0.055)
+        holder.camera.shake(0.35, 20, 3.5)
+    if _target != get_tree().get_nodes_in_group("Player")[0]:
         _knockback()
 
 func _knockback():
@@ -99,9 +104,17 @@ func _knockback():
         Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
     knockback_tween.start()
 
-func _on_animation_finished(anim):
+func _clear_attack():
     _current_hit_targets.clear()
     _target = null
     _attack_state = IDLE
     hitbox.disabled = true
+
+func _on_cooldown_finished():
+    if _attack_state == ATTACKING:
+        _clear_attack()
+
+func _on_animation_finished(anim):
+    _clear_attack()
+
 

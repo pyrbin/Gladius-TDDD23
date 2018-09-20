@@ -7,8 +7,8 @@
 "Enemies",
 ] instance=ExtResource( 1 )]
 
-collision_layer = 6
-collision_mask = 5
+collision_layer = 4
+collision_mask = 13
 script = ExtResource( 2 )
 equipment_container_slots = [ 0, 1, 2 ]
 equipped_items = [ 0, 4, 2 ]

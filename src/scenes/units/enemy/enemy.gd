@@ -15,4 +15,4 @@ func get_aim_position():
 func _process(delta):
 	for e in event_move_down:
 		e.pressed = true
-		$StateMachine.handle_input(e)
+		#$StateMachine.handle_input(e)

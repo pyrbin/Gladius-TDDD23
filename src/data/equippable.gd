@@ -23,6 +23,6 @@ func attr_to_str(type):
 func to_dict(data):
     var dict = .to_dict(data)
     dict["SLOT"] = slot
-    dict["SPRITE"] = sprite.split(ASSETS_PATH)[1]
+    dict["SPRITE"] = sprite.split(ASSETS_PATH)[0]
     dict["ATTRIBUTES"] = attributes
     return dict

@@ -79,13 +79,11 @@ func _ready():
     
 func _setup():
     pass
+    
 #   Unit ingame actions
 #   =========================
 func use_consumable():
-    var consumable = action_equipment.get(1)
-    if !consumable: return
-    for attr in consumable.attributes:
-        stats.mod_modifier(attr, consumable.attributes[attr], "VALUE")
+    pass
 
 func left_attack_weapon():
     if not weapon: return
@@ -105,6 +103,9 @@ func deal_damage(amount, actor):
     status.damage(amount)
     emit_signal("took_damage", amount, actor)
 
+func add_to_body(child):
+    $Visuals/Pivot/Container.add_child(child)
+    
 #   Sprite manipulation
 #   =========================
 func _set_look_state(look_position):
