@@ -14,7 +14,7 @@
 script = ExtResource( 2 )
 equipment_container_slots = [ 0, 1, 2 ]
 equipped_items = [ -1, -1, -1 ]
-equipped_weapons = [ -1, -1 ]
+equipped_weapons = [ -1, 4001 ]
 
 [node name="Move" parent="StateMachine" index="1"]
 
@@ -49,6 +49,10 @@ _sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
 [node name="L_Hand" parent="Visuals/Pivot/L_Hand_Pivot" index="0"]
 
 _sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="WorldUI" parent="Visuals/Pivot/Container" index="0"]
+
+editor/display_folded = true
 
 [node name="WeaponCooldownTracker" parent="Visuals/Pivot/Container/WorldUI" index="0" instance=ExtResource( 3 )]
 

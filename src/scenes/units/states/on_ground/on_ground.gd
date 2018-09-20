@@ -7,11 +7,14 @@ func handle_input(event):
     var lmb = event.is_action_pressed("attack")
     var rmb = event.is_action_pressed("block")
     var interact = event.is_action_pressed("interact")
+    var consumable = event.is_action_pressed("special")
 
     if lmb:
-        owner.left_attack_weapon();
+        owner.left_attack_weapon()
     elif interact:
-        owner.on_interact();
+        owner.on_interact()
+    if consumable:
+        owner.use_consumable()
     if rmb:
         owner.right_attack_weapon();
 

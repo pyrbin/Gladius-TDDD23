@@ -82,7 +82,10 @@ func _setup():
 #   Unit ingame actions
 #   =========================
 func use_consumable():
-    pass
+    var consumable = action_equipment.get(1)
+    if !consumable: return
+    for attr in consumable.attributes:
+        stats.mod_modifier(attr, consumable.attributes[attr], "VALUE")
 
 func left_attack_weapon():
     if not weapon: return

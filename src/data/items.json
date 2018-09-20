@@ -155,7 +155,7 @@
         "SPRITE": "weapon/iron_weapon/iron_spear.png",
         "ATTRIBUTES": {
             "DAMAGE" : 35,
-            "ATTACK_SPEED": 300,
+            "ATTACK_SPEED": 400,
             "COOLDOWN" : 0.6
         },
         "WEAPON_TYPE": 1,

@@ -25,7 +25,8 @@ func _process(delta):
         var events = InputMap.get_action_list("attack")
         for e in events:
             e.pressed = true
-            $StateMachine.handle_input(e)"""
+            $StateMachine.handle_input(e)
+    """
     pass
         
 func get_movement_direction():

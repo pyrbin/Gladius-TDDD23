@@ -365,7 +365,6 @@ equipped_weapons = null
 
 [node name="StateMachine" type="Node" parent="." index="0"]
 
-editor/display_folded = true
 script = ExtResource( 2 )
 START_STATE = NodePath("Idle")
 
@@ -381,7 +380,6 @@ MAX_SPRINT_SPEED = 400.0
 
 [node name="Jump" type="Node" parent="StateMachine" index="2"]
 
-editor/display_folded = true
 script = ExtResource( 5 )
 JUMP_FORCE = 800
 
@@ -461,7 +459,7 @@ _sections_unfolded = [ "Region", "Transform", "Z Index" ]
 
 [node name="WeaponPivot" type="Position2D" parent="Visuals/Pivot" index="2"]
 
-position = Vector2( -2.79397e-009, 15.9238 )
+position = Vector2( -2.79397e-09, 15.9238 )
 z_index = 5
 _sections_unfolded = [ "Transform", "Z Index" ]
 
@@ -516,7 +514,7 @@ _sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
 
 [node name="Body" type="Sprite" parent="Visuals/Pivot/Container" index="4"]
 
-position = Vector2( -4.47035e-007, 0 )
+position = Vector2( -4.47035e-07, 0 )
 z_index = 2
 texture = ExtResource( 14 )
 region_enabled = true
