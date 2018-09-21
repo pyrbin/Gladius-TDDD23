@@ -2,12 +2,12 @@
 
 [ext_resource path="res://scenes/interface/Interface.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/theme1.ogg" type="AudioStream" id=2]
-[ext_resource path="res://assets/bg_temp.png" type="Texture" id=3]
-[ext_resource path="res://scenes/units/player/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/interactable/lootable/chests/Chest.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/units/enemy/Enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/levels/Level_1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/interactable/lootable/chests/Chest.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/units/enemy/Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/units/player/Player.tscn" type="PackedScene" id=6]
 
-[node name="Root" type="Node" index="0"]
+[node name="Root" type="Node"]
 
 [node name="GUI" type="CanvasLayer" parent="." index="0"]
 
@@ -37,67 +37,92 @@ bus = "Master"
 
 _sections_unfolded = [ "Material", "Visibility", "Z Index" ]
 
-[node name="BG" type="KinematicBody2D" parent="Game/World" index="0"]
+[node name="Level" type="Node" parent="Game/World" index="0"]
 
-input_pickable = false
-collision_layer = 1
-collision_mask = 2
-collision/safe_margin = 0.08
-_sections_unfolded = [ "Collision" ]
+[node name="Level_1" parent="Game/World/Level" index="0" instance=ExtResource( 3 )]
 
-[node name="bg_temp" type="Sprite" parent="Game/World/BG" index="0"]
-
-position = Vector2( 141.31, -7.19816 )
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Game/World/BG" index="1"]
-
-position = Vector2( 140.417, 6.84961 )
-build_mode = 0
-polygon = PoolVector2Array( -773.954, 788.666, -984.573, 791.826, -997.249, -995.481, 1011.89, -995.481, 1005.55, 798.164, 733.016, 791.826, 739.354, -710.273, -775.42, -710.273 )
-_sections_unfolded = [ "Visibility", "Z Index" ]
-
-[node name="Player" parent="Game/World" index="1" instance=ExtResource( 4 )]
-
-position = Vector2( 468.78, -80.0995 )
-rotation = 0.0
-reach = 33.0
-
-[node name="Root_Items" type="Node" parent="Game/World" index="2" groups=[
+[node name="Root_Items" type="Node" parent="Game/World" index="1" groups=[
 "Root_Items",
 ]]
 
-[node name="Chest" parent="Game/World/Root_Items" index="0" instance=ExtResource( 5 )]
+[node name="Chest" parent="Game/World/Root_Items" index="0" instance=ExtResource( 4 )]
 
-position = Vector2( 581.717, -37.6731 )
+position = Vector2( 118.338, -17.9733 )
 lootable_name = "Chest"
-container_items = [ 1, 2, 3, 3001 ]
+container_items = [ 1, 2, 3, 7, 8, 9 ]
 
-[node name="Chest2" parent="Game/World/Root_Items" index="1" instance=ExtResource( 5 )]
+[node name="Chest2" parent="Game/World/Root_Items" index="1" instance=ExtResource( 4 )]
 
-position = Vector2( 525.635, 34.9903 )
+position = Vector2( -126.871, -30.147 )
 lootable_name = "Chest"
-container_items = [ 3002, 3003, 3004, 3005 ]
+container_items = [ 3001, 3002, 3003, 3004, 3005, 4001 ]
 
-[node name="Root_Projs" type="Node" parent="Game/World" index="3" groups=[
+[node name="Root_Projs" type="Node" parent="Game/World" index="2" groups=[
 "Root_Projs",
 ]]
 
 _sections_unfolded = [ "Transform" ]
 
-[node name="Root_Units" type="Node" parent="Game/World" index="4" groups=[
+[node name="Actors" type="Node" parent="Game/World" index="3"]
+
+[node name="Root_Units" type="Node" parent="Game/World/Actors" index="0" groups=[
 "Root_Units",
 ]]
 
-[node name="Enemy2" parent="Game/World/Root_Units" index="0" instance=ExtResource( 6 )]
+editor/display_folded = true
 
-position = Vector2( 390.193, -84.8668 )
+[node name="Enemy2" parent="Game/World/Actors/Root_Units" index="0" instance=ExtResource( 5 )]
 
-[node name="Enemy3" parent="Game/World/Root_Units" index="1" instance=ExtResource( 6 )]
+position = Vector2( -374.912, -234.355 )
 
-position = Vector2( 282.055, -48.3786 )
-equipped_items = [ 0, 2, 3 ]
-equipped_weapons = [ 3005, 0 ]
+[node name="Enemy3" parent="Game/World/Actors/Root_Units" index="1" instance=ExtResource( 5 )]
+
+position = Vector2( -255.244, -229.923 )
+
+[node name="Enemy4" parent="Game/World/Actors/Root_Units" index="2" instance=ExtResource( 5 )]
+
+position = Vector2( -132.251, -234.355 )
+
+[node name="Enemy5" parent="Game/World/Actors/Root_Units" index="3" instance=ExtResource( 5 )]
+
+position = Vector2( -14.7987, -235.463 )
+
+[node name="Enemy6" parent="Game/World/Actors/Root_Units" index="4" instance=ExtResource( 5 )]
+
+position = Vector2( 123.706, -238.787 )
+
+[node name="Enemy7" parent="Game/World/Actors/Root_Units" index="5" instance=ExtResource( 5 )]
+
+position = Vector2( 279.94, -236.571 )
+
+[node name="Enemy8" parent="Game/World/Actors/Root_Units" index="6" instance=ExtResource( 5 )]
+
+position = Vector2( 279.94, -360.672 )
+
+[node name="Enemy9" parent="Game/World/Actors/Root_Units" index="7" instance=ExtResource( 5 )]
+
+position = Vector2( 129.246, -361.78 )
+
+[node name="Enemy10" parent="Game/World/Actors/Root_Units" index="8" instance=ExtResource( 5 )]
+
+position = Vector2( -29.2037, -362.888 )
+
+[node name="Enemy11" parent="Game/World/Actors/Root_Units" index="9" instance=ExtResource( 5 )]
+
+position = Vector2( -151.088, -361.78 )
+
+[node name="Enemy12" parent="Game/World/Actors/Root_Units" index="10" instance=ExtResource( 5 )]
+
+position = Vector2( -279.621, -357.348 )
+
+[node name="Enemy13" parent="Game/World/Actors/Root_Units" index="11" instance=ExtResource( 5 )]
+
+position = Vector2( -279.621, -357.348 )
+
+[node name="Player" parent="Game/World/Actors" index="1" instance=ExtResource( 6 )]
+
+position = Vector2( 12.8183, -60.0573 )
+rotation = 0.0
+reach = 33.0
 
 

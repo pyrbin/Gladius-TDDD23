@@ -4,9 +4,6 @@ export (int) var JUMP_FORCE = 800
 onready var tween = get_node("Tween")
 var jump_force = Vector2()
 
-func _ready():
-    owner.connect("unit_collided", self, "_on_unit_collision")
-
 func enter():
     owner.iframe = true
     var direction = owner.get_movement_direction().normalized()

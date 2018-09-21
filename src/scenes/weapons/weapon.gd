@@ -89,8 +89,8 @@ func _on_body_entered(body):
     _target = body
     _target.deal_damage(data.attributes["DAMAGE"], self)
     if holder == get_tree().get_nodes_in_group("Player")[0]:
-        gb_Utils.freeze_time(0.055)
-        holder.camera.shake(0.35, 20, 3.5)
+        gb_Utils.freeze_time(0.025)
+        holder.camera.shake(0.30, 20, 3.5)
     if _target != get_tree().get_nodes_in_group("Player")[0]:
         _knockback()
 
