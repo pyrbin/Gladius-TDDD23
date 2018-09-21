@@ -65,6 +65,8 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Actors" type="Node" parent="Game/World" index="3"]
 
+editor/display_folded = true
+
 [node name="Root_Units" type="Node" parent="Game/World/Actors" index="0" groups=[
 "Root_Units",
 ]]
@@ -73,51 +75,11 @@ editor/display_folded = true
 
 [node name="Enemy2" parent="Game/World/Actors/Root_Units" index="0" instance=ExtResource( 5 )]
 
-position = Vector2( -374.912, -234.355 )
+position = Vector2( 216.09, -69.3544 )
 
 [node name="Enemy3" parent="Game/World/Actors/Root_Units" index="1" instance=ExtResource( 5 )]
 
-position = Vector2( -255.244, -229.923 )
-
-[node name="Enemy4" parent="Game/World/Actors/Root_Units" index="2" instance=ExtResource( 5 )]
-
-position = Vector2( -132.251, -234.355 )
-
-[node name="Enemy5" parent="Game/World/Actors/Root_Units" index="3" instance=ExtResource( 5 )]
-
-position = Vector2( -14.7987, -235.463 )
-
-[node name="Enemy6" parent="Game/World/Actors/Root_Units" index="4" instance=ExtResource( 5 )]
-
-position = Vector2( 123.706, -238.787 )
-
-[node name="Enemy7" parent="Game/World/Actors/Root_Units" index="5" instance=ExtResource( 5 )]
-
-position = Vector2( 279.94, -236.571 )
-
-[node name="Enemy8" parent="Game/World/Actors/Root_Units" index="6" instance=ExtResource( 5 )]
-
-position = Vector2( 279.94, -360.672 )
-
-[node name="Enemy9" parent="Game/World/Actors/Root_Units" index="7" instance=ExtResource( 5 )]
-
-position = Vector2( 129.246, -361.78 )
-
-[node name="Enemy10" parent="Game/World/Actors/Root_Units" index="8" instance=ExtResource( 5 )]
-
-position = Vector2( -29.2037, -362.888 )
-
-[node name="Enemy11" parent="Game/World/Actors/Root_Units" index="9" instance=ExtResource( 5 )]
-
-position = Vector2( -151.088, -361.78 )
-
-[node name="Enemy12" parent="Game/World/Actors/Root_Units" index="10" instance=ExtResource( 5 )]
-
-position = Vector2( -279.621, -357.348 )
-
-[node name="Enemy13" parent="Game/World/Actors/Root_Units" index="11" instance=ExtResource( 5 )]
-
-position = Vector2( -279.621, -357.348 )
+position = Vector2( 335.758, -64.9224 )
 
 [node name="Player" parent="Game/World/Actors" index="1" instance=ExtResource( 6 )]
 
