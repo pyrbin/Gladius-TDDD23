@@ -1,7 +1,5 @@
 extends Node
 
-
-
 func freeze_time(time):
     get_tree().paused = true
     yield(get_tree().create_timer(time), 'timeout')

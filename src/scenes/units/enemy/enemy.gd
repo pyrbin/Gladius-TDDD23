@@ -2,7 +2,7 @@ extends "res://scenes/units/unit.gd"
 
 var event_move_down = null
 
-func _ready():
+func _setup():
 	event_move_down = InputMap.get_action_list("attack")
 
 func get_movement_direction():
@@ -15,4 +15,4 @@ func get_aim_position():
 func _process(delta):
 	for e in event_move_down:
 		e.pressed = true
-		#$StateMachine.handle_input(e)
+		$StateMachine.handle_input(e)

@@ -34,7 +34,7 @@ func _valid_id(item_id):
 	return typeof(item_id) == TYPE_INT && item_id >= 0 && gb_ItemDatabase.has_item(item_id)
 
 func _valid_item_in_slot(slot, item_id):
-	return _item_type_array[slot] < 0 or item_id == null or gb_ItemDatabase.get_item(item_id).slot == _item_type_array[slot]
+	return _item_type_array[slot] == 0 or item_id == null or gb_ItemDatabase.get_item(item_id).slot == _item_type_array[slot]
 
 func set (slot, item_id):
 	var success = false
@@ -65,7 +65,7 @@ func get_empty_slot ():
 	return null
 
 func get_equip_slot(slot_type):
-	if slot_type == -1:
+	if slot_type == 0:
 		return get_empty_slot()
 	return _item_type_array.find(slot_type)
 

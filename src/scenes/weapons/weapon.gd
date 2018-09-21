@@ -31,6 +31,7 @@ func _ready():
     anim_player.connect("animation_finished", self, "_on_animation_finished")
     cooldown_timer.connect("timeout", self, "_on_cooldown_finished")
     hitbox.disabled = true
+
 func _physics_process(d):
     if knockback_tween.is_active() && _target:
         _target.velocity = _knockback_force
@@ -39,8 +40,9 @@ func set_holstered(b):
     hide() if b else show()
     _attack_state = HOLSTERED if b else IDLE
 
-func load_weapon(weapon_data):
-    data = weapon_data
+func load_weapon(p_weapon_data, p_collision_mask = null):
+    data = p_weapon_data
+    $Pivot/Area2D.collision_mask = p_collision_mask
     wep_sprite.set_texture(load(data.sprite))
     anim_player.playback_speed = 1/(data.attributes["ATTACK_SPEED"]/1000.0)
     cooldown_timer.wait_time = data.attributes["COOLDOWN"]

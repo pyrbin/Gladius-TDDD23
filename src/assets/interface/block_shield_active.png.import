@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bg_temp.png-6aba508eaaa7565f5b8c7eadcf7f571d.stex"
+path="res://.import/block_shield_active.png-6404aaba2e703be166a16e41e3cc7b76.stex"
 
 [deps]
 
-source_file="res://assets/bg_temp.png"
-dest_files=[ "res://.import/bg_temp.png-6aba508eaaa7565f5b8c7eadcf7f571d.stex" ]
+source_file="res://assets/interface/block_shield_active.png"
+dest_files=[ "res://.import/block_shield_active.png-6404aaba2e703be166a16e41e3cc7b76.stex" ]
 
 [params]
 
@@ -17,7 +17,7 @@ compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
-flags/mipmaps=true
+flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=true
@@ -25,5 +25,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0

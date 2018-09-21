@@ -29,7 +29,6 @@ func on_projectile_hit(co, projectile):
     if _current_proj == null: return;
     if is_hitable(co):
         _on_body_entered(co)
-        _knockback()
     projectile.stop()
     projectile = null
 
@@ -41,6 +40,7 @@ func _fire_ammo():
     var proj_pos = _current_proj.get_node("Sprite").global_position
     projectile_pivot.remove_child(_current_proj)
     root_projs.add_child(_current_proj)
+    _current_proj.collision_mask = $Pivot/Area2D.collision_mask
     _current_proj.position = proj_pos
     _current_proj.direction = dir
     _current_proj.look_at(pos)

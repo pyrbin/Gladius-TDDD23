@@ -1,18 +1,18 @@
 {
-    "0": {
+    "1": {
         "NAME": "Iron Helmet",
         "ICON": "armor/iron_armor/iron_armor_helm_icon.png",
         "TYPE": 1,
-        "SLOT": 0,
+        "SLOT": 1,
         "DESC": "A helmet made of iron",
         "SPRITE": "armor/iron_armor/iron_armor_helm.png",
         "ATTRIBUTES": {}
     },
-    "1": {
+    "2": {
         "NAME": "Iron Chest",
         "ICON": "armor/iron_armor/iron_armor_chest_icon.png",
         "TYPE": 1,
-        "SLOT": 1,
+        "SLOT": 2,
         "DESC": "A chest made of iron",
         "SPRITE": "armor/iron_armor/iron_armor_chest.png",
         "ATTRIBUTES": {
@@ -20,29 +20,29 @@
             "STAMINA": 20
         }
     },
-    "2": {
+    "3": {
         "NAME": "Iron Leggings",
         "ICON": "armor/iron_armor/iron_armor_legs_icon.png",
         "TYPE": 1,
-        "SLOT": 2,
+        "SLOT": 3,
         "DESC": "A pair of leggings made of iron",
         "SPRITE": "armor/iron_armor/iron_armor_legs.png",
         "ATTRIBUTES": {}
     },
-    "3": {
+    "4": {
         "NAME": "Gold Helmet",
         "ICON": "armor/gold_armor/gold_armor_helm_icon.png",
         "TYPE": 1,
-        "SLOT": 0,
+        "SLOT": 1,
         "DESC": "A helmet made of gold",
         "SPRITE": "armor/gold_armor/gold_armor_helm.png",
         "ATTRIBUTES": {}
     },
-    "4": {
+    "5": {
         "NAME": "Gold Chest",
         "ICON": "armor/gold_armor/gold_armor_chest_icon.png",
         "TYPE": 1,
-        "SLOT": 1,
+        "SLOT": 2,
         "DESC": "A chest made of gold",
         "SPRITE": "armor/gold_armor/gold_armor_chest.png",
         "ATTRIBUTES": {
@@ -50,29 +50,29 @@
             "STAMINA": 20
         }
     },
-    "5": {
+    "6": {
         "NAME": "Gold Leggings",
         "ICON": "armor/gold_armor/gold_armor_legs_icon.png",
         "TYPE": 1,
-        "SLOT": 2,
+        "SLOT": 3,
         "DESC": "A pair of leggings made of gold",
         "SPRITE": "armor/gold_armor/gold_armor_legs.png",
         "ATTRIBUTES": {}
     },
-    "6": {
+    "7": {
         "NAME": "Plate Helmet",
         "ICON": "armor/plate_armor/armor_icon_0.png",
         "TYPE": 1,
-        "SLOT": 0,
+        "SLOT": 1,
         "DESC": "A helmet made of plated iron",
         "SPRITE": "armor/plate_armor/plate_armor_helm.png",
         "ATTRIBUTES": {}
     },
-    "7": {
+    "8": {
         "NAME": "Plate Chest",
         "ICON": "armor/plate_armor/armor_icon_1.png",
         "TYPE": 1,
-        "SLOT": 1,
+        "SLOT": 2,
         "DESC": "A chest made of plated iron",
         "SPRITE": "armor/plate_armor/plate_armor_chest.png",
         "ATTRIBUTES": {
@@ -80,11 +80,11 @@
             "STAMINA": 20
         }
     },
-    "8": {
+    "9": {
         "NAME": "Plate Leggings",
         "ICON": "armor/plate_armor/armor_icon_2.png",
         "TYPE": 1,
-        "SLOT": 2,
+        "SLOT": 3,
         "DESC": "A pair of leggings made of plated iron",
         "SPRITE": "armor/plate_armor/plate_armor_legs.png",
         "ATTRIBUTES": {}
@@ -93,13 +93,13 @@
         "NAME": "Iron Shortsword",
         "ICON": "weapon/iron_weapon/iron_shortsword_icon.png",
         "TYPE": 1,
-        "SLOT": 3,
+        "SLOT": 4,
         "DESC": "A short little sword very bad I think",
         "SPRITE": "weapon/iron_weapon/iron_shortsword.png",
         "ATTRIBUTES": {
             "DAMAGE" : 15,
-            "ATTACK_SPEED": 650,
-            "COOLDOWN" : 0.8
+            "ATTACK_SPEED": 300,
+            "COOLDOWN" : 0.6
         },
         "WEAPON_TYPE": 0,
         "MODEL" : "swing_weapon/shortsword/Shortsword.tscn"
@@ -108,13 +108,13 @@
         "NAME": "Bronze Shortsword",
         "ICON": "weapon/bronze_weapon/bronze_shortsword_icon.png",
         "TYPE": 1,
-        "SLOT": 3,
+        "SLOT": 4,
         "DESC": "A short little sword very bad I think of bronze tho",
         "SPRITE": "weapon/bronze_weapon/bronze_shortsword.png",
         "ATTRIBUTES": {
             "DAMAGE" : 10,
-            "ATTACK_SPEED": 350,
-            "COOLDOWN" : 0.5
+            "ATTACK_SPEED": 300,
+            "COOLDOWN" : 0.6
         },
         "WEAPON_TYPE": 0,
         "MODEL" : "swing_weapon/shortsword/Shortsword.tscn"
@@ -123,7 +123,7 @@
         "NAME": "666 D3StR0Y3R of R4nD0.0M XD",
         "ICON": "weapon/doom_weapon/666_mace_icon.png",
         "TYPE": 1,
-        "SLOT": 3,
+        "SLOT": 4,
         "DESC": "dis wepon will C0NzVME URZ hehehee",
         "SPRITE": "weapon/doom_weapon/666_mace.png",
         "ATTRIBUTES": {
@@ -138,7 +138,7 @@
         "NAME": "Potion of Health",
         "ICON": "consumable/potion_of_health_icon.png",
         "TYPE": 1,
-        "SLOT": 4,
+        "SLOT": 5,
         "DESC": "nice and healthy potion",
         "SPRITE": "consumable/potion_of_health_icon.png",
         "ATTRIBUTES": {
@@ -150,13 +150,13 @@
         "NAME": "Iron Longspear",
         "ICON": "weapon/iron_weapon/iron_spear_icon.png",
         "TYPE": 1,
-        "SLOT": 3,
+        "SLOT": 4,
         "DESC": "A short long spear very bad I think",
         "SPRITE": "weapon/iron_weapon/iron_spear.png",
         "ATTRIBUTES": {
             "DAMAGE" : 35,
             "ATTACK_SPEED": 400,
-            "COOLDOWN" : 0.6
+            "COOLDOWN" : 0.5
         },
         "WEAPON_TYPE": 1,
         "MODEL" : "stab_weapon/spear/Spear.tscn"
@@ -165,13 +165,13 @@
         "NAME": "Iron Dagger",
         "ICON": "weapon/iron_weapon/iron_dagger_icon.png",
         "TYPE": 1,
-        "SLOT": 3,
+        "SLOT": 4,
         "DESC": "A dagger very bad I think",
         "SPRITE": "weapon/iron_weapon/iron_dagger.png",
         "ATTRIBUTES": {
             "DAMAGE" : 10,
-            "ATTACK_SPEED": 350,
-            "COOLDOWN" : 0.4
+            "ATTACK_SPEED": 250,
+            "COOLDOWN" : 0.35
         },
         "WEAPON_TYPE": 1,
         "MODEL" : "stab_weapon/dagger/Dagger.tscn"
@@ -180,13 +180,13 @@
         "NAME": "Iron Crossbow",
         "ICON": "weapon/iron_weapon/iron_crossbow_icon.png",
         "TYPE": 1,
-        "SLOT": 3,
+        "SLOT": 4,
         "DESC": "A dagger very bad I think",
         "SPRITE": "weapon/iron_weapon/iron_crossbow.png",
         "ATTRIBUTES": {
             "DAMAGE" : 10,
-            "ATTACK_SPEED": 1650,
-            "COOLDOWN" : 0.1,
+            "ATTACK_SPEED": 650,
+            "COOLDOWN" : 0.7,
             "AMMO": "weapon/iron_weapon/iron_arrow.png"
         },
         "WEAPON_TYPE": 2,

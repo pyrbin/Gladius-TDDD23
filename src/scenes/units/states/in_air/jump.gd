@@ -8,7 +8,6 @@ func _ready():
     owner.connect("unit_collided", self, "_on_unit_collision")
 
 func enter():
-    remove_from_group(HITABLE_GROUP_NAME)
     owner.iframe = true
     var direction = owner.get_movement_direction().normalized()
     jump_force = Vector2(JUMP_FORCE, JUMP_FORCE) * direction
@@ -23,6 +22,5 @@ func update(d):
 
 func _on_animation_finished(anim_name):
     if anim_name == "jump":
-        add_to_group(HITABLE_GROUP_NAME)
         owner.iframe = false
         emit_signal("finished", "idle")    

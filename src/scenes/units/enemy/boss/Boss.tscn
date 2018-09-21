@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/units/enemy/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/interface/unit_healthbars/UnitHealthBarController.tscn" type="PackedScene" id=2]
 
 [node name="Boss" groups=[
 "Boss",
@@ -9,11 +10,36 @@
 scale = Vector2( 4, 4 )
 collision_layer = 12
 _sections_unfolded = [ "Collision", "Transform", "Z Index", "collision" ]
-equipment_container_slots = [ 0, 1, 2, -1 ]
 equipped_weapons = [ 3001, -1 ]
 
-[node name="Visuals" parent="." index="4"]
+[node name="StateMachine" parent="." index="0"]
+
+editor/display_folded = true
+
+[node name="Jump" parent="StateMachine" index="2"]
+
+editor/display_folded = true
+
+[node name="Visuals" parent="." index="5"]
 
 position = Vector2( -0.0612597, -31.9999 )
+
+[node name="WeaponPivot" parent="Visuals/Pivot" index="2"]
+
+z_index = 5
+
+[node name="WorldUI" type="Node2D" parent="Visuals/Pivot/Container" index="0"]
+
+position = Vector2( -7.7486e-007, 0 )
+z_index = 1000
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "Z Index" ]
+
+[node name="UnitHealthBarController" parent="Visuals/Pivot/Container/WorldUI" index="0" instance=ExtResource( 2 )]
+
+margin_left = -30.0
+margin_top = -38.0
+margin_right = 30.0
+margin_bottom = -29.0
+_sections_unfolded = [ "Rect" ]
 
 

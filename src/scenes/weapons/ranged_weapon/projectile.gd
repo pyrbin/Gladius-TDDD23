@@ -1,5 +1,4 @@
 extends Area2D
-
 signal on_collision(co, projectile)
 
 const PROJECTILE_DESPAWN_DELAY = 2000
@@ -26,7 +25,7 @@ func fire(p_force):
 func stop():
     fly = false
 #   yield(get_tree().create_timer(PROJECTILE_DESPAWN_DELAY/1000.0), 'timeout')
-#   queue_free()
+    queue_free()
     
 func _physics_process(d):
     if fly:

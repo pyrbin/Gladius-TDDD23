@@ -10,7 +10,6 @@ var toggle = true
 var pressed = false
 
 func _setup():
-    print("init player")
     emit_signal("player_loaded")
 
 func _input(event):

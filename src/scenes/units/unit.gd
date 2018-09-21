@@ -5,6 +5,9 @@ extends KinematicBody2D
 signal unit_collided
 signal took_damage(amount, actor)
 signal attacking
+signal blocking
+
+const Equippable = preload("res://data/equippable.gd")
 
 # enums
 enum LOOK_STATE {TOP_RIGHT, TOP_LEFT, BOTTOM_RIGHT, BOTTOM_LEFT}
@@ -13,10 +16,10 @@ enum LOOK_STATE {TOP_RIGHT, TOP_LEFT, BOTTOM_RIGHT, BOTTOM_LEFT}
 export (bool) var use_hands = false
 export (bool) var use_holster = true
 export (float) var reach = 40
-
-export (Array, int) var equipment_container_slots = [3]
-export (Array, int) var equipped_items = [3]
-export (Array, int) var equipped_weapons = [2]
+export (Array, int, "DEFAULT", "HELM", "CHEST", "LEGS", "WEAPON", "SPECIAL") var equipment_container_slots = []
+export (Array, int) var equipped_items = []
+export (Array, int) var equipped_weapons = []
+export (int, FLAGS, "Neutral", "Player", "Enemy", "Bosses") var weapon_collision 
 
 # visuals
 onready var body = $Visuals/Pivot/Container/Body
@@ -31,35 +34,46 @@ onready var holster = $Visuals/Pivot/Container/Chest/Holster
 onready var helm = $Visuals/Pivot/Container/Helm
 
 # data 
-onready var holster_timer = $HolsterTimer
 onready var status = $Status
 onready var attr = $Attributes
+onready var holster_timer = $HolsterTimer
+onready var block_timer = $BlockTimer
 
 # constans
 const WEAPON_FOLDER_PATH = "res://scenes/weapons/"
-const Equippable = preload("res://data/equippable.gd")
+const BLOCK_TIME = 1000
+
+# combat vars
+var iframe = false
+var blocking = false
+var dead = false
 
 # member variables
 var look_state = TOP_RIGHT
 var look_position = Vector2(0,0)
 var velocity = Vector2(0,0)
-var dead = false
+
+# weapon
 var weapon = null
 var weapon_sprite = null
-var iframe = false
 var skin_color = null
+# equipment
 var equipment = null
 var action_equipment = null
+
 
 #   Setup functions
 #   =========================
 func _ready():
+    # Hand management
     if use_hands:
         u_hand.show()
         l_hand.show()
     else:
         u_hand.hide()
         l_hand.hide()
+    
+    # Skin tones
     randomize()
     var skin_tones = [Color("#8d5524"), Color("#c68642"), Color("#f1c27d"), Color("#f1c27d"), Color("#ffdbac")]
     skin_color = skin_tones[randi()%skin_tones.size()]
@@ -67,11 +81,14 @@ func _ready():
     u_hand.modulate = skin_color
     l_hand.modulate = skin_color
 
+    # Equipment
     var item_container = load("res://scripts/item_container/item_container.gd")
     equipment = item_container.new()
     action_equipment = item_container.new()
     equipment.init(equipment_container_slots, equipped_items)
-    action_equipment.init([3, 4], equipped_weapons)
+    action_equipment.init([Equippable.SLOT.WEAPON, Equippable.SLOT.SPECIAL], equipped_weapons)
+
+    # Connect signals
     equipment.connect("value_changed", self, "_on_equipment_change")
     action_equipment.connect("value_changed", self, "_on_action_equipment_change")
     _equip_equipments()
@@ -80,12 +97,12 @@ func _ready():
 func _setup():
     pass
     
-#   Unit ingame actions
+#   Unit ingame actions 
 #   =========================
 func use_consumable():
     pass
 
-func left_attack_weapon():
+func attack_weapon():
     if not weapon: return
     if weapon.is_holstered():
         unholster_weapon();
@@ -94,18 +111,28 @@ func left_attack_weapon():
     if use_holster:
         holster_timer.start()
 
-func right_attack_weapon():
-    status.damage(status.max_health)
+func try_block():
+    if blocking or not block_timer.is_stopped(): return
+    blocking = true
+    emit_signal("blocking")
+    yield(get_tree().create_timer(BLOCK_TIME/1000.0), 'timeout')
+    _unblock()
+        
+func _unblock():
+    if not blocking: return
+    blocking = false
+    block_timer.start()
 
 func deal_damage(amount, actor):
-    if self.is_a_parent_of(actor):
+    if blocking:
+        _unblock()
         return
     status.damage(amount)
     emit_signal("took_damage", amount, actor)
 
 func add_to_body(child):
     $Visuals/Pivot/Container.add_child(child)
-    
+
 #   Sprite manipulation
 #   =========================
 func _set_look_state(look_position):
@@ -161,7 +188,7 @@ func _hands_on_weapon(b):
 func equip_weapon(wep_data):
     weapon_pivot.add_child(load(wep_data.model).instance())
     var wep = weapon_pivot.get_child(0)
-    wep.load_weapon(wep_data)
+    wep.load_weapon(wep_data, weapon_collision)
     wep.holder = self
     wep.set_reach(reach)
     weapon = wep
@@ -237,7 +264,7 @@ func _update_equipment_slot(slot, use_action_equipment):
     
     if type == Equippable.SLOT.WEAPON || type == Equippable.SLOT.SPECIAL: return
     if use_action_equipment: return
-    if type == -1: return
+    if type == 0: return
 
     match type:
         Equippable.SLOT.HELM: armor_sprite = helm
@@ -293,7 +320,6 @@ func _on_collision(body):
 
 func _on_Status_on_health_zero():
     set_dead(true)
-
 
 func _on_Status_on_revive():
     set_dead(false)

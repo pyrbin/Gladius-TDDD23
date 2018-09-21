@@ -10,13 +10,13 @@ func handle_input(event):
     var consumable = event.is_action_pressed("special")
 
     if lmb:
-        owner.left_attack_weapon()
+        owner.attack_weapon()
     elif interact:
         owner.on_interact()
     if consumable:
         owner.use_consumable()
     if rmb:
-        owner.right_attack_weapon();
+        owner.try_block();
 
     if event.is_action_pressed("jump") && owner.status.endurance >= 20:
         owner.status.mod_endurance(-20)

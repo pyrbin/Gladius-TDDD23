@@ -16,7 +16,7 @@ func _ready():
     var slots = []
     slots.resize(container_items.size())
     for i in range(0, container_items.size()):
-        slots[i] = -1
+        slots[i] = 0
     container.init(slots, container_items)
     container.connect("value_changed", self, "_on_loot_change")
     sprite.set_texture(texture)
@@ -41,7 +41,7 @@ func interact():
     var c = 0
     for i in range(0, container.size()):
         if container.get(i) == null: continue
-        drop_item(i, container, Vector2(-40 + (c * 20), 15))
+        drop_item(i, container, Vector2(-60 + (c * 36), 15))
         c+=1
     interactable = false
     anim_player.play("open")

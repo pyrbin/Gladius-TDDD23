@@ -13,7 +13,7 @@ extents = Vector2( 7.4744, 4.91613 )
 
 render_priority = 0
 shader = ExtResource( 2 )
-shader_param/intensity = 96
+shader_param/intensity = 0
 shader_param/sizex = 48.0
 shader_param/sizey = 48.0
 shader_param/outline_color = Color( 0.964844, 0.094223, 0.094223, 1 )

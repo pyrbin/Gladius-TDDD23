@@ -343,9 +343,9 @@ tracks/0/keys = {
 }
 
 [node name="Unit" type="KinematicBody2D" groups=[
+"Z_Index",
 "Units",
 "Hitable",
-"Z_Index",
 ]]
 
 position = Vector2( 0.576477, -0.523365 )
@@ -359,9 +359,10 @@ _sections_unfolded = [ "Collision", "Z Index", "collision" ]
 use_hands = true
 use_holster = true
 reach = 30.0
-equipment_container_slots = null
+equipment_container_slots = [ 1, 2, 3 ]
 equipped_items = null
 equipped_weapons = null
+weapon_collision = 15
 
 [node name="StateMachine" type="Node" parent="." index="0"]
 
@@ -420,8 +421,11 @@ build_mode = 0
 polygon = PoolVector2Array( 1.99207, -42.1631, -0.888654, -42.166, -3.85954, -41.927, -3.86879, -25.5875, -7.92186, -21.9607, -7.93433, 0.0673785, 4.75866, 0.443459, 4.59149, -22.311, 0.542254, -25.462, 0.363716, -28.1249, 4.50462, -27.8786, 4.87286, -42.2812 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="Visuals" type="Position2D" parent="." index="4"]
+[node name="Static_World_UI" type="Node2D" parent="." index="4"]
 
+[node name="Visuals" type="Position2D" parent="." index="5"]
+
+editor/display_folded = true
 position = Vector2( -0.477157, -29.5153 )
 
 [node name="Pivot" type="Position2D" parent="Visuals" index="0"]
@@ -459,21 +463,21 @@ _sections_unfolded = [ "Region", "Transform", "Z Index" ]
 
 [node name="WeaponPivot" type="Position2D" parent="Visuals/Pivot" index="2"]
 
-position = Vector2( -2.79397e-09, 15.9238 )
-z_index = 5
+position = Vector2( -2.79397e-009, 15.9238 )
+z_index = 10
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Container" type="Position2D" parent="Visuals/Pivot" index="3"]
 
 _sections_unfolded = [ "Offset", "Z Index" ]
 
-[node name="WorldUI" type="Node2D" parent="Visuals/Pivot/Container" index="0"]
+[node name="Dynamic_WorldUI" type="Node2D" parent="Visuals/Pivot/Container" index="0"]
 
 position = Vector2( -7.7486e-007, 0 )
 z_index = 1000
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "Z Index" ]
 
-[node name="UnitHealthBarController" parent="Visuals/Pivot/Container/WorldUI" index="0" instance=ExtResource( 12 )]
+[node name="UnitHealthBarController" parent="Visuals/Pivot/Container/Dynamic_WorldUI" index="0" instance=ExtResource( 12 )]
 
 margin_left = -30.0
 margin_top = -38.0
@@ -514,7 +518,7 @@ _sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
 
 [node name="Body" type="Sprite" parent="Visuals/Pivot/Container" index="4"]
 
-position = Vector2( -4.47035e-07, 0 )
+position = Vector2( -4.47035e-007, 0 )
 z_index = 2
 texture = ExtResource( 14 )
 region_enabled = true
@@ -533,7 +537,7 @@ offset = Vector2( -1.39726, 1.21561 )
 region_rect = Rect2( 0, 0, 72, 72 )
 _sections_unfolded = [ "Offset", "Region", "Transform", "Visibility", "Z Index" ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -549,7 +553,7 @@ anims/stagger = SubResource( 7 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
-[node name="SpritePlayer" type="AnimationPlayer" parent="." index="6"]
+[node name="SpritePlayer" type="AnimationPlayer" parent="." index="7"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -562,12 +566,19 @@ anims/Top_Left = SubResource( 10 )
 anims/Top_Right = SubResource( 11 )
 blend_times = [  ]
 
-[node name="HolsterTimer" type="Timer" parent="." index="7"]
+[node name="HolsterTimer" type="Timer" parent="." index="8"]
 
 process_mode = 1
 wait_time = 4.0
 one_shot = true
 autostart = true
+
+[node name="BlockTimer" type="Timer" parent="." index="9"]
+
+process_mode = 1
+wait_time = 4.0
+one_shot = true
+autostart = false
 
 [connection signal="on_health_zero" from="Status" to="." method="_on_Status_on_health_zero"]
 
