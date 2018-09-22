@@ -11,4 +11,12 @@ script = ExtResource( 2 )
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 item_id = null
 
+[node name="Visuals" parent="." index="2"]
+
+editor/display_folded = false
+
+[node name="Pivot" parent="Visuals" index="1"]
+
+editor/display_folded = false
+
 

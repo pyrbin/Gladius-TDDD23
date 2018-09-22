@@ -45,32 +45,50 @@ margin_top = 24.0
 margin_right = 24.0
 margin_bottom = 27.0
 
+[node name="Dynamic_WorldUI" parent="Visuals/Pivot" index="0"]
+
+editor/display_folded = false
+
+[node name="UnitHealthBarController" parent="Visuals/Pivot/Dynamic_WorldUI" index="0"]
+
+disabled = true
+
+[node name="U_Hand_Pivot" parent="Visuals/Pivot" index="1"]
+
+modulate = Color( 1, 1, 1, 1 )
+
 [node name="U_Hand" parent="Visuals/Pivot/U_Hand_Pivot" index="0"]
 
 _sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="L_Hand_Pivot" parent="Visuals/Pivot" index="2"]
+
+modulate = Color( 1, 1, 1, 1 )
 
 [node name="L_Hand" parent="Visuals/Pivot/L_Hand_Pivot" index="0"]
 
 _sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
 
-[node name="UnitHealthBarController" parent="Visuals/Pivot/Container/Dynamic_WorldUI" index="0"]
+[node name="WeaponPivot" parent="Visuals/Pivot" index="3"]
 
-visible = false
-disabled = true
+modulate = Color( 1, 1, 1, 1 )
 
-[node name="Chest" parent="Visuals/Pivot/Container" index="3"]
+[node name="Container" parent="Visuals/Pivot" index="4"]
 
 editor/display_folded = true
-_sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
+modulate = Color( 1, 1, 1, 1 )
+
+[node name="Chest" parent="Visuals/Pivot/Container" index="2"]
+
+editor/display_folded = true
 
 [node name="CameraPivot" type="Position2D" parent="." index="6"]
 
-editor/display_folded = true
 script = ExtResource( 5 )
 
 [node name="Camera2D" type="Camera2D" parent="CameraPivot" index="0"]
 
-position = Vector2( 1.44592, 2.5488 )
+position = Vector2( 1.44595, 2.4847 )
 anchor_mode = 1
 rotating = false
 current = true

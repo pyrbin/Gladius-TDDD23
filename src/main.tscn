@@ -7,7 +7,7 @@
 [ext_resource path="res://scenes/units/enemy/Enemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/units/player/Player.tscn" type="PackedScene" id=6]
 
-[node name="Root" type="Node"]
+[node name="Root" type="Node" index="0"]
 
 [node name="GUI" type="CanvasLayer" parent="." index="0"]
 
@@ -41,19 +41,21 @@ _sections_unfolded = [ "Material", "Visibility", "Z Index" ]
 
 [node name="Level_1" parent="Game/World/Level" index="0" instance=ExtResource( 3 )]
 
+position = Vector2( 0, -1.36041 )
+
 [node name="Root_Items" type="Node" parent="Game/World" index="1" groups=[
 "Root_Items",
 ]]
 
 [node name="Chest" parent="Game/World/Root_Items" index="0" instance=ExtResource( 4 )]
 
-position = Vector2( 118.338, -17.9733 )
+position = Vector2( 100.506, -162.25 )
 lootable_name = "Chest"
 container_items = [ 1, 2, 3, 7, 8, 9 ]
 
 [node name="Chest2" parent="Game/World/Root_Items" index="1" instance=ExtResource( 4 )]
 
-position = Vector2( -126.871, -30.147 )
+position = Vector2( -92.8282, -166.859 )
 lootable_name = "Chest"
 container_items = [ 3001, 3002, 3003, 3004, 3005, 4001 ]
 
@@ -65,25 +67,29 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Actors" type="Node" parent="Game/World" index="3"]
 
-editor/display_folded = true
-
 [node name="Root_Units" type="Node" parent="Game/World/Actors" index="0" groups=[
 "Root_Units",
 ]]
 
-editor/display_folded = true
-
 [node name="Enemy2" parent="Game/World/Actors/Root_Units" index="0" instance=ExtResource( 5 )]
 
-position = Vector2( 216.09, -69.3544 )
+position = Vector2( 50.4314, -368.1 )
 
 [node name="Enemy3" parent="Game/World/Actors/Root_Units" index="1" instance=ExtResource( 5 )]
 
-position = Vector2( 335.758, -64.9224 )
+position = Vector2( -64.9207, -312.57 )
+
+[node name="Enemy4" parent="Game/World/Actors/Root_Units" index="2" instance=ExtResource( 5 )]
+
+position = Vector2( 9.2168, -329.04 )
+
+[node name="Enemy5" parent="Game/World/Actors/Root_Units" index="3" instance=ExtResource( 5 )]
+
+position = Vector2( 0.716049, -379.933 )
 
 [node name="Player" parent="Game/World/Actors" index="1" instance=ExtResource( 6 )]
 
-position = Vector2( 12.8183, -60.0573 )
+position = Vector2( 12.278, -181.098 )
 rotation = 0.0
 reach = 33.0
 

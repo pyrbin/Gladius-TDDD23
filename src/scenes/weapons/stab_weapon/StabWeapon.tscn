@@ -26,8 +26,7 @@ tracks/0/keys = {
 [node name="StabWeapon" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
-holster_offset = Vector2( 25, 0 )
+stab_length = 40
 
 [node name="AnimationPlayer" parent="." index="1"]
 

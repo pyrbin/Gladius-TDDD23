@@ -1,9 +1,30 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/interface/world_ui_player/player_block_indicator.gd" type="Script" id=1]
-[ext_resource path="res://assets/interface/block_shield_bg.png" type="Texture" id=2]
-[ext_resource path="res://assets/interface/block_shield_fill.png" type="Texture" id=3]
-[ext_resource path="res://assets/interface/block_shield_active.png" type="Texture" id=4]
+[ext_resource path="res://shaders/pixel_outline.shader" type="Shader" id=2]
+[ext_resource path="res://assets/interface/block_shield_bg.png" type="Texture" id=3]
+[ext_resource path="res://assets/interface/block_shield_fill.png" type="Texture" id=4]
+[ext_resource path="res://assets/interface/block_shield_active.png" type="Texture" id=5]
+
+[sub_resource type="ShaderMaterial" id=1]
+
+render_priority = 0
+shader = ExtResource( 2 )
+shader_param/intensity = 100
+shader_param/sizex = 24.0
+shader_param/sizey = 24.0
+shader_param/outline_color = null
+_sections_unfolded = [ "shader_param" ]
+
+[sub_resource type="ShaderMaterial" id=2]
+
+render_priority = 0
+shader = ExtResource( 2 )
+shader_param/intensity = 100
+shader_param/sizex = 24.0
+shader_param/sizey = 24.0
+shader_param/outline_color = null
+_sections_unfolded = [ "shader_param" ]
 
 [node name="PlayerBlockIndicator" type="Control"]
 
@@ -11,8 +32,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 48.0
-margin_bottom = 48.0
+margin_right = 24.0
+margin_bottom = 23.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -24,6 +45,7 @@ _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 [node name="TextureProgress" type="TextureProgress" parent="." index="0"]
 
+material = SubResource( 1 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -43,17 +65,18 @@ page = 0.0
 value = 0.4
 exp_edit = false
 rounded = false
-texture_under = ExtResource( 2 )
+texture_under = ExtResource( 3 )
 texture_over = null
-texture_progress = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
 fill_mode = 3
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = true
-_sections_unfolded = [ "Hint", "Rect", "Textures" ]
+_sections_unfolded = [ "Hint", "Material", "Rect", "Textures" ]
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." index="1"]
 
+material = SubResource( 2 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -66,7 +89,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 4 )
-_sections_unfolded = [ "Rect" ]
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Material", "Rect" ]
 
 

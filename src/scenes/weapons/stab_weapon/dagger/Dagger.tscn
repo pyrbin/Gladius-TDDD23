@@ -6,10 +6,11 @@
 [node name="Dagger" instance=ExtResource( 1 )]
 
 holster_offset = Vector2( 55, 0 )
+stab_length = 15
 
 [node name="Pivot" parent="." index="2"]
 
-position = Vector2( 34.1902, 0 )
+position = Vector2( 47.1272, 0 )
 
 [node name="Sprite" parent="Pivot/Area2D" index="0"]
 

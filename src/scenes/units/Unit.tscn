@@ -9,9 +9,9 @@
 [ext_resource path="res://scenes/units/states/stagger.gd" type="Script" id=7]
 [ext_resource path="res://scenes/units/unit_attr.gd" type="Script" id=8]
 [ext_resource path="res://scenes/units/Status.tscn" type="PackedScene" id=9]
-[ext_resource path="res://shaders/pixel_outline.shader" type="Shader" id=10]
-[ext_resource path="res://assets/gladiator/hand_6x6.png" type="Texture" id=11]
-[ext_resource path="res://scenes/interface/unit_healthbars/UnitHealthBarController.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/interface/unit_healthbars/UnitHealthBarController.tscn" type="PackedScene" id=10]
+[ext_resource path="res://shaders/pixel_outline.shader" type="Shader" id=11]
+[ext_resource path="res://assets/gladiator/hand_6x6.png" type="Texture" id=12]
 [ext_resource path="res://assets/items/weapon/iron_weapon/iron_shortsword.png" type="Texture" id=13]
 [ext_resource path="res://assets/gladiator_mini_mini.png" type="Texture" id=14]
 [ext_resource path="res://assets/shadow.png" type="Texture" id=15]
@@ -20,7 +20,7 @@
 
 resource_name = "hand_material"
 render_priority = 0
-shader = ExtResource( 10 )
+shader = ExtResource( 11 )
 shader_param/intensity = 60
 shader_param/sizex = 6.0
 shader_param/sizey = 6.0
@@ -254,20 +254,56 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=7]
 
 resource_name = "stagger"
-length = 0.1
+length = 0.15
 loop = false
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("Visuals/Pivot/Container/Body:modulate")
+tracks/0/path = NodePath("Visuals/Pivot/Container:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
+"times": PoolRealArray( 0, 0.15 ),
 "transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ Color( 1, 0.232635, 0.0820313, 1 ), Color( 1, 1, 1, 1 ) ]
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Visuals/Pivot/WeaponPivot:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Visuals/Pivot/L_Hand_Pivot:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Visuals/Pivot/U_Hand_Pivot:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -342,10 +378,10 @@ tracks/0/keys = {
 "values": [ false, false ]
 }
 
-[node name="Unit" type="KinematicBody2D" groups=[
-"Z_Index",
-"Units",
+[node name="Unit" type="KinematicBody2D" index="0" groups=[
 "Hitable",
+"Units",
+"Z_Index",
 ]]
 
 position = Vector2( 0.576477, -0.523365 )
@@ -425,59 +461,21 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Visuals" type="Position2D" parent="." index="5"]
 
-editor/display_folded = true
 position = Vector2( -0.477157, -29.5153 )
+_sections_unfolded = [ "Material", "Visibility" ]
 
 [node name="Pivot" type="Position2D" parent="Visuals" index="0"]
 
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
-[node name="U_Hand_Pivot" type="Position2D" parent="Visuals/Pivot" index="0"]
+[node name="Dynamic_WorldUI" type="Node2D" parent="Visuals/Pivot" index="0"]
 
 editor/display_folded = true
-position = Vector2( -10.7167, 15.6651 )
-z_index = 5
-_sections_unfolded = [ "Transform", "Z Index" ]
-
-[node name="U_Hand" type="Sprite" parent="Visuals/Pivot/U_Hand_Pivot" index="0"]
-
-material = SubResource( 1 )
-z_index = 1
-texture = ExtResource( 11 )
-region_rect = Rect2( 321, 39, 6, 6 )
-_sections_unfolded = [ "Region", "Transform", "Z Index" ]
-
-[node name="L_Hand_Pivot" type="Position2D" parent="Visuals/Pivot" index="1"]
-
-editor/display_folded = true
-position = Vector2( 10.2365, 16.2947 )
-z_index = 5
-_sections_unfolded = [ "Transform", "Z Index" ]
-
-[node name="L_Hand" type="Sprite" parent="Visuals/Pivot/L_Hand_Pivot" index="0"]
-
-material = SubResource( 1 )
-texture = ExtResource( 11 )
-region_rect = Rect2( 321, 39, 6, 6 )
-_sections_unfolded = [ "Region", "Transform", "Z Index" ]
-
-[node name="WeaponPivot" type="Position2D" parent="Visuals/Pivot" index="2"]
-
-position = Vector2( -2.79397e-009, 15.9238 )
-z_index = 10
-_sections_unfolded = [ "Transform", "Z Index" ]
-
-[node name="Container" type="Position2D" parent="Visuals/Pivot" index="3"]
-
-_sections_unfolded = [ "Offset", "Z Index" ]
-
-[node name="Dynamic_WorldUI" type="Node2D" parent="Visuals/Pivot/Container" index="0"]
-
 position = Vector2( -7.7486e-007, 0 )
 z_index = 1000
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "Z Index" ]
 
-[node name="UnitHealthBarController" parent="Visuals/Pivot/Container/Dynamic_WorldUI" index="0" instance=ExtResource( 12 )]
+[node name="UnitHealthBarController" parent="Visuals/Pivot/Dynamic_WorldUI" index="0" instance=ExtResource( 10 )]
 
 margin_left = -30.0
 margin_top = -38.0
@@ -485,26 +483,65 @@ margin_right = 30.0
 margin_bottom = -29.0
 _sections_unfolded = [ "Rect" ]
 
-[node name="Legs" type="Sprite" parent="Visuals/Pivot/Container" index="1"]
+[node name="U_Hand_Pivot" type="Position2D" parent="Visuals/Pivot" index="1"]
+
+editor/display_folded = true
+position = Vector2( -10.7167, 15.6651 )
+z_index = 5
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="U_Hand" type="Sprite" parent="Visuals/Pivot/U_Hand_Pivot" index="0"]
+
+material = SubResource( 1 )
+z_index = 1
+texture = ExtResource( 12 )
+region_rect = Rect2( 321, 39, 6, 6 )
+_sections_unfolded = [ "Region", "Transform", "Z Index" ]
+
+[node name="L_Hand_Pivot" type="Position2D" parent="Visuals/Pivot" index="2"]
+
+editor/display_folded = true
+position = Vector2( 10.2365, 16.2947 )
+z_index = 5
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="L_Hand" type="Sprite" parent="Visuals/Pivot/L_Hand_Pivot" index="0"]
+
+material = SubResource( 1 )
+texture = ExtResource( 12 )
+region_rect = Rect2( 321, 39, 6, 6 )
+_sections_unfolded = [ "Region", "Transform", "Z Index" ]
+
+[node name="WeaponPivot" type="Position2D" parent="Visuals/Pivot" index="3"]
+
+position = Vector2( 0, 15.9238 )
+z_index = 10
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="Container" type="Position2D" parent="Visuals/Pivot" index="4"]
+
+_sections_unfolded = [ "Material", "Offset", "Visibility", "Z Index" ]
+
+[node name="Legs" type="Sprite" parent="Visuals/Pivot/Container" index="0"]
 
 z_index = 4
 region_enabled = true
 region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region", "Z Index" ]
+_sections_unfolded = [ "Region", "Visibility", "Z Index" ]
 
-[node name="Helm" type="Sprite" parent="Visuals/Pivot/Container" index="2"]
+[node name="Helm" type="Sprite" parent="Visuals/Pivot/Container" index="1"]
 
 position = Vector2( 0, 3 )
 z_index = 3
 region_rect = Rect2( 0, 72, 72, 72 )
-_sections_unfolded = [ "Region", "Transform", "Z Index" ]
+_sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
 
-[node name="Chest" type="Sprite" parent="Visuals/Pivot/Container" index="3"]
+[node name="Chest" type="Sprite" parent="Visuals/Pivot/Container" index="2"]
 
 position = Vector2( 0, 3 )
 z_index = 3
 region_rect = Rect2( 72, 72, 72, 72 )
-_sections_unfolded = [ "Region", "Transform", "Z Index" ]
+_sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
 
 [node name="Holster" type="Sprite" parent="Visuals/Pivot/Container/Chest" index="0"]
 
@@ -516,7 +553,7 @@ z_index = -1
 texture = ExtResource( 13 )
 _sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
 
-[node name="Body" type="Sprite" parent="Visuals/Pivot/Container" index="4"]
+[node name="Body" type="Sprite" parent="Visuals/Pivot/Container" index="3"]
 
 position = Vector2( -4.47035e-007, 0 )
 z_index = 2
