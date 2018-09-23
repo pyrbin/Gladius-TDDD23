@@ -378,10 +378,10 @@ tracks/0/keys = {
 "values": [ false, false ]
 }
 
-[node name="Unit" type="KinematicBody2D" index="0" groups=[
-"Hitable",
-"Units",
+[node name="Unit" type="KinematicBody2D" groups=[
 "Z_Index",
+"Units",
+"Hitable",
 ]]
 
 position = Vector2( 0.576477, -0.523365 )
@@ -412,11 +412,10 @@ script = ExtResource( 3 )
 [node name="Move" type="Node" parent="StateMachine" index="1"]
 
 script = ExtResource( 4 )
-MAX_WALK_SPEED = 200.0
-MAX_SPRINT_SPEED = 400.0
 
 [node name="Jump" type="Node" parent="StateMachine" index="2"]
 
+editor/display_folded = true
 script = ExtResource( 5 )
 JUMP_FORCE = 800
 
@@ -441,10 +440,11 @@ script = ExtResource( 7 )
 
 script = ExtResource( 8 )
 _sections_unfolded = [ "Pause" ]
-power = 0
-attack_speed = 1
-movement_speed = 1
-crit_chance = 0
+power = 1.0
+vitality = 1.0
+attack_speed = 1.0
+movement_speed = 450.0
+crit_chance = 1.0
 
 [node name="Status" parent="." index="2" instance=ExtResource( 9 )]
 

@@ -19,9 +19,9 @@ weapon_collision = 3
 
 editor/display_folded = true
 
-[node name="aim_indicator" parent="Visuals" index="2" instance=ExtResource( 3 )]
+[node name="AimIndicator" parent="Visuals" index="2" instance=ExtResource( 3 )]
 
-position = Vector2( -0.152945, 15.403 )
+position = Vector2( -0.716699, 15.4034 )
 offset = Vector2( 46.9574, -0.632462 )
 
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://themes/default.theme" type="Theme" id=1]
 [ext_resource path="res://scenes/interface/character_panel/character_panel.gd" type="Script" id=2]
-[ext_resource path="res://scenes/interface/slot_containers/ItemContainerController.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/interface/character_panel/StatLabel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/interface/slot_containers/ItemContainerController.tscn" type="PackedScene" id=4]
 
 [node name="CharacterPanel" type="Panel" groups=[
 "Character_Panel",
@@ -69,7 +70,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="CenterContainer2" type="CenterContainer" parent="Content" index="1"]
+[node name="StatsContainer" type="CenterContainer" parent="Content" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -78,7 +79,7 @@ anchor_bottom = 0.0
 margin_top = 37.0
 margin_right = 370.0
 margin_bottom = 277.0
-rect_min_size = Vector2( 370, 240 )
+rect_min_size = Vector2( 330, 240 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -87,6 +88,64 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 use_top_left = false
 _sections_unfolded = [ "Grow Direction", "Margin", "Rect" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Content/StatsContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 49.0
+margin_top = 57.0
+margin_right = 321.0
+margin_bottom = 183.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Vitality" parent="Content/StatsContainer/VBoxContainer" index="0" instance=ExtResource( 3 )]
+
+margin_left = 0.0
+margin_right = 272.0
+margin_bottom = 22.0
+stat_name = "Vitality"
+
+[node name="Power" parent="Content/StatsContainer/VBoxContainer" index="1" instance=ExtResource( 3 )]
+
+margin_left = 0.0
+margin_top = 26.0
+margin_right = 272.0
+margin_bottom = 48.0
+stat_name = "Power"
+
+[node name="Atk_Speed" parent="Content/StatsContainer/VBoxContainer" index="2" instance=ExtResource( 3 )]
+
+margin_left = 0.0
+margin_top = 52.0
+margin_right = 272.0
+margin_bottom = 74.0
+stat_name = "Attack Speed"
+
+[node name="Mov_Speed" parent="Content/StatsContainer/VBoxContainer" index="3" instance=ExtResource( 3 )]
+
+margin_left = 0.0
+margin_top = 78.0
+margin_right = 272.0
+margin_bottom = 100.0
+stat_name = "Movement"
+stat_mod_value = 2000.0
+
+[node name="Crit" parent="Content/StatsContainer/VBoxContainer" index="4" instance=ExtResource( 3 )]
+
+margin_left = 0.0
+margin_top = 104.0
+margin_right = 272.0
+margin_bottom = 126.0
+stat_name = "Crit"
 
 [node name="Label_Equipment" type="Label" parent="Content" index="2"]
 
@@ -130,7 +189,7 @@ _sections_unfolded = [ "Margin", "Rect" ]
 
 [node name="ItemSlotContainer" parent="Content/CenterContainer" index="0" groups=[
 "Equipment_ItemContainer",
-] instance=ExtResource( 3 )]
+] instance=ExtResource( 4 )]
 
 margin_left = 137.0
 margin_right = 233.0

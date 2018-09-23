@@ -6,7 +6,14 @@
         "SLOT": 1,
         "DESC": "A helmet made of iron",
         "SPRITE": "armor/iron_armor/iron_armor_helm.png",
-        "ATTRIBUTES": {}
+        "ATTRIBUTES": {
+            "VITALITY": {
+                "VALUE" : 200
+            },
+            "POWER": {
+                "PERCENT" : 10
+            }
+        }
     },
     "2": {
         "NAME": "Iron Chest",
@@ -16,8 +23,12 @@
         "DESC": "A chest made of iron",
         "SPRITE": "armor/iron_armor/iron_armor_chest.png",
         "ATTRIBUTES": {
-            "HEALTH": 200,
-            "STAMINA": 20
+            "VITALITY": {
+                "VALUE" : 200
+            },
+            "MOV_SPEED": {
+                "PERCENT" : 100
+            }
         }
     },
     "3": {
@@ -27,7 +38,14 @@
         "SLOT": 3,
         "DESC": "A pair of leggings made of iron",
         "SPRITE": "armor/iron_armor/iron_armor_legs.png",
-        "ATTRIBUTES": {}
+        "ATTRIBUTES": {
+            "VITALITY": {
+                "VALUE" : 200
+            },
+            "POWER": {
+                "PERCENT" : 10
+            }
+        }
     },
     "4": {
         "NAME": "Gold Helmet",
@@ -45,10 +63,7 @@
         "SLOT": 2,
         "DESC": "A chest made of gold",
         "SPRITE": "armor/gold_armor/gold_armor_chest.png",
-        "ATTRIBUTES": {
-            "HEALTH": 200,
-            "STAMINA": 20
-        }
+        "ATTRIBUTES": {}
     },
     "6": {
         "NAME": "Gold Leggings",
@@ -75,10 +90,7 @@
         "SLOT": 2,
         "DESC": "A chest made of plated iron",
         "SPRITE": "armor/plate_armor/plate_armor_chest.png",
-        "ATTRIBUTES": {
-            "HEALTH": 200,
-            "STAMINA": 20
-        }
+        "ATTRIBUTES": {}
     },
     "9": {
         "NAME": "Plate Leggings",

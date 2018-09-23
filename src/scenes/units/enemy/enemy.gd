@@ -12,6 +12,10 @@ func get_movement_direction():
 func get_aim_position():
 	return get_tree().get_nodes_in_group("Player")[0].global_position
 
+func set_dead(b):
+	$Visuals/AimIndicator.show() if not b else $Visuals/AimIndicator.hide()
+	return .set_dead(b)
+
 func _process(delta):
 	for e in event_move_down:
 		e.pressed = true

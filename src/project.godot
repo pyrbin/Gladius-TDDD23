@@ -25,7 +25,6 @@ gb_Z_Index_Orderer="*res://scripts/global/gb_z_index_orderer.gd"
 
 window/size/width=1366
 window/size/height=768
-window/stretch/mode="2d"
 window/stretch/aspect="expand"
 window/stretch/shrink="1"
 

@@ -18,14 +18,11 @@ equipped_items = [ -1, -1, -1 ]
 equipped_weapons = [ -1, 4001 ]
 weapon_collision = 13
 
-[node name="Move" parent="StateMachine" index="1"]
+[node name="Attributes" parent="." index="1"]
 
-MAX_SPRINT_SPEED = 300.0
-
-[node name="Status" parent="." index="2"]
-
-health = 10000.0
-max_health = 10000.0
+vitality = 0
+attack_speed = 0.0
+movement_speed = 200.0
 
 [node name="Collision" parent="." index="3"]
 
@@ -53,30 +50,17 @@ editor/display_folded = false
 
 disabled = true
 
-[node name="U_Hand_Pivot" parent="Visuals/Pivot" index="1"]
-
-modulate = Color( 1, 1, 1, 1 )
-
 [node name="U_Hand" parent="Visuals/Pivot/U_Hand_Pivot" index="0"]
 
 _sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
-
-[node name="L_Hand_Pivot" parent="Visuals/Pivot" index="2"]
-
-modulate = Color( 1, 1, 1, 1 )
 
 [node name="L_Hand" parent="Visuals/Pivot/L_Hand_Pivot" index="0"]
 
 _sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
 
-[node name="WeaponPivot" parent="Visuals/Pivot" index="3"]
-
-modulate = Color( 1, 1, 1, 1 )
-
 [node name="Container" parent="Visuals/Pivot" index="4"]
 
 editor/display_folded = true
-modulate = Color( 1, 1, 1, 1 )
 
 [node name="Chest" parent="Visuals/Pivot/Container" index="2"]
 

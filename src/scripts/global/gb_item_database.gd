@@ -16,7 +16,6 @@ func _ready():
     for i in db_string:
         var it = db_string[i]
         var int_id = int(i)
-        print(int_id)
         if it["TYPE"] == ItemData.ITEM_TYPE.EQUIPPABLE and it["SLOT"] == Equippable.SLOT.WEAPON:
             _item_database[int_id] = WeaponData.new(
                 int_id, 

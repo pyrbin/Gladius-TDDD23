@@ -28,7 +28,7 @@ func init(container_slots, start_equipped_items):
 		set(i, start_equipped_items[i])
 
 func _in_bounds(slot):
-	return slot <= _item_container_array.size()
+	return slot <= _item_container_array.size() && slot >= 0
 
 func _valid_id(item_id):
 	return typeof(item_id) == TYPE_INT && item_id >= 0 && gb_ItemDatabase.has_item(item_id)
@@ -55,6 +55,7 @@ func append(item_id):
 	return set(get_empty_slot(), item_id)
 
 func delete(slot):
+	if not _in_bounds(slot): return
 	_item_container_array[slot] = null
 	emit_signal("value_changed", slot)
 
@@ -77,8 +78,10 @@ func move_item(from, to):
 		_item_container_array[to] = tmp_f
 		_item_container_array[from] = tmp_t
 		success = true
-	emit_signal("value_changed", from)
-	emit_signal("value_changed", to)
+	if _in_bounds(from):
+		emit_signal("value_changed", from)
+	if _in_bounds(to):
+		emit_signal("value_changed", to)
 	return success
 
 func has(item_id):

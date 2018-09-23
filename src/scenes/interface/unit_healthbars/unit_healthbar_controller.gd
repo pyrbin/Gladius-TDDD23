@@ -29,7 +29,7 @@ func _process(delta):
             life_bar.hide()
             bar_hidden = true
         return
-    life_bar.value = (owner.status.health/owner.status.max_health)
+    life_bar.value = (owner.status.health/owner.status.get_max_health())
     if bar_hidden:
         life_bar.show()
         bar_hidden = false

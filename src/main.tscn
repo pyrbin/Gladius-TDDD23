@@ -71,21 +71,41 @@ _sections_unfolded = [ "Transform" ]
 "Root_Units",
 ]]
 
-[node name="Enemy2" parent="Game/World/Actors/Root_Units" index="0" instance=ExtResource( 5 )]
+[node name="Enemy" parent="Game/World/Actors/Root_Units" index="0" instance=ExtResource( 5 )]
 
-position = Vector2( 50.4314, -368.1 )
+position = Vector2( -219.541, -339.016 )
 
-[node name="Enemy3" parent="Game/World/Actors/Root_Units" index="1" instance=ExtResource( 5 )]
+[node name="Enemy2" parent="Game/World/Actors/Root_Units" index="1" instance=ExtResource( 5 )]
 
-position = Vector2( -64.9207, -312.57 )
+position = Vector2( -32.9125, -354.309 )
 
-[node name="Enemy4" parent="Game/World/Actors/Root_Units" index="2" instance=ExtResource( 5 )]
+[node name="Enemy3" parent="Game/World/Actors/Root_Units" index="2" instance=ExtResource( 5 )]
 
-position = Vector2( 9.2168, -329.04 )
+position = Vector2( -142.37, -292.057 )
 
-[node name="Enemy5" parent="Game/World/Actors/Root_Units" index="3" instance=ExtResource( 5 )]
+[node name="Enemy4" parent="Game/World/Actors/Root_Units" index="3" instance=ExtResource( 5 )]
 
-position = Vector2( 0.716049, -379.933 )
+position = Vector2( 117.677, -299.758 )
+
+[node name="Enemy5" parent="Game/World/Actors/Root_Units" index="4" instance=ExtResource( 5 )]
+
+position = Vector2( -220, -260 )
+
+[node name="Enemy6" parent="Game/World/Actors/Root_Units" index="5" instance=ExtResource( 5 )]
+
+position = Vector2( -33.3347, -283.992 )
+
+[node name="Enemy7" parent="Game/World/Actors/Root_Units" index="6" instance=ExtResource( 5 )]
+
+position = Vector2( -297.62, -251.787 )
+
+[node name="Enemy8" parent="Game/World/Actors/Root_Units" index="7" instance=ExtResource( 5 )]
+
+position = Vector2( -277.806, -186.354 )
+
+[node name="Enemy9" parent="Game/World/Actors/Root_Units" index="8" instance=ExtResource( 5 )]
+
+position = Vector2( 234.438, -228.353 )
 
 [node name="Player" parent="Game/World/Actors" index="1" instance=ExtResource( 6 )]
 

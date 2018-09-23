@@ -1,8 +1,5 @@
 extends "on_ground.gd"
 
-export (float) var MAX_WALK_SPEED = 450
-export (float) var MAX_SPRINT_SPEED = 700
-
 var sprinting = false
 
 func enter():
@@ -22,8 +19,7 @@ func update(delta):
         var anim_player = owner.get_node("AnimationPlayer")
         anim_player.get_animation("move").loop = false
         emit_signal("finished", "idle")
-    speed = MAX_SPRINT_SPEED if sprinting else MAX_WALK_SPEED
-    move(speed, movement_direction, delta)
+    move(owner.attr.final_stat("MOV_SPEED"), movement_direction, delta)
     return .update(delta)
 
 func move(speed, direction, delta):

@@ -243,10 +243,28 @@ func drop_item(index, item_container, offset = Vector2(0, -10)):
     var item = item_container.get(index)
     item_container.delete(index)
     if item == null: return
+    _update_equip_attr(gb_ItemDatabase.get_item(item), false)
     var instance = load("res://scenes/interactable/item/Item.tscn").instance()
     get_tree().get_nodes_in_group("Root_Items")[0].add_child(instance)
     instance.set_item(item)
     instance.position = global_position + offset
+
+func _update_equip_attr(item, apply=true):
+    for attr_key in item.attributes:
+        if not ["VITALITY", "POWER", "ATK_SPEED", "MOV_SPEED", "CRIT"].has(attr_key): 
+            continue
+        var attr = item.attributes[attr_key]
+        for mod_key in attr:
+            var value = attr[mod_key] if apply else -attr[mod_key]
+            if attr_key == "VITALITY":
+                print("#=======" + item.sprite + "=======#")
+                print(apply)
+                print(value)
+                print("#=====================#")
+            _apply_attr_stats(attr_key, mod_key, value)
+
+func _apply_attr_stats(stat, mod, value):
+    attr.mod_modifier(stat, value, mod)
 
 func _update_equipment_slot(slot, use_action_equipment):
     var equip_id = equipment.get(slot) if not use_action_equipment else action_equipment.get(slot)
@@ -260,8 +278,9 @@ func _update_equipment_slot(slot, use_action_equipment):
             unequip_weapon()
         if equippable:
             equip_weapon(equippable)
-        return
-    
+
+    if equippable && type != Equippable.SLOT.SPECIAL: 
+        _update_equip_attr(equippable)
     if type == Equippable.SLOT.WEAPON || type == Equippable.SLOT.SPECIAL: return
     if use_action_equipment: return
     if type == 0: return
