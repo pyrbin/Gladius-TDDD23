@@ -154,7 +154,9 @@
         "DESC": "nice and healthy potion",
         "SPRITE": "consumable/potion_of_health_icon.png",
         "ATTRIBUTES": {
-            "HEALTH" : 100
+            "HEALTH" : {
+                "PERCENT" : 20
+            }
         },
         "COOLDOWN": 20
     },

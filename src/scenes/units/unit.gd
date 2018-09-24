@@ -100,7 +100,9 @@ func _setup():
 #   Unit ingame actions 
 #   =========================
 func use_consumable():
-    pass
+    var slot = action_equipment.get_equip_slot(Equippable.SLOT.SPECIAL)
+    var id = action_equipment.get(slot)
+    var cons = gb_ItemDatabase.get_item(id)
 
 func attack_weapon():
     if not weapon: return
@@ -256,11 +258,6 @@ func _update_equip_attr(item, apply=true):
         var attr = item.attributes[attr_key]
         for mod_key in attr:
             var value = attr[mod_key] if apply else -attr[mod_key]
-            if attr_key == "VITALITY":
-                print("#=======" + item.sprite + "=======#")
-                print(apply)
-                print(value)
-                print("#=====================#")
             _apply_attr_stats(attr_key, mod_key, value)
 
 func _apply_attr_stats(stat, mod, value):
@@ -281,6 +278,7 @@ func _update_equipment_slot(slot, use_action_equipment):
 
     if equippable && type != Equippable.SLOT.SPECIAL: 
         _update_equip_attr(equippable)
+
     if type == Equippable.SLOT.WEAPON || type == Equippable.SLOT.SPECIAL: return
     if use_action_equipment: return
     if type == 0: return
