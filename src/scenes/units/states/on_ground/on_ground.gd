@@ -1,5 +1,8 @@
 extends "../motion.gd"
 
+const Effect = preload("../../stat_system/effect.gd")
+const Modifier = preload("res://data/modifier.gd")
+
 func _ready():
     owner.connect("took_damage", self, "_on_took_damage")
 
@@ -14,12 +17,13 @@ func handle_input(event):
     elif interact:
         owner.on_interact()
     if consumable:
-        owner.use_consumable()
+        owner.stats.add_effect(Effect.new("test", owner, Modifier.new(STAT.MOVEMENT, STAT.PERCENT, 400), 2))
+        # owner.use_consumable()
     if rmb:
         owner.try_block();
 
     if event.is_action_pressed("jump") && owner.status.endurance >= 20:
-        owner.status.mod_endurance(-20)
+        owner.status.fatigue(20)
         emit_signal("finished", "jump")
         
     return .handle_input(event)

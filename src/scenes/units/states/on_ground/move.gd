@@ -19,7 +19,7 @@ func update(delta):
         var anim_player = owner.get_node("AnimationPlayer")
         anim_player.get_animation("move").loop = false
         emit_signal("finished", "idle")
-    move(owner.attr.final_stat("MOV_SPEED"), movement_direction, delta)
+    move(owner.stats.get_stat(STAT.MOVEMENT), movement_direction, delta)
     return .update(delta)
 
 func move(speed, direction, delta):

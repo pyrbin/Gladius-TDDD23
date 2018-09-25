@@ -7,7 +7,16 @@ func freeze_time(time):
 
 static func dout(node, message):
     print(node.name + ": "+String(message))
-    
+
+static func is_bit_enabled(mask, index):
+    return mask & (1 << index) != 0
+
+static func enable_bit(mask, index):
+    return mask | (1 << index)
+
+static func disable_bit(mask, index):
+    return mask & ~(1 << index)
+
 static func deep_copy(v):
     var t = typeof(v)
     if t == TYPE_DICTIONARY:

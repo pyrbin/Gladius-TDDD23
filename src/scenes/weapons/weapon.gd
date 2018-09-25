@@ -44,8 +44,8 @@ func load_weapon(p_weapon_data, p_collision_mask = null):
     data = p_weapon_data
     $Pivot/Area2D.collision_mask = p_collision_mask
     wep_sprite.set_texture(load(data.sprite))
-    anim_player.playback_speed = 1/(data.attributes["ATTACK_SPEED"]/1000.0)
-    cooldown_timer.wait_time = data.attributes["COOLDOWN"]
+    anim_player.playback_speed = 1/(data.attack_speed/1000.0)
+    cooldown_timer.wait_time = data.cooldown
     _is_loaded = true
     _setup()
     
@@ -87,7 +87,7 @@ func _on_body_entered_root(body):
 
 func _on_body_entered(body):
     _target = body
-    _target.deal_damage(data.attributes["DAMAGE"], self)
+    _target.deal_damage(data.damage, self)
     if holder == get_tree().get_nodes_in_group("Player")[0]:
         gb_Utils.freeze_time(0.025)
         holder.camera.shake(0.30, 20, 3.5)

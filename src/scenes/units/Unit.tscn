@@ -7,7 +7,7 @@
 [ext_resource path="res://scenes/units/states/in_air/jump.gd" type="Script" id=5]
 [ext_resource path="res://scenes/units/states/dead.gd" type="Script" id=6]
 [ext_resource path="res://scenes/units/states/stagger.gd" type="Script" id=7]
-[ext_resource path="res://scenes/units/unit_attr.gd" type="Script" id=8]
+[ext_resource path="res://scenes/units/stat_system/stat_system.gd" type="Script" id=8]
 [ext_resource path="res://scenes/units/Status.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/interface/unit_healthbars/UnitHealthBarController.tscn" type="PackedScene" id=10]
 [ext_resource path="res://shaders/pixel_outline.shader" type="Shader" id=11]
@@ -436,15 +436,16 @@ script = ExtResource( 6 )
 
 script = ExtResource( 7 )
 
-[node name="Attributes" type="Node" parent="." index="1"]
+[node name="Stats" type="Node" parent="." index="1"]
 
 script = ExtResource( 8 )
 _sections_unfolded = [ "Pause" ]
-power = 1.0
-vitality = 1.0
-attack_speed = 1.0
-movement_speed = 450.0
-crit_chance = 1.0
+vitality = 0.0
+stamina = 0.0
+power = 0
+attack_speed = 0
+movement_speed = 0
+crit_chance = 0
 
 [node name="Status" parent="." index="2" instance=ExtResource( 9 )]
 

@@ -14,15 +14,25 @@
 
 collision_mask = 9
 script = ExtResource( 2 )
-equipped_items = [ -1, -1, -1 ]
-equipped_weapons = [ -1, 4001 ]
+equipped_items = [ 1001, 0, 0 ]
+equipped_weapons = [ 3001, 0 ]
 weapon_collision = 13
 
-[node name="Attributes" parent="." index="1"]
+[node name="StateMachine" parent="." index="0"]
 
-vitality = 0
-attack_speed = 0.0
-movement_speed = 200.0
+editor/display_folded = true
+
+[node name="Stats" parent="." index="1"]
+
+vitality = 100.0
+stamina = 100.0
+power = 100.0
+attack_speed = 100.0
+movement_speed = 125.0
+
+[node name="Status" parent="." index="2"]
+
+status_settings = 6
 
 [node name="Collision" parent="." index="3"]
 

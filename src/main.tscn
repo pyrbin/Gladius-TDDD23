@@ -51,13 +51,13 @@ position = Vector2( 0, -1.36041 )
 
 position = Vector2( 100.506, -162.25 )
 lootable_name = "Chest"
-container_items = [ 1, 2, 3, 7, 8, 9 ]
+container_items = [ 0, 0 ]
 
 [node name="Chest2" parent="Game/World/Root_Items" index="1" instance=ExtResource( 4 )]
 
 position = Vector2( -92.8282, -166.859 )
 lootable_name = "Chest"
-container_items = [ 3001, 3002, 3003, 3004, 3005, 4001 ]
+container_items = [ 0, 0 ]
 
 [node name="Root_Projs" type="Node" parent="Game/World" index="2" groups=[
 "Root_Projs",

@@ -11,7 +11,7 @@ func _ready():
 
 func _on_player_attack():
     if !player.weapon: return
-    var speed = player.weapon.data.attributes["COOLDOWN"]
+    var speed = player.weapon.data.cooldown
     play_cooldown_indicator(speed)
 
 func play_cooldown_indicator(speed):

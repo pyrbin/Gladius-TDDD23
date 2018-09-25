@@ -11,8 +11,8 @@
 collision_layer = 4
 collision_mask = 13
 script = ExtResource( 2 )
-equipped_items = [ 7, 8, 9 ]
-equipped_weapons = [ 3002, 0 ]
+equipped_items = [ 1001, 0, 0 ]
+equipped_weapons = [ 3001, 0 ]
 weapon_collision = 3
 
 [node name="Container" parent="Visuals/Pivot" index="4"]

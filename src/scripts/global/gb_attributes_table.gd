@@ -1,3 +1,6 @@
+
+extends Node
+
 const VITALITY  = "VITALITY"
 const STAMINA   = "STAMINA"
 const ATK_SPEED = "ATK_SPEED"

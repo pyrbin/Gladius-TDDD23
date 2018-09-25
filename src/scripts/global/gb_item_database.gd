@@ -24,9 +24,13 @@ func _ready():
                 it["ICON"],
                 it["SPRITE"],
                 it["SLOT"], 
-                it["ATTRIBUTES"],
+                it["STATS"],
                 it["WEAPON_TYPE"],
-                it["MODEL"]
+                it["MODEL"],
+                it["DAMAGE"],
+                it["ATTACK_SPEED"],
+                it["COOLDOWN"],
+                it["AMMO"] if it.has("AMMO") else null
             )
         elif it["TYPE"] == ItemData.ITEM_TYPE.EQUIPPABLE and it["SLOT"] == Equippable.SLOT.SPECIAL:
             _item_database[int_id] = Consumable.new(
@@ -36,7 +40,7 @@ func _ready():
                 it["ICON"],
                 it["SPRITE"],
                 it["SLOT"], 
-                it["ATTRIBUTES"],
+                it["STATS"],
                 it["COOLDOWN"]
             )
         elif it["TYPE"] == ItemData.ITEM_TYPE.EQUIPPABLE:
@@ -47,7 +51,7 @@ func _ready():
                 it["ICON"],
                 it["SPRITE"],
                 it["SLOT"], 
-                it["ATTRIBUTES"]
+                it["STATS"]
             )
 
 func has_item(id):
