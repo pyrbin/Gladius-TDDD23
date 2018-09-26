@@ -17,7 +17,7 @@ func handle_input(event):
     elif interact:
         owner.on_interact()
     if consumable:
-        owner.stats.add_effect(Effect.new("test", owner, Modifier.new(STAT.MOVEMENT, STAT.PERCENT, 400), 2))
+        owner.stats.add_effect(Effect.new("test", owner, Modifier.new(STAT.MOVEMENT, STAT.PERCENT, 20), 10, 2))
         # owner.use_consumable()
     if rmb:
         owner.try_block();

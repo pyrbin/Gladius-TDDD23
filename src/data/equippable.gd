@@ -10,8 +10,9 @@ func _init(id, name, desc, icon, sprite, slot, stats).(id, ITEM_TYPE.EQUIPPABLE,
     self.slot = int(slot)
     self.sprite = ASSETS_PATH + sprite
     for modifier in stats:
+        if not self.stats.has(modifier): self.stats[modifier] = []
         for mod in stats[modifier]:
-            self.stats[modifier] = Modifier.new(modifier, mod, stats[modifier][mod])
+            self.stats[modifier].append(Modifier.new(modifier, mod, stats[modifier][mod]))
 
 # TODO: fix stats to dict transform
 func to_dict(data):
