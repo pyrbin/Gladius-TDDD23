@@ -77,11 +77,15 @@ func _add_stat_from_list(p_final, p_stat, p_list):
         var item = gb_ItemDatabase.get_item(it)
         for k_stats in item.stats:
             if k_stats != p_stat: continue
-            var modifier = item.stats[k_stats]
-            p_final.add(modifier)
+            var modifiers = item.stats[k_stats]
+            for mod in modifiers:
+                p_final.add(mod)
 
 func get_stat(p_stat):
     return get_stat_info(p_stat).compute(get_base_stat(p_stat))
+
+func get_list():
+    return _stats.keys()
 
 func get_base_stat(p_stat):
     return _stats[p_stat]

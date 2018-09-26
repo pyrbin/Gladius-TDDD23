@@ -29,7 +29,7 @@ _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "M
 stream = ExtResource( 2 )
 volume_db = 0.0
 pitch_scale = 1.0
-autoplay = true
+autoplay = false
 mix_target = 0
 bus = "Master"
 
@@ -46,13 +46,13 @@ _sections_unfolded = [ "Material", "Visibility", "Z Index" ]
 
 position = Vector2( 110.759, 358.588 )
 lootable_name = "Chest"
-container_items = [ 0, 0 ]
+container_items = [ 1001, 2001, 3001, 4001 ]
 
 [node name="Chest2" parent="Game/World/Root_Items" index="1" instance=ExtResource( 3 )]
 
 position = Vector2( -82.5755, 353.979 )
 lootable_name = "Chest"
-container_items = [ 0, 0 ]
+container_items = [ 1001, 2001, 3001, 4001 ]
 
 [node name="Root_Projs" type="Node" parent="Game/World" index="1" groups=[
 "Root_Projs",
@@ -61,8 +61,6 @@ container_items = [ 0, 0 ]
 _sections_unfolded = [ "Transform" ]
 
 [node name="Actors" type="Node" parent="Game/World" index="2"]
-
-editor/display_folded = true
 
 [node name="Root_Units" type="Node" parent="Game/World/Actors" index="0" groups=[
 "Root_Units",

@@ -14,8 +14,8 @@
 
 collision_mask = 9
 script = ExtResource( 2 )
-equipped_items = [ 1001, 0, 0 ]
-equipped_weapons = [ 3001, 0 ]
+equipped_items = [ 0, 0, 0 ]
+equipped_weapons = [ 0, 0 ]
 weapon_collision = 13
 
 [node name="StateMachine" parent="." index="0"]
@@ -52,14 +52,6 @@ margin_top = 24.0
 margin_right = 24.0
 margin_bottom = 27.0
 
-[node name="Dynamic_WorldUI" parent="Visuals/Pivot" index="0"]
-
-editor/display_folded = false
-
-[node name="UnitHealthBarController" parent="Visuals/Pivot/Dynamic_WorldUI" index="0"]
-
-disabled = true
-
 [node name="U_Hand" parent="Visuals/Pivot/U_Hand_Pivot" index="0"]
 
 _sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
@@ -67,10 +59,6 @@ _sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
 [node name="L_Hand" parent="Visuals/Pivot/L_Hand_Pivot" index="0"]
 
 _sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
-
-[node name="Container" parent="Visuals/Pivot" index="4"]
-
-editor/display_folded = true
 
 [node name="Chest" parent="Visuals/Pivot/Container" index="2"]
 

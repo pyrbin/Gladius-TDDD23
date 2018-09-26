@@ -1,6 +1,7 @@
 extends Panel
 
 onready var vitality = $Content/StatsContainer/VBoxContainer/Vitality
+onready var stamina = $Content/StatsContainer/VBoxContainer/Stamina
 onready var power = $Content/StatsContainer/VBoxContainer/Power
 onready var atk_speed = $Content/StatsContainer/VBoxContainer/Atk_Speed
 onready var mov_speed = $Content/StatsContainer/VBoxContainer/Mov_Speed
@@ -26,7 +27,7 @@ func _on_player_loaded():
 
 func _process(d):
     if is_visible():
-        for attr in [STAT.VITALITY, STAT.POWER, STAT.ATK_SPEED, STAT.MOVEMENT, STAT.CRIT]:
+        for attr in player.stats.get_list():
             _attr_update(attr)
 
 func _attr_update(stat_key):
@@ -36,6 +37,7 @@ func _attr_update(stat_key):
     match stat_key:
         STAT.POWER     : label = power
         STAT.VITALITY  : label = vitality
+        STAT.STAMINA   : label = stamina
         STAT.ATK_SPEED : label = atk_speed
         STAT.MOVEMENT  : label = mov_speed
         STAT.CRIT      : label = crit
