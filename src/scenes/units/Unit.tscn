@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://scenes/units/unit.gd" type="Script" id=1]
 [ext_resource path="res://scenes/units/unit_state_machine.gd" type="Script" id=2]
@@ -15,6 +15,16 @@
 [ext_resource path="res://assets/items/weapon/iron_weapon/iron_shortsword.png" type="Texture" id=13]
 [ext_resource path="res://assets/gladiator_mini_mini.png" type="Texture" id=14]
 [ext_resource path="res://assets/shadow.png" type="Texture" id=15]
+
+[sub_resource type="RectangleShape2D" id=12]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 23.3106 )
+
+[sub_resource type="RectangleShape2D" id=13]
+
+custom_solver_bias = 0.0
+extents = Vector2( 14.3701, 10 )
 
 [sub_resource type="ShaderMaterial" id=1]
 
@@ -378,7 +388,7 @@ tracks/0/keys = {
 "values": [ false, false ]
 }
 
-[node name="Unit" type="KinematicBody2D" groups=[
+[node name="Unit" type="KinematicBody2D" index="0" groups=[
 "Z_Index",
 "Hitable",
 "Units",
@@ -402,6 +412,7 @@ weapon_collision = 15
 
 [node name="StateMachine" type="Node" parent="." index="0"]
 
+editor/display_folded = true
 script = ExtResource( 2 )
 START_STATE = NodePath("Idle")
 
@@ -449,34 +460,51 @@ crit_chance = 0
 
 [node name="Status" parent="." index="2" instance=ExtResource( 9 )]
 
-[node name="Collision" type="CollisionPolygon2D" parent="." index="3"]
+[node name="Hitbox" type="Area2D" parent="." index="3"]
 
-visible = false
-position = Vector2( 1.86922, 6.14645 )
-scale = Vector2( 1.42755, 1.06179 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 2
+collision_mask = 0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
+
+position = Vector2( -0.83812, -21.36 )
+shape = SubResource( 12 )
+
+[node name="Collision" type="CollisionShape2D" parent="." index="4"]
+
+position = Vector2( -0.467491, -3.7979 )
+scale = Vector2( 0.604327, 0.449489 )
 z_index = 4096
-build_mode = 0
-polygon = PoolVector2Array( 1.99207, -42.1631, -0.888654, -42.166, -3.85954, -41.927, -3.86879, -25.5875, -7.92186, -21.9607, -7.93433, 0.0673785, 4.75866, 0.443459, 4.59149, -22.311, 0.542254, -25.462, 0.363716, -28.1249, 4.50462, -27.8786, 4.87286, -42.2812 )
+shape = SubResource( 13 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="Static_World_UI" type="Node2D" parent="." index="4"]
+[node name="Static_World_UI" type="Node2D" parent="." index="5"]
 
 z_index = 3000
 z_as_relative = false
 _sections_unfolded = [ "Z Index" ]
 
-[node name="Visuals" type="Position2D" parent="." index="5"]
+[node name="Visuals" type="Position2D" parent="." index="6"]
 
 position = Vector2( -0.477157, -35.5066 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="Pivot" type="Position2D" parent="Visuals" index="0"]
 
+editor/display_folded = true
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="Dynamic_WorldUI" type="Node2D" parent="Visuals/Pivot" index="0"]
 
-position = Vector2( -7.7486e-007, 0 )
+position = Vector2( -7.7486e-07, 0 )
 z_index = 3000
 z_as_relative = false
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "Z Index" ]
@@ -563,7 +591,7 @@ _sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
 
 [node name="Body" type="Sprite" parent="Visuals/Pivot/Container" index="3"]
 
-position = Vector2( -4.47035e-007, 0 )
+position = Vector2( -4.47035e-07, 0 )
 z_index = 2
 texture = ExtResource( 14 )
 region_enabled = true
@@ -582,7 +610,7 @@ offset = Vector2( -1.39726, 1.21561 )
 region_rect = Rect2( 0, 0, 72, 72 )
 _sections_unfolded = [ "Offset", "Region", "Transform", "Visibility", "Z Index" ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -598,7 +626,7 @@ anims/stagger = SubResource( 7 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
-[node name="SpritePlayer" type="AnimationPlayer" parent="." index="7"]
+[node name="SpritePlayer" type="AnimationPlayer" parent="." index="8"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -611,14 +639,14 @@ anims/Top_Left = SubResource( 10 )
 anims/Top_Right = SubResource( 11 )
 blend_times = [  ]
 
-[node name="HolsterTimer" type="Timer" parent="." index="8"]
+[node name="HolsterTimer" type="Timer" parent="." index="9"]
 
 process_mode = 1
 wait_time = 4.0
 one_shot = true
 autostart = true
 
-[node name="BlockTimer" type="Timer" parent="." index="9"]
+[node name="BlockTimer" type="Timer" parent="." index="10"]
 
 process_mode = 1
 wait_time = 4.0

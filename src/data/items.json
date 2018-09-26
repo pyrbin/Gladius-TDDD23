@@ -64,6 +64,15 @@
                 "PERCENT" : 10
             }
         },
+        "EFFECTS": {
+            "BLEED": {
+                "DURATION" : 10,
+                "INTERVAL" : 1,
+                "HEALTH": {
+                    "VALUE" : -2
+                }
+            }
+        },
         "WEAPON_TYPE": 0,
         "MODEL" : "swing_weapon/shortsword/Shortsword.tscn",
         "DAMAGE" : 15,

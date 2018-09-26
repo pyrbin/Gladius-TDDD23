@@ -1,6 +1,7 @@
 
 var identifier
-var modifier
+var modifiers = []
+var _start_values = []
 var _duration
 var _interval
 var _affected
@@ -8,13 +9,19 @@ var _elapsed_time = 0.0
 var to_expire = false
 var _last_tick = 0
 var _last_second = 0
-var _start_value
 var _start_duration
 
-func _init(p_identifier, p_affected, p_modifier, p_duration=null, p_interval=null):
+func _init(p_identifier, p_affected, p_modifiers, p_duration=null, p_interval=null):
     identifier = p_identifier
-    modifier = p_modifier
-    _start_value = modifier.value
+    
+    if typeof(p_modifiers) == TYPE_ARRAY:
+        for mod in p_modifiers:
+            modifiers.append(mod)
+            _start_values.append(mod.value)
+    else:
+        modifiers.append(p_modifiers)
+        _start_values.append(p_modifiers.value)
+
     if p_duration:
         _duration =  int(p_duration)
         _start_duration = _duration
@@ -38,20 +45,29 @@ func update(delta):
         _expire(true)
 
 func _trigger():
-    var is_health = modifier.stat == STAT.HEALTH
-    var is_endur = modifier.stat == STAT.ENDURANCE
-    if is_health || is_endur:
-        _affected.damage(modifier.value, null, true) if is_health else _affected.fatigue(modifier.value, null, true)
-        return
-    modifier.value += _start_value
+    for i in range(0, modifiers.size()):
+        var modifier = modifiers[i]
+        var is_health = modifier.stat == STAT.HEALTH
+        var is_endur = modifier.stat == STAT.ENDURANCE
+        if is_health || is_endur:
+            _affected.damage(modifier.value, null, true) if is_health else _affected.fatigue(modifier.value, null, true)
+            return
+        modifier.value += _start_values[i]
 
 func refresh():
     if not _duration: return
-    if _duration - _last_second + 1 != _start_duration:
-        _duration = _start_duration + _last_second + 1
+    if _duration - _last_second != _start_duration:
+        _duration = _start_duration + _last_second
 
 func compare(p_effect):
-    return identifier == p_effect.identifier && _start_value == p_effect.modifier.value && modifier.mod == p_effect.modifier.mod && modifier.stat == p_effect.modifier.stat
+    if p_effect.modifiers.size() != modifiers.size():
+        return false
+    for i in range(0, modifiers.size()):
+        if modifiers[i].stat != p_effect.modifiers[i].stat \
+            || _start_values[i] != p_effect.modifiers[i].value \
+            || modifiers[i].mod != p_effect.modifiers[i].mod:
+            return false
+    return identifier == p_effect.identifier
 
 func _expire(flag):
     to_expire = flag

@@ -47,7 +47,6 @@ func add_effect(p_effect):
             found = effect
  
     if found:
-        print("true")
         found.refresh()
     else:
         _effects.append(p_effect)
@@ -64,8 +63,9 @@ func get_stat_info(p_stat):
     var final = FinalStat.new(p_stat)
     for effect in _effects:
         if effect == null: continue
-        if effect.modifier.stat == p_stat:
-            final.add(effect.modifier)
+        for mod in effect.modifiers:
+            if mod.stat == p_stat:
+                final.add(mod)
     _add_stat_from_list(final, p_stat, owner.action_equipment.get_list())
     _add_stat_from_list(final, p_stat, owner.equipment.get_list())
     return final

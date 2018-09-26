@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scenes/levels/level_one_t.tres" type="TileSet" id=1]
 
-[node name="Level_One" type="Node2D" index="0"]
+[node name="Level_One" type="Node2D"]
 
 [node name="Floor" type="TileMap" parent="." index="0"]
 

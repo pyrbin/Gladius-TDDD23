@@ -27,7 +27,7 @@ var _target = null
 var _current_hit_targets = []
 
 func _ready():
-    $Pivot/Area2D.connect("body_entered", self, "_on_body_entered_root")
+    $Pivot/Area2D.connect("area_entered", self, "_on_body_entered_root")
     anim_player.connect("animation_finished", self, "_on_animation_finished")
     cooldown_timer.connect("timeout", self, "_on_cooldown_finished")
     hitbox.disabled = true
@@ -77,10 +77,16 @@ func attack():
     return true
 
 func is_hitable(body):
-    return body != holder && body.is_in_group(HITABLE_GROUP_NAME) && !_current_hit_targets.has(body) && !body.iframe
+    return body != null \
+    && body != holder \
+    && body.is_in_group(HITABLE_GROUP_NAME) \
+    && !_current_hit_targets.has(body) \
+    && body.has_method("damage") \
+    && !body.iframe
 
-func _on_body_entered_root(body):
+func _on_body_entered_root(area):
     if _attack_state != ATTACKING: return
+    var body = area.owner
     if not is_hitable(body): return
     _current_hit_targets.append(body)
     _on_body_entered(body)
