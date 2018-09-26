@@ -41,7 +41,7 @@ func _trigger():
     var is_health = modifier.stat == STAT.HEALTH
     var is_endur = modifier.stat == STAT.ENDURANCE
     if is_health || is_endur:
-        _affected.damage(modifier.value) if is_health else _affected.fatigue(modifier.value)
+        _affected.damage(modifier.value, null, true) if is_health else _affected.fatigue(modifier.value, null, true)
         return
     modifier.value += _start_value
 

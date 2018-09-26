@@ -15,9 +15,9 @@ equipped_items = [ 1001, 0, 0 ]
 equipped_weapons = [ 3001, 0 ]
 weapon_collision = 3
 
-[node name="Container" parent="Visuals/Pivot" index="4"]
+[node name="UnitHealthBarController" parent="Visuals/Pivot/Dynamic_WorldUI" index="0"]
 
-editor/display_folded = true
+disabled = false
 
 [node name="AimIndicator" parent="Visuals" index="2" instance=ExtResource( 3 )]
 

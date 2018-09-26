@@ -50,6 +50,7 @@ func delete_item(index):
 	rect_min_size = get_full_size()
 
 func get_item(index):
+	if index != typeof(TYPE_INT) && index < 0: return
 	return get_child(index)
 
 func get_item_at_position(position):

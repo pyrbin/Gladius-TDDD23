@@ -25,5 +25,5 @@ func _process(delta):
     if status:
         life_text.set_text(String(status.health) + " / " + String(status.get_max_health()))
         life_bar.value = (status.health/status.get_max_health())
-        energy_bar.value = float(status.endurance)/status.max_endurance
-        energy_text.set_text(String(status.endurance) + " / " + String(status.max_endurance))
+        energy_bar.value = float(status.endurance)/status.get_max_endurance()
+        energy_text.set_text(String(status.endurance) + " / " + String(status.get_max_endurance()))

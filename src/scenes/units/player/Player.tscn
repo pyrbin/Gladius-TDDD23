@@ -28,7 +28,7 @@ vitality = 100.0
 stamina = 100.0
 power = 100.0
 attack_speed = 100.0
-movement_speed = 125.0
+movement_speed = 200.0
 
 [node name="Status" parent="." index="2"]
 
@@ -86,7 +86,7 @@ position = Vector2( 1.44595, 2.4847 )
 anchor_mode = 1
 rotating = false
 current = true
-zoom = Vector2( 0.6, 0.6 )
+zoom = Vector2( 0.65, 0.65 )
 limit_left = -10000000
 limit_top = -10000000
 limit_right = 10000000

@@ -87,7 +87,7 @@ func _on_body_entered_root(body):
 
 func _on_body_entered(body):
     _target = body
-    _target.deal_damage(data.damage, self)
+    _target.damage(data.damage, self)
     if holder == get_tree().get_nodes_in_group("Player")[0]:
         gb_Utils.freeze_time(0.025)
         holder.camera.shake(0.30, 20, 3.5)

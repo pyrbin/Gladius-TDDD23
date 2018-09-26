@@ -380,8 +380,8 @@ tracks/0/keys = {
 
 [node name="Unit" type="KinematicBody2D" groups=[
 "Z_Index",
-"Units",
 "Hitable",
+"Units",
 ]]
 
 position = Vector2( 0.576477, -0.523365 )
@@ -393,7 +393,7 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Z Index", "collision" ]
 use_hands = true
-use_holster = true
+use_holster = false
 reach = 30.0
 equipment_container_slots = [ 1, 2, 3 ]
 equipped_items = null
@@ -451,6 +451,7 @@ crit_chance = 0
 
 [node name="Collision" type="CollisionPolygon2D" parent="." index="3"]
 
+visible = false
 position = Vector2( 1.86922, 6.14645 )
 scale = Vector2( 1.42755, 1.06179 )
 z_index = 4096
@@ -460,10 +461,14 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Static_World_UI" type="Node2D" parent="." index="4"]
 
+z_index = 3000
+z_as_relative = false
+_sections_unfolded = [ "Z Index" ]
+
 [node name="Visuals" type="Position2D" parent="." index="5"]
 
-position = Vector2( -0.477157, -29.5153 )
-_sections_unfolded = [ "Material", "Visibility" ]
+position = Vector2( -0.477157, -35.5066 )
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="Pivot" type="Position2D" parent="Visuals" index="0"]
 
@@ -471,9 +476,9 @@ _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="Dynamic_WorldUI" type="Node2D" parent="Visuals/Pivot" index="0"]
 
-editor/display_folded = true
 position = Vector2( -7.7486e-007, 0 )
-z_index = 1000
+z_index = 3000
+z_as_relative = false
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "Z Index" ]
 
 [node name="UnitHealthBarController" parent="Visuals/Pivot/Dynamic_WorldUI" index="0" instance=ExtResource( 10 )]
@@ -483,12 +488,13 @@ margin_top = -38.0
 margin_right = 30.0
 margin_bottom = -29.0
 _sections_unfolded = [ "Rect" ]
+disabled = true
 
 [node name="U_Hand_Pivot" type="Position2D" parent="Visuals/Pivot" index="1"]
 
 editor/display_folded = true
 position = Vector2( -10.7167, 15.6651 )
-z_index = 5
+z_index = 4
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="U_Hand" type="Sprite" parent="Visuals/Pivot/U_Hand_Pivot" index="0"]
@@ -503,7 +509,7 @@ _sections_unfolded = [ "Region", "Transform", "Z Index" ]
 
 editor/display_folded = true
 position = Vector2( 10.2365, 16.2947 )
-z_index = 5
+z_index = 4
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="L_Hand" type="Sprite" parent="Visuals/Pivot/L_Hand_Pivot" index="0"]
@@ -516,11 +522,12 @@ _sections_unfolded = [ "Region", "Transform", "Z Index" ]
 [node name="WeaponPivot" type="Position2D" parent="Visuals/Pivot" index="3"]
 
 position = Vector2( 0, 15.9238 )
-z_index = 10
+z_index = 6
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Container" type="Position2D" parent="Visuals/Pivot" index="4"]
 
+editor/display_folded = true
 _sections_unfolded = [ "Material", "Offset", "Visibility", "Z Index" ]
 
 [node name="Legs" type="Sprite" parent="Visuals/Pivot/Container" index="0"]
@@ -567,7 +574,7 @@ _sections_unfolded = [ "Material", "Offset", "Region", "Transform", "Visibility"
 [node name="Shadow" type="Sprite" parent="Visuals" index="1"]
 
 modulate = Color( 1, 1, 1, 0.480392 )
-position = Vector2( -1.26088, 32.34 )
+position = Vector2( -0.691285, 32.3404 )
 rotation = 0.00174533
 scale = Vector2( 0.505134, 0.234466 )
 texture = ExtResource( 15 )

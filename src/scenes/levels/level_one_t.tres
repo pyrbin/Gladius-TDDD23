@@ -1,0 +1,369 @@
+[gd_resource type="TileSet" load_steps=12 format=2]
+
+[ext_resource path="res://assets/tilesets/tileset_level1.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8.02608, 23.9603 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 24.0994 )
+
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8.31613, 24.4259 )
+
+[sub_resource type="RectangleShape2D" id=8]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8.14217, 24.1087 )
+
+[sub_resource type="RectangleShape2D" id=9]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 7.54459 )
+
+[sub_resource type="RectangleShape2D" id=11]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8.25742, 7.48565 )
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 23.9134, 24.1584 )
+
+[sub_resource type="RectangleShape2D" id=10]
+
+custom_solver_bias = 0.0
+extents = Vector2( 24.1809, 7.66003 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 7.88573, 24.3222 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8.25903, 23.6033 )
+
+[resource]
+
+0/name = "floor"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 48, 48 )
+0/is_autotile = false
+0/occluder_offset = Vector2( 24, 24 )
+0/navigation_offset = Vector2( 24, 24 )
+0/shapes = [  ]
+1/name = "dark"
+1/texture = ExtResource( 1 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 48, 0, 48, 48 )
+1/is_autotile = false
+1/occluder_offset = Vector2( 24, 24 )
+1/navigation_offset = Vector2( 24, 24 )
+1/shapes = [  ]
+2/name = "door_top"
+2/texture = ExtResource( 1 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 96, 0, 48, 48 )
+2/is_autotile = false
+2/occluder_offset = Vector2( 24, 24 )
+2/navigation_offset = Vector2( 24, 24 )
+2/shapes = [  ]
+3/name = "floor_1"
+3/texture = ExtResource( 1 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 144, 0, 48, 48 )
+3/is_autotile = false
+3/occluder_offset = Vector2( 24, 24 )
+3/navigation_offset = Vector2( 24, 24 )
+3/shapes = [  ]
+4/name = "wall"
+4/texture = ExtResource( 1 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 192, 0, 48, 48 )
+4/is_autotile = false
+4/occluder_offset = Vector2( 24, 24 )
+4/navigation_offset = Vector2( 24, 24 )
+4/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 23.8063, 24 )
+} ]
+5/name = "wall_nocoll"
+5/texture = ExtResource( 1 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 192, 0, 48, 48 )
+5/is_autotile = false
+5/occluder_offset = Vector2( 24, 24 )
+5/navigation_offset = Vector2( 24, 24 )
+5/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 10 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 24, 7.25821 )
+} ]
+6/name = "wall_top"
+6/texture = ExtResource( 1 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 288, 48, 48, 48 )
+6/is_autotile = false
+6/occluder_offset = Vector2( 24, 24 )
+6/navigation_offset = Vector2( 24, 24 )
+6/shapes = [  ]
+7/name = "top_left"
+7/texture = ExtResource( 1 )
+7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 288, 0, 48, 48 )
+7/is_autotile = false
+7/occluder_offset = Vector2( 24, 24 )
+7/navigation_offset = Vector2( 24, 24 )
+7/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 7.89932, 24.1698 )
+} ]
+8/name = "wall_corner_left"
+8/texture = ExtResource( 1 )
+8/tex_offset = Vector2( 0, 0 )
+8/modulate = Color( 1, 1, 1, 1 )
+8/region = Rect2( 336, 0, 48, 48 )
+8/is_autotile = false
+8/occluder_offset = Vector2( 24, 24 )
+8/navigation_offset = Vector2( 24, 24 )
+8/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 6 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 8.22211, 23.8422 )
+} ]
+9/name = "wall_top_corner_left"
+9/texture = ExtResource( 1 )
+9/tex_offset = Vector2( 0, 0 )
+9/modulate = Color( 1, 1, 1, 1 )
+9/region = Rect2( 336, 48, 48, 48 )
+9/is_autotile = false
+9/occluder_offset = Vector2( 24, 24 )
+9/navigation_offset = Vector2( 24, 24 )
+9/shapes = [  ]
+10/name = "grey"
+10/texture = ExtResource( 1 )
+10/tex_offset = Vector2( 0, 0 )
+10/modulate = Color( 1, 1, 1, 1 )
+10/region = Rect2( 96, 48, 48, 48 )
+10/is_autotile = false
+10/occluder_offset = Vector2( 24, 24 )
+10/navigation_offset = Vector2( 24, 24 )
+10/shapes = [  ]
+11/name = "wall_corner_right"
+11/texture = ExtResource( 1 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 48, 48, 48, 48 )
+11/is_autotile = false
+11/occluder_offset = Vector2( 24, 24 )
+11/navigation_offset = Vector2( 24, 24 )
+11/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 39.9483, 24 )
+} ]
+12/name = "top_right"
+12/texture = ExtResource( 1 )
+12/tex_offset = Vector2( 0, 0 )
+12/modulate = Color( 1, 1, 1, 1 )
+12/region = Rect2( 0, 48, 48, 48 )
+12/is_autotile = false
+12/occluder_offset = Vector2( 24, 24 )
+12/navigation_offset = Vector2( 24, 24 )
+12/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 0.797196, 0, 0, 1, 39.9891, 24 )
+} ]
+13/name = "wall_top_corner_right"
+13/texture = ExtResource( 1 )
+13/tex_offset = Vector2( 0, 0 )
+13/modulate = Color( 1, 1, 1, 1 )
+13/region = Rect2( 0, 96, 48, 48 )
+13/is_autotile = false
+13/occluder_offset = Vector2( 24, 24 )
+13/navigation_offset = Vector2( 24, 24 )
+13/shapes = [  ]
+14/name = "wall_cornerx"
+14/texture = ExtResource( 1 )
+14/tex_offset = Vector2( 0, 0 )
+14/modulate = Color( 1, 1, 1, 1 )
+14/region = Rect2( 48, 96, 48, 48 )
+14/is_autotile = false
+14/occluder_offset = Vector2( 24, 24 )
+14/navigation_offset = Vector2( 24, 24 )
+14/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 7 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 40.0979, 24 )
+} ]
+15/name = "wall_cornery"
+15/texture = ExtResource( 1 )
+15/tex_offset = Vector2( 0, 0 )
+15/modulate = Color( 1, 1, 1, 1 )
+15/region = Rect2( 96, 96, 48, 48 )
+15/is_autotile = false
+15/occluder_offset = Vector2( 24, 24 )
+15/navigation_offset = Vector2( 24, 24 )
+15/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 8 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 7.92197, 23.8063 )
+} ]
+16/name = "wall_corner_left_nocoll"
+16/texture = ExtResource( 1 )
+16/tex_offset = Vector2( 0, 0 )
+16/modulate = Color( 1, 1, 1, 1 )
+16/region = Rect2( 336, 0, 48, 48 )
+16/is_autotile = false
+16/occluder_offset = Vector2( 24, 24 )
+16/navigation_offset = Vector2( 24, 24 )
+16/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 8.26582, 7.30325 )
+} ]
+17/name = "wall_corner_right_nocoll"
+17/texture = ExtResource( 1 )
+17/tex_offset = Vector2( 0, 0 )
+17/modulate = Color( 1, 1, 1, 1 )
+17/region = Rect2( 48, 48, 48, 48 )
+17/is_autotile = false
+17/occluder_offset = Vector2( 24, 24 )
+17/navigation_offset = Vector2( 24, 24 )
+17/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 11 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 39.8832, 7.26363 )
+} ]
+18/name = "floor2"
+18/texture = ExtResource( 1 )
+18/tex_offset = Vector2( 0, 0 )
+18/modulate = Color( 1, 1, 1, 1 )
+18/region = Rect2( 192, 48, 48, 48 )
+18/is_autotile = false
+18/occluder_offset = Vector2( 24, 24 )
+18/navigation_offset = Vector2( 24, 24 )
+18/shapes = [  ]
+19/name = "floor3"
+19/texture = ExtResource( 1 )
+19/tex_offset = Vector2( 0, 0 )
+19/modulate = Color( 1, 1, 1, 1 )
+19/region = Rect2( 144, 48, 48, 48 )
+19/is_autotile = false
+19/occluder_offset = Vector2( 24, 24 )
+19/navigation_offset = Vector2( 24, 24 )
+19/shapes = [  ]
+20/name = "floor4"
+20/texture = ExtResource( 1 )
+20/tex_offset = Vector2( 0, 0 )
+20/modulate = Color( 1, 1, 1, 1 )
+20/region = Rect2( 240, 48, 48, 48 )
+20/is_autotile = false
+20/occluder_offset = Vector2( 24, 24 )
+20/navigation_offset = Vector2( 24, 24 )
+20/shapes = [  ]
+21/name = "floor5"
+21/texture = ExtResource( 1 )
+21/tex_offset = Vector2( 0, 0 )
+21/modulate = Color( 1, 1, 1, 1 )
+21/region = Rect2( 288, 48, 48, 48 )
+21/is_autotile = false
+21/occluder_offset = Vector2( 24, 24 )
+21/navigation_offset = Vector2( 24, 24 )
+21/shapes = [  ]
+22/name = "floor6"
+22/texture = ExtResource( 1 )
+22/tex_offset = Vector2( 0, 0 )
+22/modulate = Color( 1, 1, 1, 1 )
+22/region = Rect2( 48, 96, 0, 0 )
+22/is_autotile = false
+22/occluder_offset = Vector2( 0, 0 )
+22/navigation_offset = Vector2( 0, 0 )
+22/shapes = [  ]
+23/name = "corner_bottom2"
+23/texture = ExtResource( 1 )
+23/tex_offset = Vector2( 0, 0 )
+23/modulate = Color( 1, 1, 1, 1 )
+23/region = Rect2( 192, 48, 48, 48 )
+23/is_autotile = false
+23/occluder_offset = Vector2( 24, 24 )
+23/navigation_offset = Vector2( 24, 24 )
+23/shapes = [  ]
+24/name = "corner_bottom"
+24/texture = ExtResource( 1 )
+24/tex_offset = Vector2( 0, 0 )
+24/modulate = Color( 1, 1, 1, 1 )
+24/region = Rect2( 144, 48, 48, 48 )
+24/is_autotile = false
+24/occluder_offset = Vector2( 24, 24 )
+24/navigation_offset = Vector2( 24, 24 )
+24/shapes = [  ]
+25/name = "top_right_2"
+25/texture = ExtResource( 1 )
+25/tex_offset = Vector2( 0, 0 )
+25/modulate = Color( 1, 1, 1, 1 )
+25/region = Rect2( 240, 48, 48, 48 )
+25/is_autotile = false
+25/occluder_offset = Vector2( 24, 24 )
+25/navigation_offset = Vector2( 24, 24 )
+25/shapes = [  ]
+26/name = "wall_top_right_corner"
+26/texture = ExtResource( 1 )
+26/tex_offset = Vector2( 0, 0 )
+26/modulate = Color( 1, 1, 1, 1 )
+26/region = Rect2( 192, 96, 48, 48 )
+26/is_autotile = false
+26/occluder_offset = Vector2( 24, 24 )
+26/navigation_offset = Vector2( 24, 24 )
+26/shapes = [  ]
+27/name = "wall_top_left_corner"
+27/texture = ExtResource( 1 )
+27/tex_offset = Vector2( 0, 0 )
+27/modulate = Color( 1, 1, 1, 1 )
+27/region = Rect2( 144, 96, 48, 48 )
+27/is_autotile = false
+27/occluder_offset = Vector2( 24, 24 )
+27/navigation_offset = Vector2( 24, 24 )
+27/shapes = [  ]
+28/name = "top_left_2"
+28/texture = ExtResource( 1 )
+28/tex_offset = Vector2( 0, 0 )
+28/modulate = Color( 1, 1, 1, 1 )
+28/region = Rect2( 240, 0, 48, 48 )
+28/is_autotile = false
+28/occluder_offset = Vector2( 24, 24 )
+28/navigation_offset = Vector2( 24, 24 )
+28/shapes = [  ]
+_sections_unfolded = [ "11", "12", "13", "15" ]
+

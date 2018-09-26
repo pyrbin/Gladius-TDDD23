@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gladiator_mini_mini.png-ade72508c7071f22cd1ad9a5edc8e1ca.stex"
+path="res://.import/bgt.png-1ea13cf8c2f77559f8403d286bd6b56b.stex"
 
 [deps]
 
-source_file="res://assets/gladiator_mini_mini.png"
-dest_files=[ "res://.import/gladiator_mini_mini.png-ade72508c7071f22cd1ad9a5edc8e1ca.stex" ]
+source_file="res://assets/bgt.png"
+dest_files=[ "res://.import/bgt.png-1ea13cf8c2f77559f8403d286bd6b56b.stex" ]
 
 [params]
 

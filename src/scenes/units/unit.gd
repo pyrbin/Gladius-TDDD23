@@ -125,16 +125,15 @@ func _unblock():
     blocking = false
     block_timer.start()
 
-func damage(amount):
-    pass
-func fatigue(amount):
-    pass
-func deal_damage(amount, actor):
-    if blocking:
+func damage(amount, actor, unblockable=false):
+    if blocking && not unblockable:
         _unblock()
         return
     status.damage(amount)
     emit_signal("took_damage", amount, actor)
+
+func fatigue(amount, actor, unblockable=false):
+    status.fatigue(amount)
 
 func add_to_body(child):
     $Visuals/Pivot/Container.add_child(child)
@@ -316,10 +315,10 @@ func set_dead(value):
     dead = value
 
 func get_aim_position():
-    pass
+    return Vector2()
 
 func get_movement_direction():
-    pass
+    return Vector2()
 
 func _on_collision(body):
     pass
