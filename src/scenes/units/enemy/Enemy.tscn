@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/units/enemy/enemy.gd" type="Script" id=2]
 [ext_resource path="res://scenes/units/enemy/aim_indicator.tscn" type="PackedScene" id=3]
 
-[node name="Enemy" groups=[
+[node name="Enemy" index="0" groups=[
 "Enemies",
 ] instance=ExtResource( 1 )]
 
@@ -21,7 +21,7 @@ disabled = false
 
 [node name="AimIndicator" parent="Visuals" index="2" instance=ExtResource( 3 )]
 
-position = Vector2( -0.716699, 15.4034 )
-offset = Vector2( 46.9574, -0.632462 )
+position = Vector2( -0.386523, 15.9241 )
+offset = Vector2( 27.6019, 0.208817 )
 
 
