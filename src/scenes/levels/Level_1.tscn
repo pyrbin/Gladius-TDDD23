@@ -1,15 +1,216 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scenes/levels/Level_1_tileset.tres" type="TileSet" id=1]
-[ext_resource path="res://assets/flagtemp.png" type="Texture" id=2]
+[ext_resource path="res://assets/gladiator_mini_mini.png" type="Texture" id=1]
+[ext_resource path="res://scenes/levels/Level_1_tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://assets/flagtemp.png" type="Texture" id=3]
 
 [node name="Level_One" type="Node2D"]
 position = Vector2( 0, 247.016 )
 
+[node name="Node2D" type="YSort" parent="."]
+editor/display_folded = true
+sort_enabled = true
+
+[node name="gladiator_mini_mini" type="Sprite" parent="Node2D"]
+position = Vector2( -527.652, -533.368 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini2" type="Sprite" parent="Node2D"]
+position = Vector2( -459.425, -527.022 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini3" type="Sprite" parent="Node2D"]
+position = Vector2( -335.665, -585.729 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini4" type="Sprite" parent="Node2D"]
+position = Vector2( -256.331, -584.142 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini5" type="Sprite" parent="Node2D"]
+position = Vector2( -153.198, -579.382 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini6" type="Sprite" parent="Node2D"]
+position = Vector2( 21.3359, -580.969 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini7" type="Sprite" parent="Node2D"]
+position = Vector2( -59.5844, -580.969 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini8" type="Sprite" parent="Node2D"]
+position = Vector2( 145.096, -571.449 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini9" type="Sprite" parent="Node2D"]
+position = Vector2( 290, -563.022 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini10" type="Sprite" parent="Node2D"]
+position = Vector2( 390, -524.1 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini11" type="Sprite" parent="Node2D"]
+position = Vector2( 490.096, -527.016 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini12" type="Sprite" parent="Node2D"]
+position = Vector2( 540, -524.1 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini13" type="Sprite" parent="Node2D"]
+position = Vector2( 425.76, -524.1 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini14" type="Sprite" parent="Node2D"]
+position = Vector2( 450, -567.016 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini15" type="Sprite" parent="Node2D"]
+position = Vector2( 368.526, -577.016 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini16" type="Sprite" parent="Node2D"]
+position = Vector2( 220.966, -583.363 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini17" type="Sprite" parent="Node2D"]
+position = Vector2( 100, -587.016 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini18" type="Sprite" parent="Node2D"]
+position = Vector2( -31.6937, -596.536 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini19" type="Sprite" parent="Node2D"]
+position = Vector2( -98.3339, -588.603 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini20" type="Sprite" parent="Node2D"]
+position = Vector2( -200.752, -597.016 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini21" type="Sprite" parent="Node2D"]
+position = Vector2( -294.366, -595.429 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini22" type="Sprite" parent="Node2D"]
+position = Vector2( -384.806, -538.309 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini23" type="Sprite" parent="Node2D"]
+position = Vector2( -426.059, -551.003 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini24" type="Sprite" parent="Node2D"]
+position = Vector2( -489.526, -554.176 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini25" type="Sprite" parent="Node2D"]
+position = Vector2( 514.836, -568.456 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini26" type="Sprite" parent="Node2D"]
+position = Vector2( 402.696, -577.016 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini27" type="Sprite" parent="Node2D"]
+position = Vector2( 58.3889, -592.883 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini28" type="Sprite" parent="Node2D"]
+position = Vector2( -384.292, -588.123 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
 [node name="Floor" type="TileMap" parent="."]
 z_index = -1
 mode = 0
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 48, 48 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -30,7 +231,7 @@ _sections_unfolded = [ "Cell", "Collision", "Transform", "Z Index" ]
 [node name="Walls" type="TileMap" parent="."]
 editor/display_folded = true
 mode = 0
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 48, 48 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 0, 0, 0, 0, 0, 0 )
@@ -50,41 +251,215 @@ _sections_unfolded = [ "Cell", "Transform" ]
 
 [node name="flagtemp" type="Sprite" parent="Walls"]
 position = Vector2( -166.224, -497.656 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="flagtemp2" type="Sprite" parent="Walls"]
 position = Vector2( -253.376, -498.471 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="flagtemp3" type="Sprite" parent="Walls"]
 position = Vector2( 121.296, -499.285 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="flagtemp4" type="Sprite" parent="Walls"]
 position = Vector2( 248.359, -500.1 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="flagtemp5" type="Sprite" parent="Walls"]
 position = Vector2( 392.526, -443.899 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="flagtemp6" type="Sprite" parent="Walls"]
 position = Vector2( 498.411, -442.27 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="flagtemp7" type="Sprite" parent="Walls"]
 position = Vector2( -395.1, -447.972 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="flagtemp8" type="Sprite" parent="Walls"]
 position = Vector2( -500.985, -444.714 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
+
+[node name="Audience_Top" type="YSort" parent="."]
+editor/display_folded = true
+z_index = 2001
+sort_enabled = true
+_sections_unfolded = [ "Z Index" ]
+
+[node name="gladiator_mini_mini2" type="Sprite" parent="Audience_Top"]
+position = Vector2( -522.702, 141.867 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini3" type="Sprite" parent="Audience_Top"]
+position = Vector2( -379.252, 154.216 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini4" type="Sprite" parent="Audience_Top"]
+position = Vector2( -297.552, 184.616 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini5" type="Sprite" parent="Audience_Top"]
+position = Vector2( -174.052, 184.616 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini6" type="Sprite" parent="Audience_Top"]
+position = Vector2( -236.752, 184.616 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini7" type="Sprite" parent="Audience_Top"]
+position = Vector2( -95.2025, 187.466 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini8" type="Sprite" parent="Audience_Top"]
+position = Vector2( 26.3973, 184.616 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini9" type="Sprite" parent="Audience_Top"]
+position = Vector2( 155.597, 189.366 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini10" type="Sprite" parent="Audience_Top"]
+position = Vector2( 238.247, 199.816 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini11" type="Sprite" parent="Audience_Top"]
+position = Vector2( 297.147, 187.466 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini12" type="Sprite" parent="Audience_Top"]
+position = Vector2( 369.347, 142.817 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini13" type="Sprite" parent="Audience_Top"]
+position = Vector2( 438.696, 142.817 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini14" type="Sprite" parent="Audience_Top"]
+position = Vector2( 526.096, 144.717 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini15" type="Sprite" parent="Audience_Top"]
+position = Vector2( 557.446, 129.517 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini16" type="Sprite" parent="Audience_Top"]
+position = Vector2( 486.196, 131.417 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini17" type="Sprite" parent="Audience_Top"]
+position = Vector2( 400.697, 133.317 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini18" type="Sprite" parent="Audience_Top"]
+position = Vector2( -476.985, 132.984 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini19" type="Sprite" parent="Audience_Top"]
+position = Vector2( -366.785, 128.234 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini20" type="Sprite" parent="Audience_Top"]
+position = Vector2( -554.885, 128.234 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini21" type="Sprite" parent="Audience_Top"]
+position = Vector2( -136.004, 193.287 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini22" type="Sprite" parent="Audience_Top"]
+position = Vector2( -26.5235, 191.701 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini23" type="Sprite" parent="Audience_Top"]
+position = Vector2( 94.0635, 196.461 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini24" type="Sprite" parent="Audience_Top"]
+position = Vector2( 203.544, 196.461 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
+
+[node name="gladiator_mini_mini25" type="Sprite" parent="Audience_Top"]
+position = Vector2( 203.544, 196.461 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Region" ]
 
 [node name="WallsTop" type="TileMap" parent="."]
 z_index = 2000
 z_as_relative = false
 mode = 0
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 48, 48 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )

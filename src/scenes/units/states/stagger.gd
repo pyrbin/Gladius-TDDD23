@@ -6,7 +6,6 @@ func enter():
     var stagger_anim = owner.get_node("AnimationPlayer").get_animation("stagger")
     stagger_anim.track_set_key_value(0, 1, owner.skin_color)
     owner.get_node("AnimationPlayer").play("stagger")
-    owner.iframe = true
     reviving = false
 
 func _on_animation_finished(anim_name):

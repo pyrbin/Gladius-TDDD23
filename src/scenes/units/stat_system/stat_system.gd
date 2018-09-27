@@ -35,7 +35,7 @@ func _process(d):
         var effect = _effects[i]
         if effect == null: continue
         effect.update(d)
-        if effect.to_expire:
+        if effect.to_expire && _effects.size() > i:
             _effects[i] = null
 
 func add_effect(p_effect):
@@ -45,7 +45,6 @@ func add_effect(p_effect):
         if effect == null: continue
         if effect.compare(p_effect):
             found = effect
- 
     if found:
         found.refresh()
     else:
@@ -86,6 +85,9 @@ func get_stat(p_stat):
 
 func get_list():
     return _stats.keys()
+
+func clear_effects():
+    _effects.clear()
 
 func get_base_stat(p_stat):
     return _stats[p_stat]

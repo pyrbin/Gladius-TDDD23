@@ -4,7 +4,6 @@ export (PackedScene) var key_slot_scene
 
 signal on_disconnect
 
-const Container = preload("res://scripts/item_container/item_container.gd")
 const ItemData = preload("res://data/item_data.gd")
 const Equippable = preload("res://data/equippable.gd")
 

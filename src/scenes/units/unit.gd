@@ -125,7 +125,9 @@ func _unblock():
     blocking = false
     block_timer.start()
 
-func damage(amount, actor, unblockable=false):
+func damage(amount, actor, unblockable=false, trigger_iframe=true):
+    if trigger_iframe:
+        iframe = true
     if blocking && not unblockable:
         _unblock()
         return
@@ -313,6 +315,7 @@ func _handle_collision(delta):
 
 func set_dead(value):
     dead = value
+    stats.clear_effects()
 
 func get_aim_position():
     return Vector2()
