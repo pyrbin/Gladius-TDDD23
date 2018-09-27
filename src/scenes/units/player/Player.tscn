@@ -8,7 +8,7 @@
 [ext_resource path="res://scenes/units/player/camera/player_camera.gd" type="Script" id=6]
 [ext_resource path="res://scenes/units/player/interact_controller.gd" type="Script" id=7]
 
-[node name="Player" groups=[
+[node name="Player" index="0" groups=[
 "Player",
 ] instance=ExtResource( 1 )]
 position = Vector2( -5.96046e-008, 5.96046e-008 )
@@ -17,6 +17,13 @@ script = ExtResource( 2 )
 equipped_items = [ 0, 0, 0 ]
 equipped_weapons = [ 0, 0 ]
 weapon_collision = 13
+
+[node name="StateMachine" parent="." index="0"]
+editor/display_folded = false
+
+[node name="Jump" parent="StateMachine" index="2"]
+editor/display_folded = false
+JUMP_FORCE = 300
 
 [node name="Stats" parent="." index="1"]
 vitality = 100.0
@@ -28,8 +35,8 @@ movement_speed = 200.0
 [node name="Status" parent="." index="2"]
 status_settings = 6
 
-[node name="Static_World_UI" parent="." index="5"]
-editor/display_folded = true
+[node name="Hitbox" parent="." index="3"]
+editor/display_folded = false
 
 [node name="PlayerBlockIndicator" parent="Static_World_UI" index="0" instance=ExtResource( 3 )]
 margin_left = 26.0
@@ -42,15 +49,15 @@ margin_left = -26.0
 margin_top = 24.0
 margin_right = 24.0
 margin_bottom = 27.0
+disabled = true
 
 [node name="CameraPivot" type="Position2D" parent="." index="6"]
-editor/display_folded = true
 script = ExtResource( 5 )
 
 [node name="Camera2D" type="Camera2D" parent="CameraPivot" index="0"]
 position = Vector2( 1.44595, 2.4847 )
 anchor_mode = 1
-rotating = false
+rotating = true
 current = true
 zoom = Vector2( 0.65, 0.65 )
 limit_left = -10000000
@@ -60,8 +67,8 @@ limit_bottom = 10000000
 limit_smoothed = false
 drag_margin_h_enabled = false
 drag_margin_v_enabled = false
-smoothing_enabled = false
-smoothing_speed = 10.0
+smoothing_enabled = true
+smoothing_speed = 2.0
 offset_v = 0.0
 offset_h = 0.0
 drag_margin_left = 0.06
@@ -72,7 +79,7 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = true
 script = ExtResource( 6 )
-_sections_unfolded = [ "Drag Margin", "Editor", "Transform" ]
+_sections_unfolded = [ "Smoothing" ]
 
 [node name="InteractController" type="Node" parent="." index="7"]
 editor/display_folded = true

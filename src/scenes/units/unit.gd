@@ -327,6 +327,7 @@ func _handle_collision(delta):
 
 func set_dead(value):
     dead = value
+    $Hitbox/CollisionShape2D.disabled = dead
     stats.clear_effects()
 
 func get_aim_position():

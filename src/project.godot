@@ -32,6 +32,7 @@ gb_CombatText="*res://scripts/global/gb_combat_text.gd"
 
 window/size/width=1366
 window/size/height=768
+mouse_cursor/custom_image="res://assets/crosshair149.png"
 window/stretch/aspect="expand"
 window/stretch/shrink="1"
 
