@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 export (Vector2) var holster_offset = Vector2(52,0)
 

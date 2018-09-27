@@ -9,8 +9,7 @@
 
 [node name="Root" type="Node"]
 
-[node name="GUI" type="CanvasLayer" parent="." index="0"]
-
+[node name="GUI" type="CanvasLayer" parent="."]
 editor/display_folded = true
 layer = 128
 offset = Vector2( 0, 0 )
@@ -18,95 +17,88 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="Interface" parent="GUI" index="0" instance=ExtResource( 1 )]
-
+[node name="Interface" parent="GUI" instance=ExtResource( 1 )]
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Visibility" ]
 
-[node name="Game" type="Node" parent="." index="1"]
+[node name="Game" type="Node" parent="."]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Game" index="0"]
-
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Game"]
 stream = ExtResource( 2 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
+stream_paused = false
 mix_target = 0
 bus = "Master"
 
-[node name="World" type="YSort" parent="Game" index="1"]
-
+[node name="World" type="YSort" parent="Game"]
 sort_enabled = true
 _sections_unfolded = [ "Material", "Visibility", "Z Index" ]
 
-[node name="Root_Items" type="Node" parent="Game/World" index="0" groups=[
+[node name="Root_Items" type="Node" parent="Game/World" groups=[
 "Root_Items",
 ]]
 
-[node name="Chest" parent="Game/World/Root_Items" index="0" instance=ExtResource( 3 )]
-
+[node name="Chest" parent="Game/World/Root_Items" instance=ExtResource( 3 )]
 position = Vector2( 110.759, 358.588 )
 lootable_name = "Chest"
 container_items = [ 1001, 2001, 3001, 4001 ]
 
-[node name="Chest2" parent="Game/World/Root_Items" index="1" instance=ExtResource( 3 )]
-
+[node name="Chest2" parent="Game/World/Root_Items" instance=ExtResource( 3 )]
 position = Vector2( -82.5755, 353.979 )
 lootable_name = "Chest"
 container_items = [ 1001, 2001, 3001, 4001 ]
 
-[node name="Root_Projs" type="Node" parent="Game/World" index="1" groups=[
+[node name="Root_Projs" type="Node" parent="Game/World" groups=[
 "Root_Projs",
 ]]
-
 _sections_unfolded = [ "Transform" ]
 
-[node name="Actors" type="Node" parent="Game/World" index="2"]
+[node name="Actors" type="Node" parent="Game/World"]
 
-[node name="Root_Units" type="Node" parent="Game/World/Actors" index="0" groups=[
+[node name="Root_Units" type="Node" parent="Game/World/Actors" groups=[
 "Root_Units",
 ]]
-
 editor/display_folded = true
 
-[node name="Enemy" parent="Game/World/Actors/Root_Units" index="0" instance=ExtResource( 4 )]
-
+[node name="Enemy" parent="Game/World/Actors/Root_Units" instance=ExtResource( 4 )]
 position = Vector2( -75.7991, 129.874 )
 rotation = -0.00152159
+motion/sync_to_physics = false
 
-[node name="Enemy3" parent="Game/World/Actors/Root_Units" index="1" instance=ExtResource( 4 )]
-
+[node name="Enemy3" parent="Game/World/Actors/Root_Units" instance=ExtResource( 4 )]
 position = Vector2( -299.622, 257.298 )
 rotation = -0.00152159
+motion/sync_to_physics = false
 
-[node name="Enemy6" parent="Game/World/Actors/Root_Units" index="2" instance=ExtResource( 4 )]
-
+[node name="Enemy6" parent="Game/World/Actors/Root_Units" instance=ExtResource( 4 )]
 position = Vector2( 155.779, 258.406 )
 rotation = -0.00152159
+motion/sync_to_physics = false
 
-[node name="Enemy2" parent="Game/World/Actors/Root_Units" index="3" instance=ExtResource( 4 )]
-
+[node name="Enemy2" parent="Game/World/Actors/Root_Units" instance=ExtResource( 4 )]
 position = Vector2( 69.3531, 124.334 )
 rotation = -0.00152159
+motion/sync_to_physics = false
 
-[node name="Enemy4" parent="Game/World/Actors/Root_Units" index="4" instance=ExtResource( 4 )]
-
+[node name="Enemy4" parent="Game/World/Actors/Root_Units" instance=ExtResource( 4 )]
 position = Vector2( -154.47, 251.758 )
 rotation = -0.00152159
+motion/sync_to_physics = false
 
-[node name="Enemy5" parent="Game/World/Actors/Root_Units" index="5" instance=ExtResource( 4 )]
-
+[node name="Enemy5" parent="Game/World/Actors/Root_Units" instance=ExtResource( 4 )]
 position = Vector2( 300.931, 252.866 )
 rotation = -0.00152159
+motion/sync_to_physics = false
 
-[node name="Player" parent="Game/World/Actors" index="1" instance=ExtResource( 5 )]
-
+[node name="Player" parent="Game/World/Actors" instance=ExtResource( 5 )]
 position = Vector2( 10.2275, 290.527 )
 rotation = 0.0
+motion/sync_to_physics = false
 use_holster = true
 reach = 33.0
 
-[node name="Level" type="Node" parent="Game/World" index="3"]
+[node name="Level" type="Node" parent="Game/World"]
 
-[node name="Level_One" parent="Game/World/Level" index="0" instance=ExtResource( 6 )]
-
+[node name="Level_One" parent="Game/World/Level" instance=ExtResource( 6 )]
 
