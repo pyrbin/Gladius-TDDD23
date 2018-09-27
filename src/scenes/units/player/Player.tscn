@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/units/Unit.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/units/player/player.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/units/player/camera/camera_pivot.gd" type="Script" id=5]
 [ext_resource path="res://scenes/units/player/camera/player_camera.gd" type="Script" id=6]
 [ext_resource path="res://scenes/units/player/interact_controller.gd" type="Script" id=7]
+[ext_resource path="res://assets/selection.png" type="Texture" id=8]
 
 [node name="Player" index="0" groups=[
 "Player",
@@ -17,9 +18,6 @@ script = ExtResource( 2 )
 equipped_items = [ 0, 0, 0 ]
 equipped_weapons = [ 0, 0 ]
 weapon_collision = 13
-
-[node name="StateMachine" parent="." index="0"]
-editor/display_folded = false
 
 [node name="Jump" parent="StateMachine" index="2"]
 editor/display_folded = false
@@ -35,8 +33,8 @@ movement_speed = 200.0
 [node name="Status" parent="." index="2"]
 status_settings = 6
 
-[node name="Hitbox" parent="." index="3"]
-editor/display_folded = false
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2( 0.015216, -20 )
 
 [node name="PlayerBlockIndicator" parent="Static_World_UI" index="0" instance=ExtResource( 3 )]
 margin_left = 26.0
@@ -52,14 +50,16 @@ margin_bottom = 27.0
 disabled = true
 
 [node name="CameraPivot" type="Position2D" parent="." index="6"]
+editor/display_folded = true
 script = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Camera2D" type="Camera2D" parent="CameraPivot" index="0"]
-position = Vector2( 1.44595, 2.4847 )
+position = Vector2( -0.0836875, 110 )
 anchor_mode = 1
 rotating = true
 current = true
-zoom = Vector2( 0.65, 0.65 )
+zoom = Vector2( 0.6, 0.6 )
 limit_left = -10000000
 limit_top = -10000000
 limit_right = 10000000
@@ -68,7 +68,7 @@ limit_smoothed = false
 drag_margin_h_enabled = false
 drag_margin_v_enabled = false
 smoothing_enabled = true
-smoothing_speed = 2.0
+smoothing_speed = 50.0
 offset_v = 0.0
 offset_h = 0.0
 drag_margin_left = 0.06
@@ -79,7 +79,7 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = true
 script = ExtResource( 6 )
-_sections_unfolded = [ "Smoothing" ]
+_sections_unfolded = [ "Smoothing", "Transform" ]
 
 [node name="InteractController" type="Node" parent="." index="7"]
 editor/display_folded = true
@@ -103,5 +103,12 @@ _sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
 
 [node name="Chest" parent="Visuals/Pivot/Container" index="2"]
 editor/display_folded = true
+
+[node name="Selection" type="Sprite" parent="Visuals" index="1"]
+modulate = Color( 0.101961, 1, 0, 1 )
+position = Vector2( 0.477157, 35.5066 )
+scale = Vector2( 0.820078, 0.439456 )
+texture = ExtResource( 8 )
+_sections_unfolded = [ "Visibility" ]
 
 [connection signal="took_damage" from="." to="." method="_on_Player_took_damage"]
