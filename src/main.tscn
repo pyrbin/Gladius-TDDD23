@@ -38,6 +38,7 @@ _sections_unfolded = [ "Material", "Visibility", "Z Index" ]
 [node name="Root_Items" type="Node" parent="Game/World" groups=[
 "Root_Items",
 ]]
+editor/display_folded = true
 
 [node name="Chest" parent="Game/World/Root_Items" instance=ExtResource( 3 )]
 position = Vector2( 110.759, 358.588 )
@@ -55,6 +56,7 @@ container_items = [ 1001, 2001, 3001, 4001 ]
 _sections_unfolded = [ "Transform" ]
 
 [node name="Actors" type="Node" parent="Game/World"]
+editor/display_folded = true
 
 [node name="Root_Units" type="Node" parent="Game/World/Actors" groups=[
 "Root_Units",
@@ -101,4 +103,6 @@ reach = 33.0
 [node name="Level" type="Node" parent="Game/World"]
 
 [node name="Level_One" parent="Game/World/Level" instance=ExtResource( 6 )]
+position = Vector2( 0, 382.388 )
+_sections_unfolded = [ "Transform" ]
 

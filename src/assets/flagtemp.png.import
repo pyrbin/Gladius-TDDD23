@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/topsg.png-b57c7561af849fd0b8f009c3ddf579d3.stex"
+path="res://.import/flagtemp.png-22f33cd8cec826e232a79c54c780af2a.stex"
 
 [deps]
 
-source_file="res://3d_test/topsg.png"
-dest_files=[ "res://.import/topsg.png-b57c7561af849fd0b8f009c3ddf579d3.stex" ]
+source_file="res://assets/flagtemp.png"
+dest_files=[ "res://.import/flagtemp.png-22f33cd8cec826e232a79c54c780af2a.stex" ]
 
 [params]
 
