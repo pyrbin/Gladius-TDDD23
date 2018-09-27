@@ -69,7 +69,7 @@ position = Vector2( 69.3531, 124.334 )
 rotation = -0.00152159
 
 [node name="Enemy4" parent="Game/World/Actors/Root_Units" instance=ExtResource( 3 )]
-position = Vector2( -154.47, 251.758 )
+position = Vector2( 0.286133, 389.491 )
 rotation = -0.00152159
 
 [node name="Enemy5" parent="Game/World/Actors/Root_Units" instance=ExtResource( 3 )]
@@ -83,7 +83,6 @@ use_holster = true
 reach = 33.0
 
 [node name="Level" type="Node" parent="Game/World"]
-editor/display_folded = true
 
 [node name="Level_One" parent="Game/World/Level" instance=ExtResource( 5 )]
 position = Vector2( 0, 382.388 )

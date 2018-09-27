@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/test.png-9345e8a13a5ffc7f7c123bcf8dce3547.stex"
+path="res://.import/torch_10.png-a2a30e0e001c7b4eb8a3143b537b84c8.stex"
 
 [deps]
 
-source_file="res://assets/test.png"
-dest_files=[ "res://.import/test.png-9345e8a13a5ffc7f7c123bcf8dce3547.stex" ]
+source_file="res://scenes/interactable/torch/torch_10.png"
+dest_files=[ "res://.import/torch_10.png-a2a30e0e001c7b4eb8a3143b537b84c8.stex" ]
 
 [params]
 

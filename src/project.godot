@@ -26,6 +26,7 @@ gb_ItemDatabase="*res://scripts/global/gb_item_database.gd"
 gb_Utils="*res://scripts/global/gb_utils.gd"
 gb_Z_Index_Orderer="*res://scripts/global/gb_z_index_orderer.gd"
 STAT="*res://scripts/global/gb_attributes_table.gd"
+gb_CombatText="*res://scripts/global/gb_combat_text.gd"
 
 [display]
 

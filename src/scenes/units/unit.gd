@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 #signals
 signal unit_collided
-signal took_damage(amount, actor, unblockable)
+signal took_damage(amount, actor, soft)
 signal attacking
 signal blocking
 
@@ -44,7 +44,7 @@ const WEAPON_FOLDER_PATH = "res://scenes/weapons/"
 const BLOCK_TIME = 1000
 
 # combat vars
-var staggered = false
+var iframe = false
 var blocking = false
 var dead = false
 
@@ -80,6 +80,7 @@ func _ready():
     body.modulate = skin_color
     u_hand.modulate = skin_color
     l_hand.modulate = skin_color
+    sprite_player.get_animation("stagger").track_set_key_value(0, 1, skin_color)
 
     # Equipment
     var item_container = load("res://scripts/item_container/item_container.gd")
@@ -125,24 +126,35 @@ func _unblock():
     blocking = false
     block_timer.start()
 
-func damage(amount, actor, unblockable=false, trig_staggered=true):
-    if staggered: return
-    if trig_staggered:
-        staggered = true
+func soft_damage(amount, actor):
+    damage(amount, actor, true, true)
+    
+
+func damage(amount, actor, unblockable=false, soft_attack=false):
+    if dead: return
+    if iframe && not soft_attack: return
     if blocking && not unblockable:
         _unblock()
         return
     status.damage(amount)
-    emit_signal("took_damage", amount, actor, unblockable)
+    emit_signal("took_damage", amount, actor, soft_attack)
+    gb_CombatText.popup(String(amount), global_position)
 
 func fatigue(amount, actor, unblockable=false):
+    if dead: return
     status.fatigue(amount)
 
 func add_to_body(child):
     $Visuals/Pivot/Container.add_child(child)
     
 func has_iframe():
-    return staggered
+    return iframe
+
+func reset_modulate():
+    get_node("Visuals/Pivot/Container").modulate = Color(1,1,1,1)
+    get_node("Visuals/Pivot/WeaponPivot").modulate = Color(1,1,1,1)
+    get_node("Visuals/Pivot/L_Hand_Pivot").modulate = Color(1,1,1,1)
+    get_node("Visuals/Pivot/U_Hand_Pivot").modulate = Color(1,1,1,1)
 #   Sprite manipulation
 #   =========================
 func _set_look_state(look_position):
@@ -159,22 +171,19 @@ func _set_look_state(look_position):
 
     match look_state:
         TOP_LEFT:
-            sprite_player.play("Bottom_Left")
             _flip_armor(true)
         TOP_RIGHT:
-            sprite_player.play("Bottom_Right")
             _flip_armor(false)
         BOTTOM_LEFT:
-            sprite_player.play("Bottom_Left")
             _flip_armor(true)
         BOTTOM_RIGHT:
-            sprite_player.play("Bottom_Right")
             _flip_armor(false)
 
 func _flip_armor(b):
     legs.set_flip_h(b)
     chest.set_flip_h(b)
     helm.set_flip_h(b)
+    body.set_flip_h(b)
     if weapon && weapon.is_holstered():
         var mod =  -60 if b else -50
         holster.rotation = mod
@@ -335,3 +344,6 @@ func _on_Status_on_health_zero():
 func _on_Status_on_revive():
     set_dead(false)
 
+func _on_SpritePlayer_animation_finished(name):
+    if name == "stagger":
+        reset_modulate()

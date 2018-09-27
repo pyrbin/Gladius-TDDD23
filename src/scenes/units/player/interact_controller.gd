@@ -1,6 +1,6 @@
 extends Node
 
-export (Color) var pickup_color = Color(0,1,0)
+export (Color) var pickup_color = Color(1,1,1,1)
 #export(NodePath) onready var player_equipment_controller = get_node(player_equipment_controller)
 onready var timer = $Timer
 

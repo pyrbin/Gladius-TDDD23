@@ -28,5 +28,8 @@ func handle_input(event):
         
     return .handle_input(event)
 
-func _on_took_damage(amount, actor, unbreakable):
-    emit_signal("finished", "stagger")
+func _on_took_damage(amount, actor, soft):
+    if not soft:
+        emit_signal("finished", "stagger")
+    else:
+        owner.get_node("SpritePlayer").play("stagger")

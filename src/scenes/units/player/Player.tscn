@@ -11,6 +11,7 @@
 [node name="Player" groups=[
 "Player",
 ] instance=ExtResource( 1 )]
+position = Vector2( -5.96046e-008, 5.96046e-008 )
 collision_mask = 9
 script = ExtResource( 2 )
 equipped_items = [ 0, 0, 0 ]
@@ -76,7 +77,7 @@ _sections_unfolded = [ "Drag Margin", "Editor", "Transform" ]
 [node name="InteractController" type="Node" parent="." index="7"]
 editor/display_folded = true
 script = ExtResource( 7 )
-pickup_color = Color( 0, 1, 0, 1 )
+pickup_color = Color( 1, 1, 1, 1 )
 
 [node name="Timer" type="Timer" parent="InteractController" index="0"]
 process_mode = 1
@@ -84,7 +85,7 @@ wait_time = 0.44
 one_shot = true
 autostart = false
 
-[node name="Visuals" parent="." index="8"]
+[node name="Pivot" parent="Visuals" index="0"]
 editor/display_folded = true
 
 [node name="U_Hand" parent="Visuals/Pivot/U_Hand_Pivot" index="0"]
@@ -96,11 +97,4 @@ _sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
 [node name="Chest" parent="Visuals/Pivot/Container" index="2"]
 editor/display_folded = true
 
-[node name="IFrameTimer" type="Timer" parent="." index="13"]
-process_mode = 1
-wait_time = 0.5
-one_shot = true
-autostart = false
-
 [connection signal="took_damage" from="." to="." method="_on_Player_took_damage"]
-[connection signal="timeout" from="IFrameTimer" to="." method="_on_IFrameTimer_timeout"]

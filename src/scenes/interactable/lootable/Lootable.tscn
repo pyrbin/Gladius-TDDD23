@@ -24,17 +24,14 @@ tracks/0/keys = {
 }
 
 [node name="Lootable" instance=ExtResource( 1 )]
-
 script = ExtResource( 2 )
 lootable_name = null
 texture = null
-container_items = null
+container_items = [  ]
 idle_jump = true
 remove_on_use = true
 
 [node name="AnimationPlayer" parent="." index="0"]
-
 anims/open = SubResource( 1 )
 _sections_unfolded = [ "Playback Options" ]
-
 
