@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/gladiator_mini_mini.png" type="Texture" id=1]
 [ext_resource path="res://scenes/levels/Level_1_tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://assets/flagtemp.png" type="Texture" id=3]
+[ext_resource path="res://scenes/traps/spike_trap/SpikeTrap.tscn" type="PackedScene" id=4]
 
 [node name="Level_One" type="Node2D"]
 position = Vector2( 0, 247.016 )
@@ -281,6 +282,8 @@ texture = ExtResource( 3 )
 position = Vector2( -500.985, -444.714 )
 texture = ExtResource( 3 )
 
+[node name="SpikeTrap" parent="." instance=ExtResource( 4 )]
+
 [node name="Audience_Top" type="YSort" parent="."]
 editor/display_folded = true
 z_index = 2001
@@ -456,7 +459,7 @@ region_rect = Rect2( 0, 0, 72, 72 )
 _sections_unfolded = [ "Region" ]
 
 [node name="WallsTop" type="TileMap" parent="."]
-z_index = 2000
+z_index = 1000
 z_as_relative = false
 mode = 0
 tile_set = ExtResource( 2 )

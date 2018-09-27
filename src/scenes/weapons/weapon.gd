@@ -82,7 +82,7 @@ func is_hitable(body):
     && body.is_in_group(HITABLE_GROUP_NAME) \
     && !_current_hit_targets.has(body) \
     && body.has_method("damage") \
-    && !body.iframe
+    && !body.has_iframe()
 
 func _on_body_entered_root(area):
     if _attack_state != ATTACKING: return

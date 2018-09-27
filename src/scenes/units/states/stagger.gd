@@ -15,5 +15,5 @@ func _on_animation_finished(anim_name):
         owner.get_node("Visuals/Pivot/L_Hand_Pivot").modulate = Color(1,1,1,1)
         owner.get_node("Visuals/Pivot/U_Hand_Pivot").modulate = Color(1,1,1,1)
         reviving = true
-        owner.iframe = false
+        owner.staggered = false
         emit_signal("finished", "idle")    

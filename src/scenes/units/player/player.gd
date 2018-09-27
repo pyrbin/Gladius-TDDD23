@@ -8,6 +8,7 @@ onready var camera = $CameraPivot/Camera2D
 var interactable_list = []
 var toggle = true
 var pressed = false
+var iframe = false
 
 func _setup():
     emit_signal("player_loaded")
@@ -40,6 +41,7 @@ func get_aim_position():
 func _on_collision(body):
     pass
 
+    
 func queue_interactable(interactable, status):
     if status:
         interactable_list.append(interactable)
@@ -52,3 +54,13 @@ func queue_interactable(interactable, status):
 
 func on_interact():
     emit_signal("on_interact")
+
+func has_iframe():
+    return iframe || .has_iframe()
+    
+func _on_IFrameTimer_timeout():
+    iframe = false
+
+func _on_Player_took_damage(amount, actor, unblockable):
+    iframe = true
+    $IFrameTimer.start()

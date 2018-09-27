@@ -5,7 +5,7 @@ onready var tween = get_node("Tween")
 var jump_force = Vector2()
 
 func enter():
-    owner.iframe = true
+    owner.staggered = true
     var direction = owner.get_movement_direction().normalized()
     jump_force = Vector2(JUMP_FORCE, JUMP_FORCE) * direction
     tween.interpolate_property(self, "jump_force", jump_force, Vector2(), 0.6,
@@ -19,5 +19,5 @@ func update(d):
 
 func _on_animation_finished(anim_name):
     if anim_name == "jump":
-        owner.iframe = false
+        owner.staggered = false
         emit_signal("finished", "idle")    

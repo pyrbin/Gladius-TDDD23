@@ -16,19 +16,18 @@
 [ext_resource path="res://assets/gladiator_mini_mini.png" type="Texture" id=14]
 [ext_resource path="res://assets/shadow.png" type="Texture" id=15]
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 23.3106 )
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 14.3701, 10 )
 
-[sub_resource type="ShaderMaterial" id=1]
+[sub_resource type="ShaderMaterial" id=3]
 
-resource_name = "hand_material"
 render_priority = 0
 shader = ExtResource( 11 )
 shader_param/intensity = 60
@@ -37,9 +36,8 @@ shader_param/sizey = 6.0
 shader_param/outline_color = Color( 1, 0.0351563, 0.0351563, 0 )
 _sections_unfolded = [ "Resource", "shader_param" ]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=4]
 
-resource_name = "death"
 length = 0.3
 loop = false
 step = 0.1
@@ -68,7 +66,7 @@ tracks/1/keys = {
 "values": [ 0.0, -92.2398 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=5]
 
 length = 0.7
 loop = true
@@ -110,7 +108,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 3 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 
 length = 0.4
 loop = false
@@ -164,7 +162,7 @@ tracks/3/keys = {
 "values": [ Rect2( 216, 0, 72, 72 ), Rect2( 0, 0, 72, 72 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
 
 length = 0.3
 loop = true
@@ -230,9 +228,8 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 3 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=8]
 
-resource_name = "revive"
 length = 0.3
 loop = false
 step = 0.1
@@ -261,9 +258,8 @@ tracks/1/keys = {
 "values": [ -92.2398, 0.0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=9]
 
-resource_name = "stagger"
 length = 0.15
 loop = false
 step = 0.05
@@ -316,42 +312,6 @@ tracks/3/keys = {
 "values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=8]
-
-length = 0.1
-loop = true
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("Visuals/Pivot/Container/Body:flip_h")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, true ]
-}
-
-[sub_resource type="Animation" id=9]
-
-length = 0.1
-loop = true
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("Visuals/Pivot/Container/Body:flip_h")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, false ]
-}
-
 [sub_resource type="Animation" id=10]
 
 length = 0.1
@@ -388,50 +348,81 @@ tracks/0/keys = {
 "values": [ false, false ]
 }
 
-[node name="Unit" type="KinematicBody2D" index="0" groups=[
+[sub_resource type="Animation" id=12]
+
+length = 0.1
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Visuals/Pivot/Container/Body:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+
+[sub_resource type="Animation" id=13]
+
+length = 0.1
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Visuals/Pivot/Container/Body:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, false ]
+}
+
+[node name="Unit" type="KinematicBody2D" groups=[
+"Units",
 "Z_Index",
 "Hitable",
-"Units",
 ]]
-
 position = Vector2( 0.576477, -0.523365 )
 rotation = -0.000760796
 input_pickable = false
 collision_layer = 2
 collision_mask = 1
 collision/safe_margin = 0.08
+motion/sync_to_physics = false
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Z Index", "collision" ]
 use_hands = true
 use_holster = false
 reach = 30.0
 equipment_container_slots = [ 1, 2, 3 ]
-equipped_items = null
-equipped_weapons = null
+equipped_items = [  ]
+equipped_weapons = [  ]
 weapon_collision = 15
 
-[node name="StateMachine" type="Node" parent="." index="0"]
-
+[node name="StateMachine" type="Node" parent="."]
 editor/display_folded = true
 script = ExtResource( 2 )
 START_STATE = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="StateMachine" index="0"]
-
+[node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource( 3 )
 
-[node name="Move" type="Node" parent="StateMachine" index="1"]
-
+[node name="Move" type="Node" parent="StateMachine"]
 script = ExtResource( 4 )
 
-[node name="Jump" type="Node" parent="StateMachine" index="2"]
-
+[node name="Jump" type="Node" parent="StateMachine"]
 editor/display_folded = true
 script = ExtResource( 5 )
 JUMP_FORCE = 800
 
-[node name="Tween" type="Tween" parent="StateMachine/Jump" index="0"]
-
+[node name="Tween" type="Tween" parent="StateMachine/Jump"]
 repeat = false
 playback_process_mode = 1
 playback_speed = 1.0
@@ -439,16 +430,13 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[node name="Dead" type="Node" parent="StateMachine" index="3"]
-
+[node name="Dead" type="Node" parent="StateMachine"]
 script = ExtResource( 6 )
 
-[node name="Stagger" type="Node" parent="StateMachine" index="4"]
-
+[node name="Stagger" type="Node" parent="StateMachine"]
 script = ExtResource( 7 )
 
-[node name="Stats" type="Node" parent="." index="1"]
-
+[node name="Stats" type="Node" parent="."]
 script = ExtResource( 8 )
 _sections_unfolded = [ "Pause" ]
 vitality = 0.0
@@ -458,10 +446,10 @@ attack_speed = 0
 movement_speed = 0
 crit_chance = 0
 
-[node name="Status" parent="." index="2" instance=ExtResource( 9 )]
+[node name="Status" parent="." instance=ExtResource( 9 )]
 
-[node name="Hitbox" type="Area2D" parent="." index="3"]
-
+[node name="Hitbox" type="Area2D" parent="."]
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -473,44 +461,36 @@ audio_bus_override = false
 audio_bus_name = "Master"
 _sections_unfolded = [ "Collision" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2( -0.83812, -21.36 )
-shape = SubResource( 12 )
+shape = SubResource( 1 )
 
-[node name="Collision" type="CollisionShape2D" parent="." index="4"]
-
+[node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2( -0.467491, -3.7979 )
 scale = Vector2( 0.604327, 0.449489 )
 z_index = 4096
-shape = SubResource( 13 )
+shape = SubResource( 2 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="Static_World_UI" type="Node2D" parent="." index="5"]
-
+[node name="Static_World_UI" type="Node2D" parent="."]
 z_index = 3000
 z_as_relative = false
 _sections_unfolded = [ "Z Index" ]
 
-[node name="Visuals" type="Position2D" parent="." index="6"]
-
+[node name="Visuals" type="Position2D" parent="."]
 position = Vector2( -0.477157, -35.5066 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
-[node name="Pivot" type="Position2D" parent="Visuals" index="0"]
-
-editor/display_folded = true
+[node name="Pivot" type="Position2D" parent="Visuals"]
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
-[node name="Dynamic_WorldUI" type="Node2D" parent="Visuals/Pivot" index="0"]
-
+[node name="Dynamic_WorldUI" type="Node2D" parent="Visuals/Pivot"]
 position = Vector2( -7.7486e-07, 0 )
 z_index = 3000
 z_as_relative = false
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "Z Index" ]
 
-[node name="UnitHealthBarController" parent="Visuals/Pivot/Dynamic_WorldUI" index="0" instance=ExtResource( 10 )]
-
+[node name="UnitHealthBarController" parent="Visuals/Pivot/Dynamic_WorldUI" instance=ExtResource( 10 )]
 margin_left = -30.0
 margin_top = -38.0
 margin_right = 30.0
@@ -518,69 +498,57 @@ margin_bottom = -29.0
 _sections_unfolded = [ "Rect" ]
 disabled = true
 
-[node name="U_Hand_Pivot" type="Position2D" parent="Visuals/Pivot" index="1"]
-
-editor/display_folded = true
+[node name="U_Hand_Pivot" type="Position2D" parent="Visuals/Pivot"]
 position = Vector2( -10.7167, 15.6651 )
-z_index = 4
+z_index = 3
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
-[node name="U_Hand" type="Sprite" parent="Visuals/Pivot/U_Hand_Pivot" index="0"]
-
-material = SubResource( 1 )
+[node name="U_Hand" type="Sprite" parent="Visuals/Pivot/U_Hand_Pivot"]
+material = SubResource( 3 )
 z_index = 1
 texture = ExtResource( 12 )
 region_rect = Rect2( 321, 39, 6, 6 )
 _sections_unfolded = [ "Region", "Transform", "Z Index" ]
 
-[node name="L_Hand_Pivot" type="Position2D" parent="Visuals/Pivot" index="2"]
-
-editor/display_folded = true
+[node name="L_Hand_Pivot" type="Position2D" parent="Visuals/Pivot"]
 position = Vector2( 10.2365, 16.2947 )
-z_index = 4
+z_index = 3
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
-[node name="L_Hand" type="Sprite" parent="Visuals/Pivot/L_Hand_Pivot" index="0"]
-
-material = SubResource( 1 )
+[node name="L_Hand" type="Sprite" parent="Visuals/Pivot/L_Hand_Pivot"]
+material = SubResource( 3 )
 texture = ExtResource( 12 )
 region_rect = Rect2( 321, 39, 6, 6 )
 _sections_unfolded = [ "Region", "Transform", "Z Index" ]
 
-[node name="WeaponPivot" type="Position2D" parent="Visuals/Pivot" index="3"]
-
+[node name="WeaponPivot" type="Position2D" parent="Visuals/Pivot"]
 position = Vector2( 0, 15.9238 )
 z_index = 6
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
-[node name="Container" type="Position2D" parent="Visuals/Pivot" index="4"]
-
+[node name="Container" type="Position2D" parent="Visuals/Pivot"]
 editor/display_folded = true
 _sections_unfolded = [ "Material", "Offset", "Visibility", "Z Index" ]
 
-[node name="Legs" type="Sprite" parent="Visuals/Pivot/Container" index="0"]
-
+[node name="Legs" type="Sprite" parent="Visuals/Pivot/Container"]
 z_index = 4
 region_enabled = true
 region_rect = Rect2( 0, 0, 72, 72 )
 _sections_unfolded = [ "Region", "Visibility", "Z Index" ]
 
-[node name="Helm" type="Sprite" parent="Visuals/Pivot/Container" index="1"]
-
+[node name="Helm" type="Sprite" parent="Visuals/Pivot/Container"]
 position = Vector2( 0, 3 )
 z_index = 3
 region_rect = Rect2( 0, 72, 72, 72 )
 _sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
 
-[node name="Chest" type="Sprite" parent="Visuals/Pivot/Container" index="2"]
-
+[node name="Chest" type="Sprite" parent="Visuals/Pivot/Container"]
 position = Vector2( 0, 3 )
 z_index = 3
 region_rect = Rect2( 72, 72, 72, 72 )
 _sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
 
-[node name="Holster" type="Sprite" parent="Visuals/Pivot/Container/Chest" index="0"]
-
+[node name="Holster" type="Sprite" parent="Visuals/Pivot/Container/Chest"]
 visible = false
 show_behind_parent = true
 position = Vector2( -0.576477, 10 )
@@ -589,8 +557,7 @@ z_index = -1
 texture = ExtResource( 13 )
 _sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
 
-[node name="Body" type="Sprite" parent="Visuals/Pivot/Container" index="3"]
-
+[node name="Body" type="Sprite" parent="Visuals/Pivot/Container"]
 position = Vector2( -4.47035e-07, 0 )
 z_index = 2
 texture = ExtResource( 14 )
@@ -599,10 +566,9 @@ region_rect = Rect2( 72, 0, 72, 72 )
 region_filter_clip = true
 _sections_unfolded = [ "Material", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
 
-[node name="Shadow" type="Sprite" parent="Visuals" index="1"]
-
+[node name="Shadow" type="Sprite" parent="Visuals"]
 modulate = Color( 1, 1, 1, 0.480392 )
-position = Vector2( -0.691285, 32.3404 )
+position = Vector2( -0.833734, 32.4826 )
 rotation = 0.00174533
 scale = Vector2( 0.505134, 0.234466 )
 texture = ExtResource( 15 )
@@ -610,51 +576,44 @@ offset = Vector2( -1.39726, 1.21561 )
 region_rect = Rect2( 0, 0, 72, 72 )
 _sections_unfolded = [ "Offset", "Region", "Transform", "Visibility", "Z Index" ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
-
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("..")
 autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/death = SubResource( 2 )
-anims/idle = SubResource( 3 )
-anims/jump = SubResource( 4 )
-anims/move = SubResource( 5 )
-anims/revive = SubResource( 6 )
-anims/stagger = SubResource( 7 )
+anims/death = SubResource( 4 )
+anims/idle = SubResource( 5 )
+anims/jump = SubResource( 6 )
+anims/move = SubResource( 7 )
+anims/revive = SubResource( 8 )
+anims/stagger = SubResource( 9 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
-[node name="SpritePlayer" type="AnimationPlayer" parent="." index="8"]
-
+[node name="SpritePlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("..")
 autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/Bottom_Left = SubResource( 8 )
-anims/Bottom_Right = SubResource( 9 )
-anims/Top_Left = SubResource( 10 )
-anims/Top_Right = SubResource( 11 )
+anims/Bottom_Left = SubResource( 10 )
+anims/Bottom_Right = SubResource( 11 )
+anims/Top_Left = SubResource( 12 )
+anims/Top_Right = SubResource( 13 )
 blend_times = [  ]
 
-[node name="HolsterTimer" type="Timer" parent="." index="9"]
-
+[node name="HolsterTimer" type="Timer" parent="."]
 process_mode = 1
 wait_time = 4.0
 one_shot = true
 autostart = true
 
-[node name="BlockTimer" type="Timer" parent="." index="10"]
-
+[node name="BlockTimer" type="Timer" parent="."]
 process_mode = 1
 wait_time = 4.0
 one_shot = true
 autostart = false
 
 [connection signal="on_health_zero" from="Status" to="." method="_on_Status_on_health_zero"]
-
 [connection signal="on_revive" from="Status" to="." method="_on_Status_on_revive"]
-
-

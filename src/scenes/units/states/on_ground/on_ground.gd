@@ -28,5 +28,5 @@ func handle_input(event):
         
     return .handle_input(event)
 
-func _on_took_damage(amount, actor):
+func _on_took_damage(amount, actor, unbreakable):
     emit_signal("finished", "stagger")

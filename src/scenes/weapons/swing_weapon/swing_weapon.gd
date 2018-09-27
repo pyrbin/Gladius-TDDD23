@@ -9,7 +9,6 @@ func _ready():
 	wep_sprite.set_flip_v(false)
     
 func _on_body_entered(body):
-    body.stats.add_effect(Effect.new("bleed", body, Modifier.new(STAT.HEALTH, STAT.VALUE, 3), 5, 1))
     return ._on_body_entered(body)
     
 func _action_attack():

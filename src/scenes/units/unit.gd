@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 #signals
 signal unit_collided
-signal took_damage(amount, actor)
+signal took_damage(amount, actor, unblockable)
 signal attacking
 signal blocking
 
@@ -44,7 +44,7 @@ const WEAPON_FOLDER_PATH = "res://scenes/weapons/"
 const BLOCK_TIME = 1000
 
 # combat vars
-var iframe = false
+var staggered = false
 var blocking = false
 var dead = false
 
@@ -125,21 +125,24 @@ func _unblock():
     blocking = false
     block_timer.start()
 
-func damage(amount, actor, unblockable=false, trigger_iframe=true):
-    if trigger_iframe:
-        iframe = true
+func damage(amount, actor, unblockable=false, trig_staggered=true):
+    if staggered: return
+    if trig_staggered:
+        staggered = true
     if blocking && not unblockable:
         _unblock()
         return
     status.damage(amount)
-    emit_signal("took_damage", amount, actor)
+    emit_signal("took_damage", amount, actor, unblockable)
 
 func fatigue(amount, actor, unblockable=false):
     status.fatigue(amount)
 
 func add_to_body(child):
     $Visuals/Pivot/Container.add_child(child)
-
+    
+func has_iframe():
+    return staggered
 #   Sprite manipulation
 #   =========================
 func _set_look_state(look_position):
@@ -331,3 +334,4 @@ func _on_Status_on_health_zero():
 
 func _on_Status_on_revive():
     set_dead(false)
+

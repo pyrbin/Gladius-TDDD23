@@ -11,19 +11,13 @@
 [node name="Player" groups=[
 "Player",
 ] instance=ExtResource( 1 )]
-
 collision_mask = 9
 script = ExtResource( 2 )
 equipped_items = [ 0, 0, 0 ]
 equipped_weapons = [ 0, 0 ]
 weapon_collision = 13
 
-[node name="StateMachine" parent="." index="0"]
-
-editor/display_folded = true
-
 [node name="Stats" parent="." index="1"]
-
 vitality = 100.0
 stamina = 100.0
 power = 100.0
@@ -31,45 +25,28 @@ attack_speed = 100.0
 movement_speed = 200.0
 
 [node name="Status" parent="." index="2"]
-
 status_settings = 6
 
-[node name="Collision" parent="." index="3"]
-
-polygon = PoolVector2Array( -3.75836, -42.438, 4.43363, -42.3086, 4.71486, -0.021493, 0.305949, 0.303298, 0.310607, -7.92921, -3.97564, -7.93359, -3.85793, 0.463692, -8.02181, 0.62408, -7.99759, -42.185 )
+[node name="Static_World_UI" parent="." index="5"]
+editor/display_folded = true
 
 [node name="PlayerBlockIndicator" parent="Static_World_UI" index="0" instance=ExtResource( 3 )]
-
 margin_left = 26.0
 margin_top = -21.0
 margin_right = 74.0
 margin_bottom = 27.0
 
 [node name="WeaponCooldownTracker" parent="Static_World_UI" index="1" instance=ExtResource( 4 )]
-
 margin_left = -26.0
 margin_top = 24.0
 margin_right = 24.0
 margin_bottom = 27.0
 
-[node name="U_Hand" parent="Visuals/Pivot/U_Hand_Pivot" index="0"]
-
-_sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
-
-[node name="L_Hand" parent="Visuals/Pivot/L_Hand_Pivot" index="0"]
-
-_sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
-
-[node name="Chest" parent="Visuals/Pivot/Container" index="2"]
-
-editor/display_folded = true
-
 [node name="CameraPivot" type="Position2D" parent="." index="6"]
-
+editor/display_folded = true
 script = ExtResource( 5 )
 
 [node name="Camera2D" type="Camera2D" parent="CameraPivot" index="0"]
-
 position = Vector2( 1.44595, 2.4847 )
 anchor_mode = 1
 rotating = false
@@ -97,16 +74,33 @@ script = ExtResource( 6 )
 _sections_unfolded = [ "Drag Margin", "Editor", "Transform" ]
 
 [node name="InteractController" type="Node" parent="." index="7"]
-
 editor/display_folded = true
 script = ExtResource( 7 )
 pickup_color = Color( 0, 1, 0, 1 )
 
 [node name="Timer" type="Timer" parent="InteractController" index="0"]
-
 process_mode = 1
 wait_time = 0.44
 one_shot = true
 autostart = false
 
+[node name="Visuals" parent="." index="8"]
+editor/display_folded = true
 
+[node name="U_Hand" parent="Visuals/Pivot/U_Hand_Pivot" index="0"]
+_sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="L_Hand" parent="Visuals/Pivot/L_Hand_Pivot" index="0"]
+_sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="Chest" parent="Visuals/Pivot/Container" index="2"]
+editor/display_folded = true
+
+[node name="IFrameTimer" type="Timer" parent="." index="13"]
+process_mode = 1
+wait_time = 0.5
+one_shot = true
+autostart = false
+
+[connection signal="took_damage" from="." to="." method="_on_Player_took_damage"]
+[connection signal="timeout" from="IFrameTimer" to="." method="_on_IFrameTimer_timeout"]
