@@ -45,10 +45,12 @@ container_items = [ 1001, 2001, 3001, 4001 ]
 _sections_unfolded = [ "Transform" ]
 
 [node name="Actors" type="Node" parent="Game/World"]
+editor/display_folded = true
 
 [node name="Root_Units" type="Node" parent="Game/World/Actors" groups=[
 "Root_Units",
 ]]
+editor/display_folded = true
 
 [node name="Enemy" parent="Game/World/Actors/Root_Units" instance=ExtResource( 3 )]
 position = Vector2( -75.7991, 129.874 )
@@ -83,6 +85,7 @@ use_holster = true
 reach = 33.0
 
 [node name="Level" type="Node" parent="Game/World"]
+editor/display_folded = true
 
 [node name="Level_One" parent="Game/World/Level" instance=ExtResource( 5 )]
 position = Vector2( 0, 382.388 )

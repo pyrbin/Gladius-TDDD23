@@ -141,8 +141,10 @@ func _begin_drag_item(index):
         return
     if item_container.get(index) == null:
         return
+    var item = container_list.get_item(index)
+    if item == null: return
     set_process(true)
-    dragged_item_sprite.set_texture(container_list.get_item(index).item_icon)
+    dragged_item_sprite.set_texture(item.item_icon)
     dragged_item_sprite.show()
     _set_empty(index)
     dragged_item_index = index
@@ -175,10 +177,10 @@ func transfer_item(from, to, to_container):
         _update_item_slot(from)
 
 func _on_Container_List_item_rmb_selected(index, at_position):
-    var item_data = container_list.get_item(index).item_meta_data
-
-    if item_data == null:
+    var item = container_list.get_item(index)
+    if item == null:
         return
+    var item_data = item.item_meta_data
     item_menu = get_tree().get_nodes_in_group("ItemMenu")[0]
     item_menu_icon = item_menu.get_node("ItemMenu_Icon")
     item_menu_info = item_menu.get_node("ItemMenu_Info")
