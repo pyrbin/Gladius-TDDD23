@@ -182,6 +182,8 @@ func _on_Container_List_item_rmb_selected(index, at_position):
     if item == null:
         return
     var item_data = item.item_meta_data
+    if item_data == null:
+        return
     item_menu = get_tree().get_nodes_in_group("ItemMenu")[0]
     item_menu_icon = item_menu.get_node("ItemMenu_Icon")
     item_menu_info = item_menu.get_node("ItemMenu_Info")
