@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/interface/combat_text/combat_text.gd" type="Script" id=1]
-[ext_resource path="res://assets/fonts/pixels_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/fonts/pixel_medium.tres" type="DynamicFont" id=2]
 
 [sub_resource type="Animation" id=1]
 
@@ -59,7 +59,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Pivot" type="Position2D" parent="Base"]
 position = Vector2( 0, -37.9248 )
-scale = Vector2( 1, 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Text" type="Label" parent="Base/Pivot"]
@@ -79,14 +78,14 @@ size_flags_vertical = 1
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 1, 0.584314, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 0.708235 )
-text = "9
+text = "999
 
 "
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Anchor", "Margin", "Rect", "custom_fonts/normal_font" ]
+_sections_unfolded = [ "Anchor", "Margin", "Rect", "custom_fonts", "custom_fonts/font", "custom_fonts/normal_font" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("..")

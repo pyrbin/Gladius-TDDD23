@@ -6,6 +6,9 @@ onready var timer = $Timer
 
 const PICKUP_RESET_VALUE = 999999
 
+signal interact_removed
+signal interact_available
+
 var player = null
 var interact_enabled = false
 # Item world object (not data object)
@@ -51,6 +54,7 @@ func _set_interactable(b):
     if (to_interact):
         to_interact.set_shader_color()
     to_interact = null
+    emit_signal("interact_available" if b else "interact_removed")
 
 func _on_interact():
     if not to_interact or not timer.is_stopped(): return

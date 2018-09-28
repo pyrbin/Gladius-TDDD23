@@ -24,8 +24,9 @@ func _ready():
         anim_player.play("idle")
     else:
         anim_player.stop()
+
 func get_action_string():
-    return "open: [code][color=blue][b] "+lootable_name+" [/b][/color][/code] \n"
+    return make_action_string("Open") + " [color=lightblue]" + lootable_name + "[/color] \n"
 
 # TODO: this function is not DRY, repeated in "scenes/interactable/lootable/lootable.gd"
 func drop_item(index, item_container = container, offset = Vector2(0, -10)):

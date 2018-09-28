@@ -11,7 +11,7 @@ func _ready():
         
 func get_action_string():
     if item_data == null: return
-    return "pickup: [code][color=blue][b]" + item_data.name + "[/b][/color][/code] \n"
+    return make_action_string("Pickup") + " [color=lightblue]" + item_data.name + "[/color] \n"
 
 func set_item(item_id):
     var item = gb_ItemDatabase.get_item(item_id)

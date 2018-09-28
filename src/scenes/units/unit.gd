@@ -81,6 +81,7 @@ func _ready():
     u_hand.modulate = skin_color
     l_hand.modulate = skin_color
     sprite_player.get_animation("stagger").track_set_key_value(0, 1, skin_color)
+    sprite_player.get_animation("blocked").track_set_key_value(0, 1, skin_color)
 
     # Equipment
     var item_container = load("res://scripts/item_container/item_container.gd")
@@ -131,8 +132,8 @@ func soft_damage(amount, actor):
     
 
 func damage(amount, actor, unblockable=false, soft_attack=false):
-    if dead: return
-    if iframe && not soft_attack: return
+    if dead: return false
+    if iframe && not soft_attack: return false
     var hit_info = null
     var action = null
     var type = null
@@ -141,14 +142,16 @@ func damage(amount, actor, unblockable=false, soft_attack=false):
         type = gb_CombatText.HitInfo.TYPE.NORMAL
         hit_info = gb_CombatText.HitInfo.new(amount, actor, self, type, action)
         gb_CombatText.popup(hit_info, global_position)
+        sprite_player.play("blocked")
         _unblock()
-        return
+        return false
     status.damage(amount)
     emit_signal("took_damage", amount, actor, soft_attack)
     action = gb_CombatText.HitInfo.ACTION.HEAL if amount <= 0 else gb_CombatText.HitInfo.ACTION.DAMAGE
     type = gb_CombatText.HitInfo.TYPE.NORMAL
     hit_info = gb_CombatText.HitInfo.new(amount, actor, self, type, action)
     gb_CombatText.popup(hit_info, global_position)
+    return true
 
 func fatigue(amount, actor, unblockable=false):
     if dead: return
@@ -356,5 +359,4 @@ func _on_Status_on_revive():
     set_dead(false)
 
 func _on_SpritePlayer_animation_finished(name):
-    if name == "stagger":
-        reset_modulate()
+    reset_modulate()

@@ -10,7 +10,8 @@ func _ready():
 
 func trigger(unit):
     if !unit.has_method("damage"): return
-    unit.damage(10, self, true);
+    var hit = unit.damage(10, self, true);
+    if not hit: return
     unit.stats.add_effect(\
     Effect.new("Trap Bleed", unit, \
         Modifier.new(STAT.HEALTH, STAT.VALUE, 5),\

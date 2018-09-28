@@ -8,7 +8,6 @@
 [ext_resource path="res://scenes/interface/slot_containers/SlotKey.tscn" type="PackedScene" id=6]
 
 [node name="PlayerActionBar" type="HBoxContainer"]
-
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -27,8 +26,7 @@ alignment = 0
 script = ExtResource( 2 )
 _sections_unfolded = [ "Theme", "custom_constants" ]
 
-[node name="StatusBars" type="VBoxContainer" parent="." index="0"]
-
+[node name="StatusBars" type="VBoxContainer" parent="."]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -46,10 +44,9 @@ custom_constants/separation = 0
 alignment = 0
 _sections_unfolded = [ "Margin", "Rect", "custom_constants" ]
 
-[node name="LifeBar" parent="StatusBars" index="0" instance=ExtResource( 3 )]
+[node name="LifeBar" parent="StatusBars" instance=ExtResource( 3 )]
 
-[node name="MarginContainer" type="MarginContainer" parent="StatusBars" index="1"]
-
+[node name="MarginContainer" type="MarginContainer" parent="StatusBars"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -69,14 +66,13 @@ custom_constants/margin_left = 100
 custom_constants/margin_bottom = 0
 _sections_unfolded = [ "custom_constants" ]
 
-[node name="EnergyBar" parent="StatusBars/MarginContainer" index="0" instance=ExtResource( 4 )]
-
+[node name="EnergyBar" parent="StatusBars/MarginContainer" instance=ExtResource( 4 )]
 margin_left = 100.0
 margin_top = 4.0
 margin_bottom = 52.0
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Margin", "Rect", "Theme", "Visibility" ]
 
-[node name="MarginContainer" type="MarginContainer" parent="." index="1"]
-
+[node name="MarginContainer" type="MarginContainer" parent="."]
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
@@ -97,15 +93,13 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="ItemSlotContainer" parent="MarginContainer" index="0" groups=[
+[node name="ItemSlotContainer" parent="MarginContainer" groups=[
 "ActionBar_ItemContainer",
 ] instance=ExtResource( 5 )]
-
 margin_left = 4.0
 margin_right = 196.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 192, 96 )
 _sections_unfolded = [ "Anchor", "Margin", "Rect", "custom_constants" ]
 key_slot_scene = ExtResource( 6 )
-
 

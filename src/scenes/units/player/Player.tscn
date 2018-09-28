@@ -21,7 +21,6 @@ weapon_collision = 13
 
 [node name="Jump" parent="StateMachine" index="2"]
 editor/display_folded = false
-JUMP_FORCE = 300
 
 [node name="Stats" parent="." index="1"]
 vitality = 100.0

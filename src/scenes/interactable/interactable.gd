@@ -23,6 +23,9 @@ func set_shader_color(color=Color(0,0,0,0)):
 func interact():
     pass
 
+func make_action_string(string):
+    return "[color=green]"+string+"[/color]"
+
 func get_action_string():
     return
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://scenes/units/unit.gd" type="Script" id=1]
 [ext_resource path="res://scenes/units/unit_state_machine.gd" type="Script" id=2]
@@ -320,6 +320,61 @@ tracks/0/keys = {
 "values": [ false, false ]
 }
 
+[sub_resource type="Animation" id=12]
+
+resource_name = "blocked"
+length = 0.2
+loop = false
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Visuals/Pivot/Container:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 0.866667, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Visuals/Pivot/WeaponPivot:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 0.866667, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Visuals/Pivot/L_Hand_Pivot:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 0.866667, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Visuals/Pivot/U_Hand_Pivot:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 0.866667, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
 [node name="Unit" type="KinematicBody2D" groups=[
 "Units",
 "Hitable",
@@ -343,7 +398,6 @@ equipped_weapons = [  ]
 weapon_collision = 15
 
 [node name="StateMachine" type="Node" parent="."]
-editor/display_folded = true
 script = ExtResource( 2 )
 START_STATE = NodePath("Idle")
 
@@ -356,7 +410,7 @@ script = ExtResource( 4 )
 [node name="Jump" type="Node" parent="StateMachine"]
 editor/display_folded = true
 script = ExtResource( 5 )
-JUMP_FORCE = 800
+JUMP_FORCE = 450
 
 [node name="Tween" type="Tween" parent="StateMachine/Jump"]
 repeat = false
@@ -538,6 +592,7 @@ anims/Bottom_Left = SubResource( 8 )
 anims/Bottom_Right = SubResource( 9 )
 anims/Top_Left = SubResource( 10 )
 anims/Top_Right = SubResource( 11 )
+anims/blocked = SubResource( 12 )
 anims/stagger = ExtResource( 15 )
 blend_times = [  ]
 
