@@ -9,7 +9,7 @@
 [ext_resource path="res://scenes/units/player/interact_controller.gd" type="Script" id=7]
 [ext_resource path="res://assets/selection.png" type="Texture" id=8]
 
-[node name="Player" index="0" groups=[
+[node name="Player" groups=[
 "Player",
 ] instance=ExtResource( 1 )]
 position = Vector2( -5.96046e-008, 5.96046e-008 )
@@ -92,8 +92,9 @@ wait_time = 0.44
 one_shot = true
 autostart = false
 
-[node name="Pivot" parent="Visuals" index="0"]
-editor/display_folded = true
+[node name="Dynamic_WorldUI" parent="Visuals/Pivot" index="0"]
+editor/display_folded = false
+z_index = 1000
 
 [node name="U_Hand" parent="Visuals/Pivot/U_Hand_Pivot" index="0"]
 _sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
@@ -105,7 +106,7 @@ _sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
 editor/display_folded = true
 
 [node name="Selection" type="Sprite" parent="Visuals" index="1"]
-modulate = Color( 0.101961, 1, 0, 1 )
+modulate = Color( 1, 0.866667, 0, 0.517647 )
 position = Vector2( 0.477157, 35.5066 )
 scale = Vector2( 0.820078, 0.439456 )
 texture = ExtResource( 8 )

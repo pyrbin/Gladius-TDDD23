@@ -25,7 +25,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -4.64905 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 
 resource_name = "open"
 length = 1.0
@@ -44,12 +44,12 @@ tracks/0/keys = {
 "values": [ ExtResource( 3 ), ExtResource( 3 ) ]
 }
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=3]
 
 custom_solver_bias = 0.0
 radius = 38.6931
 
-[sub_resource type="ShaderMaterial" id=3]
+[sub_resource type="ShaderMaterial" id=4]
 
 render_priority = 0
 shader = ExtResource( 5 )
@@ -63,7 +63,6 @@ _sections_unfolded = [ "shader_param" ]
 "Z_Index",
 "Interactable",
 ]]
-
 position = Vector2( 0, 3.41748 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -76,51 +75,44 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 lootable_name = null
 texture = ExtResource( 2 )
-container_items = null
+container_items = [  ]
 idle_jump = false
 remove_on_use = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
-
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("..")
 autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/idle = SubResource( 1 )
-anims/open = SubResource( 4 )
+anims/open = SubResource( 2 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -12.1977 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
-[node name="Visuals" type="Position2D" parent="." index="2"]
-
+[node name="Visuals" type="Position2D" parent="."]
 position = Vector2( 0, -25.5678 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Shadow" type="Sprite" parent="Visuals" index="0"]
-
+[node name="Shadow" type="Sprite" parent="Visuals"]
 modulate = Color( 1, 1, 1, 0.480392 )
-position = Vector2( 0, 20.0275 )
-scale = Vector2( 0.505134, 0.234466 )
+position = Vector2( -0.427185, 20.5971 )
+scale = Vector2( 0.726637, 0.412459 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
-[node name="Pivot" type="Position2D" parent="Visuals" index="1"]
-
+[node name="Pivot" type="Position2D" parent="Visuals"]
 z_index = 1
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="Sprite" type="Sprite" parent="Visuals/Pivot" index="0"]
-
-material = SubResource( 3 )
+[node name="Sprite" type="Sprite" parent="Visuals/Pivot"]
+material = SubResource( 4 )
 position = Vector2( 0.250351, 0.250343 )
 z_index = 1
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Material", "Z Index" ]
-
 

@@ -248,7 +248,7 @@ tracks/1/keys = {
 "values": [ -92.2398, 0.0 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 
 length = 0.1
 loop = true
@@ -266,7 +266,7 @@ tracks/0/keys = {
 "values": [ true, true ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=9]
 
 length = 0.1
 loop = true
@@ -284,7 +284,7 @@ tracks/0/keys = {
 "values": [ false, false ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=10]
 
 length = 0.1
 loop = true
@@ -302,7 +302,7 @@ tracks/0/keys = {
 "values": [ true, true ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=11]
 
 length = 0.1
 loop = true
@@ -321,8 +321,8 @@ tracks/0/keys = {
 }
 
 [node name="Unit" type="KinematicBody2D" groups=[
-"Hitable",
 "Units",
+"Hitable",
 "Z_Index",
 ]]
 position = Vector2( 0.576477, -0.523365 )
@@ -423,7 +423,7 @@ _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 [node name="Dynamic_WorldUI" type="Node2D" parent="Visuals/Pivot"]
 editor/display_folded = true
 position = Vector2( -7.7486e-007, 0 )
-z_index = 3000
+z_index = 100
 z_as_relative = false
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "Z Index" ]
 
@@ -534,10 +534,10 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/Bottom_Left = SubResource( 9 )
-anims/Bottom_Right = SubResource( 10 )
-anims/Top_Left = SubResource( 11 )
-anims/Top_Right = SubResource( 12 )
+anims/Bottom_Left = SubResource( 8 )
+anims/Bottom_Right = SubResource( 9 )
+anims/Top_Left = SubResource( 10 )
+anims/Top_Right = SubResource( 11 )
 anims/stagger = ExtResource( 15 )
 blend_times = [  ]
 

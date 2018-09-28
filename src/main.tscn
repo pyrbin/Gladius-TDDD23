@@ -88,7 +88,9 @@ reach = 33.0
 position = Vector2( 0, 382.388 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="GUI" type="CanvasLayer" parent="."]
+[node name="GUI" type="CanvasLayer" parent="." groups=[
+"GUI",
+]]
 layer = 128
 offset = Vector2( 0, 0 )
 rotation = 0.0

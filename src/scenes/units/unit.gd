@@ -133,12 +133,22 @@ func soft_damage(amount, actor):
 func damage(amount, actor, unblockable=false, soft_attack=false):
     if dead: return
     if iframe && not soft_attack: return
+    var hit_info = null
+    var action = null
+    var type = null
     if blocking && not unblockable:
+        action = gb_CombatText.HitInfo.ACTION.BLOCK
+        type = gb_CombatText.HitInfo.TYPE.NORMAL
+        hit_info = gb_CombatText.HitInfo.new(amount, actor, self, type, action)
+        gb_CombatText.popup(hit_info, global_position)
         _unblock()
         return
     status.damage(amount)
     emit_signal("took_damage", amount, actor, soft_attack)
-    gb_CombatText.popup(String(amount), global_position)
+    action = gb_CombatText.HitInfo.ACTION.HEAL if amount <= 0 else gb_CombatText.HitInfo.ACTION.DAMAGE
+    type = gb_CombatText.HitInfo.TYPE.NORMAL
+    hit_info = gb_CombatText.HitInfo.new(amount, actor, self, type, action)
+    gb_CombatText.popup(hit_info, global_position)
 
 func fatigue(amount, actor, unblockable=false):
     if dead: return
