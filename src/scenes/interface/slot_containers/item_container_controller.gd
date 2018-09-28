@@ -1,4 +1,5 @@
 extends Control
+#TODO: Fix selection on hover and drag, only works for legs atm!
 
 export (PackedScene) var key_slot_scene
 export (NodePath) onready var item_menu = get_node(item_menu)
