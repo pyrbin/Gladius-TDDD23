@@ -1,12 +1,12 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/traps/trap.gd" type="Script" id=1]
-[ext_resource path="res://assets/desert_tilemap.png" type="Texture" id=2]
+[ext_resource path="res://assets/hppoo.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 16.2755, 16.0915 )
+extents = Vector2( 31.3805, 31.4676 )
 
 [node name="Trap" type="Area2D"]
 input_pickable = true
@@ -18,14 +18,12 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
-
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
-region_enabled = true
 region_rect = Rect2( 192, 0, 32, 32 )
-_sections_unfolded = [ "Region" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("..")

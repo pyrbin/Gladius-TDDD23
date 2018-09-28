@@ -41,7 +41,7 @@ func get_text_content(p_hit_info, is_player):
 		HitInfo.ACTION.BLOCK:
 			return "BLOCKED"
 		HitInfo.ACTION.HEAL:
-			return "+" + String(p_hit_info.amount)
+			return "+" + String(abs(p_hit_info.amount))
 		HitInfo.ACTION.DAMAGE:
 			return "-" + String(p_hit_info.amount)
 

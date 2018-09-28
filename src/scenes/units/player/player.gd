@@ -6,7 +6,9 @@ signal player_loaded
 
 onready var camera = $CameraPivot/Camera2D
 var interactable_list = []
-var toggle = true
+
+var toggle_CP = true
+var toggle_GUI = false
 var pressed = false
 
 
@@ -16,8 +18,12 @@ func _setup():
 func _input(event):
     if event.is_action_pressed("ui_character_panel"):
         var menu = get_tree().get_nodes_in_group("Character_Panel")[0]
-        menu.show() if toggle else menu.hide()
-        toggle = not toggle
+        menu.show() if toggle_CP else menu.hide()
+        toggle_CP = not toggle_CP
+    if event.is_action_pressed("ui_hide"):
+        var GUI = get_tree().get_nodes_in_group("GUI")[0].get_node("Interface")
+        GUI.show() if toggle_GUI else GUI.hide()
+        toggle_GUI = not toggle_GUI
     $StateMachine.handle_input(event)
 
 func _process(delta):
@@ -58,5 +64,6 @@ func on_interact():
 
 
 func _on_Player_took_damage(amount, actor, soft):
-    camera.shake(0.35, 20, 3.5)
+    if amount > 0:
+        camera.shake(0.35, 20, 3.5)
 

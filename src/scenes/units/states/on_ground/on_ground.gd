@@ -31,5 +31,5 @@ func handle_input(event):
 func _on_took_damage(amount, actor, soft):
     if not soft:
         emit_signal("finished", "stagger")
-    else:
+    elif amount > 0:
         owner.get_node("SpritePlayer").play("stagger")

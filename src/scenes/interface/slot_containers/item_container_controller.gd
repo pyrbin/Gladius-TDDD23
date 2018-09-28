@@ -1,6 +1,7 @@
 extends Control
 
 export (PackedScene) var key_slot_scene
+export (NodePath) onready var item_menu = get_node(item_menu)
 
 signal on_disconnect
 
@@ -16,7 +17,6 @@ const CONSUMABLE_IMAGE_PATH = "res://assets/slot_5.png"
 const UNKNOWN_ICON_PATH = "res://assets/items/unknown_icon.png"
 
 onready var container_list = $Panel/ItemList
-onready var item_menu = null
 onready var item_menu_icon = null
 onready var item_menu_info = null
 onready var dragged_item_sprite = $Panel/DraggedItem_Sprite
@@ -30,6 +30,7 @@ var is_dragging_item = false
 var cursor_inside_container_list = false
 var mouse_button_released = true
 
+var item_menu_spawn_pos = Vector2()
 var item_container = null
 var item_container_owner = null
 var _connected_container_controllers = []
@@ -39,9 +40,6 @@ var _item_keys = []
 func _ready():
     set_process(false)
     hovered_controller = self
-    item_menu = get_tree().get_nodes_in_group("ItemMenu_Inspection")[0]
-    item_menu_icon = item_menu.get_node("ItemMenu_Icon")
-    item_menu_info = item_menu.get_node("ItemMenu_Info")
 
 func connect_controller(controller):
     if not _connected_container_controllers.has(controller):
@@ -181,18 +179,23 @@ func _on_Container_List_item_rmb_selected(index, at_position):
 
     if item_data == null:
         return
-
-    item_menu.set_position(get_viewport().get_mouse_position())
+    item_menu = get_tree().get_nodes_in_group("ItemMenu")[0]
+    item_menu_icon = item_menu.get_node("ItemMenu_Icon")
+    item_menu_info = item_menu.get_node("ItemMenu_Info")
+    
     item_menu.set_title(item_data.name)
     item_menu_icon.set_texture(load(item_data.icon))
 
     var str_item_info = ""
-    str_item_info = "Name: " + item_data.name + "\n"
-    str_item_info += "Type: " + String(item_data.type) + "\n"
-    
     match item_data.type:
         ItemData.ITEM_TYPE.EQUIPPABLE:
-            str_item_info += "Slot: " + String(item_data.slot) + "\n"
+            str_item_info += "[color=blue]SLOT: [/color]" + gb_ItemDatabase.get_slot_str(item_data.slot) + "\n"
+            for stat in item_data.stats:
+                var mods = item_data.stats[stat]
+                str_item_info += "[color=purple]"+ stat +": [/color]"
+                for mod in mods:
+                    str_item_info += String(mod.value) + mod.mod + " "
+                str_item_info += "\n"
 
     str_item_info += "\n" + item_data.desc + ""
     item_menu_info.set_bbcode(str_item_info)

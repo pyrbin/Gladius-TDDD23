@@ -8,7 +8,6 @@
 [node name="CharacterPanel" type="Panel" groups=[
 "Character_Panel",
 ]]
-
 anchor_left = 0.5
 anchor_top = 0.08857
 anchor_right = 0.5
@@ -28,8 +27,7 @@ theme = ExtResource( 1 )
 script = ExtResource( 2 )
 _sections_unfolded = [ "Rect", "Theme" ]
 
-[node name="Content" type="VBoxContainer" parent="." index="0"]
-
+[node name="Content" type="VBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
@@ -49,8 +47,7 @@ custom_constants/separation = 10
 alignment = 2
 _sections_unfolded = [ "Margin", "Rect", "Size Flags", "custom_constants" ]
 
-[node name="Label_Character" type="Label" parent="Content" index="0"]
-
+[node name="Label_Character" type="Label" parent="Content"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -70,8 +67,8 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="StatsContainer" type="CenterContainer" parent="Content" index="1"]
-
+[node name="StatsContainer" type="CenterContainer" parent="Content"]
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -89,8 +86,7 @@ size_flags_vertical = 1
 use_top_left = false
 _sections_unfolded = [ "Grow Direction", "Margin", "Rect" ]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Content/StatsContainer" index="0"]
-
+[node name="VBoxContainer" type="VBoxContainer" parent="Content/StatsContainer"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -107,39 +103,34 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 
-[node name="Vitality" parent="Content/StatsContainer/VBoxContainer" index="0" instance=ExtResource( 3 )]
-
+[node name="Vitality" parent="Content/StatsContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_left = 0.0
 margin_right = 301.0
 margin_bottom = 24.0
 stat_name = "Vitality"
 
-[node name="Stamina" parent="Content/StatsContainer/VBoxContainer" index="1" instance=ExtResource( 3 )]
-
+[node name="Stamina" parent="Content/StatsContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_left = 0.0
 margin_top = 28.0
 margin_right = 301.0
 margin_bottom = 52.0
 stat_name = "Stamina"
 
-[node name="Power" parent="Content/StatsContainer/VBoxContainer" index="2" instance=ExtResource( 3 )]
-
+[node name="Power" parent="Content/StatsContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_left = 0.0
 margin_top = 56.0
 margin_right = 301.0
 margin_bottom = 80.0
 stat_name = "Power"
 
-[node name="Atk_Speed" parent="Content/StatsContainer/VBoxContainer" index="3" instance=ExtResource( 3 )]
-
+[node name="Atk_Speed" parent="Content/StatsContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_left = 0.0
 margin_top = 84.0
 margin_right = 301.0
 margin_bottom = 108.0
 stat_name = "Attack Speed"
 
-[node name="Mov_Speed" parent="Content/StatsContainer/VBoxContainer" index="4" instance=ExtResource( 3 )]
-
+[node name="Mov_Speed" parent="Content/StatsContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_left = 0.0
 margin_top = 112.0
 margin_right = 301.0
@@ -147,16 +138,14 @@ margin_bottom = 136.0
 stat_name = "Movement"
 stat_mod_value = 2000.0
 
-[node name="Crit" parent="Content/StatsContainer/VBoxContainer" index="5" instance=ExtResource( 3 )]
-
+[node name="Crit" parent="Content/StatsContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_left = 0.0
 margin_top = 140.0
 margin_right = 301.0
 margin_bottom = 164.0
 stat_name = "Crit"
 
-[node name="Label_Equipment" type="Label" parent="Content" index="2"]
-
+[node name="Label_Equipment" type="Label" parent="Content"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -176,8 +165,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="CenterContainer" type="CenterContainer" parent="Content" index="3"]
-
+[node name="CenterContainer" type="CenterContainer" parent="Content"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -195,12 +183,11 @@ size_flags_vertical = 1
 use_top_left = false
 _sections_unfolded = [ "Margin", "Rect" ]
 
-[node name="ItemSlotContainer" parent="Content/CenterContainer" index="0" groups=[
+[node name="ItemSlotContainer" parent="Content/CenterContainer" groups=[
 "Equipment_ItemContainer",
 ] instance=ExtResource( 4 )]
-
 margin_left = 137.0
 margin_right = 233.0
 _sections_unfolded = [ "Margin", "Rect" ]
-
+item_menu = NodePath("")
 

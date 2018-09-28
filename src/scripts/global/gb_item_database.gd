@@ -57,6 +57,14 @@ func _ready():
 func has_item(id):
     return _item_database.has(id)
 
+func get_slot_str(slot):
+    match slot:
+        Equippable.SLOT.HELM: return "Helm"
+        Equippable.SLOT.CHEST: return "Chest"
+        Equippable.SLOT.LEGS: return "Legs"
+        Equippable.SLOT.WEAPON: return "Weapon"
+        Equippable.SLOT.SPECIAL: return "Special"
+
 func get_item(id):
     if not _item_database.has(id):
         return null
