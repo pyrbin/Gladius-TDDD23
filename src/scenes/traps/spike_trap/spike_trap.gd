@@ -1,6 +1,4 @@
 extends "res://scenes/traps/trap.gd"
-
-onready var activated_timer = $Activated
 onready var downtime_timer = $Downtime
 
 func _ready():

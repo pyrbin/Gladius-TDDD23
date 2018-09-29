@@ -47,12 +47,12 @@ func update(delta):
 func _trigger():
     for i in range(0, modifiers.size()):
         var modifier = modifiers[i]
-        var is_health = modifier.stat == STAT.HEALTH
-        var is_endur = modifier.stat == STAT.ENDURANCE
-        if is_health || is_endur:
-            _affected.soft_damage(modifier.value, null) if is_health else _affected.fatigue(modifier.value, null, true)
-            return
-        modifier.value += _start_values[i]
+        if modifier.stat == STAT.HEALTH:
+            _affected.soft_damage(modifier.value, null)
+        elif modifier.stat == STAT.ENDURANCE:
+            _affected.fatigue(modifier.value, null, true)
+        else:
+            modifier.value += _start_values[i]
 
 func refresh():
     if not _duration: return

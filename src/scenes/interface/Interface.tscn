@@ -20,6 +20,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+_sections_unfolded = [ "Theme" ]
 
 [node name="MenuButton" type="Button" parent="."]
 anchor_left = 1.0
@@ -75,6 +76,7 @@ margin_left = -344.0
 margin_top = -127.0
 margin_right = 344.0
 margin_bottom = -31.0
+theme = null
 _sections_unfolded = [ "Margin", "Rect", "Theme", "custom_constants" ]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
@@ -107,7 +109,7 @@ scroll_following = true
 selection_enabled = false
 override_selected_font_color = false
 script = ExtResource( 5 )
-_sections_unfolded = [ "Rect", "Size Flags", "Theme", "custom_fonts", "custom_fonts/normal_font" ]
+_sections_unfolded = [ "Theme", "custom_fonts/normal_font" ]
 
 [node name="Interact_Display" parent="." instance=ExtResource( 6 )]
 anchor_left = 0.5
@@ -117,4 +119,5 @@ margin_left = -263.0
 margin_top = -174.0
 margin_right = 264.0
 margin_bottom = -102.0
+_sections_unfolded = [ "Theme" ]
 

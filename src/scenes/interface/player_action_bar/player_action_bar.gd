@@ -11,7 +11,7 @@ var other_controller
 
 func _ready():
     player = get_tree().get_nodes_in_group("Player")[0]
-    other_controller = get_tree().get_nodes_in_group("Equipment_ItemContainer")[0]
+    #other_controller = get_tree().get_nodes_in_group("Equipment_ItemContainer")[0]
     if not player.action_equipment:
         player.connect("player_loaded", self, "_on_player_loaded")
     else:

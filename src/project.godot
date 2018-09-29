@@ -29,6 +29,19 @@ gb_Utils="*res://scripts/global/gb_utils.gd"
 gb_Z_Index_Orderer="*res://scripts/global/gb_z_index_orderer.gd"
 gb_CombatText="*res://scripts/global/gb_combat_text.gd"
 
+[debug]
+
+settings/stdout/print_fps=true
+gdscript/warnings/unassigned_variable=false
+gdscript/warnings/unassigned_variable_op_assign=false
+gdscript/warnings/unused_variable=false
+gdscript/warnings/unused_class_variable=false
+gdscript/warnings/unused_argument=false
+gdscript/warnings/standalone_expression=false
+gdscript/warnings/unused_signal=false
+gdscript/warnings/return_value_discarded=false
+gdscript/warnings/unsafe_cast=true
+
 [display]
 
 window/size/width=1366

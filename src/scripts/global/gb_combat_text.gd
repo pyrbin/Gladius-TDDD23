@@ -1,7 +1,7 @@
 extends Node
 
 onready var CombatText = preload("res://scenes/interface/combat_text/CombatText.tscn") 
-onready var GUI = get_tree().get_nodes_in_group("GUI")[0]
+onready var GUI = null
 onready var text_pool = []
 
 const POOL_SIZE = 30
@@ -23,6 +23,8 @@ func _ready():
 	for i in range(0, POOL_SIZE):
 		text_pool[i] = CombatText.instance()
 		text_pool[i].is_active = false
+	if get_tree().get_nodes_in_group("GUI").size() > 0:
+		GUI =  get_tree().get_nodes_in_group("GUI")[0]
 
 func popup(p_hit_info, p_position):
 	for i in range(0, POOL_SIZE):
