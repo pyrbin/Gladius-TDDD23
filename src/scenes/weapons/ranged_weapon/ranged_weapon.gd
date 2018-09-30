@@ -35,7 +35,7 @@ func on_projectile_hit(co, projectile):
 func _fire_ammo():
     if _current_proj == null: return;
     var pos = holder.get_aim_position()
-    var angle = holder.global_position.angle_to_point(pos)
+    var angle = _current_proj.global_position.angle_to_point(pos)
     var dir = Vector2(-cos(angle), -sin(angle))
     var proj_pos = _current_proj.get_node("Sprite").global_position
     projectile_pivot.remove_child(_current_proj)
@@ -44,7 +44,7 @@ func _fire_ammo():
     _current_proj.position = proj_pos
     _current_proj.direction = dir
     _current_proj.look_at(pos)
-    _current_proj.fire(data.attributes["ATTACK_SPEED"])
+    _current_proj.fire(data.attack_speed)
 
 func is_ready():
     return .is_ready() && _ammo_loaded()

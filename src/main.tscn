@@ -27,7 +27,6 @@ _sections_unfolded = [ "Material", "Visibility", "Z Index" ]
 [node name="Root_Items" type="Node" parent="Game/World" groups=[
 "Root_Items",
 ]]
-editor/display_folded = true
 
 [node name="Chest" parent="Game/World/Root_Items" instance=ExtResource( 2 )]
 position = Vector2( 110.759, 358.588 )
@@ -36,8 +35,9 @@ container_items = [ 1001, 2001, 3001, 4001 ]
 
 [node name="Chest2" parent="Game/World/Root_Items" instance=ExtResource( 2 )]
 position = Vector2( -82.5755, 353.979 )
+_sections_unfolded = [ "Transform", "container_items" ]
 lootable_name = "Chest"
-container_items = [ 1001, 2001, 3001, 4001 ]
+container_items = [ 4001, 4002, 4003, 4004 ]
 
 [node name="Root_Projs" type="Node" parent="Game/World" groups=[
 "Root_Projs",

@@ -57,27 +57,65 @@
         "ICON": "weapon/iron_weapon/iron_shortsword_icon.png",
         "TYPE": 1,
         "SLOT": 4,
-        "DESC": "A short little sword very bad I think",
+        "DESC": "LOREM IPSUM LOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUM",
         "SPRITE": "weapon/iron_weapon/iron_shortsword.png",
+        "STATS": {},
+        "WEAPON_TYPE": 0,
+        "MODEL" : "swing_weapon/shortsword/Shortsword.tscn",
+        "DAMAGE" : 5,
+        "ATTACK_SPEED": 300,
+        "COOLDOWN" : 0.6
+    },
+    "4002": {
+        "NAME": "Iron Spear",
+        "ICON": "weapon/iron_weapon/iron_spear_icon.png",
+        "TYPE": 1,
+        "SLOT": 4,
+        "DESC": "LOREM IPSUM LOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUM",
+        "SPRITE": "weapon/iron_weapon/iron_spear.png",
         "STATS": {
             "POWER": {
                 "PERCENT" : 10
             }
         },
-        "EFFECTS": {
-            "BLEED": {
-                "DURATION" : 10,
-                "INTERVAL" : 1,
-                "HEALTH": {
-                    "VALUE" : -2
-                }
+        "WEAPON_TYPE": 1,
+        "MODEL" : "stab_weapon/spear/Spear.tscn",
+        "DAMAGE" : 15,
+        "ATTACK_SPEED": 250,
+        "COOLDOWN" : 1
+    },
+    "4003": {
+        "NAME": "Iron Dagger",
+        "ICON": "weapon/iron_weapon/iron_dagger_icon.png",
+        "TYPE": 1,
+        "SLOT": 4,
+        "DESC": "LOREM IPSUM LOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUM",
+        "SPRITE": "weapon/iron_weapon/iron_dagger.png",
+        "STATS": {
+            "POWER": {
+                "PERCENT" : 10
             }
         },
         "WEAPON_TYPE": 0,
-        "MODEL" : "swing_weapon/shortsword/Shortsword.tscn",
-        "DAMAGE" : 15,
+        "MODEL" : "stab_weapon/dagger/Dagger.tscn",
+        "DAMAGE" : 10,
         "ATTACK_SPEED": 300,
-        "COOLDOWN" : 0.6
+        "COOLDOWN" : 0.3
+    },
+    "4004": {
+        "NAME": "Iron Crossbow",
+        "ICON": "weapon/iron_weapon/iron_crossbow_icon.png",
+        "TYPE": 1,
+        "SLOT": 4,
+        "DESC": "LOREM IPSUM LOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUM",
+        "SPRITE": "weapon/iron_weapon/iron_crossbow.png",
+        "STATS": {},
+        "WEAPON_TYPE": 2,
+        "MODEL" : "ranged_weapon/crossbow/Crossbow.tscn",
+        "DAMAGE" : 5,
+        "ATTACK_SPEED": 600,
+        "COOLDOWN" : 0.8,
+        "AMMO" : "weapon/iron_weapon/iron_arrow.png"
     },
     "5001": {
         "NAME": "Potion of Health",
@@ -87,6 +125,7 @@
         "DESC": "Potion of health",
         "SPRITE": "consumable/potion_of_health_icon.png",
         "STATS": {},
+        "COOLDOWN" : 200,
         "EFFECTS": {
             "Health Potion": {
                 "DURATION" : 0,
@@ -97,11 +136,6 @@
                     }
                 }
             }
-        },
-        "WEAPON_TYPE": 0,
-        "MODEL" : "swing_weapon/shortsword/Shortsword.tscn",
-        "DAMAGE" : 15,
-        "ATTACK_SPEED": 300,
-        "COOLDOWN" : 200
+        }
     }
 }

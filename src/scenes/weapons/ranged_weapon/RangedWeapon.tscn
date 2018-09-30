@@ -5,23 +5,17 @@
 [ext_resource path="res://assets/items/weapon/iron_weapon/iron_crossbow.png" type="Texture" id=3]
 
 [node name="RangedWeapon" instance=ExtResource( 1 )]
-
 script = ExtResource( 2 )
 
 [node name="Pivot" parent="." index="2"]
-
 position = Vector2( 60, 0 )
 
 [node name="Area2D" parent="Pivot" index="0"]
-
 collision_layer = 2
 
 [node name="Sprite" parent="Pivot/Area2D" index="0"]
-
 texture = ExtResource( 3 )
 
 [node name="Projectile_Pivot" type="Position2D" parent="Pivot/Area2D/Sprite" index="2"]
-
 position = Vector2( -50.8526, 0 )
-
 

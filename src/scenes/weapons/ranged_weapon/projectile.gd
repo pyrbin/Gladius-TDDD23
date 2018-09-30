@@ -2,6 +2,7 @@ extends Area2D
 signal on_collision(co, projectile)
 
 const PROJECTILE_DESPAWN_DELAY = 2000
+const HITABLE_GROUP_NAME = "Hitable"
 
 onready var root_projs = get_tree().get_nodes_in_group("Root_Projs")[0]
 onready var collision = $CollisionShape2D
@@ -37,10 +38,17 @@ func _on_timer_finished():
     queue_free()
 
 func _on_Projectile_body_entered(body):
+    if not body.is_in_group("World"): return
+    collision.disabled=true
+    emit_signal("on_collision", body, self)
+    
+func _on_Projectile_area_entered(area):
     if not fly: return
+    var body = area.owner
     if body == owner: return
-#   if body.has_method("add_to_body"):
-#       root_projs.remove_child(self)
-#       body.add_to_body(self)
+    if not body.is_in_group(HITABLE_GROUP_NAME): return
+    #   if body.has_method("add_to_body"):
+    #       root_projs.remove_child(self)
+    #       body.add_to_body(self)
     collision.disabled=true
     emit_signal("on_collision", body, self)

@@ -378,8 +378,8 @@ tracks/3/keys = {
 
 [node name="Unit" type="KinematicBody2D" groups=[
 "Z_Index",
-"Units",
 "Hitable",
+"Units",
 ]]
 position = Vector2( 0.576477, -0.523365 )
 rotation = -0.000760796

@@ -104,6 +104,7 @@ _sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
 editor/display_folded = true
 
 [node name="Selection" type="Sprite" parent="Visuals" index="1"]
+visible = false
 modulate = Color( 1, 0, 0, 0.678431 )
 position = Vector2( -0.49741, 19.3759 )
 scale = Vector2( 0.772294, 0.772294 )

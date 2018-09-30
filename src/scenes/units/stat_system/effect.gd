@@ -7,7 +7,7 @@ var _interval
 var _affected
 var _elapsed_time = 0.0
 var to_expire = false
-var _last_tick = -1
+var _last_tick = 0
 var _last_second = 0
 var _start_duration
 
@@ -26,7 +26,7 @@ func _init(p_identifier, p_affected, p_modifiers, p_duration=null, p_interval=nu
     if p_duration:
         _duration =  int(p_duration)
         _start_duration = _duration
-    if p_interval:
+    if p_interval || p_interval == 0:
         _interval = int(p_interval)
     else:
         _trigger()
