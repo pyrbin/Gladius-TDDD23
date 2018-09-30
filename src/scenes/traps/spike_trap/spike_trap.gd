@@ -21,6 +21,12 @@ func _on_Downtime_timeout():
     collision.disabled = not activated
     anim_player.play("trigger")
 
+func _on_Trap_body_entered(body):
+    return ._on_Trap_body_entered(body)
+    
+func _on_Trap_body_exited(body):
+    return ._on_Trap_body_exited(body)
+
 func _on_AnimationPlayer_animation_finished(anim_name):
     activated = false
     collision.disabled = not activated

@@ -34,7 +34,7 @@ func _process(d):
     for i in range(0, _effects.size()):
         var effect = _effects[i]
         if effect == null: continue
-        effect.update(d)
+        effect.update(d, owner)
         if effect.to_expire && _effects.size() > i:
             _effects[i] = null
 

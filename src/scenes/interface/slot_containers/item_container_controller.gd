@@ -31,7 +31,6 @@ var is_dragging_item = false
 var cursor_inside_container_list = false
 var mouse_button_released = true
 
-var item_menu_spawn_pos = Vector2()
 var item_container = null
 var item_container_owner = null
 var _connected_container_controllers = []
@@ -45,6 +44,9 @@ func _ready():
 func connect_controller(controller):
     if not _connected_container_controllers.has(controller):
         _connected_container_controllers.append(controller)
+
+func set_cooldown(duration):
+    container_list.get_item(1).set_cooldown(duration)
 
 func disconnect_controller(controller):
     var idx = _connected_container_controllers.find(controller)
@@ -198,8 +200,12 @@ func _on_Container_List_item_rmb_selected(index, at_position):
             for stat in item_data.stats:
                 var mods = item_data.stats[stat]
                 str_item_info += "[color=purple]"+ stat +": [/color]"
-                for mod in mods:
-                    str_item_info += String(mod.value) + mod.mod + " "
+                for i in range(0, mods.size()):
+                    var mod = mods[i]
+                    var postfix = ("%" if mod.mod == "PERCENT" else "")
+                    str_item_info += String(mod.value) + postfix
+                    if i != mods.size()-1:
+                        str_item_info+=", "
                 str_item_info += "\n"
 
     str_item_info += "\n" + item_data.desc + ""

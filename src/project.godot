@@ -31,7 +31,6 @@ gb_CombatText="*res://scripts/global/gb_combat_text.gd"
 
 [debug]
 
-settings/stdout/print_fps=true
 gdscript/warnings/unassigned_variable=false
 gdscript/warnings/unassigned_variable_op_assign=false
 gdscript/warnings/unused_variable=false

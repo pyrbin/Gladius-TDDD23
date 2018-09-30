@@ -27,6 +27,7 @@ func _input(event):
     $StateMachine.handle_input(event)
 
 func _process(delta):
+    $Visuals/Selection.look_at(get_aim_position())
     """if (Input.is_action_pressed("attack")):
         var events = InputMap.get_action_list("attack")
         for e in events:

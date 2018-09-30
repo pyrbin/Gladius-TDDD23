@@ -45,12 +45,10 @@ container_items = [ 1001, 2001, 3001, 4001 ]
 _sections_unfolded = [ "Transform" ]
 
 [node name="Actors" type="Node" parent="Game/World"]
-editor/display_folded = true
 
 [node name="Root_Units" type="Node" parent="Game/World/Actors" groups=[
 "Root_Units",
 ]]
-editor/display_folded = true
 
 [node name="Enemy" parent="Game/World/Actors/Root_Units" instance=ExtResource( 3 )]
 position = Vector2( -75.7991, 129.874 )
@@ -81,8 +79,10 @@ rotation = -0.00152159
 [node name="Player" parent="Game/World/Actors" instance=ExtResource( 4 )]
 position = Vector2( 10.2275, 290.527 )
 rotation = 0.0
+_sections_unfolded = [ "Collision", "Z Index", "collision", "equipped_weapons" ]
 use_holster = true
 reach = 33.0
+equipped_weapons = [ 0, 5001 ]
 
 [node name="Level" type="Node" parent="Game/World"]
 editor/display_folded = true
@@ -94,6 +94,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="GUI" type="CanvasLayer" parent="." groups=[
 "GUI",
 ]]
+editor/display_folded = true
 layer = 128
 offset = Vector2( 0, 0 )
 rotation = 0.0

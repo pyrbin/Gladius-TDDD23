@@ -7,13 +7,14 @@ var _interval
 var _affected
 var _elapsed_time = 0.0
 var to_expire = false
-var _last_tick = 0
+var _last_tick = -1
 var _last_second = 0
 var _start_duration
 
 func _init(p_identifier, p_affected, p_modifiers, p_duration=null, p_interval=null):
     identifier = p_identifier
-    
+    _affected = p_affected
+
     if typeof(p_modifiers) == TYPE_ARRAY:
         for mod in p_modifiers:
             modifiers.append(mod)
@@ -27,7 +28,8 @@ func _init(p_identifier, p_affected, p_modifiers, p_duration=null, p_interval=nu
         _start_duration = _duration
     if p_interval:
         _interval = int(p_interval)
-    _affected = p_affected
+    else:
+        _trigger()
 
 func get_progress():
     return _elapsed_time/_duration
@@ -35,7 +37,9 @@ func get_progress():
 func get_duration():
     return _start_duration
 
-func update(delta):
+func update(delta, affected):
+    if to_expire: return
+    _affected = affected
     _elapsed_time += delta
     _last_second = int(_elapsed_time)
     if _interval && _last_second % _interval == 0 && _last_tick != _last_second:

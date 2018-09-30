@@ -3,7 +3,7 @@
 
 extends Node
 
-const Consumable = preload("res://data/consumable.gd")
+const Special = preload("res://data/special.gd")
 const Equippable = preload("res://data/equippable.gd")
 const WeaponData = preload("res://data/weapon_data.gd")
 const ItemData = preload("res://data/item_data.gd")
@@ -33,7 +33,7 @@ func _ready():
                 it["AMMO"] if it.has("AMMO") else null
             )
         elif it["TYPE"] == ItemData.ITEM_TYPE.EQUIPPABLE and it["SLOT"] == Equippable.SLOT.SPECIAL:
-            _item_database[int_id] = Consumable.new(
+            _item_database[int_id] = Special.new(
                 int_id, 
                 it["NAME"],
                 it["DESC"],
@@ -41,7 +41,8 @@ func _ready():
                 it["SPRITE"],
                 it["SLOT"], 
                 it["STATS"],
-                it["COOLDOWN"]
+                it["COOLDOWN"],
+                it["EFFECTS"]
             )
         elif it["TYPE"] == ItemData.ITEM_TYPE.EQUIPPABLE:
             _item_database[int_id] = Equippable.new(

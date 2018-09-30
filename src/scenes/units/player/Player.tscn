@@ -2,12 +2,12 @@
 
 [ext_resource path="res://scenes/units/Unit.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/units/player/player.gd" type="Script" id=2]
-[ext_resource path="res://scenes/interface/world_ui_player/PlayerBlockIndicator.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/interface/world_ui_player/WeaponCooldownTracker.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/units/player/camera/camera_pivot.gd" type="Script" id=5]
-[ext_resource path="res://scenes/units/player/camera/player_camera.gd" type="Script" id=6]
-[ext_resource path="res://scenes/units/player/interact_controller.gd" type="Script" id=7]
-[ext_resource path="res://assets/selection.png" type="Texture" id=8]
+[ext_resource path="res://scenes/units/player/camera/camera_pivot.gd" type="Script" id=3]
+[ext_resource path="res://scenes/units/player/camera/player_camera.gd" type="Script" id=4]
+[ext_resource path="res://scenes/units/player/interact_controller.gd" type="Script" id=5]
+[ext_resource path="res://scenes/interface/world_ui_player/PlayerBlockIndicator.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/interface/world_ui_player/WeaponCooldownTracker.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/interface/aim_arrow.png" type="Texture" id=8]
 
 [node name="Player" groups=[
 "Player",
@@ -35,22 +35,9 @@ status_settings = 6
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( 0.015216, -20 )
 
-[node name="PlayerBlockIndicator" parent="Static_World_UI" index="0" instance=ExtResource( 3 )]
-margin_left = 26.0
-margin_top = -21.0
-margin_right = 74.0
-margin_bottom = 27.0
-
-[node name="WeaponCooldownTracker" parent="Static_World_UI" index="1" instance=ExtResource( 4 )]
-margin_left = -26.0
-margin_top = 24.0
-margin_right = 24.0
-margin_bottom = 27.0
-disabled = true
-
 [node name="CameraPivot" type="Position2D" parent="." index="6"]
 editor/display_folded = true
-script = ExtResource( 5 )
+script = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Camera2D" type="Camera2D" parent="CameraPivot" index="0"]
@@ -77,12 +64,12 @@ drag_margin_bottom = 0.1
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = true
-script = ExtResource( 6 )
+script = ExtResource( 4 )
 _sections_unfolded = [ "Smoothing", "Transform" ]
 
 [node name="InteractController" type="Node" parent="." index="7"]
 editor/display_folded = true
-script = ExtResource( 7 )
+script = ExtResource( 5 )
 pickup_color = Color( 1, 1, 1, 1 )
 
 [node name="Timer" type="Timer" parent="InteractController" index="0"]
@@ -91,8 +78,20 @@ wait_time = 0.44
 one_shot = true
 autostart = false
 
+[node name="PlayerBlockIndicator" parent="Static_World_UI" index="0" instance=ExtResource( 6 )]
+margin_left = 22.0
+margin_top = -40.0
+margin_right = 44.0
+margin_bottom = -18.0
+
+[node name="WeaponCooldownTracker" parent="Static_World_UI" index="1" instance=ExtResource( 7 )]
+margin_left = -26.0
+margin_top = 24.0
+margin_right = 24.0
+margin_bottom = 27.0
+disabled = true
+
 [node name="Dynamic_WorldUI" parent="Visuals/Pivot" index="0"]
-editor/display_folded = false
 z_index = 1000
 
 [node name="U_Hand" parent="Visuals/Pivot/U_Hand_Pivot" index="0"]
@@ -105,10 +104,15 @@ _sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
 editor/display_folded = true
 
 [node name="Selection" type="Sprite" parent="Visuals" index="1"]
-modulate = Color( 1, 0.866667, 0, 0.517647 )
-position = Vector2( 0.477157, 35.5066 )
-scale = Vector2( 0.820078, 0.439456 )
+modulate = Color( 1, 0, 0, 0.678431 )
+position = Vector2( -0.49741, 19.3759 )
+scale = Vector2( 0.772294, 0.772294 )
 texture = ExtResource( 8 )
-_sections_unfolded = [ "Visibility" ]
+offset = Vector2( 38.7394, 3.99323 )
+_sections_unfolded = [ "Pause", "Transform", "Visibility", "Z Index" ]
+
+[node name="Shadow" parent="Visuals" index="2"]
+position = Vector2( 0.917812, 35.7277 )
+scale = Vector2( 0.376539, 0.174777 )
 
 [connection signal="took_damage" from="." to="." method="_on_Player_took_damage"]

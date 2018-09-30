@@ -4,6 +4,7 @@ onready var life_bar = $StatusBars/LifeBar/TextureProgress
 onready var life_text = $StatusBars/LifeBar/TextureProgress/Label
 onready var energy_bar = $StatusBars/MarginContainer/EnergyBar/TextureProgress
 onready var energy_text = $StatusBars/MarginContainer/EnergyBar/TextureProgress/Label
+onready var controller = $MarginContainer/ItemSlotContainer
 
 var player
 var status
@@ -18,8 +19,12 @@ func _ready():
         _on_player_loaded()
     
 func _on_player_loaded():
-    $MarginContainer/ItemSlotContainer.connect_to_item_container(player.action_equipment, player, ["M1", "Q"])
+    controller.connect_to_item_container(player.action_equipment, player, ["M1", "Q"])
     status = player.status
+    player.connect("used_special", self, "_on_used_special")
+
+func _on_used_special(special):
+    controller.set_cooldown(special.cooldown)
 
 func _process(delta):
     if status:

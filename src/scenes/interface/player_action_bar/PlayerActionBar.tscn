@@ -25,6 +25,7 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Theme", "custom_constants" ]
 
 [node name="StatusBars" type="VBoxContainer" parent="."]
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -96,7 +97,7 @@ margin_left = 4.0
 margin_right = 196.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 192, 96 )
-_sections_unfolded = [ "Anchor", "Margin", "Rect", "custom_constants" ]
+_sections_unfolded = [ "Anchor", "Margin", "Rect", "Theme", "custom_constants" ]
 key_slot_scene = ExtResource( 5 )
 item_menu = NodePath("")
 

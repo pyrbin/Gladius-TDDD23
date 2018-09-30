@@ -6,6 +6,7 @@ signal unit_collided
 signal took_damage(amount, actor, soft)
 signal attacking
 signal blocking
+signal used_special(special)
 
 const Equippable = preload("res://data/equippable.gd")
 
@@ -104,8 +105,11 @@ func _setup():
 func use_consumable():
     var slot = action_equipment.get_equip_slot(Equippable.SLOT.SPECIAL)
     var id = action_equipment.get(slot)
-    var cons = gb_ItemDatabase.get_item(id)
-
+    var special = gb_ItemDatabase.get_item(id)
+    if not special || not $SpecialHandler.cooldown.is_stopped(): return
+    $SpecialHandler.use(special)
+    emit_signal("used_special", special)
+    
 func attack_weapon():
     if not weapon: return
     if weapon.is_holstered():

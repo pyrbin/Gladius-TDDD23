@@ -541,7 +541,7 @@ position = Vector2( -452.596, -430.799 )
 
 [node name="Light2D" type="Light2D" parent="."]
 modulate = Color( 1, 1, 1, 0.588235 )
-position = Vector2( -6.34628, -140.759 )
+position = Vector2( -7.77841, -139.327 )
 scale = Vector2( 19.8871, 19.8871 )
 enabled = true
 editor_only = false

@@ -97,7 +97,7 @@ func _on_body_entered(body):
     if holder == get_tree().get_nodes_in_group("Player")[0]:
         gb_Utils.freeze_time(0.028)
         if data.damage > 0:
-            holder.camera.shake(0.35, 20, 3.5)
+            holder.camera.shake(0.30, 50, 3)
     if _target != get_tree().get_nodes_in_group("Player")[0]:
         _knockback()
 

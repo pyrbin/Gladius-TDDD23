@@ -28,6 +28,20 @@ func set_selected(enable):
 	$Slot.texture = selected_texture if enable else normal_texture
 	selected = enable
 
+func _process(d):
+	if not $Timer.is_stopped():
+		$Overlay/Label.set_text(String(int($Timer.time_left)))
+
+func set_cooldown(duration):
+	$Overlay.show()
+	$Timer.wait_time = duration
+	$Timer.start()
+	$Overlay/Label.set_text(String(int($Timer.time_left)))
+
+func _on_Timer_timeout():
+	$Overlay.hide()
+
+
 func set_item_icon(icon):
 	item_icon = icon
 	$Item.texture = item_icon
