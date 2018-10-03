@@ -1,14 +1,12 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/levels/level_manager.gd" type="Script" id=1]
 [ext_resource path="res://assets/gladiator_mini_mini.png" type="Texture" id=2]
 [ext_resource path="res://scenes/levels/Level_1_tileset.tres" type="TileSet" id=3]
 [ext_resource path="res://assets/flagtemp.png" type="Texture" id=4]
 [ext_resource path="res://scenes/traps/spike_trap/SpikeTrap.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/traps/Trap.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/traps/temp/hp_pool.gd" type="Script" id=7]
-[ext_resource path="res://scenes/interactable/torch/Torch.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/interactable/banner/Banner.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/interactable/torch/Torch.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/interactable/banner/Banner.tscn" type="PackedScene" id=7]
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -51,7 +49,6 @@ position = Vector2( -1.58667, -247.879 )
 position = Vector2( -1.58667, -380.266 )
 
 [node name="Objects" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Audience_Top" type="YSort" parent="Objects"]
 editor/display_folded = true
@@ -332,7 +329,6 @@ position = Vector2( -500.985, -444.714 )
 texture = ExtResource( 4 )
 
 [node name="Traps" type="Node2D" parent="Objects"]
-editor/display_folded = true
 
 [node name="SpikeTrap" parent="Objects/Traps" instance=ExtResource( 5 )]
 position = Vector2( -136.162, 131.937 )
@@ -358,10 +354,6 @@ _sections_unfolded = [ "Collision", "Transform" ]
 position = Vector2( -68.1031, 131.862 )
 scale = Vector2( 2, 2 )
 _sections_unfolded = [ "Collision", "Transform" ]
-
-[node name="Trap" parent="Objects/Traps" instance=ExtResource( 6 )]
-position = Vector2( 247.948, -59.6262 )
-script = ExtResource( 7 )
 
 [node name="Audience_Bot" type="YSort" parent="Objects"]
 editor/display_folded = true
@@ -564,31 +556,31 @@ _sections_unfolded = [ "Cell", "Transform", "Z Index" ]
 editor/display_folded = true
 _sections_unfolded = [ "Z Index" ]
 
-[node name="Torch" parent="Objects/Torches" instance=ExtResource( 8 )]
+[node name="Torch" parent="Objects/Torches" instance=ExtResource( 6 )]
 position = Vector2( -168.024, -484.974 )
 collision_layer = 1
 _sections_unfolded = [ "Collision", "Transform", "Z Index" ]
-interactable_name = null
+interactable_name = ""
 
-[node name="Torch2" parent="Objects/Torches" instance=ExtResource( 8 )]
+[node name="Torch2" parent="Objects/Torches" instance=ExtResource( 6 )]
 position = Vector2( 191.136, -483.187 )
 collision_layer = 1
-interactable_name = null
+interactable_name = ""
 
-[node name="Torch3" parent="Objects/Torches" instance=ExtResource( 8 )]
+[node name="Torch3" parent="Objects/Torches" instance=ExtResource( 6 )]
 position = Vector2( 445.152, -428.899 )
 collision_layer = 1
-interactable_name = null
+interactable_name = ""
 
-[node name="Torch5" parent="Objects/Torches" instance=ExtResource( 8 )]
+[node name="Torch5" parent="Objects/Torches" instance=ExtResource( 6 )]
 position = Vector2( -1.01974, 73.0442 )
 collision_layer = 1
-interactable_name = null
+interactable_name = ""
 
-[node name="Torch4" parent="Objects/Torches" instance=ExtResource( 8 )]
+[node name="Torch4" parent="Objects/Torches" instance=ExtResource( 6 )]
 position = Vector2( -452.596, -430.799 )
 collision_layer = 1
-interactable_name = null
+interactable_name = ""
 
 [node name="Navigation2D" type="Navigation2D" parent="." groups=[
 "Navigation",
@@ -600,7 +592,7 @@ navpoly = SubResource( 1 )
 enabled = true
 _sections_unfolded = [ "navpoly" ]
 
-[node name="Banner" parent="." instance=ExtResource( 9 )]
+[node name="Banner" parent="." instance=ExtResource( 7 )]
 position = Vector2( -1, -94 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
