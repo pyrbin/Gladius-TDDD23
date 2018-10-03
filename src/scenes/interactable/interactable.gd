@@ -1,5 +1,7 @@
 extends Area2D
 
+signal interact
+
 onready var anim_player = $AnimationPlayer
 onready var sprite = $Visuals/Pivot/Sprite
 onready var player = null
@@ -21,7 +23,7 @@ func set_shader_color(color=Color(0,0,0,0)):
     sprite.material.set_shader_param("outline_color", outline_color)
 
 func interact():
-    pass
+    emit_signal("interact")
 
 func make_action_string(string):
     return "[color=green]"+string+"[/color]"

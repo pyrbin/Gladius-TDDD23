@@ -12,12 +12,15 @@ var open_container = false
 const MAX_DISTANCE = 140
 
 func _ready():
+    init(container_items)
+
+func init(p_container_items):
     container = load("res://scripts/item_container/item_container.gd").new()
     var slots = []
-    slots.resize(container_items.size())
-    for i in range(0, container_items.size()):
+    slots.resize(p_container_items.size())
+    for i in range(0, p_container_items.size()):
         slots[i] = 0
-    container.init(slots, container_items)
+    container.init(slots, p_container_items)
     container.connect("value_changed", self, "_on_loot_change")
     sprite.set_texture(texture)
     if idle_jump:
@@ -37,6 +40,10 @@ func drop_item(index, item_container = container, offset = Vector2(0, -10)):
     get_tree().get_nodes_in_group("Root_Items")[0].add_child(instance)
     instance.set_item(item)
     instance.position = global_position + offset
+
+func set_inventory(array):
+    for d in range(0, len(array)):
+        container.set(d, array[d])
 
 func interact():
     var c = 0

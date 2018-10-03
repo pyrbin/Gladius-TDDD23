@@ -8,9 +8,6 @@ func enter():
     reviving = false
 
 func handle_input(event):
-    var rmb = event.is_action_pressed("block")
-    if rmb && owner && owner.status:
-        owner.status.damage(-owner.status.get_max_health())
     return .handle_input(event)
 
 func update(delta):

@@ -3,6 +3,9 @@ extends "../weapon.gd"
 onready var projectile = preload("Projectile.tscn")
 onready var projectile_pivot = $Pivot/Area2D/Sprite/Projectile_Pivot
 onready var root_projs = get_tree().get_nodes_in_group("Root_Projs")[0]
+onready var rc_mid = $Pivot/Raycasts/RC_Mid
+onready var rc_top = $Pivot/Raycasts/RC_Top
+onready var rc_bot = $Pivot/Raycasts/RC_Bot
 
 var _current_proj = null
 
@@ -10,10 +13,18 @@ func _ready():
     wep_sprite.set_flip_v(false)
     hitbox.disabled = true
 
+func see_target(target):
+    if rc_mid.is_colliding() && rc_top.is_colliding() && rc_bot.is_colliding():
+        return rc_mid.get_collider().owner == target && rc_top.get_collider().owner == target && rc_bot.get_collider().owner == target
+    return false
+
 func _ammo_loaded():
     return projectile_pivot.get_child_count() > 0
 
 func _setup():
+    rc_mid.cast_to = Vector2(0, hit_range)
+    rc_bot.cast_to = Vector2(0, hit_range)
+    rc_top.cast_to = Vector2(0, hit_range)
     if not _ammo_loaded():
         _reload()
 

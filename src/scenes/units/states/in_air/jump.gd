@@ -11,6 +11,8 @@ func enter():
     tween.interpolate_property(self, "jump_force", jump_force, Vector2(), 0.6,
                     Tween.TRANS_LINEAR, Tween.EASE_IN)
     owner.get_node("AnimationPlayer").stop()
+    owner.get_node("AnimationPlayer").stop()
+    owner.hitbox.disabled = true
     owner.get_node("AnimationPlayer").play("jump")
     tween.start()
 
@@ -20,4 +22,5 @@ func update(d):
 func _on_animation_finished(anim_name):
     if anim_name == "jump":
         owner.iframe = false
+        owner.hitbox.disabled = false
         emit_signal("finished", "idle")    

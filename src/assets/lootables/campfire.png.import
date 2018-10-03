@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/world_life_bar_bg.png-2bcd69a7b1209eb7950e0292f0a1bc65.stex"
+path="res://.import/campfire.png-bcbb417cd2167cee9b1abc8de01a1b73.stex"
 
 [deps]
 
-source_file="res://assets/interface/world_life_bar_bg.png"
-dest_files=[ "res://.import/world_life_bar_bg.png-2bcd69a7b1209eb7950e0292f0a1bc65.stex" ]
+source_file="res://assets/lootables/campfire.png"
+dest_files=[ "res://.import/campfire.png-bcbb417cd2167cee9b1abc8de01a1b73.stex" ]
 
 [params]
 

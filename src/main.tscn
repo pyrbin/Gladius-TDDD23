@@ -1,11 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/theme1.ogg" type="AudioStream" id=1]
-[ext_resource path="res://scenes/interactable/lootable/chests/Chest.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/units/enemy/Enemy.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/units/player/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/levels/Level_1.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/interface/Interface.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/levels/Level_1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/units/player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/interface/Interface.tscn" type="PackedScene" id=4]
 
 [node name="Root" type="Node"]
 
@@ -20,81 +18,36 @@ stream_paused = false
 mix_target = 0
 bus = "Master"
 
-[node name="World" type="YSort" parent="Game"]
-sort_enabled = true
-_sections_unfolded = [ "Material", "Visibility", "Z Index" ]
+[node name="World" type="Node2D" parent="Game"]
+_sections_unfolded = [ "Transform" ]
 
-[node name="Root_Items" type="Node" parent="Game/World" groups=[
+[node name="Level_One" parent="Game/World" instance=ExtResource( 2 )]
+
+[node name="Root_Items" type="Node2D" parent="Game/World" groups=[
 "Root_Items",
 ]]
 
-[node name="Chest" parent="Game/World/Root_Items" instance=ExtResource( 2 )]
-position = Vector2( 110.759, 358.588 )
-lootable_name = "Chest"
-container_items = [ 1001, 2001, 3001, 4001 ]
-
-[node name="Chest2" parent="Game/World/Root_Items" instance=ExtResource( 2 )]
-position = Vector2( -82.5755, 353.979 )
-_sections_unfolded = [ "Transform", "container_items" ]
-lootable_name = "Chest"
-container_items = [ 4001, 4002, 4003, 4004 ]
-
-[node name="Root_Projs" type="Node" parent="Game/World" groups=[
+[node name="Root_Projs" type="Node2D" parent="Game/World" groups=[
 "Root_Projs",
 ]]
 _sections_unfolded = [ "Transform" ]
 
-[node name="Actors" type="Node" parent="Game/World"]
-
-[node name="Root_Units" type="Node" parent="Game/World/Actors" groups=[
+[node name="Actors" type="Node2D" parent="Game/World" groups=[
 "Root_Units",
 ]]
 
-[node name="Enemy" parent="Game/World/Actors/Root_Units" instance=ExtResource( 3 )]
-position = Vector2( -75.7991, 129.874 )
-rotation = -0.00152159
-
-[node name="Enemy3" parent="Game/World/Actors/Root_Units" instance=ExtResource( 3 )]
-position = Vector2( -299.622, 257.298 )
-rotation = -0.00152159
-_sections_unfolded = [ "Collision", "Z Index", "collision", "equipped_weapons" ]
-equipped_weapons = [ 4001, 0 ]
-
-[node name="Enemy6" parent="Game/World/Actors/Root_Units" instance=ExtResource( 3 )]
-position = Vector2( 155.779, 258.406 )
-rotation = -0.00152159
-
-[node name="Enemy2" parent="Game/World/Actors/Root_Units" instance=ExtResource( 3 )]
-position = Vector2( 69.3531, 124.334 )
-rotation = -0.00152159
-
-[node name="Enemy4" parent="Game/World/Actors/Root_Units" instance=ExtResource( 3 )]
-position = Vector2( 0.286133, 389.491 )
-rotation = -0.00152159
-
-[node name="Enemy5" parent="Game/World/Actors/Root_Units" instance=ExtResource( 3 )]
-position = Vector2( 300.931, 252.866 )
-rotation = -0.00152159
-
-[node name="Player" parent="Game/World/Actors" instance=ExtResource( 4 )]
-position = Vector2( 10.2275, 290.527 )
+[node name="Player" parent="Game/World/Actors" instance=ExtResource( 3 )]
+position = Vector2( 0.508621, -174.746 )
 rotation = 0.0
-_sections_unfolded = [ "Collision", "Z Index", "collision", "equipped_weapons" ]
+_sections_unfolded = [ "Collision", "Transform", "Z Index", "collision", "equipped_weapons" ]
 use_holster = true
 reach = 33.0
-equipped_weapons = [ 0, 5001 ]
-
-[node name="Level" type="Node" parent="Game/World"]
-editor/display_folded = true
-
-[node name="Level_One" parent="Game/World/Level" instance=ExtResource( 5 )]
-position = Vector2( 0, 382.388 )
-_sections_unfolded = [ "Transform" ]
+equipped_items = [ 0, 0, 3001 ]
+equipped_weapons = [ 4004, 5001 ]
 
 [node name="GUI" type="CanvasLayer" parent="." groups=[
 "GUI",
 ]]
-editor/display_folded = true
 layer = 128
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -102,5 +55,5 @@ scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 _sections_unfolded = [ "Pause", "Script" ]
 
-[node name="Interface" parent="GUI" instance=ExtResource( 6 )]
+[node name="Interface" parent="GUI" instance=ExtResource( 4 )]
 

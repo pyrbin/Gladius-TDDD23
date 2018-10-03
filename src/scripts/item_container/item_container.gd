@@ -36,7 +36,7 @@ func _valid_id(item_id):
 func _valid_item_in_slot(slot, item_id):
 	return _item_type_array[slot] == 0 or item_id == null or gb_ItemDatabase.get_item(item_id).slot == _item_type_array[slot]
 
-func set (slot, item_id):
+func set(slot, item_id):
 	var success = false
 	if slot == null: 
 		return success

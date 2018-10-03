@@ -1,28 +1,28 @@
 extends "on_ground.gd"
-
-var sprinting = false
-
+var anim_player
 func enter():
     speed = 0.0
-    var anim_player = owner.get_node("AnimationPlayer")
+    anim_player = owner.get_node("AnimationPlayer")
     anim_player.get_animation("move").loop = true
     anim_player.play("move")
 
 func handle_input(event):
-    sprinting = (event.is_action_pressed("sprint"))
     return .handle_input(event)
 
 func update(delta):
     var movement_direction = owner.get_movement_direction()
-
-    if not movement_direction:
+    move(owner.stats.get_stat(STAT.MOVEMENT), movement_direction, delta)
+    if owner.velocity == Vector2():
         var anim_player = owner.get_node("AnimationPlayer")
         anim_player.get_animation("move").loop = false
         emit_signal("finished", "idle")
-    move(owner.stats.get_stat(STAT.MOVEMENT), movement_direction, delta)
+    elif not anim_player.is_playing():
+        anim_player.get_animation("move").loop = true
+        anim_player.play("move")
     return .update(delta)
 
 func move(speed, direction, delta):
+    if not direction: return
     direction = direction.normalized()
     speed = speed / sqrt(2) if direction.length() < 1 else speed
     velocity = direction * speed

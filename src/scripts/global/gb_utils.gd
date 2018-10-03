@@ -1,5 +1,12 @@
 extends Node
 
+func get_player():
+    return get_tree().get_nodes_in_group("Player")[0]
+
+func lock_player(status):
+    var player = get_player()
+    player.locked = status
+    
 func freeze_time(time):
     get_tree().paused = true
     yield(get_tree().create_timer(time), 'timeout')
@@ -16,6 +23,9 @@ static func enable_bit(mask, index):
 
 static func disable_bit(mask, index):
     return mask & ~(1 << index)
+
+static func rng_chance(percent):
+    return (randi()%100+1) <= percent
 
 static func deep_copy(v):
     var t = typeof(v)

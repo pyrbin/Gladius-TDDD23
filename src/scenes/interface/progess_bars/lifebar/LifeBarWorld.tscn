@@ -5,16 +5,18 @@
 [ext_resource path="res://assets/interface/world_life_bar_fill.png" type="Texture" id=3]
 
 [node name="LifeBarWorld" instance=ExtResource( 1 )]
-
-margin_right = 120.0
-margin_bottom = 20.0
+margin_right = 54.0
+margin_bottom = 5.0
 
 [node name="TextureProgress" parent="." index="0"]
-
-margin_right = 120.0
-margin_bottom = 20.0
+margin_right = 54.0
+margin_bottom = 5.0
+allow_greater = false
+allow_lesser = false
 texture_under = ExtResource( 2 )
 texture_progress = ExtResource( 3 )
-_sections_unfolded = [ "Margin", "Radial Fill", "Rect", "Textures" ]
-
+tint_under = Color( 1, 1, 1, 1 )
+tint_over = Color( 1, 1, 1, 1 )
+tint_progress = Color( 1, 1, 1, 1 )
+_sections_unfolded = [ "Margin", "Radial Fill", "Rect", "Textures", "texture_progress", "texture_under" ]
 

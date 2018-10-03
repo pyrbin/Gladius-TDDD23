@@ -48,6 +48,9 @@ func get_max_endurance():
     var use_stats = gb_Utils.is_bit_enabled(status_settings, 2)
     return round(max_health) if not use_stats else round(max_endurance+owner.stats.get_stat(STAT.STAMINA)) 
 
+func get_health_perc():
+    return health/get_max_health()
+
 func _on_regen_endurance():
     fatigue(-endurance_regen)
 

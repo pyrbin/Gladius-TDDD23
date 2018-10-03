@@ -17,6 +17,8 @@ enum LOOK_STATE {TOP_RIGHT, TOP_LEFT, BOTTOM_RIGHT, BOTTOM_LEFT}
 export (bool) var use_hands = false
 export (bool) var use_holster = true
 export (float) var reach = 40
+export (float) var stagger_time = 4
+
 export (Array, int, "DEFAULT", "HELM", "CHEST", "LEGS", "WEAPON", "SPECIAL") var equipment_container_slots = []
 export (Array, int) var equipped_items = []
 export (Array, int) var equipped_weapons = []
@@ -33,6 +35,7 @@ onready var legs = $Visuals/Pivot/Container/Legs
 onready var chest = $Visuals/Pivot/Container/Chest
 onready var holster = $Visuals/Pivot/Container/Chest/Holster
 onready var helm = $Visuals/Pivot/Container/Helm
+onready var hitbox = $Hitbox/CollisionShape2D
 
 # data 
 onready var status = $Status
@@ -134,7 +137,6 @@ func _unblock():
 func soft_damage(amount, actor):
     damage(amount, actor, true, true)
     
-
 func damage(amount, actor, unblockable=false, soft_attack=false):
     if dead: return false
     if iframe && not soft_attack: return false
@@ -166,6 +168,17 @@ func add_to_body(child):
     
 func has_iframe():
     return iframe
+
+func get_range():
+    return 0
+
+func equip_armor(array):
+    for d in range(0, len(array)):
+        equipment.set(d, array[d])
+
+func equip_wep(array):
+    for d in range(0, len(array)):
+        action_equipment.set(d, array[d])
 
 func reset_modulate():
     get_node("Visuals/Pivot/Container").modulate = Color(1,1,1,1)
@@ -234,6 +247,10 @@ func equip_weapon(wep_data):
     if use_holster:
         holster_timer.start()
     
+func get_weapon_node():
+    if not weapon_pivot: return null
+    return weapon_pivot.get_child(0)
+
 func unequip_weapon():
     if not weapon: return
     unholster_weapon()

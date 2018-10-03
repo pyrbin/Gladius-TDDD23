@@ -7,7 +7,7 @@ var player
 var progress
 
 func _ready():
-    player = get_tree().get_nodes_in_group("Player")[0]
+    player = owner
     player.connect("blocking", self, "_on_player_block")
     set_process(false)
     hide()

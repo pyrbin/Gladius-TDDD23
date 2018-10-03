@@ -4,7 +4,7 @@ export (int) var stab_length = 0
 
 func _setup():
 	wep_sprite.set_flip_v(false)
-	anim_player.get_animation("stab").track_set_key_value(0, 1, Vector2(stab_length, 0))
+	anim_player.get_animation("stab").track_set_key_value(0, 2, Vector2(stab_length, 0))
 
 func _action_attack():
 	anim_player.play("stab")

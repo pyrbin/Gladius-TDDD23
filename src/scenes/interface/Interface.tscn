@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://themes/default.theme" type="Theme" id=1]
 [ext_resource path="res://scenes/interface/character_panel/CharacterPanel.tscn" type="PackedScene" id=2]
@@ -8,14 +8,13 @@
 [ext_resource path="res://assets/fonts/pixel_small.tres" type="DynamicFont" id=6]
 [ext_resource path="res://scenes/interface/version_label.gd" type="Script" id=7]
 [ext_resource path="res://scenes/interface/interact_display/Interact_Display.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/interface/wave_manager/WaveManagerController.tscn" type="PackedScene" id=9]
 
 [node name="Interface" type="Control"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 2.0
-margin_right = 2.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -72,7 +71,7 @@ margin_bottom = 68.0
 custom_fonts/title_font = ExtResource( 4 )
 custom_colors/title_color = Color( 1, 0, 0, 1 )
 custom_constants/title_height = 10
-_sections_unfolded = [ "custom_constants", "custom_fonts", "custom_fonts/title_font", "custom_styles/panel", "theme" ]
+_sections_unfolded = [ "Theme", "custom_colors", "custom_constants", "custom_fonts", "custom_fonts/title_font", "custom_icons", "custom_styles", "custom_styles/panel", "theme" ]
 
 [node name="PlayerActionBar" parent="." instance=ExtResource( 5 )]
 anchor_left = 0.5
@@ -86,14 +85,13 @@ margin_bottom = -31.0
 _sections_unfolded = [ "Margin", "Rect", "Theme", "custom_constants" ]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-anchor_left = 0.0
+anchor_left = 1.0
 anchor_top = 0.0
-anchor_right = 0.0
+anchor_right = 1.0
 anchor_bottom = 0.0
-margin_left = 5.0
-margin_top = 9.0
-margin_right = 590.0
-margin_bottom = 33.0
+margin_left = -346.0
+margin_right = -175.0
+margin_bottom = 19.0
 rect_scale = Vector2( 2, 2 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
@@ -103,19 +101,20 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 size_flags_stretch_ratio = 2.0
 custom_fonts/normal_font = ExtResource( 6 )
+custom_colors/default_color = Color( 1, 1, 1, 0.745098 )
 bbcode_enabled = false
 bbcode_text = ""
 visible_characters = -1
 percent_visible = 1.0
 meta_underlined = true
-tab_size = 4
+tab_size = 2
 text = "GAME TITLE"
 scroll_active = false
 scroll_following = true
 selection_enabled = false
 override_selected_font_color = false
 script = ExtResource( 7 )
-_sections_unfolded = [ "Theme", "custom_fonts/normal_font" ]
+_sections_unfolded = [ "Theme", "custom_fonts", "custom_fonts/normal_font" ]
 
 [node name="Interact_Display" parent="." instance=ExtResource( 8 )]
 anchor_left = 0.5
@@ -126,4 +125,6 @@ margin_top = -174.0
 margin_right = 264.0
 margin_bottom = -102.0
 _sections_unfolded = [ "Theme" ]
+
+[node name="WaveManager" parent="." instance=ExtResource( 9 )]
 

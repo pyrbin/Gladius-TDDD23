@@ -27,7 +27,6 @@ shader_param/outline_color = null
 _sections_unfolded = [ "shader_param" ]
 
 [node name="PlayerBlockIndicator" type="Control"]
-
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -43,8 +42,7 @@ size_flags_vertical = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
-[node name="TextureProgress" type="TextureProgress" parent="." index="0"]
-
+[node name="TextureProgress" type="TextureProgress" parent="."]
 material = SubResource( 1 )
 anchor_left = 0.0
 anchor_top = 0.0
@@ -65,17 +63,21 @@ page = 0.0
 value = 0.4
 exp_edit = false
 rounded = false
+allow_greater = false
+allow_lesser = false
 texture_under = ExtResource( 3 )
 texture_over = null
 texture_progress = ExtResource( 4 )
 fill_mode = 3
+tint_under = Color( 1, 1, 1, 1 )
+tint_over = Color( 1, 1, 1, 1 )
+tint_progress = Color( 1, 1, 1, 1 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = true
 _sections_unfolded = [ "Hint", "Material", "Rect", "Textures" ]
 
-[node name="NinePatchRect" type="NinePatchRect" parent="." index="1"]
-
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
 material = SubResource( 2 )
 anchor_left = 0.0
 anchor_top = 0.0
@@ -91,5 +93,4 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Material", "Rect" ]
-
 

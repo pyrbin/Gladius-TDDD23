@@ -81,7 +81,7 @@
         "WEAPON_TYPE": 1,
         "MODEL" : "stab_weapon/spear/Spear.tscn",
         "DAMAGE" : 15,
-        "ATTACK_SPEED": 250,
+        "ATTACK_SPEED": 300,
         "COOLDOWN" : 1
     },
     "4003": {
@@ -100,7 +100,7 @@
         "MODEL" : "stab_weapon/dagger/Dagger.tscn",
         "DAMAGE" : 10,
         "ATTACK_SPEED": 300,
-        "COOLDOWN" : 0.3
+        "COOLDOWN" : 0.4
     },
     "4004": {
         "NAME": "Iron Crossbow",
@@ -112,7 +112,7 @@
         "STATS": {},
         "WEAPON_TYPE": 2,
         "MODEL" : "ranged_weapon/crossbow/Crossbow.tscn",
-        "DAMAGE" : 5,
+        "DAMAGE" : 50,
         "ATTACK_SPEED": 600,
         "COOLDOWN" : 0.8,
         "AMMO" : "weapon/iron_weapon/iron_arrow.png"
@@ -125,14 +125,14 @@
         "DESC": "Potion of health",
         "SPRITE": "consumable/potion_of_health_icon.png",
         "STATS": {},
-        "COOLDOWN" : 200,
+        "COOLDOWN" : 15,
         "EFFECTS": {
             "Health Potion": {
                 "DURATION" : 0,
                 "INTERVAL" : 0,
                 "MODIFIERS": {
                     "HEALTH": {
-                        "VALUE" : -100
+                        "VALUE" : -30
                     }
                 }
             }

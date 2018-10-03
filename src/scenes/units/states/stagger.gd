@@ -5,6 +5,7 @@ var reviving = false
 func enter():
     var stagger_anim = owner.get_node("AnimationPlayer").get_animation("stagger")
     stagger_anim.track_set_key_value(0, 1, owner.skin_color)
+    owner.get_node("AnimationPlayer").playback_speed = 1/owner.stagger_time
     owner.get_node("AnimationPlayer").play("stagger")
     reviving = false
     owner.iframe = true
@@ -14,4 +15,5 @@ func _on_animation_finished(anim_name):
         owner.reset_modulate()
         reviving = true
         owner.iframe = false
+        owner.get_node("AnimationPlayer").playback_speed = 1
         emit_signal("finished", "idle")    

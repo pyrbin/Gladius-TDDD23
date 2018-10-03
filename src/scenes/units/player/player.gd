@@ -10,12 +10,13 @@ var interactable_list = []
 var toggle_CP = true
 var toggle_GUI = false
 var pressed = false
-
+var locked = false
 
 func _setup():
     emit_signal("player_loaded")
 
 func _input(event):
+    if locked: return
     if event.is_action_pressed("ui_character_panel"):
         var menu = get_tree().get_nodes_in_group("Character_Panel")[0]
         menu.show() if toggle_CP else menu.hide()
@@ -37,6 +38,7 @@ func _process(delta):
     pass
         
 func get_movement_direction():
+    if locked: return
     var direction = Vector2()
     direction.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
     direction.y = int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))
@@ -62,8 +64,6 @@ func queue_interactable(interactable, status):
 func on_interact():
     emit_signal("on_interact")
     
-
-
 func _on_Player_took_damage(amount, actor, soft):
     if amount > 0:
         camera.shake(0.35, 20, 3.5)

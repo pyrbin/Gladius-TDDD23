@@ -21,6 +21,7 @@ func use_consumable(consumable):
 		var data = consumable.effects[efx]
 		var effect = Effect.new(efx, owner, data["MODIFIERS"], data["DURATION"], data["INTERVAL"])
 		owner.stats.add_effect(effect)
+		print(effect.identifier)
 
 func _process(delta):
 	pass

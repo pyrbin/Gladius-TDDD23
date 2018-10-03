@@ -3,19 +3,21 @@
 [ext_resource path="res://scenes/weapons/stab_weapon/StabWeapon.tscn" type="PackedScene" id=1]
 
 [node name="StabWeapon" instance=ExtResource( 1 )]
-
 holster_offset = Vector2( 15, 0 )
+hit_range = 110.0
+
+[node name="Area2D" parent="Pivot" index="0"]
+editor/display_folded = false
+
+[node name="Sprite" parent="Pivot/Area2D" index="0"]
+editor/display_folded = false
 
 [node name="U_Hand_Pivot" parent="Pivot/Area2D/Sprite" index="0"]
-
 position = Vector2( -26.2025, -0.930504 )
 
 [node name="L_Hand_Pivot" parent="Pivot/Area2D/Sprite" index="1"]
-
 position = Vector2( -49.3767, 1.69547 )
 
 [node name="Hitbox" parent="Pivot/Area2D" index="1"]
-
-polygon = PoolVector2Array( 20.5753, -5.96663, 20.7284, 5.92725, 45.6708, 2.93162, 46.0139, -3.54687 )
-
+disabled = true
 

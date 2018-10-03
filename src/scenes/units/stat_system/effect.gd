@@ -10,6 +10,7 @@ var to_expire = false
 var _last_tick = 0
 var _last_second = 0
 var _start_duration
+var _one_time = false
 
 func _init(p_identifier, p_affected, p_modifiers, p_duration=null, p_interval=null):
     identifier = p_identifier
@@ -23,13 +24,13 @@ func _init(p_identifier, p_affected, p_modifiers, p_duration=null, p_interval=nu
         modifiers.append(p_modifiers)
         _start_values.append(p_modifiers.value)
 
-    if p_duration:
+    if p_duration || p_duration != 0:
         _duration =  int(p_duration)
         _start_duration = _duration
-    if p_interval || p_interval == 0:
+    if p_interval || p_interval != 0:
         _interval = int(p_interval)
     else:
-        _trigger()
+        _one_time = true
 
 func get_progress():
     return _elapsed_time/_duration
@@ -38,6 +39,11 @@ func get_duration():
     return _start_duration
 
 func update(delta, affected):
+    if not _interval && _one_time:
+        _one_time = false
+        _trigger()
+        to_expire = true
+
     if to_expire: return
     _affected = affected
     _elapsed_time += delta

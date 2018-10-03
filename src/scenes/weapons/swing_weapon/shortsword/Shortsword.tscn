@@ -1,47 +1,44 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/weapons/swing_weapon/SwingWeapon.tscn" type="PackedScene" id=1]
 
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 15.8277, 3.07541 )
+
 [node name="Shortsword" instance=ExtResource( 1 )]
+hit_range = 45.0
 
 [node name="Pivot" parent="." index="2"]
+rotation = 0.0
 
-rotation = 0.733039
+[node name="Area2D" parent="Pivot" index="0"]
+editor/display_folded = false
 
 [node name="Sprite" parent="Pivot/Area2D" index="0"]
-
 editor/display_folded = false
-flip_v = true
 region_rect = Rect2( 432, 32, 40, 14 )
 region_filter_clip = true
 
 [node name="U_Hand_Pivot" parent="Pivot/Area2D/Sprite" index="0"]
-
 position = Vector2( -17.6368, 0.814079 )
 _sections_unfolded = [ "Z Index" ]
 
 [node name="L_Hand_Pivot" parent="Pivot/Area2D/Sprite" index="1"]
-
 position = Vector2( -15.9649, -0.756664 )
-z_index = -1
-_sections_unfolded = [ "Z Index" ]
 
 [node name="Hitbox" parent="Pivot/Area2D" index="1"]
-
 position = Vector2( 3.35484, 0.00786713 )
-polygon = PoolVector2Array( 15.6313, -2.9837, 15.6604, -0.022069, 12.6697, -0.0220691, 12.6697, 2.91052, -14.0175, 2.93209, -14.1495, -2.93932 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Swish" parent="." index="3"]
-
-visible = false
 scale = Vector2( 0.749316, 0.749316 )
 z_index = 4000
 z_as_relative = false
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Timer" parent="." index="4"]
-
 wait_time = 0.35
-
 

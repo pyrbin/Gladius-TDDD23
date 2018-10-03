@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/world_life_bar_bg.png-2bcd69a7b1209eb7950e0292f0a1bc65.stex"
+path="res://.import/blood.png-a27789a7cbeb0201099dddc3b5e3a36b.stex"
 
 [deps]
 
-source_file="res://assets/interface/world_life_bar_bg.png"
-dest_files=[ "res://.import/world_life_bar_bg.png-2bcd69a7b1209eb7950e0292f0a1bc65.stex" ]
+source_file="res://assets/blood.png"
+dest_files=[ "res://.import/blood.png-a27789a7cbeb0201099dddc3b5e3a36b.stex" ]
 
 [params]
 

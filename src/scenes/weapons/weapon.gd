@@ -1,12 +1,13 @@
 extends Node2D
 
 export (Vector2) var holster_offset = Vector2(52,0)
+export (float) var hit_range = 50
 
 enum ATTACK_STATE { IDLE, ATTACKING, HOLSTERED }
 
 const WeaponData = preload("res://data/weapon_data.gd")
 const HITABLE_GROUP_NAME = "Hitable"
-const KNOCKBACK_FORCE = 200
+const KNOCKBACK_FORCE = 250
 
 onready var wep_sprite = $Pivot/Area2D/Sprite
 onready var anim_player = $AnimationPlayer
@@ -35,6 +36,9 @@ func _ready():
 func _physics_process(d):
     if knockback_tween.is_active() && _target:
         _target.velocity = _knockback_force
+
+func see_target(target):
+    return target.global_position.distance_to(global_position) < hit_range
 
 func set_holstered(b):
     hide() if b else show()

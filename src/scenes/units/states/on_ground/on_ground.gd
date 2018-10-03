@@ -20,7 +20,6 @@ func handle_input(event):
         owner.use_consumable()
     if rmb:
         owner.try_block();
-
     if event.is_action_pressed("jump") && owner.status.endurance >= 20:
         owner.status.fatigue(20)
         emit_signal("finished", "jump")
