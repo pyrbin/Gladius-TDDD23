@@ -20,7 +20,7 @@ outlines = [ PoolVector2Array( -553.764, 105.509, -318.861, 103.293, -313.321, 1
 "Level",
 ]]
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform", "armor_chest_pool", "armor_helm_pool", "armor_legs_pool", "armor_weapon_pool" ]
+_sections_unfolded = [ "Transform", "chest_reward" ]
 level_name = "Training Grounds"
 current_wave = 0
 total_wave = 5
@@ -33,7 +33,7 @@ armor_helm_pool = [ 1001, 1002, 0 ]
 armor_chest_pool = [ 2001, 2002, 0 ]
 armor_legs_pool = [ 3001, 3002 ]
 armor_weapon_pool = [ 4001, 4002, 4003, 4005, 4006 ]
-chest_reward = [ 1001, 2001, 3001, 4001 ]
+chest_reward = [ 1001, 2001, 3001, 4001, 4004 ]
 
 [node name="Timer" type="Timer" parent="."]
 process_mode = 1
