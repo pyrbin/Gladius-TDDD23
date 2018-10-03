@@ -8,6 +8,8 @@ export (float) var movement_speed = 0
 export (float) var crit_chance = 0
 
 const FinalStat = preload("final_stat.gd")
+const Effect = preload("effect.gd")
+const Modifier = preload("res://data/modifier.gd")
 
 var _effects = []
 var _stats = {
@@ -50,6 +52,10 @@ func add_effect(p_effect):
     else:
         _effects.append(p_effect)
 
+
+func add_effect_fac(p_stat, p_val):
+    add_effect(Effect.new("OP HP HELP ME", null, Modifier.new(p_stat, STAT.PERCENT, p_val), 1000, 1))
+    
 func del_effect_by_id(p_identifier):
     for i in range(0, _effects.size()):
         if _effects[i].identifier == p_identifier:

@@ -11,9 +11,9 @@
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Game"]
 stream = ExtResource( 1 )
-volume_db = 0.0
+volume_db = -9.244
 pitch_scale = 1.0
-autoplay = false
+autoplay = true
 stream_paused = false
 mix_target = 0
 bus = "Master"
@@ -22,6 +22,7 @@ bus = "Master"
 _sections_unfolded = [ "Transform" ]
 
 [node name="Level_One" parent="Game/World" instance=ExtResource( 2 )]
+armor_helm_pool = [ 1001, 1002, null ]
 
 [node name="Root_Items" type="Node2D" parent="Game/World" groups=[
 "Root_Items",
@@ -39,11 +40,11 @@ _sections_unfolded = [ "Transform" ]
 [node name="Player" parent="Game/World/Actors" instance=ExtResource( 3 )]
 position = Vector2( 0.508621, -174.746 )
 rotation = 0.0
-_sections_unfolded = [ "Collision", "Transform", "Z Index", "collision", "equipped_weapons" ]
+_sections_unfolded = [ "Collision", "Transform", "Z Index", "collision", "equipped_items", "equipped_weapons" ]
 use_holster = true
 reach = 33.0
-equipped_items = [ 0, 0, 3001 ]
-equipped_weapons = [ 4004, 5001 ]
+equipped_items = [ 1002, 0, 3002 ]
+equipped_weapons = [ 4007, 5001 ]
 
 [node name="GUI" type="CanvasLayer" parent="." groups=[
 "GUI",

@@ -2,6 +2,7 @@ extends Area2D
 
 signal interact
 
+export (String) var interactable_name = ""
 onready var anim_player = $AnimationPlayer
 onready var sprite = $Visuals/Pivot/Sprite
 onready var player = null
@@ -29,7 +30,7 @@ func make_action_string(string):
     return "[color=green]"+string+"[/color]"
 
 func get_action_string():
-    return
+    return make_action_string("Interact with") + " [color=lightblue]" + interactable_name + "[/color] \n"
 
 func _on_body_entered(body):
 	if body == player && interactable:

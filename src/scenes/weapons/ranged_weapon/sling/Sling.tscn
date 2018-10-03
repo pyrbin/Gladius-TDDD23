@@ -1,0 +1,131 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/weapons/ranged_weapon/RangedWeapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/weapons/ranged_weapon/sling/Sling.gd" type="Script" id=2]
+[ext_resource path="res://assets/items/weapon/wooden_weapon/leather_slinger.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=2]
+
+resource_name = "swing_down"
+length = 0.5
+loop = false
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/Area2D/Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -470.0, -232.9 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/Area2D/Sprite:flip_v")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( -2.23517e-008, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.22 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "fire_sling"
+} ]
+}
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "swing_up"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/Area2D/Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( -1.49012e-008, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -232.9, -470.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/Area2D/Sprite:flip_v")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.29 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "fire_sling"
+} ]
+}
+
+[node name="Sling" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+_sections_unfolded = [ "Script", "Transform" ]
+
+[node name="AnimationPlayer" parent="." index="1"]
+anims/swing_down = SubResource( 2 )
+anims/swing_up = SubResource( 1 )
+
+[node name="Pivot" parent="." index="2"]
+position = Vector2( 30, 0 )
+
+[node name="Raycasts" parent="Pivot" index="0"]
+position = Vector2( 45.471, 0.40781 )
+
+[node name="Area2D" parent="Pivot" index="1"]
+editor/display_folded = false
+position = Vector2( 59.7444, 3.05859 )
+
+[node name="Sprite" parent="Pivot/Area2D" index="0"]
+editor/display_folded = false
+position = Vector2( -58.4293, -1.68793 )
+rotation = -4.06487
+texture = ExtResource( 3 )
+offset = Vector2( 70.0041, 3.52055 )
+_sections_unfolded = [ "Material", "Offset", "Transform", "texture" ]
+
+[node name="U_Hand_Pivot" parent="Pivot/Area2D/Sprite" index="0"]
+position = Vector2( 3.71187, -0.0670013 )
+
+[node name="L_Hand_Pivot" parent="Pivot/Area2D/Sprite" index="1"]
+position = Vector2( 1.00906, 4.52087 )
+
+[node name="Projectile_Pivot" parent="Pivot/Area2D/Sprite" index="2"]
+position = Vector2( 32.6206, 3.80317 )
+

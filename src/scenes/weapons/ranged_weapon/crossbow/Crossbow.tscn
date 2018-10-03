@@ -5,15 +5,11 @@
 [node name="Crossbow" instance=ExtResource( 1 )]
 
 [node name="Pivot" parent="." index="2"]
-
 position = Vector2( 40, 0 )
 
 [node name="U_Hand_Pivot" parent="Pivot/Area2D/Sprite" index="0"]
-
 position = Vector2( -66.1534, -1.26223 )
 
 [node name="L_Hand_Pivot" parent="Pivot/Area2D/Sprite" index="1"]
-
 position = Vector2( -61.5337, -0.946674 )
-
 

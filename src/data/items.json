@@ -52,6 +52,33 @@
             }
         }
     },
+    "1002": {
+        "NAME": "Leather Cap",
+        "ICON": "armor/leather_armor/leather_armor_icon_0.png",
+        "TYPE": 1,
+        "SLOT": 1,
+        "DESC": "A helmet made of iron",
+        "SPRITE": "armor/leather_armor/leather_armor_0.png",
+        "STATS": {}
+    },
+    "2002": {
+        "NAME": "Leather Chest",
+        "ICON": "armor/leather_armor/leather_armor_icon_1.png",
+        "TYPE": 1,
+        "SLOT": 2,
+        "DESC": "A helmet made of iron",
+        "SPRITE": "armor/leather_armor/leather_armor_1.png",
+        "STATS": {}
+    },
+    "3002": {
+        "NAME": "Leather Legs",
+        "ICON": "armor/leather_armor/leather_armor_icon_2.png",
+        "TYPE": 1,
+        "SLOT": 3,
+        "DESC": "A helmet made of iron",
+        "SPRITE": "armor/leather_armor/leather_armor_2.png",
+        "STATS": {}
+    },
     "4001": {
         "NAME": "Iron Shortsword",
         "ICON": "weapon/iron_weapon/iron_shortsword_icon.png",
@@ -65,6 +92,34 @@
         "DAMAGE" : 5,
         "ATTACK_SPEED": 300,
         "COOLDOWN" : 0.6
+    },
+    "4005": {
+        "NAME": "Wooden Shortsword",
+        "ICON": "weapon/wooden_weapon/wood_shortsword_icon.png",
+        "TYPE": 1,
+        "SLOT": 4,
+        "DESC": "LOREM IPSUM LOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUM",
+        "SPRITE": "weapon/wooden_weapon/wood_shortsword.png",
+        "STATS": {},
+        "WEAPON_TYPE": 0,
+        "MODEL" : "swing_weapon/shortsword/Shortsword.tscn",
+        "DAMAGE" : 3,
+        "ATTACK_SPEED": 300,
+        "COOLDOWN" : 0.6
+    },
+    "4006": {
+        "NAME": "Wooden Spear",
+        "ICON": "weapon/wooden_weapon/wood_spear_icon.png",
+        "TYPE": 1,
+        "SLOT": 4,
+        "DESC": "LOREM IPSUM LOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUM",
+        "SPRITE": "weapon/wooden_weapon/wood_spear.png",
+        "STATS": {},
+        "WEAPON_TYPE": 1,
+        "MODEL" : "stab_weapon/spear/Spear.tscn",
+        "DAMAGE" : 11,
+        "ATTACK_SPEED": 300,
+        "COOLDOWN" : 1
     },
     "4002": {
         "NAME": "Iron Spear",
@@ -116,6 +171,21 @@
         "ATTACK_SPEED": 600,
         "COOLDOWN" : 0.8,
         "AMMO" : "weapon/iron_weapon/iron_arrow.png"
+    },
+    "4007": {
+        "NAME": "Leather Sling",
+        "ICON": "weapon/wooden_weapon/leather_slinger_icon.png",
+        "TYPE": 1,
+        "SLOT": 4,
+        "DESC": "LOREM IPSUM LOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUM",
+        "SPRITE": "weapon/wooden_weapon/leather_slinger.png",
+        "STATS": {},
+        "WEAPON_TYPE": 2,
+        "MODEL" : "ranged_weapon/sling/Sling.tscn",
+        "DAMAGE" : 50,
+        "ATTACK_SPEED": 600,
+        "COOLDOWN" : 0.8,
+        "AMMO" : "weapon/wooden_weapon/sling_stone.png"
     },
     "5001": {
         "NAME": "Potion of Health",

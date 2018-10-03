@@ -1,6 +1,5 @@
 extends "../interactable.gd"
 
-export (String) var lootable_name
 export (Texture) var texture
 export (Array, int) var container_items = []
 export (bool) var idle_jump = true
@@ -29,7 +28,7 @@ func init(p_container_items):
         anim_player.stop()
 
 func get_action_string():
-    return make_action_string("Open") + " [color=lightblue]" + lootable_name + "[/color] \n"
+    return make_action_string("Open") + " [color=lightblue]" + interactable_name + "[/color] \n"
 
 # TODO: this function is not DRY, repeated in "scenes/interactable/lootable/lootable.gd"
 func drop_item(index, item_container = container, offset = Vector2(0, -10)):

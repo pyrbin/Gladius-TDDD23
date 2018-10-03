@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/interactable/Interactable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://shaders/pixel_outline.shader" type="Shader" id=2]
+[ext_resource path="res://assets/lootables/banner.png" type="Texture" id=3]
+
+[sub_resource type="ShaderMaterial" id=1]
+
+render_priority = 0
+shader = ExtResource( 2 )
+shader_param/intensity = 100
+shader_param/sizex = 72.0
+shader_param/sizey = 144.0
+shader_param/outline_color = null
+_sections_unfolded = [ "shader_param" ]
+
+[node name="Banner" instance=ExtResource( 1 )]
+interactable_name = "Banner"
+
+[node name="Shadow" parent="Visuals" index="0"]
+position = Vector2( 0, 20.9981 )
+
+[node name="Sprite" parent="Visuals/Pivot" index="0"]
+material = SubResource( 1 )
+position = Vector2( 0.250351, -44.6678 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Material", "Z Index", "material", "texture" ]
+

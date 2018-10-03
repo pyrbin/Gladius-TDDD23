@@ -21,7 +21,6 @@ var regenerating_endurance = false
 var _max_health_cache = 0
 var _max_endurance_cache = 0
 
-
 func _ready():
     set_process(true)
     $EnduranceRegen.connect("timeout", self, "_on_regen_endurance")

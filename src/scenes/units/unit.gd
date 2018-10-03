@@ -51,6 +51,7 @@ const BLOCK_TIME = 1000
 var iframe = false
 var blocking = false
 var dead = false
+var invunerable = false
 
 # member variables
 var look_state = TOP_RIGHT
@@ -138,7 +139,7 @@ func soft_damage(amount, actor):
     damage(amount, actor, true, true)
     
 func damage(amount, actor, unblockable=false, soft_attack=false):
-    if dead: return false
+    if dead || invunerable: return false
     if iframe && not soft_attack: return false
     var hit_info = null
     var action = null
