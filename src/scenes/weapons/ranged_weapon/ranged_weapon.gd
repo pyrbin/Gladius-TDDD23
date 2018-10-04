@@ -32,18 +32,23 @@ func _reload():
     if _ammo_loaded(): return
     _current_proj = null
     _current_proj = projectile.instance()
-    _current_proj.connect("on_collision", self, "on_projectile_hit")
+    _current_proj.connect("on_collision", self, "_on_projectile_hit")
+    _current_proj.connect("missed", self, "_on_projectile_missed")
     projectile_pivot.add_child(_current_proj)
     _current_proj.sprite.set_texture(load(data.ammo))
 
-func on_projectile_hit(co, projectile):
+func _on_projectile_hit(co, projectile):
     if _current_proj == null: return;
     if is_hitable(co):
-        _on_body_entered(co)
+        _on_body_entered(co, projectile.combo)
     projectile.stop()
     projectile = null
 
-func _fire_ammo():
+func _on_projectile_missed():
+    #reset_combo()
+    pass
+    
+func _fire_ammo(combo=true):
     if _current_proj == null: return;
     var pos = holder.get_aim_position()
     var angle = _current_proj.global_position.angle_to_point(pos)
@@ -55,14 +60,26 @@ func _fire_ammo():
     _current_proj.position = proj_pos
     _current_proj.direction = dir
     _current_proj.look_at(pos)
-    _current_proj.fire(data.attack_speed)
+    _current_proj.fire(data.attack_speed, combo)
 
 func is_ready():
     return .is_ready() && _ammo_loaded()
 
 func _action_attack():
     _fire_ammo()
-    _clear_attack()
+    _clear_attack(false)
+
+func _action_ult_attack():
+    reset_combo()
+    _fire_ammo(false)
+    _reload()
+    yield(gb_Utils.timer(0.25), "timeout")
+    _fire_ammo(false)
+    _clear_attack(false)
 
 func _on_cooldown_finished():
     _reload()
+
+func _on_animation_finished(anim):
+    _clear_attack(false)
+    

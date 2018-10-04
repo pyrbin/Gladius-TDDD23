@@ -8,6 +8,7 @@ enum ATTACK_STATE { IDLE, ATTACKING, HOLSTERED }
 const WeaponData = preload("res://data/weapon_data.gd")
 const HITABLE_GROUP_NAME = "Hitable"
 const KNOCKBACK_FORCE = 250
+const COMBO_MAX_POINTS = 3
 
 onready var wep_sprite = $Pivot/Area2D/Sprite
 onready var anim_player = $AnimationPlayer
@@ -17,13 +18,19 @@ onready var knockback_tween = $KnockbackTween
 onready var cooldown_timer = $Timer
 onready var hitbox = $Pivot/Area2D/Hitbox
 
+signal combo(point)
+signal lost_combo(point)
+
 var data = null
 var holder = null
 
+var _combo_sequence = 0
 var _is_loaded = false
 var _attack_state = IDLE
 var _knockback_force = Vector2()
-
+var _knockback_mod = 1
+var _knockback_air_mod = 1
+var _interuppted = false
 var _target = null
 var _current_hit_targets = []
 
@@ -71,14 +78,25 @@ func is_holstered():
 func _action_attack():
     pass
 
+func _action_ult_attack():
+    pass
+
 func attack():
+    _interuppted = false
     if not _is_loaded: return false
     if not is_ready(): return false
     hitbox.disabled = false
     _attack_state = ATTACKING
-    _action_attack()
+    if _combo_sequence == COMBO_MAX_POINTS:
+        _action_ult_attack()
+    else:
+        _action_attack()
     cooldown_timer.start()
     return true
+
+func interuppt():
+    reset_combo()
+    _interuppted = true
 
 func is_hitable(body):
     return body != null \
@@ -86,7 +104,8 @@ func is_hitable(body):
     && body.is_in_group(HITABLE_GROUP_NAME) \
     && !_current_hit_targets.has(body) \
     && body.has_method("damage") \
-    && !body.has_iframe()
+    && !body.has_iframe() \
+    && !_interuppted
 
 func _on_body_entered_root(area):
     if _attack_state != ATTACKING: return
@@ -95,15 +114,31 @@ func _on_body_entered_root(area):
     _current_hit_targets.append(body)
     _on_body_entered(body)
 
-func _on_body_entered(body):
+func _on_body_entered(body, count_for_combo=true):
     _target = body
-    _target.damage(data.damage, self)
-    if holder == get_tree().get_nodes_in_group("Player")[0]:
+    var tar = _target.damage(data.damage, self)
+    if holder == gb_Utils.get_player():
         gb_Utils.freeze_time(0.028)
         if data.damage > 0:
             holder.camera.shake(0.30, 50, 3)
-    if _target != get_tree().get_nodes_in_group("Player")[0]:
+    if _target != gb_Utils.get_player():
         _knockback()
+    if count_for_combo:
+        if tar && _combo_sequence != COMBO_MAX_POINTS:
+            $ComboTimer.start()
+            _combo_sequence+=1
+            emit_signal("combo", _combo_sequence)
+        else:
+            reset_combo()
+
+func reset_combo():
+    $ComboTimer.stop()
+    emit_signal("lost_combo", _combo_sequence)
+    _combo_sequence=0
+
+func _on_ComboTimer_timeout():
+    if _combo_sequence > 0:
+        reset_combo()
 
 func _knockback():
     var angle = holder.global_position.angle_to_point(holder.get_aim_position())
@@ -113,15 +148,22 @@ func _knockback():
     if _target.dead:
         time *= 1.5
         _knockback_force *= 1.5
+    _knockback_force *= _knockback_mod
+    time *= _knockback_air_mod
+    _knockback_air_mod = 1
+    _knockback_mod = 1
     knockback_tween.interpolate_property(self, "_knockback_force", _knockback_force, Vector2(), time,
         Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
     knockback_tween.start()
 
-func _clear_attack():
+func _clear_attack(reset_combo=true):
+    if reset_combo && len(_current_hit_targets) == 0:
+        reset_combo()
     _current_hit_targets.clear()
     _target = null
     _attack_state = IDLE
     hitbox.disabled = true
+    _interuppted = false
 
 func _on_cooldown_finished():
     if _attack_state == ATTACKING:
@@ -129,5 +171,4 @@ func _on_cooldown_finished():
 
 func _on_animation_finished(anim):
     _clear_attack()
-
 

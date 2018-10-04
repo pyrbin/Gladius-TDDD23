@@ -6,13 +6,12 @@ var jump_force = Vector2()
 
 func enter():
     owner.iframe = true
+    owner.hitbox.disabled = true
     var direction = owner.get_movement_direction().normalized()
     jump_force = Vector2(JUMP_FORCE, JUMP_FORCE) * direction
     tween.interpolate_property(self, "jump_force", jump_force, Vector2(), 0.6,
                     Tween.TRANS_LINEAR, Tween.EASE_IN)
     owner.get_node("AnimationPlayer").stop()
-    owner.get_node("AnimationPlayer").stop()
-    owner.hitbox.disabled = true
     owner.get_node("AnimationPlayer").play("jump")
     tween.start()
 

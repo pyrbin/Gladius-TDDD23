@@ -6,7 +6,6 @@
 
 [node name="RangedWeapon" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-hit_range = 400.0
 
 [node name="Pivot" parent="." index="2"]
 position = Vector2( 60, 0 )
@@ -52,5 +51,7 @@ collision_layer = 2
 texture = ExtResource( 3 )
 
 [node name="Projectile_Pivot" type="Position2D" parent="Pivot/Area2D/Sprite" index="2"]
+use_parent_material = true
 position = Vector2( -50.8526, 0 )
+_sections_unfolded = [ "Material" ]
 

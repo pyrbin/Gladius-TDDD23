@@ -167,7 +167,7 @@
         "STATS": {},
         "WEAPON_TYPE": 2,
         "MODEL" : "ranged_weapon/crossbow/Crossbow.tscn",
-        "DAMAGE" : 50,
+        "DAMAGE" : 5,
         "ATTACK_SPEED": 600,
         "COOLDOWN" : 0.8,
         "AMMO" : "weapon/iron_weapon/iron_arrow.png"
@@ -182,7 +182,7 @@
         "STATS": {},
         "WEAPON_TYPE": 2,
         "MODEL" : "ranged_weapon/sling/Sling.tscn",
-        "DAMAGE" : 50,
+        "DAMAGE" : 1,
         "ATTACK_SPEED": 600,
         "COOLDOWN" : 0.8,
         "AMMO" : "weapon/wooden_weapon/sling_stone.png"

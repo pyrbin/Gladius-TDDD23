@@ -8,7 +8,7 @@ var progress
 
 func _ready():
     player = owner
-    player.connect("blocking", self, "_on_player_block")
+    #player.connect("blocking", self, "_on_player_block")
     set_process(false)
     hide()
 

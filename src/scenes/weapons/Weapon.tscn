@@ -1,22 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/weapons/weapon.gd" type="Script" id=1]
-[ext_resource path="res://shaders/pixel_outline.shader" type="Shader" id=2]
-[ext_resource path="res://assets/sword.png" type="Texture" id=3]
-
-[sub_resource type="ShaderMaterial" id=1]
-
-render_priority = 0
-shader = ExtResource( 2 )
-shader_param/intensity = null
-shader_param/sizex = 72.0
-shader_param/sizey = 144.0
-shader_param/outline_color = null
-_sections_unfolded = [ "shader_param" ]
+[ext_resource path="res://assets/sword.png" type="Texture" id=2]
 
 [node name="Weapon" type="Node2D"]
+use_parent_material = true
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Material", "Transform" ]
 holster_offset = Vector2( 52, 0 )
 hit_range = 50
 
@@ -37,10 +27,11 @@ playback_speed = 1.0
 blend_times = [  ]
 
 [node name="Pivot" type="Position2D" parent="."]
-_sections_unfolded = [ "Transform" ]
+use_parent_material = true
+_sections_unfolded = [ "Material", "Transform" ]
 
 [node name="Area2D" type="Area2D" parent="Pivot"]
-editor/display_folded = true
+use_parent_material = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -50,21 +41,24 @@ collision_layer = 0
 collision_mask = 0
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Collision", "Transform" ]
+_sections_unfolded = [ "Collision", "Material", "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="Pivot/Area2D"]
-editor/display_folded = true
-material = SubResource( 1 )
-texture = ExtResource( 3 )
+use_parent_material = true
+texture = ExtResource( 2 )
 _sections_unfolded = [ "Material" ]
 
 [node name="U_Hand_Pivot" type="Position2D" parent="Pivot/Area2D/Sprite"]
+use_parent_material = true
 
 [node name="L_Hand_Pivot" type="Position2D" parent="Pivot/Area2D/Sprite"]
+use_parent_material = true
 z_index = -1
 _sections_unfolded = [ "Z Index" ]
 
 [node name="Hitbox" type="CollisionShape2D" parent="Pivot/Area2D"]
+use_parent_material = true
+_sections_unfolded = [ "Material" ]
 
 [node name="Timer" type="Timer" parent="."]
 process_mode = 1
@@ -72,3 +66,10 @@ wait_time = 2.0
 one_shot = true
 autostart = false
 
+[node name="ComboTimer" type="Timer" parent="."]
+process_mode = 1
+wait_time = 3.0
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="ComboTimer" to="." method="_on_ComboTimer_timeout"]

@@ -1,29 +1,40 @@
 # Deadlines
-personal deadlines every week
-## Week 36
-* initial unit structure  <b>✓done</b>
-* sprites, animations  <b>✓done</b>
-* unit state machine  <b>✓done</b>
-* camera system  <b>✓sortadone</b>
 
-## Week 37
-* Item, containers and equipment systems <b>✓sortadone</b>
-* Item database + attributes <b>✓sortadone</b>
-* Consumables
-## Week 38
-* Implement all weapon types (swing, stab, ranged)
-* Finish item system for weapons
-* Fleshed out combat system (screen freeze, animations, knockback)
-## Week 39
-* Health, Stamina
-* Slow down time?? 
-* Sprint?
-* Block?
 ## Week 40
-* Simple AI
-* Lets make the game xD
-* Create arena?
+* Combat rework
+    * Combo system
+    * Armor system
+* Armor system
+* Bash
+### Combo System:
+Every weapon will have a 3 hit combo. If you successfully hit a target (doesn't have to be the same) 3 times the fourth attack will be more powerful. 
 
-## Week 40-41
-* Flesh out systems
-* UI improvement
+Examples:
+* Shortsword: Larger swing
+* Greatsword: Lunge stab
+* Hammer: Big smash
+* Spear: Jump impale
+* Dagger: Jump impale
+* Ranged: Double shot
+
+### Armor System:
+Equipment in the game can give <i>Defense/Deflect/Armor</i> +X which will grant the unit X armor points. All damage will be mitigated if the unit has an active armor point. To remove armor you either have to succesfully land a combo (the 4th attack) or <b>Bash/Parry*</b> the unit while it's using it's weapon. When all armor points has been broken the unit can be attacked. Note: armor will not block effects such as bleeding, knockback, burning however will block those effects if they're are applied by a weapon.
+
+### Bash/Parry System:
+Requires energy. Charge towards the mouse position. If an enemy is hit apply knockback and remove an armor point if the enemy is using its weapon.
+
+
+## Week 41
+* Better enemy AI with new combat systems
+* 3 new arenas
+* Visuals:
+    * Blood splash
+    * Armor hit visuals
+    * Charge visuals
+* Final boss
+
+## Week 42
+* Finish final boss
+* Last UI changes
+* Start menu
+* Trailer

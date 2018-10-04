@@ -9,8 +9,11 @@ func _setup():
 func _action_attack():
 	anim_player.play("stab")
 
-func _on_body_entered(body):
+func _action_ult_attack():
+	anim_player.play("stab_ult")
+
+func _on_body_entered(body, count_for_combo=true):
 	if _current_hit_targets.size() > 1:
 		return
 	else:
-		._on_body_entered(body)
+		._on_body_entered(body, count_for_combo)

@@ -41,7 +41,7 @@ func popup(p_hit_info, p_position):
 func get_text_content(p_hit_info, is_player):
 	match p_hit_info.action:
 		HitInfo.ACTION.BLOCK:
-			return "BLOCKED"
+			return "BASHED"
 		HitInfo.ACTION.HEAL:
 			return "+" + String(abs(p_hit_info.amount))
 		HitInfo.ACTION.DAMAGE:

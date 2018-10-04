@@ -1,5 +1,6 @@
 extends Area2D
 signal on_collision(co, projectile)
+signal missed
 
 const PROJECTILE_DESPAWN_DELAY = 2000
 const HITABLE_GROUP_NAME = "Hitable"
@@ -12,20 +13,23 @@ onready var timer = $Timer
 var direction = Vector2()
 var fly = false
 var force = 600
+var combo = true
 
 func _ready():
     collision.disabled=true
     timer.connect("timeout", self, "_on_timer_finished")
 
-func fire(p_force):
+func fire(p_force, p_combo=true):
     timer.start()
     collision.disabled=false
     fly = true
     force = p_force
+    combo = p_combo
 
-func stop():
+func stop(missed=false):
+    if missed && combo:
+        emit_signal("missed")
     fly = false
-#   yield(get_tree().create_timer(PROJECTILE_DESPAWN_DELAY/1000.0), 'timeout')
     queue_free()
     
 func _physics_process(d):
@@ -33,20 +37,17 @@ func _physics_process(d):
         position += direction * force * d
 
 func _on_timer_finished():
-    if not fly: return
-    fly = false
-    queue_free()
+    stop(true)
 
 func _on_Projectile_body_entered(body):
-    if not body.is_in_group("World"): return
-    collision.disabled=true
-    emit_signal("on_collision", body, self)
+    return
+    stop(true)
     
 func _on_Projectile_area_entered(area):
     if not fly: return
     var body = area.owner
     if body == owner: return
-    if not body.is_in_group(HITABLE_GROUP_NAME): return
+    if not body.is_in_group(HITABLE_GROUP_NAME) || body.iframe: return
     #   if body.has_method("add_to_body"):
     #       root_projs.remove_child(self)
     #       body.add_to_body(self)

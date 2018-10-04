@@ -7,10 +7,16 @@ var swing_state = DOWN
 
 func _ready():
 	wep_sprite.set_flip_v(false)
-    
-func _on_body_entered(body):
-    return ._on_body_entered(body)
-    
+
+func _action_ult_attack():
+	match swing_state:
+		DOWN:
+			anim_player.play("swing_down_ult")
+			swing_state = UP
+		UP:
+			anim_player.play("swing_up_ult")
+			swing_state = DOWN
+
 func _action_attack():
 	match swing_state:
 		DOWN:

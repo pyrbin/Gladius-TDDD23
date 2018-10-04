@@ -8,13 +8,14 @@
 [ext_resource path="res://scenes/interface/world_ui_player/WeaponCooldownTracker.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/interface/aim_arrow.png" type="Texture" id=7]
 
-[node name="Player" groups=[
+[node name="Player" index="0" groups=[
 "Player",
 ] instance=ExtResource( 1 )]
 position = Vector2( -5.96046e-008, 5.96046e-008 )
 collision_mask = 25
 script = ExtResource( 2 )
-stagger_time = 0.1
+use_holster = true
+stagger_time = 0.2
 equipped_items = [ 0, 0, 0 ]
 equipped_weapons = [ 0, 0 ]
 weapon_collision = 13
@@ -39,7 +40,7 @@ script = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Camera2D" type="Camera2D" parent="CameraPivot" index="0"]
-position = Vector2( 0.0662389, -87.0651 )
+position = Vector2( 0.0139254, -18.3036 )
 anchor_mode = 1
 rotating = true
 current = true
@@ -83,14 +84,31 @@ margin_right = 24.0
 margin_bottom = 27.0
 disabled = true
 
+[node name="Visuals" parent="." index="9"]
+_sections_unfolded = [ "Material", "Transform", "Visibility", "material" ]
+
+[node name="Pivot" parent="Visuals" index="0"]
+editor/display_folded = true
+
 [node name="Dynamic_WorldUI" parent="Visuals/Pivot" index="0"]
+editor/display_folded = true
 z_index = 1000
 
 [node name="U_Hand" parent="Visuals/Pivot/U_Hand_Pivot" index="0"]
-_sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
+_sections_unfolded = [ "Material", "Region", "Transform", "Visibility", "Z Index" ]
 
 [node name="L_Hand" parent="Visuals/Pivot/L_Hand_Pivot" index="0"]
-_sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
+_sections_unfolded = [ "Material", "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="WeaponPivot" parent="Visuals/Pivot" index="3"]
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
+
+[node name="Container" parent="Visuals/Pivot" index="4"]
+_sections_unfolded = [ "Material", "Offset", "Visibility", "Z Index", "material" ]
+
+[node name="Body" parent="Visuals/Pivot/Container" index="2"]
+rotation = -0.000304921
+_sections_unfolded = [ "Material", "Offset", "Region", "Transform", "Visibility", "Z Index", "material" ]
 
 [node name="Selection" type="Sprite" parent="Visuals" index="1"]
 visible = false

@@ -4,9 +4,11 @@ extends KinematicBody2D
 #signals
 signal unit_collided
 signal took_damage(amount, actor, soft)
+signal staggered(actor)
 signal attacking
-signal blocking
 signal used_special(special)
+signal combo(point)
+signal lost_combo(point)
 
 const Equippable = preload("res://data/equippable.gd")
 
@@ -41,7 +43,7 @@ onready var hitbox = $Hitbox/CollisionShape2D
 onready var status = $Status
 onready var stats = $Stats
 onready var holster_timer = $HolsterTimer
-onready var block_timer = $BlockTimer
+onready var bash_timer = $BashTimer
 
 # constans
 const WEAPON_FOLDER_PATH = "res://scenes/weapons/"
@@ -49,7 +51,7 @@ const BLOCK_TIME = 1000
 
 # combat vars
 var iframe = false
-var blocking = false
+var bashing = false
 var dead = false
 var invunerable = false
 
@@ -57,11 +59,13 @@ var invunerable = false
 var look_state = TOP_RIGHT
 var look_position = Vector2(0,0)
 var velocity = Vector2(0,0)
+var velocity_mod = Vector2()
 
 # weapon
 var weapon = null
 var weapon_sprite = null
 var skin_color = null
+
 # equipment
 var equipment = null
 var action_equipment = null
@@ -119,21 +123,61 @@ func attack_weapon():
     if weapon.is_holstered():
         unholster_weapon();
     if weapon.attack():
+        if weapon.data.weapon_type != 2 && name == "Player":
+            charge(400, 0.1)
         emit_signal("attacking")
     if use_holster:
         holster_timer.start()
 
-func try_block():
-    if blocking or not block_timer.is_stopped(): return
-    blocking = true
-    emit_signal("blocking")
-    yield(get_tree().create_timer(BLOCK_TIME/1000.0), 'timeout')
-    _unblock()
-        
-func _unblock():
-    if not blocking: return
-    blocking = false
-    block_timer.start()
+func charge(force, speed, direction = get_aim_direction()):
+    velocity_mod = direction * force
+    $Tween.interpolate_property(self, "velocity_mod", velocity_mod, Vector2(), speed, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+    $Tween.start()
+
+func bash():
+    if bashing || not bash_timer.is_stopped(): return
+    charge(600, 0.2)
+    iframe = true
+    bashing = true
+    sprite_player.play("iframe")
+    yield(gb_Utils.timer(0.05), 'timeout')
+    for unit in $Hitbox.get_overlapping_bodies():
+        if unit != self:
+            _on_Hitbox_body_entered(unit)
+            return
+    yield(gb_Utils.timer(0.3), 'timeout')
+    _reset_bash()
+    
+func bashed(basher, direction):
+    if !weapon.is_ready() && !weapon.is_holstered():
+        weapon.interuppt()
+        var action = gb_CombatText.HitInfo.ACTION.BLOCK
+        var type = gb_CombatText.HitInfo.TYPE.NORMAL
+        var hit_info = gb_CombatText.HitInfo.new(0, basher, self, type, action)
+        gb_CombatText.popup(hit_info, global_position)
+    if basher == gb_Utils.get_player():
+        gb_Utils.get_player().camera.shake(0.30, 50, 3)
+    charge(-400, 0.2, direction)
+    stagger(basher)
+    
+func _reset_bash():
+    $Tween.stop_all()
+    iframe = false
+    bashing = false
+    velocity_mod = Vector2()
+    sprite_player.stop()
+    reset_modulate()
+    $Visuals/Pivot.material = null
+    bash_timer.start()
+
+func _on_Hitbox_body_entered(body):
+    if bashing && body.has_method("bashed") && not body.iframe:
+        body.bashed(self, -get_aim_direction())
+        _reset_bash()
+
+func stagger(actor):
+    #sprite_player.play("stagger")
+    emit_signal("staggered", actor)
 
 func soft_damage(amount, actor):
     damage(amount, actor, true, true)
@@ -144,7 +188,7 @@ func damage(amount, actor, unblockable=false, soft_attack=false):
     var hit_info = null
     var action = null
     var type = null
-    if blocking && not unblockable:
+    """
         action = gb_CombatText.HitInfo.ACTION.BLOCK
         type = gb_CombatText.HitInfo.TYPE.NORMAL
         hit_info = gb_CombatText.HitInfo.new(amount, actor, self, type, action)
@@ -152,6 +196,7 @@ func damage(amount, actor, unblockable=false, soft_attack=false):
         sprite_player.play("blocked")
         _unblock()
         return false
+    """
     status.damage(amount)
     emit_signal("took_damage", amount, actor, soft_attack)
     action = gb_CombatText.HitInfo.ACTION.HEAL if amount <= 0 else gb_CombatText.HitInfo.ACTION.DAMAGE
@@ -181,11 +226,22 @@ func equip_wep(array):
     for d in range(0, len(array)):
         action_equipment.set(d, array[d])
 
+func default_modulate():
+    body.modulate = Color(1,1,1,1)
+    if u_hand && l_hand:
+        u_hand.modulate = Color(1,1,1,1)
+        l_hand.modulate = Color(1,1,1,1)
+
 func reset_modulate():
     get_node("Visuals/Pivot/Container").modulate = Color(1,1,1,1)
     get_node("Visuals/Pivot/WeaponPivot").modulate = Color(1,1,1,1)
     get_node("Visuals/Pivot/L_Hand_Pivot").modulate = Color(1,1,1,1)
     get_node("Visuals/Pivot/U_Hand_Pivot").modulate = Color(1,1,1,1)
+    body.modulate = skin_color
+    if u_hand && l_hand:
+        u_hand.modulate = skin_color
+        l_hand.modulate = skin_color
+    $Visuals/Pivot.material = null
 #   Sprite manipulation
 #   =========================
 func _set_look_state(look_position):
@@ -247,7 +303,15 @@ func equip_weapon(wep_data):
         _hands_on_weapon(true)
     if use_holster:
         holster_timer.start()
-    
+    weapon.connect("combo", self, "_on_wep_combo")
+    weapon.connect("lost_combo", self, "_on_wep_lost_combo")
+
+func _on_wep_combo(point):
+    emit_signal("combo", point)
+
+func _on_wep_lost_combo(point):
+    emit_signal("lost_combo", point)
+
 func get_weapon_node():
     if not weapon_pivot: return null
     return weapon_pivot.get_child(0)
@@ -258,8 +322,10 @@ func unequip_weapon():
     _hands_on_weapon(false)
     weapon.hide()
     weapon_pivot.remove_child(weapon)
+    _on_wep_lost_combo(0)
+    weapon.disconnect("combo", self, "_on_wep_combo")
+    weapon.disconnect("lost_combo", self, "_on_wep_lost_combo")
     weapon = null
-    pass
 
 func holster_weapon():
     if not weapon:
@@ -343,7 +409,6 @@ func _equip_equipments():
         _update_equipment_slot(i, true)
 
 
-
 #   Process loop
 #   =========================
 func _physics_process(delta):
@@ -351,9 +416,11 @@ func _physics_process(delta):
         _set_look_state(get_aim_position())
         if holster_timer.is_stopped() && weapon && weapon.is_ready() && use_holster:
             holster_weapon()
-    _handle_collision(delta)  
+        _handle_collision(delta)  
 
 func _handle_collision(delta):
+    if velocity_mod:
+        velocity = velocity_mod
     var collision = move_and_collide(velocity * delta)
     if collision:
         _on_collision(collision)
@@ -367,6 +434,10 @@ func set_dead(value):
 
 func get_aim_position():
     return Vector2()
+
+
+func get_aim_direction():
+    return -(global_position-get_aim_position()).normalized()
 
 func get_movement_direction():
     return Vector2()

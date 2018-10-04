@@ -34,16 +34,16 @@ tracks/1/keys = {
 "values": [ false, true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Swish:visible")
+tracks/2/path = NodePath("Pivot/Area2D/Hitbox:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.17, 0.57 ),
+"times": PoolRealArray( 0.07, 0.67 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true, false ]
+"values": [ false, true ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -76,16 +76,16 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Swish:visible")
+tracks/2/path = NodePath("Pivot/Area2D/Hitbox:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.13, 0.46 ),
+"times": PoolRealArray( 0.13, 0.58 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true, false ]
+"values": [ false, true ]
 }
 
 [sub_resource type="RectangleShape2D" id=3]
@@ -102,8 +102,7 @@ anims/swing_down = SubResource( 1 )
 anims/swing_up = SubResource( 2 )
 
 [node name="Pivot" parent="." index="2"]
-rotation = 3.14159
-_sections_unfolded = [ "Transform", "Z Index" ]
+_sections_unfolded = [ "Material", "Transform", "Z Index" ]
 
 [node name="Area2D" parent="Pivot" index="0"]
 position = Vector2( 30, 0 )
@@ -111,18 +110,20 @@ position = Vector2( 30, 0 )
 [node name="Sprite" parent="Pivot/Area2D" index="0"]
 texture = ExtResource( 3 )
 offset = Vector2( 52, 0 )
-flip_v = true
 _sections_unfolded = [ "Material", "Offset", "Transform" ]
 
 [node name="U_Hand_Pivot" parent="Pivot/Area2D/Sprite" index="0"]
 position = Vector2( -68.6019, 1.09366 )
+_sections_unfolded = [ "Material" ]
 
 [node name="L_Hand_Pivot" parent="Pivot/Area2D/Sprite" index="1"]
 position = Vector2( -68.1531, -2.31665 )
+_sections_unfolded = [ "Material", "Z Index" ]
 
 [node name="Hitbox" parent="Pivot/Area2D" index="1"]
 position = Vector2( 3.13155, 1.92752e-005 )
 shape = SubResource( 3 )
+disabled = true
 
 [node name="Swish" type="Sprite" parent="." index="3"]
 visible = false

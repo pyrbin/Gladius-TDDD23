@@ -3,6 +3,9 @@ extends Node
 func get_player():
     return get_tree().get_nodes_in_group("Player")[0]
 
+func timer(seconds):
+    return get_tree().create_timer(seconds)
+    
 func lock_player(status):
     var player = get_player()
     player.locked = status

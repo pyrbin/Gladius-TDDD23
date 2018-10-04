@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/theme1.ogg" type="AudioStream" id=1]
 [ext_resource path="res://scenes/levels/Level_1.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/units/player/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/interface/Interface.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/interactable/lootable/chests/Chest.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/units/enemy/Enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/units/player/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/interface/Interface.tscn" type="PackedScene" id=6]
 
 [node name="Root" type="Node"]
 
@@ -37,11 +39,25 @@ _sections_unfolded = [ "Transform" ]
 "Root_Units",
 ]]
 
-[node name="Player" parent="Game/World/Actors" instance=ExtResource( 3 )]
+[node name="Chest" parent="Game/World/Actors" instance=ExtResource( 3 )]
+position = Vector2( 102.822, -168.862 )
+rotation = -0.000760796
+_sections_unfolded = [ "Collision", "Transform", "container_items" ]
+interactable_name = "Chest"
+container_items = [ 4001, 4002, 4003, 4004 ]
+idle_jump = true
+
+[node name="Enemy" parent="Game/World/Actors" instance=ExtResource( 4 )]
+position = Vector2( -89.6468, -299.901 )
+_sections_unfolded = [ "Collision", "Z Index", "collision", "equipped_weapons" ]
+equipped_weapons = [ 4001, 0 ]
+disable_AI = true
+
+[node name="Player" parent="Game/World/Actors" instance=ExtResource( 5 )]
 position = Vector2( 0.508621, -174.746 )
 rotation = 0.0
+collision/safe_margin = 0.08
 _sections_unfolded = [ "Collision", "Transform", "Z Index", "collision", "equipped_items", "equipped_weapons" ]
-use_holster = true
 reach = 33.0
 equipped_items = [ 1002, 0, 3002 ]
 equipped_weapons = [ 4007, 5001 ]
@@ -56,5 +72,5 @@ scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 _sections_unfolded = [ "Pause", "Script" ]
 
-[node name="Interface" parent="GUI" instance=ExtResource( 4 )]
+[node name="Interface" parent="GUI" instance=ExtResource( 6 )]
 

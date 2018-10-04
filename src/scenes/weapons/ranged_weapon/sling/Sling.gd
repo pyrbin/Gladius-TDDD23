@@ -4,7 +4,16 @@ enum SWING_STATE {UP, DOWN}
 
 var swing_state = UP
 
-func _fire_ammo():
+
+func _action_attack():
+    _swing_sling()
+
+func _action_ult_attack():
+    _knockback_air_mod = 3
+    _knockback_mod = 2
+    _action_attack()
+    
+func _swing_sling():
     if _current_proj == null: return;
     if swing_state == UP:
         anim_player.play("swing_up")
@@ -14,14 +23,7 @@ func _fire_ammo():
         anim_player.play("swing_down")
 
 func fire_sling():
-    var pos = holder.get_aim_position()
-    var angle = _current_proj.global_position.angle_to_point(pos)
-    var dir = Vector2(-cos(angle), -sin(angle))
-    var proj_pos = _current_proj.get_node("Sprite").global_position
-    projectile_pivot.remove_child(_current_proj)
-    root_projs.add_child(_current_proj)
-    _current_proj.collision_mask = $Pivot/Area2D.collision_mask
-    _current_proj.position = proj_pos
-    _current_proj.direction = dir
-    _current_proj.look_at(pos)
-    _current_proj.fire(data.attack_speed)
+    _fire_ammo()
+
+func _on_animation_finished(anim):
+    _clear_attack(false)

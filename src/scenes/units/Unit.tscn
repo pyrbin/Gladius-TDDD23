@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://scenes/units/unit.gd" type="Script" id=1]
 [ext_resource path="res://scenes/units/unit_state_machine.gd" type="Script" id=2]
@@ -10,7 +10,7 @@
 [ext_resource path="res://scenes/units/stat_system/stat_system.gd" type="Script" id=8]
 [ext_resource path="res://scenes/units/Status.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/units/specials/Special.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/interface/world_ui_player/PlayerBlockIndicator.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/interface/world_ui_player/ComboDisplayController.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/interface/unit_healthbars/UnitHealthBarController.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/gladiator/hand_6x6.png" type="Texture" id=13]
 [ext_resource path="res://assets/items/weapon/iron_weapon/iron_shortsword.png" type="Texture" id=14]
@@ -18,11 +18,12 @@
 [ext_resource path="res://assets/shadow.png" type="Texture" id=16]
 [ext_resource path="res://assets/blood.png" type="Texture" id=17]
 [ext_resource path="res://scenes/units/stagger.anim" type="Animation" id=18]
+[ext_resource path="res://shaders/yellow.material" type="Material" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 23.3106 )
+extents = Vector2( 13.9758, 25.1538 )
 
 [sub_resource type="Animation" id=2]
 
@@ -397,17 +398,98 @@ tracks/3/keys = {
 "values": [ Color( 1, 0.866667, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
+[sub_resource type="Animation" id=12]
+
+resource_name = "iframe"
+length = 1.0
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Visuals/Pivot/Container:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Visuals/Pivot/WeaponPivot:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Visuals/Pivot/L_Hand_Pivot:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Visuals/Pivot/U_Hand_Pivot:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "default_modulate"
+} ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Visuals/Pivot:material")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 19 ) ]
+}
+
 [node name="Unit" type="KinematicBody2D" groups=[
+"Z_Index",
 "Hitable",
 "Units",
-"Z_Index",
 ]]
 position = Vector2( 0.576477, -0.523365 )
 rotation = -0.000760796
 input_pickable = false
 collision_layer = 2
 collision_mask = 17
-collision/safe_margin = 0.08
+collision/safe_margin = 51.41
 motion/sync_to_physics = false
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Z Index", "collision" ]
@@ -421,6 +503,7 @@ equipped_weapons = [  ]
 weapon_collision = 15
 
 [node name="StateMachine" type="Node" parent="."]
+editor/display_folded = true
 script = ExtResource( 2 )
 START_STATE = NodePath("Idle")
 
@@ -464,13 +547,14 @@ crit_chance = 0
 [node name="SpecialHandler" parent="." instance=ExtResource( 10 )]
 
 [node name="Hitbox" type="Area2D" parent="."]
+position = Vector2( -0.104675, -7.96318e-005 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
 collision_layer = 2
-collision_mask = 0
+collision_mask = 12
 audio_bus_override = false
 audio_bus_name = "Master"
 _sections_unfolded = [ "Collision" ]
@@ -492,71 +576,78 @@ z_index = 3000
 z_as_relative = false
 _sections_unfolded = [ "Z Index" ]
 
-[node name="PlayerBlockIndicator" parent="Static_World_UI" instance=ExtResource( 11 )]
-margin_left = 18.0
-margin_top = -29.0
-margin_right = 42.0
-margin_bottom = -6.0
-
 [node name="Visuals" type="Position2D" parent="."]
 position = Vector2( -0.477157, -35.5066 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="Pivot" type="Position2D" parent="Visuals"]
-_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index", "material" ]
 
 [node name="Dynamic_WorldUI" type="Node2D" parent="Visuals/Pivot"]
 position = Vector2( -7.7486e-007, 0 )
-z_index = 100
+z_index = 1
 z_as_relative = false
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "Z Index" ]
 
+[node name="ComboDisplayController" parent="Visuals/Pivot/Dynamic_WorldUI" instance=ExtResource( 11 )]
+margin_left = 7.0
+margin_top = -16.0
+margin_right = 7.0
+margin_bottom = -16.0
+
 [node name="UnitHealthBarController" parent="Visuals/Pivot/Dynamic_WorldUI" instance=ExtResource( 12 )]
 margin_left = -15.0
-margin_top = 40.0
+margin_top = 39.0
 margin_right = 39.0
-margin_bottom = 45.0
+margin_bottom = 44.0
 disabled = true
 
 [node name="U_Hand_Pivot" type="Position2D" parent="Visuals/Pivot"]
 editor/display_folded = true
+use_parent_material = true
 position = Vector2( -10.7167, 15.6651 )
 z_index = 3
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="U_Hand" type="Sprite" parent="Visuals/Pivot/U_Hand_Pivot"]
+use_parent_material = true
 z_index = 1
 texture = ExtResource( 13 )
 region_rect = Rect2( 321, 39, 6, 6 )
-_sections_unfolded = [ "Region", "Transform", "Z Index" ]
+_sections_unfolded = [ "Material", "Region", "Transform", "Z Index" ]
 
 [node name="L_Hand_Pivot" type="Position2D" parent="Visuals/Pivot"]
 editor/display_folded = true
+use_parent_material = true
 position = Vector2( 10.2365, 16.2947 )
 z_index = 3
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="L_Hand" type="Sprite" parent="Visuals/Pivot/L_Hand_Pivot"]
+use_parent_material = true
 texture = ExtResource( 13 )
 region_rect = Rect2( 321, 39, 6, 6 )
-_sections_unfolded = [ "Region", "Transform", "Z Index" ]
+_sections_unfolded = [ "Material", "Region", "Transform", "Z Index" ]
 
 [node name="WeaponPivot" type="Position2D" parent="Visuals/Pivot"]
+use_parent_material = true
 position = Vector2( 0, 15.9238 )
 z_index = 6
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Container" type="Position2D" parent="Visuals/Pivot"]
+use_parent_material = true
 _sections_unfolded = [ "Material", "Offset", "Visibility", "Z Index" ]
 
 [node name="Legs" type="Sprite" parent="Visuals/Pivot/Container"]
+use_parent_material = true
 z_index = 4
 region_enabled = true
 region_rect = Rect2( 0, 0, 72, 72 )
 _sections_unfolded = [ "Region", "Visibility", "Z Index" ]
 
 [node name="Chest" type="Sprite" parent="Visuals/Pivot/Container"]
-editor/display_folded = true
+use_parent_material = true
 position = Vector2( 0, 3 )
 z_index = 3
 region_rect = Rect2( 72, 72, 72, 72 )
@@ -565,6 +656,7 @@ _sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
 [node name="Holster" type="Sprite" parent="Visuals/Pivot/Container/Chest"]
 visible = false
 show_behind_parent = true
+use_parent_material = true
 position = Vector2( -0.576477, 10 )
 rotation = 0.610865
 z_index = -1
@@ -572,6 +664,7 @@ texture = ExtResource( 14 )
 _sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
 
 [node name="Body" type="Sprite" parent="Visuals/Pivot/Container"]
+use_parent_material = true
 position = Vector2( -4.47035e-007, 0 )
 z_index = 2
 texture = ExtResource( 15 )
@@ -582,6 +675,7 @@ region_filter_clip = true
 _sections_unfolded = [ "Material", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
 
 [node name="Helm" type="Sprite" parent="Visuals/Pivot/Container"]
+use_parent_material = true
 position = Vector2( 0, 3 )
 z_index = 3
 region_rect = Rect2( 0, 72, 72, 72 )
@@ -630,6 +724,7 @@ anims/Bottom_Right = SubResource( 8 )
 anims/Top_Left = SubResource( 9 )
 anims/Top_Right = SubResource( 10 )
 anims/blocked = SubResource( 11 )
+anims/iframe = SubResource( 12 )
 anims/stagger = ExtResource( 18 )
 blend_times = [  ]
 
@@ -639,12 +734,21 @@ wait_time = 4.0
 one_shot = true
 autostart = true
 
-[node name="BlockTimer" type="Timer" parent="."]
+[node name="BashTimer" type="Timer" parent="."]
 process_mode = 1
-wait_time = 4.0
+wait_time = 0.5
 one_shot = true
 autostart = false
 
+[node name="Tween" type="Tween" parent="."]
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
 [connection signal="on_health_zero" from="Status" to="." method="_on_Status_on_health_zero"]
 [connection signal="on_revive" from="Status" to="." method="_on_Status_on_revive"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
 [connection signal="animation_finished" from="SpritePlayer" to="." method="_on_SpritePlayer_animation_finished"]

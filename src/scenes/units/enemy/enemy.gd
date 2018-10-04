@@ -1,12 +1,15 @@
 extends "res://scenes/units/unit.gd"
 
+export (bool) var disable_AI = false
+
 var nav = null
 var path
 var player_pos
 var mov_dir = Vector2()
 
 func _setup():
-    nav = get_tree().get_nodes_in_group("Navigation")[0]
+    if disable_AI:
+        nav = get_tree().get_nodes_in_group("Navigation")[0]
     get_player().connect("attacking", self, "_on_player_attack")
 
 func _send_action(action):
@@ -16,6 +19,7 @@ func _send_action(action):
         $StateMachine.handle_input(e)
 
 func get_movement_direction():
+    if disable_AI: return Vector2()
     if player_in_range() && weapon_in_range() || not nav: return mov_dir
     var dir = Vector2()
     if player_pos != get_player().global_position:
@@ -30,7 +34,7 @@ func to_move():
     return path[0] if path else Vector2()
 
 func get_aim_position():
-    return get_player().global_position + Vector2(0, -24)
+    return get_player().global_position# + Vector2(0, -24)
 
 func set_dead(b):
     $Visuals/AimIndicator.show() if not b else $Visuals/AimIndicator.hide()
@@ -50,9 +54,9 @@ func _logic_player_in_range():
         _logic_keep_distance()
 
 func _on_player_attack():
-    if gb_Utils.rng_chance(50):
-        _send_action("block")
-
+    #_send_action("block")
+    return
+    
 func _logic_keep_distance():
     if global_position.distance_to(get_player().global_position) < 150 && weapon_in_range() && gb_Utils.rng_chance(50):
         var mod = 1 if randi()%1 else -1
@@ -68,6 +72,7 @@ func weapon_in_range():
     return get_weapon_node().see_target(get_player())
 
 func _process(delta):
+    if disable_AI: return
 
     if player_in_range():
         _logic_player_in_range()
