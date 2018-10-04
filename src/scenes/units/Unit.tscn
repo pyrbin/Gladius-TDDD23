@@ -480,9 +480,9 @@ tracks/5/keys = {
 }
 
 [node name="Unit" type="KinematicBody2D" groups=[
-"Z_Index",
 "Hitable",
 "Units",
+"Z_Index",
 ]]
 position = Vector2( 0.576477, -0.523365 )
 rotation = -0.000760796
@@ -590,10 +590,10 @@ z_as_relative = false
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "Z Index" ]
 
 [node name="ComboDisplayController" parent="Visuals/Pivot/Dynamic_WorldUI" instance=ExtResource( 11 )]
-margin_left = 7.0
-margin_top = -16.0
-margin_right = 7.0
-margin_bottom = -16.0
+margin_left = 8.0
+margin_top = -32.0
+margin_right = 8.0
+margin_bottom = -32.0
 
 [node name="UnitHealthBarController" parent="Visuals/Pivot/Dynamic_WorldUI" instance=ExtResource( 12 )]
 margin_left = -15.0

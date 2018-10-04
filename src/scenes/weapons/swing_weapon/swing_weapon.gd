@@ -13,9 +13,13 @@ func _action_ult_attack():
 		DOWN:
 			anim_player.play("swing_down_ult")
 			swing_state = UP
+			#anim_player.queue("swing_up_ult")
+			#swing_state = DOWN
 		UP:
 			anim_player.play("swing_up_ult")
 			swing_state = DOWN
+			#anim_player.queue("swing_down_ult")
+			#swing_state = UP
 
 func _action_attack():
 	match swing_state:

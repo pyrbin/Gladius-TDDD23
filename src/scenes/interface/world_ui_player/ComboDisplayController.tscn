@@ -81,7 +81,7 @@ align = 1
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0
-max_lines_visible = -1
+max_lines_visible = 4
 _sections_unfolded = [ "Hint", "Rect", "Visibility", "custom_colors", "custom_fonts" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -104,3 +104,4 @@ anims/zoom = SubResource( 2 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
+[connection signal="animation_finished" from="ScalePlayer" to="." method="_on_ScalePlayer_animation_finished"]

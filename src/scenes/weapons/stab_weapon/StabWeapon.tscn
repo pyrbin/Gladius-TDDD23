@@ -42,6 +42,7 @@ extents = Vector2( 12.3404, 3.14393 )
 
 [node name="StabWeapon" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+holster_offset = Vector2( 35, 0 )
 stab_length = 40
 
 [node name="AnimationPlayer" parent="." index="1"]

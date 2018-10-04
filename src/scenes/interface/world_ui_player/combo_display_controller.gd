@@ -5,6 +5,7 @@ onready var label = $Label
 onready var scale_player = $ScalePlayer
 
 var unit
+var comboed = false
 
 func _ready():
 	unit = owner
@@ -19,5 +20,16 @@ func _on_unit_combo(combo):
 	scale_player.play("zoom")
 
 func _on_unit_lost_combo(combo):
-	label.set_text("")
-	label.hide()
+	if combo == 3:
+		comboed = true
+		label.set_text("COMBO")
+		scale_player.play("zoom")
+	else:
+		label.set_text("")
+		label.hide()
+
+
+func _on_ScalePlayer_animation_finished(anim_name):
+	if anim_name == "zoom" && comboed:
+		comboed = false
+		_on_unit_lost_combo(0)
