@@ -1,7 +1,7 @@
 extends "../motion.gd"
 
-const JUMP_COST = 20
-const BASH_COST = 20
+const JUMP_COST = 10    
+const BASH_COST = 10
 
 const Effect = preload("../../stat_system/effect.gd")
 const Modifier = preload("res://data/modifier.gd")

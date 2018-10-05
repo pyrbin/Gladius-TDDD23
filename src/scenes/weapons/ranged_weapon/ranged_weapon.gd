@@ -73,7 +73,7 @@ func _action_ult_attack():
     reset_combo()
     _fire_ammo(false)
     _reload()
-    yield(gb_Utils.timer(0.25), "timeout")
+    yield(utils.timer(0.25), "timeout")
     _fire_ammo(false)
     _clear_attack(false)
 

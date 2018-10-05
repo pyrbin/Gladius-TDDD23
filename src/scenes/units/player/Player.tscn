@@ -9,7 +9,7 @@
 [ext_resource path="res://assets/interface/world_life_bar_grn_fill.png" type="Texture" id=7]
 [ext_resource path="res://assets/interface/aim_arrow.png" type="Texture" id=8]
 
-[node name="Player" index="0" groups=[
+[node name="Player" groups=[
 "Player",
 ] instance=ExtResource( 1 )]
 position = Vector2( -5.96046e-008, 5.96046e-008 )
@@ -29,6 +29,12 @@ movement_speed = 150.0
 
 [node name="Status" parent="." index="2"]
 status_settings = 6
+health = 30.0
+endurance = 30.0
+max_health = 30.0
+max_endurance = 30.0
+endurance_regen = 2.0
+health_regen = 2.0
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( 0.015216, -20 )
@@ -113,7 +119,6 @@ rotation = -0.000304921
 _sections_unfolded = [ "Material", "Offset", "Region", "Transform", "Visibility", "Z Index", "material" ]
 
 [node name="Selection" type="Sprite" parent="Visuals" index="1"]
-visible = false
 modulate = Color( 1, 0, 0, 0.678431 )
 position = Vector2( -0.49741, 19.3759 )
 scale = Vector2( 0.772294, 0.772294 )

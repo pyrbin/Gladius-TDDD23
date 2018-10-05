@@ -125,6 +125,8 @@ func attack_weapon():
     if weapon.attack():
         if weapon.data.weapon_type != 2 && name == "Player":
             charge(400, 0.1)
+        else:
+            charge(200, 0.1, -get_aim_direction())
         emit_signal("attacking")
     if use_holster:
         holster_timer.start()
@@ -140,12 +142,12 @@ func bash():
     iframe = true
     bashing = true
     sprite_player.play("iframe")
-    yield(gb_Utils.timer(0.05), 'timeout')
+    yield(utils.timer(0.05), 'timeout')
     for unit in $Hitbox.get_overlapping_bodies():
         if unit != self:
             _on_Hitbox_body_entered(unit)
             return
-    yield(gb_Utils.timer(0.3), 'timeout')
+    yield(utils.timer(0.3), 'timeout')
     _reset_bash()
     
 func bashed(basher, direction):
@@ -155,11 +157,14 @@ func bashed(basher, direction):
         var type = gb_CombatText.HitInfo.TYPE.NORMAL
         var hit_info = gb_CombatText.HitInfo.new(0, basher, self, type, action)
         gb_CombatText.popup(hit_info, global_position)
-    if basher == gb_Utils.get_player():
-        gb_Utils.get_player().camera.shake(0.30, 50, 3)
+    if basher == utils.get_player():
+        utils.get_player().camera.shake(0.30, 50, 3)
     charge(-400, 0.2, direction)
     stagger(basher)
     
+func is_in_bash(target):
+    return target.global_position.distance_to(global_position) < 80
+
 func _reset_bash():
     $Tween.stop_all()
     iframe = false
@@ -294,8 +299,7 @@ func _hands_on_weapon(b):
 func equip_weapon(wep_data):
     weapon_pivot.add_child(load(wep_data.model).instance())
     var wep = weapon_pivot.get_child(0)
-    wep.load_weapon(wep_data, weapon_collision)
-    wep.holder = self
+    wep.load_weapon(wep_data, self, weapon_collision)
     wep.set_reach(reach)
     weapon = wep
     weapon_sprite = weapon.wep_sprite

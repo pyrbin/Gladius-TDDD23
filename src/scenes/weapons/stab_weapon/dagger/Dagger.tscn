@@ -16,11 +16,7 @@ stab_length = 13
 [node name="Pivot" parent="." index="2"]
 position = Vector2( 47.1272, 0 )
 
-[node name="Area2D" parent="Pivot" index="0"]
-editor/display_folded = false
-
 [node name="Sprite" parent="Pivot/Area2D" index="0"]
-editor/display_folded = false
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform" ]
 

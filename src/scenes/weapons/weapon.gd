@@ -9,6 +9,7 @@ const WeaponData = preload("res://data/weapon_data.gd")
 const HITABLE_GROUP_NAME = "Hitable"
 const KNOCKBACK_FORCE = 250
 const COMBO_MAX_POINTS = 3
+const ATK_FASTEST = 0.2
 
 onready var wep_sprite = $Pivot/Area2D/Sprite
 onready var anim_player = $AnimationPlayer
@@ -51,15 +52,15 @@ func set_holstered(b):
     hide() if b else show()
     _attack_state = HOLSTERED if b else IDLE
 
-func load_weapon(p_weapon_data, p_collision_mask = null):
+func load_weapon(p_weapon_data, p_holder, p_collision_mask = null):
     data = p_weapon_data
+    holder = p_holder
     $Pivot/Area2D.collision_mask = p_collision_mask
     wep_sprite.set_texture(load(data.sprite))
-    anim_player.playback_speed = 1/(data.attack_speed/1000.0)
     cooldown_timer.wait_time = data.cooldown
     _is_loaded = true
     _setup()
-    
+
 func _setup():
     pass
     
@@ -82,6 +83,8 @@ func _action_ult_attack():
     pass
 
 func attack():
+    var atk_bonus = clamp(data.attack_speed-holder.stats.get_stat(STAT.ATK_SPEED), ATK_FASTEST, 99999)/1000.0
+    anim_player.playback_speed = 1/atk_bonus
     _interuppted = false
     if not _is_loaded: return false
     if not is_ready(): return false
@@ -116,12 +119,12 @@ func _on_body_entered_root(area):
 
 func _on_body_entered(body, count_for_combo=true):
     _target = body
-    var tar = _target.damage(data.damage, self)
-    if holder == gb_Utils.get_player():
-        gb_Utils.freeze_time(0.028)
+    var tar = _target.damage(data.damage+holder.stats.get_stat(STAT.POWER), self)
+    if holder == utils.get_player():
+        utils.freeze_time(0.028)
         if data.damage > 0:
             holder.camera.shake(0.30, 50, 3)
-    if _target != gb_Utils.get_player():
+    if _target != utils.get_player():
         _knockback()
     if count_for_combo:
         if tar && _combo_sequence != COMBO_MAX_POINTS:

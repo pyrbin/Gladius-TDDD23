@@ -89,7 +89,7 @@
         "STATS": {},
         "WEAPON_TYPE": 0,
         "MODEL" : "swing_weapon/shortsword/Shortsword.tscn",
-        "DAMAGE" : 5,
+        "DAMAGE" : 3,
         "ATTACK_SPEED": 300,
         "COOLDOWN" : 0.6
     },
@@ -103,7 +103,7 @@
         "STATS": {},
         "WEAPON_TYPE": 0,
         "MODEL" : "swing_weapon/shortsword/Shortsword.tscn",
-        "DAMAGE" : 3,
+        "DAMAGE" : 2,
         "ATTACK_SPEED": 300,
         "COOLDOWN" : 0.6
     },
@@ -117,7 +117,7 @@
         "STATS": {},
         "WEAPON_TYPE": 1,
         "MODEL" : "stab_weapon/spear/Spear.tscn",
-        "DAMAGE" : 11,
+        "DAMAGE" : 4,
         "ATTACK_SPEED": 300,
         "COOLDOWN" : 1
     },
@@ -135,7 +135,7 @@
         },
         "WEAPON_TYPE": 1,
         "MODEL" : "stab_weapon/spear/Spear.tscn",
-        "DAMAGE" : 15,
+        "DAMAGE" : 6,
         "ATTACK_SPEED": 300,
         "COOLDOWN" : 1
     },
@@ -153,7 +153,7 @@
         },
         "WEAPON_TYPE": 0,
         "MODEL" : "stab_weapon/dagger/Dagger.tscn",
-        "DAMAGE" : 10,
+        "DAMAGE" : 4,
         "ATTACK_SPEED": 300,
         "COOLDOWN" : 0.4
     },
@@ -167,7 +167,7 @@
         "STATS": {},
         "WEAPON_TYPE": 2,
         "MODEL" : "ranged_weapon/crossbow/Crossbow.tscn",
-        "DAMAGE" : 5,
+        "DAMAGE" : 3,
         "ATTACK_SPEED": 600,
         "COOLDOWN" : 0.8,
         "AMMO" : "weapon/iron_weapon/iron_arrow.png"
@@ -182,7 +182,7 @@
         "STATS": {},
         "WEAPON_TYPE": 2,
         "MODEL" : "ranged_weapon/sling/Sling.tscn",
-        "DAMAGE" : 1,
+        "DAMAGE" : 3,
         "ATTACK_SPEED": 600,
         "COOLDOWN" : 0.8,
         "AMMO" : "weapon/wooden_weapon/sling_stone.png"

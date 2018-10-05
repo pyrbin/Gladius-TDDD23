@@ -8,7 +8,7 @@ var level = null
 func _ready():
 	level = get_tree().get_nodes_in_group("Level")[0]
 	$Title.set_text(level.level_name)
-	gb_Utils.lock_player(true)
+	utils.lock_player(true)
 	$AnimationPlayer.play("screen_open")
 	level.connect("level_end", self, "_on_level_end")
 	wave_level.hide()
@@ -21,13 +21,13 @@ func _process(d):
 		wave_level.set_text(String(level.current_wave) + "/" + String(level.total_wave))
 
 func _on_level_end():
-	gb_Utils.lock_player(true)
+	utils.lock_player(true)
 	$AnimationPlayer.play("wave_complete")
 	wave_level.hide()
 	wave_label.hide()
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "screen_open":
-		gb_Utils.lock_player(false)
+		utils.lock_player(false)
 	if anim_name == "wave_complete":
 		$AnimationPlayer.play("screen_open")

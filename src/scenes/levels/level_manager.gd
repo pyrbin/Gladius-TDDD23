@@ -37,8 +37,8 @@ func spawn():
 		current_enemy_wave.append(unit)
 
 func _ready():
-	gb_Utils.get_player().global_position = player_spawn_point.position
-	gb_Utils.get_player().invunerable = false
+	utils.get_player().global_position = player_spawn_point.position
+	utils.get_player().invunerable = false
 
 func _process(d):
 	if len(current_enemy_wave) > 0:
@@ -68,11 +68,11 @@ func end_level():
 	timer.set_wait_time(2)
 	self.add_child(timer)
 	timer.start()
-	gb_Utils.get_player().stats.clear_effects()
-	gb_Utils.get_player().invunerable = true
+	utils.get_player().stats.clear_effects()
+	utils.get_player().invunerable = true
 	yield(timer, "timeout")
 	timer.queue_free()
-	gb_Utils.get_player().global_position = player_spawn_point.position
+	utils.get_player().global_position = player_spawn_point.position
 	chest.global_position = chest_spawn_point.global_position
 	chest.init(chest_reward)
 

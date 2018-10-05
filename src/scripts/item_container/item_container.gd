@@ -94,7 +94,7 @@ func get_type(slot):
 	return _item_type_array[slot]
 
 func get_list():
-	return gb_Utils.deep_copy(_item_container_array)
+	return utils.deep_copy(_item_container_array)
 
 func size():
 	return _item_container_array.size()

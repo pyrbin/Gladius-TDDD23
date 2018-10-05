@@ -8,7 +8,7 @@ var player_pos
 var mov_dir = Vector2()
 
 func _setup():
-    if disable_AI:
+    if not disable_AI:
         nav = get_tree().get_nodes_in_group("Navigation")[0]
     get_player().connect("attacking", self, "_on_player_attack")
 
@@ -20,7 +20,7 @@ func _send_action(action):
 
 func get_movement_direction():
     if disable_AI: return Vector2()
-    if player_in_range() && weapon_in_range() || not nav: return mov_dir
+    if (player_in_range() && weapon_in_range()) || not nav: return mov_dir
     var dir = Vector2()
     if player_pos != get_player().global_position:
         player_pos = get_player().global_position
@@ -54,11 +54,12 @@ func _logic_player_in_range():
         _logic_keep_distance()
 
 func _on_player_attack():
-    #_send_action("block")
-    return
+    if utils.rng_chance(50):
+        yield(utils.timer(0.3), "timeout")
+        _send_action("block" if is_in_bash(get_player()) else "jump")
     
 func _logic_keep_distance():
-    if global_position.distance_to(get_player().global_position) < 150 && weapon_in_range() && gb_Utils.rng_chance(50):
+    if global_position.distance_to(get_player().global_position) < 150 && weapon_in_range() && utils.rng_chance(50):
         var mod = 1 if randi()%1 else -1
         mov_dir = mod*(get_player().global_position - global_position).normalized()
         _send_action("jump")

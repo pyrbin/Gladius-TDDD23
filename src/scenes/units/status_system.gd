@@ -40,11 +40,11 @@ func fatigue(amount):
     endurance = round(clamp(endurance-amount, 0, get_max_endurance()))
 
 func get_max_health():
-    var use_stats = gb_Utils.is_bit_enabled(status_settings, 2)
+    var use_stats = utils.is_bit_enabled(status_settings, 2)
     return round(max_health) if not use_stats else round(max_health+owner.stats.get_stat(STAT.VITALITY)) 
 
 func get_max_endurance():
-    var use_stats = gb_Utils.is_bit_enabled(status_settings, 2)
+    var use_stats = utils.is_bit_enabled(status_settings, 2)
     return round(max_health) if not use_stats else round(max_endurance+owner.stats.get_stat(STAT.STAMINA)) 
 
 func get_health_perc():
@@ -57,7 +57,7 @@ func _on_regen_health():
     damage(-health_regen)
 
 func _process(d):
-    if gb_Utils.is_bit_enabled(status_settings, 0):   
+    if utils.is_bit_enabled(status_settings, 0):   
         if health < get_max_health() && !regenerating_health:
             regenerating_health = true
             $HealthRegen.start()
@@ -65,7 +65,7 @@ func _process(d):
             regenerating_health = false
             $HealthRegen.stop()
 
-    if gb_Utils.is_bit_enabled(status_settings, 1):
+    if utils.is_bit_enabled(status_settings, 1):
         if endurance < get_max_endurance() && !regenerating_endurance:
             regenerating_endurance = true
             $EnduranceRegen.start()

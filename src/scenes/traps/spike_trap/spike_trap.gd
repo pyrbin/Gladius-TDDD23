@@ -1,4 +1,8 @@
 extends "res://scenes/traps/trap.gd"
+
+export (int) var impact_damage = 3
+export (int) var dot_damage = 1
+
 onready var downtime_timer = $Downtime
 
 func _ready():
@@ -8,11 +12,11 @@ func _ready():
 
 func trigger(unit):
     if !unit.has_method("damage"): return
-    var hit = unit.damage(10, self, true);
+    var hit = unit.damage(impact_damage, self, true);
     if not hit: return
     unit.stats.add_effect(\
     Effect.new("Trap Bleed", unit, \
-        Modifier.new(STAT.HEALTH, STAT.VALUE, 5),\
+        Modifier.new(STAT.HEALTH, STAT.VALUE, dot_damage),\
      5, 1))
     _targets.remove(_targets.find(unit))
 

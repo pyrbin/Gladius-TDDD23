@@ -18,12 +18,12 @@ outlines = [ PoolVector2Array( -553.764, 105.509, -318.861, 103.293, -313.321, 1
 "Level",
 ]]
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform", "chest_reward" ]
+_sections_unfolded = [ "Transform", "chest_reward", "enemy_wave_count" ]
 level_name = "Training Grounds"
 current_wave = 0
 total_wave = 5
 current_enemy_wave = [  ]
-enemy_wave_count = [ 2, 2, 2, 2, 3 ]
+enemy_wave_count = [ 1, 1, 1, 1, 2 ]
 spawn_point = NodePath("Spawn")
 player_spawn_point = NodePath("Player_Spawn")
 chest_spawn_point = NodePath("Chest_Spawn")
@@ -334,26 +334,36 @@ texture = ExtResource( 4 )
 position = Vector2( -136.162, 131.937 )
 scale = Vector2( 2, 2 )
 _sections_unfolded = [ "Collision", "Transform" ]
+impact_damage = 3
+dot_damage = 1
 
 [node name="SpikeTrap9" parent="Objects/Traps" instance=ExtResource( 5 )]
 position = Vector2( 66.3908, 130.871 )
 scale = Vector2( 2, 2 )
 _sections_unfolded = [ "Collision", "Transform" ]
+impact_damage = 3
+dot_damage = 1
 
 [node name="SpikeTrap2" parent="Objects/Traps" instance=ExtResource( 5 )]
 position = Vector2( 134.09, 131.226 )
 scale = Vector2( 2, 2 )
 _sections_unfolded = [ "Collision", "Transform" ]
+impact_damage = 3
+dot_damage = 1
 
 [node name="SpikeTrap8" parent="Objects/Traps" instance=ExtResource( 5 )]
 position = Vector2( -0.289581, 131.225 )
 scale = Vector2( 2, 2 )
 _sections_unfolded = [ "Collision", "Transform" ]
+impact_damage = 3
+dot_damage = 1
 
 [node name="SpikeTrap3" parent="Objects/Traps" instance=ExtResource( 5 )]
 position = Vector2( -68.1031, 131.862 )
 scale = Vector2( 2, 2 )
 _sections_unfolded = [ "Collision", "Transform" ]
+impact_damage = 3
+dot_damage = 1
 
 [node name="Audience_Bot" type="YSort" parent="Objects"]
 editor/display_folded = true
