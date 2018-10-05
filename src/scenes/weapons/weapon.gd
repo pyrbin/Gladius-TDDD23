@@ -133,7 +133,6 @@ func _on_body_entered(body, count_for_combo=true):
                 _combo_sequence+=1
                 emit_signal("combo", _combo_sequence)
         elif len(_current_hit_targets) <= 1:
-            print(len(_current_hit_targets))
             reset_combo()
 
 func reset_combo():
