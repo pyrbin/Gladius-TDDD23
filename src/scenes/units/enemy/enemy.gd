@@ -2,69 +2,97 @@ extends "res://scenes/units/unit.gd"
 
 export (bool) var disable_AI = false
 
+export(int, "Easy", "Advanced", "Master") var ai_difficulty = 0
+
+enum AI_STATE {
+    SEEK
+    COMBAT
+}
+
+const EASY_WAIT_BASH = 10
+const ADV_WAIT_BASH = 7
+const MAS_WAIT_BASH = 3
+
+const EASY_WAIT_JUMP = 12
+const ADV_WAIT_JUMP = 7
+const MAS_WAIT_JUMP = 5
+
 var nav = null
-var path
-var player_pos
+var path = null
 var mov_dir = Vector2()
+var last_player_pos = Vector2()
+var ai_state = AI_STATE.SEEK
+var can_bash = true
+var can_jump = true
 
 func _setup():
     if not disable_AI:
         nav = get_tree().get_nodes_in_group("Navigation")[0]
     get_player().connect("attacking", self, "_on_player_attack")
 
-func _send_action(action):
-    var event = InputMap.get_action_list(action)
-    for e in event:
-        e.pressed = true
-        $StateMachine.handle_input(e)
+    if utils.is_bit(ai_difficulty, 0):
+        $AIBehaviour/CanBash.wait_time = EASY_WAIT_BASH
+        $AIBehaviour/CanJump.wait_time = EASY_WAIT_JUMP
+    if utils.is_bit(ai_difficulty, 1):
+        $AIBehaviour/CanBash.wait_time = ADV_WAIT_BASH
+        $AIBehaviour/CanJump.wait_time = ADV_WAIT_JUMP
+    if utils.is_bit(ai_difficulty, 2):
+        $AIBehaviour/CanBash.wait_time = MAS_WAIT_BASH
+        $AIBehaviour/CanJump.wait_time = MAS_WAIT_JUMP
+
+
+func _process(delta):
+    if disable_AI: return
+
+    match ai_state:
+        SEEK:   logic_seek()
+        COMBAT: logic_combat()
+
+    if path && position.distance_to(to_move()) <= 10:
+        path.remove(0)
+
+func logic_seek():
+    if can_jump && player_aim_near_me() && player_used_weapon():
+        _send_action("jump")
+        can_jump = false
+        $AIBehaviour/CanJump.start()
+    if weapon_in_range():
+        ai_state = AI_STATE.COMBAT
+
+func logic_combat():
+    if get_weapon_node().is_ready():
+        _send_action("attack")
+    if not weapon_in_range():
+        yield(utils.timer(0.2), "timeout")
+        ai_state = AI_STATE.SEEK
 
 func get_movement_direction():
-    if disable_AI: return Vector2()
-    if (player_in_range() && weapon_in_range()) || not nav: return mov_dir
-    var dir = Vector2()
-    if player_pos != get_player().global_position:
-        player_pos = get_player().global_position
-        path = nav.get_simple_path(global_position, player_pos)
+    if disable_AI: 
+        return Vector2()
+    if not nav: 
+        return Vector2()
+    if ai_state != AI_STATE.SEEK:
+        return Vector2()
+    if last_player_pos != get_player().global_position:
+        last_player_pos = get_player().global_position
+        path = nav.get_simple_path(global_position, last_player_pos)
         path.remove(0)
     if to_move():
-        dir = (to_move() - global_position).normalized()
-    return dir
+        mov_dir = utils.dir_from(global_position, to_move())
+    return mov_dir
 
-func to_move():
-    return path[0] if path else Vector2()
-
-func get_aim_position():
-    return get_player().global_position# + Vector2(0, -24)
-
-func set_dead(b):
-    $Visuals/AimIndicator.show() if not b else $Visuals/AimIndicator.hide()
-    return .set_dead(b)
-
-func get_player():
-    return get_tree().get_nodes_in_group("Player")[0]
-
-func get_range():
-    return get_weapon_node().hit_range if get_weapon_node() else -99999
-
-func _logic_player_in_range():
-    if weapon_in_range():
-        _send_action("attack")
     
-    if get_weapon_node().data.weapon_type == 2:
-        _logic_keep_distance()
-
 func _on_player_attack():
-    if utils.rng_chance(50):
-        yield(utils.timer(0.3), "timeout")
-        _send_action("block" if is_in_bash(get_player()) else "jump")
-    
-func _logic_keep_distance():
-    if global_position.distance_to(get_player().global_position) < 150 && weapon_in_range() && utils.rng_chance(50):
-        var mod = 1 if randi()%1 else -1
-        mov_dir = mod*(get_player().global_position - global_position).normalized()
-        _send_action("jump")
-        mov_dir = Vector2()
+    if can_bash && is_in_bash(get_player()):
+        _send_action("block")
+        can_bash = false
+        $AIBehaviour/CanBash.start()
 
+func player_aim_near_me():
+    return get_player().get_aim_position().distance_to(global_position) <= 50
+
+func player_used_weapon():
+    return get_player().weapon && not get_player().weapon.is_ready() && not get_player().weapon.is_holstered()
 
 func player_in_range():
     return global_position.distance_to(get_player().global_position) < get_range()
@@ -72,11 +100,26 @@ func player_in_range():
 func weapon_in_range():
     return get_weapon_node().see_target(get_player())
 
-func _process(delta):
-    if disable_AI: return
+func get_aim_position():
+    return get_player().global_position + Vector2(0, -5)
 
-    if player_in_range():
-        _logic_player_in_range()
+func to_move():
+    return path[0] if path else Vector2()
 
-    if path && position.distance_to(to_move()) <= 10:
-        path.remove(0)
+func get_player():
+    return get_tree().get_nodes_in_group("Player")[0]
+
+func get_range():
+    return get_weapon_node().hit_range if get_weapon_node() else -99999
+
+func _send_action(action):
+    var event = InputMap.get_action_list(action)
+    for e in event:
+        e.pressed = true
+        $StateMachine.handle_input(e)
+    
+func _on_CanBash_timeout():
+    can_bash = true
+
+func _on_CanJump_timeout():
+    can_jump = true

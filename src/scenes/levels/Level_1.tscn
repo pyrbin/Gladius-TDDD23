@@ -17,6 +17,7 @@ outlines = [ PoolVector2Array( -553.764, 105.509, -318.861, 103.293, -313.321, 1
 [node name="Level" type="Node2D" groups=[
 "Level",
 ]]
+position = Vector2( -4.52209, -3.01468 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "chest_reward", "enemy_wave_count" ]
 level_name = "Training Grounds"

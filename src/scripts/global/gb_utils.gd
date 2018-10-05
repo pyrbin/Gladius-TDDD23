@@ -18,7 +18,10 @@ func freeze_time(time):
 static func dout(node, message):
     print(node.name + ": "+String(message))
 
-static func is_bit_enabled(mask, index):
+static func dir_from(from, to):
+    return (to - from).normalized()
+
+static func is_bit(mask, index):
     return mask & (1 << index) != 0
 
 static func enable_bit(mask, index):

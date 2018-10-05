@@ -53,7 +53,7 @@ rotation = 0.0
 collision/safe_margin = 0.08
 _sections_unfolded = [ "Collision", "Transform", "Z Index", "collision", "equipped_items", "equipped_weapons" ]
 reach = 33.0
-equipped_items = [ 1002, 0, 3002 ]
+equipped_items = [ 0, 0, 3002 ]
 equipped_weapons = [ 4007, 5001 ]
 
 [node name="GUI" type="CanvasLayer" parent="." groups=[

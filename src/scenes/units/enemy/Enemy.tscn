@@ -11,7 +11,6 @@ collision_layer = 4
 collision_mask = 13
 collision/safe_margin = 6.48
 script = ExtResource( 2 )
-use_holster = true
 stagger_time = 0.6
 equipped_items = [ 1001, 0, 0 ]
 equipped_weapons = [ 3001, 0 ]
@@ -19,6 +18,19 @@ weapon_collision = 3
 disable_AI = false
 
 [node name="AIBehaviour" type="Node" parent="." index="0"]
+editor/display_folded = true
+
+[node name="CanBash" type="Timer" parent="AIBehaviour" index="0"]
+process_mode = 1
+wait_time = 5.0
+one_shot = true
+autostart = false
+
+[node name="CanJump" type="Timer" parent="AIBehaviour" index="1"]
+process_mode = 1
+wait_time = 5.0
+one_shot = true
+autostart = false
 
 [node name="Jump" parent="StateMachine" index="2"]
 JUMP_FORCE = 300
@@ -27,13 +39,13 @@ JUMP_FORCE = 300
 movement_speed = 125.0
 
 [node name="Status" parent="." index="3"]
-status_settings = 6
+status_settings = 7
 health = 15.0
 endurance = 15.0
 max_health = 15.0
 max_endurance = 15.0
 endurance_regen = 2.0
-health_regen = 2.0
+health_regen = 0.33
 
 [node name="Hitbox" parent="." index="5"]
 collision_layer = 4
@@ -63,3 +75,5 @@ visible = false
 position = Vector2( -0.386523, 15.9241 )
 offset = Vector2( 27.6019, 0.208817 )
 
+[connection signal="timeout" from="AIBehaviour/CanBash" to="." method="_on_CanBash_timeout"]
+[connection signal="timeout" from="AIBehaviour/CanJump" to="." method="_on_CanJump_timeout"]
