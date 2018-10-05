@@ -8,7 +8,7 @@ var unit
 var comboed = false
 
 func _ready():
-	unit = owner
+	unit = owner.owner
 	#anim_player.play("shake")
 	unit.connect("combo", self, "_on_unit_combo")
 	unit.connect("lost_combo", self, "_on_unit_lost_combo")
@@ -18,13 +18,8 @@ func _on_unit_combo(combo):
 	label.show()
 	label.set_text("x"+String(combo))
 	scale_player.play("zoom")
-
+	
 func _on_unit_lost_combo(combo):
-	if combo == 3:
-		comboed = true
-		label.set_text("COMBO")
-		scale_player.play("zoom")
-	else:
 		label.set_text("")
 		label.hide()
 

@@ -4,8 +4,12 @@
 [ext_resource path="res://assets/fonts/pixel_medium.tres" type="DynamicFont" id=2]
 
 [node name="LifeBar" instance=ExtResource( 1 )]
+margin_right = 313.0
+margin_bottom = 41.0
 
 [node name="TextureProgress" parent="." index="0"]
+margin_right = 313.0
+margin_bottom = 41.0
 allow_greater = false
 allow_lesser = false
 tint_under = Color( 1, 1, 1, 1 )
@@ -17,9 +21,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 319.0
+margin_left = 166.0
 margin_top = 3.0
-margin_right = 457.0
+margin_right = 304.0
 margin_bottom = 37.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false

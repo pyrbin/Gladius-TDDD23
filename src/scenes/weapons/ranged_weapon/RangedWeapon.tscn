@@ -53,5 +53,5 @@ texture = ExtResource( 3 )
 [node name="Projectile_Pivot" type="Position2D" parent="Pivot/Area2D/Sprite" index="2"]
 use_parent_material = true
 position = Vector2( -50.8526, 0 )
-_sections_unfolded = [ "Material" ]
+_sections_unfolded = [ "Material", "Z Index" ]
 

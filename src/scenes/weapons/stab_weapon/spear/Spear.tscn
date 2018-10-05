@@ -45,7 +45,7 @@ tracks/2/keys = {
 "values": [ 0.0, -80.0, 120.0, 0.0 ]
 }
 
-[node name="StabWeapon" index="0" instance=ExtResource( 1 )]
+[node name="StabWeapon" instance=ExtResource( 1 )]
 holster_offset = Vector2( 30, 0 )
 
 [node name="AnimationPlayer" parent="." index="1"]

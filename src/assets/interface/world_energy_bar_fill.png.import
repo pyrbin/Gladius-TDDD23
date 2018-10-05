@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bg.png-153cfa0b6a5ea05b4094b06eec97041c.stex"
+path="res://.import/world_energy_bar_fill.png-f88d20c863fcc25f4d7254786487daaf.stex"
 
 [deps]
 
-source_file="res://assets/interface/bg.png"
-dest_files=[ "res://.import/bg.png-153cfa0b6a5ea05b4094b06eec97041c.stex" ]
+source_file="res://assets/interface/world_energy_bar_fill.png"
+dest_files=[ "res://.import/world_energy_bar_fill.png-f88d20c863fcc25f4d7254786487daaf.stex" ]
 
 [params]
 

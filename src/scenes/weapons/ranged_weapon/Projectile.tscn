@@ -22,7 +22,7 @@ _sections_unfolded = [ "shader_param" ]
 [node name="Projectile" type="Area2D"]
 use_parent_material = true
 position = Vector2( -0.138885, 0 )
-z_index = 2000
+z_index = 2
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0

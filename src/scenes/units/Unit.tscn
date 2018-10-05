@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://scenes/units/unit.gd" type="Script" id=1]
 [ext_resource path="res://scenes/units/unit_state_machine.gd" type="Script" id=2]
@@ -10,15 +10,14 @@
 [ext_resource path="res://scenes/units/stat_system/stat_system.gd" type="Script" id=8]
 [ext_resource path="res://scenes/units/Status.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/units/specials/Special.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/interface/world_ui_player/ComboDisplayController.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/interface/unit_healthbars/UnitHealthBarController.tscn" type="PackedScene" id=12]
-[ext_resource path="res://assets/gladiator/hand_6x6.png" type="Texture" id=13]
-[ext_resource path="res://assets/items/weapon/iron_weapon/iron_shortsword.png" type="Texture" id=14]
-[ext_resource path="res://assets/gladiator_mini_mini.png" type="Texture" id=15]
-[ext_resource path="res://assets/shadow.png" type="Texture" id=16]
-[ext_resource path="res://assets/blood.png" type="Texture" id=17]
-[ext_resource path="res://scenes/units/stagger.anim" type="Animation" id=18]
-[ext_resource path="res://shaders/yellow.material" type="Material" id=19]
+[ext_resource path="res://scenes/interface/unit_healthbars/UnitHealthBarController.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/gladiator/hand_6x6.png" type="Texture" id=12]
+[ext_resource path="res://assets/items/weapon/iron_weapon/iron_shortsword.png" type="Texture" id=13]
+[ext_resource path="res://assets/gladiator_mini_mini.png" type="Texture" id=14]
+[ext_resource path="res://assets/shadow.png" type="Texture" id=15]
+[ext_resource path="res://assets/blood.png" type="Texture" id=16]
+[ext_resource path="res://scenes/units/stagger.anim" type="Animation" id=17]
+[ext_resource path="res://shaders/yellow.material" type="Material" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -476,7 +475,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 19 ) ]
+"values": [ ExtResource( 18 ) ]
 }
 
 [node name="Unit" type="KinematicBody2D" groups=[
@@ -585,21 +584,16 @@ _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index", "materi
 
 [node name="Dynamic_WorldUI" type="Node2D" parent="Visuals/Pivot"]
 position = Vector2( -7.7486e-007, 0 )
-z_index = 1
+z_index = 5
 z_as_relative = false
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "Z Index" ]
 
-[node name="ComboDisplayController" parent="Visuals/Pivot/Dynamic_WorldUI" instance=ExtResource( 11 )]
-margin_left = 8.0
-margin_top = -32.0
-margin_right = 8.0
-margin_bottom = -32.0
-
-[node name="UnitHealthBarController" parent="Visuals/Pivot/Dynamic_WorldUI" instance=ExtResource( 12 )]
-margin_left = -15.0
-margin_top = 39.0
-margin_right = 39.0
-margin_bottom = 44.0
+[node name="UnitHealthBarController" parent="Visuals/Pivot/Dynamic_WorldUI" instance=ExtResource( 11 )]
+margin_left = -10.0
+margin_top = 48.0
+margin_right = 20.0
+margin_bottom = 53.0
+_sections_unfolded = [ "Rect", "custom_constants" ]
 disabled = true
 
 [node name="U_Hand_Pivot" type="Position2D" parent="Visuals/Pivot"]
@@ -612,7 +606,7 @@ _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 [node name="U_Hand" type="Sprite" parent="Visuals/Pivot/U_Hand_Pivot"]
 use_parent_material = true
 z_index = 1
-texture = ExtResource( 13 )
+texture = ExtResource( 12 )
 region_rect = Rect2( 321, 39, 6, 6 )
 _sections_unfolded = [ "Material", "Region", "Transform", "Z Index" ]
 
@@ -625,7 +619,7 @@ _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="L_Hand" type="Sprite" parent="Visuals/Pivot/L_Hand_Pivot"]
 use_parent_material = true
-texture = ExtResource( 13 )
+texture = ExtResource( 12 )
 region_rect = Rect2( 321, 39, 6, 6 )
 _sections_unfolded = [ "Material", "Region", "Transform", "Z Index" ]
 
@@ -660,14 +654,14 @@ use_parent_material = true
 position = Vector2( -0.576477, 10 )
 rotation = 0.610865
 z_index = -1
-texture = ExtResource( 14 )
+texture = ExtResource( 13 )
 _sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
 
 [node name="Body" type="Sprite" parent="Visuals/Pivot/Container"]
 use_parent_material = true
 position = Vector2( -4.47035e-007, 0 )
 z_index = 2
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 flip_h = true
 region_enabled = true
 region_rect = Rect2( 72, 0, 72, 72 )
@@ -686,7 +680,7 @@ modulate = Color( 1, 1, 1, 0.480392 )
 position = Vector2( 0.349258, 35.3123 )
 rotation = 0.00174533
 scale = Vector2( 0.505134, 0.234466 )
-texture = ExtResource( 16 )
+texture = ExtResource( 15 )
 offset = Vector2( -1.39726, 1.21561 )
 region_rect = Rect2( 0, 0, 72, 72 )
 _sections_unfolded = [ "Offset", "Region", "Transform", "Visibility", "Z Index" ]
@@ -695,7 +689,7 @@ _sections_unfolded = [ "Offset", "Region", "Transform", "Visibility", "Z Index" 
 visible = false
 position = Vector2( -0.10759, 35.9005 )
 scale = Vector2( 0.0428801, 0.0145464 )
-texture = ExtResource( 17 )
+texture = ExtResource( 16 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -709,7 +703,7 @@ anims/idle = SubResource( 3 )
 anims/jump = SubResource( 4 )
 anims/move = SubResource( 5 )
 anims/revive = SubResource( 6 )
-anims/stagger = ExtResource( 18 )
+anims/stagger = ExtResource( 17 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
@@ -725,7 +719,7 @@ anims/Top_Left = SubResource( 9 )
 anims/Top_Right = SubResource( 10 )
 anims/blocked = SubResource( 11 )
 anims/iframe = SubResource( 12 )
-anims/stagger = ExtResource( 18 )
+anims/stagger = ExtResource( 17 )
 blend_times = [  ]
 
 [node name="HolsterTimer" type="Timer" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/units/Unit.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/units/player/player.gd" type="Script" id=2]
@@ -6,7 +6,8 @@
 [ext_resource path="res://scenes/units/player/camera/player_camera.gd" type="Script" id=4]
 [ext_resource path="res://scenes/units/player/interact_controller.gd" type="Script" id=5]
 [ext_resource path="res://scenes/interface/world_ui_player/WeaponCooldownTracker.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/interface/aim_arrow.png" type="Texture" id=7]
+[ext_resource path="res://assets/interface/world_life_bar_grn_fill.png" type="Texture" id=7]
+[ext_resource path="res://assets/interface/aim_arrow.png" type="Texture" id=8]
 
 [node name="Player" index="0" groups=[
 "Player",
@@ -87,12 +88,12 @@ disabled = true
 [node name="Visuals" parent="." index="9"]
 _sections_unfolded = [ "Material", "Transform", "Visibility", "material" ]
 
-[node name="Pivot" parent="Visuals" index="0"]
-editor/display_folded = true
-
 [node name="Dynamic_WorldUI" parent="Visuals/Pivot" index="0"]
-editor/display_folded = true
 z_index = 1000
+
+[node name="UnitHealthBarController" parent="Visuals/Pivot/Dynamic_WorldUI" index="0"]
+disabled = false
+hp_fill_texture = ExtResource( 7 )
 
 [node name="U_Hand" parent="Visuals/Pivot/U_Hand_Pivot" index="0"]
 _sections_unfolded = [ "Material", "Region", "Transform", "Visibility", "Z Index" ]
@@ -104,6 +105,7 @@ _sections_unfolded = [ "Material", "Region", "Transform", "Visibility", "Z Index
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="Container" parent="Visuals/Pivot" index="4"]
+editor/display_folded = true
 _sections_unfolded = [ "Material", "Offset", "Visibility", "Z Index", "material" ]
 
 [node name="Body" parent="Visuals/Pivot/Container" index="2"]
@@ -115,7 +117,7 @@ visible = false
 modulate = Color( 1, 0, 0, 0.678431 )
 position = Vector2( -0.49741, 19.3759 )
 scale = Vector2( 0.772294, 0.772294 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 offset = Vector2( 38.7394, 3.99323 )
 _sections_unfolded = [ "Pause", "Transform", "Visibility", "Z Index" ]
 

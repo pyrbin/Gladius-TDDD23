@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/units/enemy/enemy.gd" type="Script" id=2]
 [ext_resource path="res://scenes/units/enemy/aim_indicator.tscn" type="PackedScene" id=3]
 
-[node name="Enemy" index="0" groups=[
+[node name="Enemy" groups=[
 "Enemies",
 ] instance=ExtResource( 1 )]
 collision_layer = 4
@@ -44,9 +44,13 @@ collision_mask = 14
 position = Vector2( 0.0833834, -3.73248 )
 polygon = PoolVector2Array( -18.1021, -10.5436, -17.5676, 11.5186, 15.2503, 12.0424, 15.0806, -10.2645 )
 
-[node name="UnitHealthBarController" parent="Visuals/Pivot/Dynamic_WorldUI" index="1"]
-margin_top = 44.0
-margin_bottom = 53.0
+[node name="Dynamic_WorldUI" parent="Visuals/Pivot" index="0"]
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Transform", "Visibility", "Z Index" ]
+
+[node name="UnitHealthBarController" parent="Visuals/Pivot/Dynamic_WorldUI" index="0"]
+margin_left = -7.0
+margin_right = 17.0
+_sections_unfolded = [ "Grow Direction", "Rect", "custom_constants" ]
 disabled = false
 
 [node name="Container" parent="Visuals/Pivot" index="4"]
