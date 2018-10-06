@@ -36,6 +36,9 @@ max_endurance = 30.0
 endurance_regen = 2.0
 health_regen = 2.0
 
+[node name="Hitbox" parent="." index="4"]
+editor/display_folded = true
+
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( 0.015216, -20 )
 
@@ -43,6 +46,7 @@ position = Vector2( 0.015216, -20 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index", "shape" ]
 
 [node name="CameraPivot" type="Position2D" parent="." index="6"]
+editor/display_folded = true
 script = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
@@ -51,7 +55,7 @@ position = Vector2( 0.0139254, -18.3036 )
 anchor_mode = 1
 rotating = true
 current = true
-zoom = Vector2( 0.676, 0.676 )
+zoom = Vector2( 0.55, 0.55 )
 limit_left = -10000000
 limit_top = -10000000
 limit_right = 10000000
@@ -101,24 +105,31 @@ z_index = 1000
 disabled = false
 hp_fill_texture = ExtResource( 7 )
 
+[node name="U_Hand_Pivot" parent="Visuals/Pivot" index="1"]
+editor/display_folded = false
+
 [node name="U_Hand" parent="Visuals/Pivot/U_Hand_Pivot" index="0"]
 _sections_unfolded = [ "Material", "Region", "Transform", "Visibility", "Z Index" ]
 
+[node name="L_Hand_Pivot" parent="Visuals/Pivot" index="2"]
+editor/display_folded = false
+
 [node name="L_Hand" parent="Visuals/Pivot/L_Hand_Pivot" index="0"]
-_sections_unfolded = [ "Material", "Region", "Transform", "Visibility", "Z Index" ]
+_sections_unfolded = [ "Material", "Region", "Transform", "Visibility", "Z Index", "texture" ]
 
 [node name="WeaponPivot" parent="Visuals/Pivot" index="3"]
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="Container" parent="Visuals/Pivot" index="4"]
-editor/display_folded = true
 _sections_unfolded = [ "Material", "Offset", "Visibility", "Z Index", "material" ]
 
 [node name="Body" parent="Visuals/Pivot/Container" index="2"]
 rotation = -0.000304921
-_sections_unfolded = [ "Material", "Offset", "Region", "Transform", "Visibility", "Z Index", "material" ]
+region_rect = Rect2( 0, 0, 72, 72 )
+_sections_unfolded = [ "Material", "Offset", "Region", "Transform", "Visibility", "Z Index", "material", "texture" ]
 
 [node name="Selection" type="Sprite" parent="Visuals" index="1"]
+visible = false
 modulate = Color( 1, 0, 0, 0.678431 )
 position = Vector2( -0.49741, 19.3759 )
 scale = Vector2( 0.772294, 0.772294 )

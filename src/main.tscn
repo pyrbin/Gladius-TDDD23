@@ -1,17 +1,23 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://assets/theme1.ogg" type="AudioStream" id=1]
-[ext_resource path="res://scenes/levels/Level_1.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/interactable/lootable/chests/Chest.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/units/player/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/interface/Interface.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/level_manager.gd" type="Script" id=1]
+[ext_resource path="res://assets/theme1.ogg" type="AudioStream" id=2]
+[ext_resource path="res://scenes/levels/Level_1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/interactable/lootable/chests/Chest.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/units/player/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/interface/Interface.tscn" type="PackedScene" id=6]
 
 [node name="Root" type="Node"]
 
-[node name="Game" type="Node" parent="."]
+[node name="Game" type="Node" parent="." groups=[
+"Game",
+]]
+script = ExtResource( 1 )
+_sections_unfolded = [ "levels" ]
+levels = [ null, null, null, null ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Game"]
-stream = ExtResource( 1 )
+stream = ExtResource( 2 )
 volume_db = -9.244
 pitch_scale = 1.0
 autoplay = true
@@ -22,7 +28,7 @@ bus = "Master"
 [node name="World" type="Node2D" parent="Game"]
 _sections_unfolded = [ "Transform" ]
 
-[node name="Level_One" parent="Game/World" instance=ExtResource( 2 )]
+[node name="Level_One" parent="Game/World" instance=ExtResource( 3 )]
 armor_helm_pool = [ 1001, 1002, null ]
 armor_weapon_pool = [ 4001, 4002, 4003, 4004, 4006 ]
 
@@ -39,15 +45,15 @@ _sections_unfolded = [ "Transform" ]
 "Root_Units",
 ]]
 
-[node name="Chest" parent="Game/World/Actors" instance=ExtResource( 3 )]
-position = Vector2( 102.822, -168.862 )
+[node name="Chest" parent="Game/World/Actors" instance=ExtResource( 4 )]
+position = Vector2( 84.6963, -119.719 )
 rotation = -0.000760796
 _sections_unfolded = [ "Collision", "Transform", "container_items" ]
 interactable_name = "Chest"
 container_items = [ 4001, 4002, 4003, 4004 ]
 idle_jump = true
 
-[node name="Player" parent="Game/World/Actors" instance=ExtResource( 4 )]
+[node name="Player" parent="Game/World/Actors" instance=ExtResource( 5 )]
 position = Vector2( 0.508621, -174.746 )
 rotation = 0.0
 collision/safe_margin = 0.08
@@ -59,6 +65,7 @@ equipped_weapons = [ 4007, 5001 ]
 [node name="GUI" type="CanvasLayer" parent="." groups=[
 "GUI",
 ]]
+editor/display_folded = true
 layer = 128
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -66,5 +73,5 @@ scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 _sections_unfolded = [ "Pause", "Script" ]
 
-[node name="Interface" parent="GUI" instance=ExtResource( 5 )]
+[node name="Interface" parent="GUI" instance=ExtResource( 6 )]
 

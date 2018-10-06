@@ -1,0 +1,279 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scenes/interface/arena_progress/arena_progress_view.gd" type="Script" id=1]
+[ext_resource path="res://assets/blavk.png" type="Texture" id=2]
+[ext_resource path="res://assets/interface/map_progress_bg.png" type="Texture" id=3]
+[ext_resource path="res://assets/interface/map_progress_fill.png" type="Texture" id=4]
+[ext_resource path="res://assets/interface/arena_icon.png" type="Texture" id=5]
+[ext_resource path="res://assets/interface/arena_icon_boss.png" type="Texture" id=6]
+[ext_resource path="res://assets/fonts/ExpressionPro.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://assets/fonts/pixel_large.tres" type="DynamicFont" id=8]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 56
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = false
+font_data = ExtResource( 7 )
+_sections_unfolded = [ "Settings" ]
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "flash"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("PressStart:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.926082 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.435294 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="ArenaProgressView" type="Control"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+_sections_unfolded = [ "levels" ]
+levels = {
+0: "Training Grounds",
+1: "Arena 2",
+2: "Arena 3",
+3: "Arena 4",
+4: "Arena Boss"
+}
+
+[node name="Bg" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -1003.0
+margin_top = -586.0
+margin_right = 997.0
+margin_bottom = 585.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+expand = true
+
+[node name="TextureProgress" type="TextureProgress" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -450.0
+margin_top = -20.0
+margin_right = 450.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 4.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+allow_greater = false
+allow_lesser = false
+texture_under = ExtResource( 3 )
+texture_over = null
+texture_progress = ExtResource( 4 )
+tint_under = Color( 1, 1, 1, 1 )
+tint_over = Color( 1, 1, 1, 1 )
+tint_progress = Color( 1, 1, 1, 1 )
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = false
+_sections_unfolded = [ "Textures" ]
+
+[node name="arena_icon" type="NinePatchRect" parent="TextureProgress"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 167.0
+margin_top = -67.0
+margin_right = 231.0
+margin_bottom = -3.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 32, 32 )
+_sections_unfolded = [ "Axis Stretch", "Patch Margin", "Rect", "texture" ]
+
+[node name="arena_icon2" type="NinePatchRect" parent="TextureProgress"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 291.0
+margin_top = -67.0
+margin_right = 355.0
+margin_bottom = -3.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 32, 32 )
+_sections_unfolded = [ "Axis Stretch", "Patch Margin", "Rect", "texture" ]
+
+[node name="arena_icon3" type="NinePatchRect" parent="TextureProgress"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 421.0
+margin_top = -67.0
+margin_right = 485.0
+margin_bottom = -3.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 32, 32 )
+_sections_unfolded = [ "Axis Stretch", "Patch Margin", "Rect", "texture" ]
+
+[node name="arena_icon4" type="NinePatchRect" parent="TextureProgress"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 552.0
+margin_top = -67.0
+margin_right = 616.0
+margin_bottom = -3.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 32, 32 )
+_sections_unfolded = [ "Axis Stretch", "Patch Margin", "Rect", "Visibility", "texture" ]
+
+[node name="arena_icon5" type="NinePatchRect" parent="TextureProgress"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 664.0
+margin_top = -67.0
+margin_right = 728.0
+margin_bottom = -3.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 32, 32 )
+_sections_unfolded = [ "Axis Stretch", "Patch Margin", "Rect", "Visibility", "texture" ]
+
+[node name="Tween" type="Tween" parent="."]
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -202.0
+margin_top = -245.0
+margin_right = 202.0
+margin_bottom = -142.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Training Grounds
+"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts", "custom_fonts/font" ]
+
+[node name="PressStart" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -171.0
+margin_top = -196.0
+margin_right = 171.0
+margin_bottom = -109.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 8 )
+text = "Press Space
+"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility", "custom_fonts", "custom_fonts/font" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/flash = SubResource( 1 )
+blend_times = [  ]
+

@@ -60,7 +60,7 @@ position = Vector2( -22.4158, -0.930504 )
 rotation = 0.0119376
 
 [node name="L_Hand_Pivot" parent="Pivot/Area2D/Sprite" index="1"]
-position = Vector2( -45.59, 1.69547 )
+position = Vector2( -34.6317, -0.666224 )
 rotation = 0.0119376
 
 [node name="Hitbox" parent="Pivot/Area2D" index="1"]

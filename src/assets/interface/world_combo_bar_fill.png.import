@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gladiator_mini_mini.png-ade72508c7071f22cd1ad9a5edc8e1ca.stex"
+path="res://.import/world_combo_bar_fill.png-888d9437d5a32ef3b2b6ac566d5a56b9.stex"
 
 [deps]
 
-source_file="res://assets/gladiator_mini_mini.png"
-dest_files=[ "res://.import/gladiator_mini_mini.png-ade72508c7071f22cd1ad9a5edc8e1ca.stex" ]
+source_file="res://assets/interface/world_combo_bar_fill.png"
+dest_files=[ "res://.import/world_combo_bar_fill.png-888d9437d5a32ef3b2b6ac566d5a56b9.stex" ]
 
 [params]
 
@@ -27,5 +27,5 @@ process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0

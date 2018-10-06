@@ -84,13 +84,14 @@ func _ready():
     
     # Skin tones
     randomize()
-    var skin_tones = [Color("#8d5524"), Color("#c68642"), Color("#f1c27d"), Color("#f1c27d"), Color("#ffdbac")]
-    skin_color = skin_tones[randi()%skin_tones.size()]
+    var skin_tones = [Color("#ffb695"), Color("#784734"), Color("#ff9a6d"), Color("#965738")]
+    skin_color = skin_tones[randi()%len(skin_tones)]
     body.modulate = skin_color
     u_hand.modulate = skin_color
     l_hand.modulate = skin_color
     sprite_player.get_animation("stagger").track_set_key_value(0, 1, skin_color)
     sprite_player.get_animation("blocked").track_set_key_value(0, 1, skin_color)
+
 
     # Equipment
     var item_container = load("res://scripts/item_container/item_container.gd")

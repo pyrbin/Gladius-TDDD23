@@ -78,9 +78,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -344.0
+margin_left = -263.0
 margin_top = -127.0
-margin_right = 344.0
+margin_right = 403.0
 margin_bottom = -31.0
 _sections_unfolded = [ "Margin", "Rect", "Theme", "custom_constants" ]
 

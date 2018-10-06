@@ -479,8 +479,8 @@ tracks/5/keys = {
 }
 
 [node name="Unit" type="KinematicBody2D" groups=[
-"Hitable",
 "Units",
+"Hitable",
 "Z_Index",
 ]]
 position = Vector2( 0.576477, -0.523365 )
