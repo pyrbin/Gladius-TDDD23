@@ -9,6 +9,7 @@ export (Array, int) var enemy_wave_count = []
 export (NodePath) onready var spawn_point = get_node(spawn_point)
 export (NodePath) onready var player_spawn_point = get_node(player_spawn_point)
 export (NodePath) onready var chest_spawn_point = get_node(chest_spawn_point)
+export (NodePath) onready var gate_node = get_node(gate_node)
 
 export (Array, int) onready var armor_helm_pool
 export (Array, int) onready var armor_chest_pool
@@ -39,6 +40,7 @@ func spawn():
 func _ready():
 	utils.get_player().global_position = player_spawn_point.position
 	utils.get_player().invunerable = false
+	gate_node.disabled = true
 
 func _process(d):
 	if len(current_enemy_wave) > 0:
@@ -75,8 +77,9 @@ func end_level():
 	utils.get_player().global_position = player_spawn_point.position
 	chest.global_position = chest_spawn_point.global_position
 	chest.init(chest_reward)
+	gate_node.disabled = false
 
 func _on_Banner_interact():
-	if current_wave == 0:
-		next_wave()
+	$Banner.disabled = true
+	next_wave()
 	

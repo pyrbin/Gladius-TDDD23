@@ -24,15 +24,17 @@ func _init(p_identifier, p_affected, p_modifiers, p_duration=null, p_interval=nu
         modifiers.append(p_modifiers)
         _start_values.append(p_modifiers.value)
 
-    if p_duration || p_duration != 0:
-        _duration =  int(p_duration)
+    if p_duration && p_duration != 0:
+        _duration =  ceil(p_duration)
         _start_duration = _duration
-    if p_interval || p_interval != 0:
-        _interval = int(p_interval)
+    if p_interval && p_interval != 0:
+        _interval = ceil(p_interval)
     else:
         _one_time = true
 
 func get_progress():
+    if _duration == null:
+        return 1
     return _elapsed_time/_duration
 
 func get_duration():
@@ -40,15 +42,15 @@ func get_duration():
 
 func update(delta, affected):
     if not _interval && _one_time:
-        _one_time = false
         _trigger()
-        to_expire = true
-
+        _one_time = false
+        if not _duration || _duration == 0:
+            to_expire = true
     if to_expire: return
     _affected = affected
     _elapsed_time += delta
     _last_second = int(_elapsed_time)
-    if _interval && _last_second % _interval == 0 && _last_tick != _last_second:
+    if _interval && int(_last_second) % int(_interval) == 0 && _last_tick != _last_second:
         _last_tick = _last_second
         _trigger()
     if _duration && _last_second == _duration:
@@ -61,9 +63,8 @@ func _trigger():
             _affected.soft_damage(modifier.value, null)
         elif modifier.stat == STAT.ENDURANCE:
             _affected.fatigue(modifier.value, null, true)
-        else:
+        elif not _one_time:
             modifier.value += _start_values[i]
-
 func refresh():
     if not _duration: return
     if _duration - _last_second != _start_duration:

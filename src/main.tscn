@@ -50,6 +50,9 @@ position = Vector2( 84.6963, -119.719 )
 rotation = -0.000760796
 _sections_unfolded = [ "Collision", "Transform", "container_items" ]
 interactable_name = "Chest"
+action_string = "Interact with"
+object_string = ""
+disabled = false
 container_items = [ 4001, 4002, 4003, 4004 ]
 idle_jump = true
 
@@ -65,7 +68,6 @@ equipped_weapons = [ 4007, 5001 ]
 [node name="GUI" type="CanvasLayer" parent="." groups=[
 "GUI",
 ]]
-editor/display_folded = true
 layer = 128
 offset = Vector2( 0, 0 )
 rotation = 0.0

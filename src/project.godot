@@ -45,7 +45,6 @@ gdscript/warnings/unsafe_cast=true
 
 window/size/width=1366
 window/size/height=768
-window/size/always_on_top=true
 window/size/test_width=1366
 window/size/test_height=768
 window/allow_per_pixel_transparency=true

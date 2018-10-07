@@ -1,14 +1,19 @@
 extends "res://scenes/weapons/ranged_weapon/ranged_weapon.gd"
 
-enum SWING_STATE {UP, DOWN}
+enum {
+    UP, 
+    DOWN
+}
 
 var swing_state = UP
 
 
 func _action_attack():
+    apply_slow()
     _swing_sling()
 
 func _action_ult_attack():
+    apply_slow()
     _knockback_air_mod = 3
     _knockback_mod = 2
     _action_attack()

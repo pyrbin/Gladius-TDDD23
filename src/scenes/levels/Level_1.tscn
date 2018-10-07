@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/levels/level_manager.gd" type="Script" id=1]
 [ext_resource path="res://assets/gladiator_mini_mini.png" type="Texture" id=2]
@@ -6,7 +6,8 @@
 [ext_resource path="res://assets/flagtemp.png" type="Texture" id=4]
 [ext_resource path="res://scenes/traps/spike_trap/SpikeTrap.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/interactable/torch/Torch.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/interactable/banner/Banner.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/interactable/gate/Gate.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/interactable/banner/Banner.tscn" type="PackedScene" id=8]
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -19,15 +20,16 @@ outlines = [ PoolVector2Array( -553.764, 105.509, -318.861, 103.293, -313.321, 1
 ]]
 position = Vector2( -4.52209, -3.01468 )
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform", "chest_reward", "enemy_wave_count" ]
+_sections_unfolded = [ "Transform" ]
 level_name = "Training Grounds"
 current_wave = 0
-total_wave = 5
+total_wave = 10
 current_enemy_wave = [  ]
-enemy_wave_count = [ 1, 1, 1, 1, 2 ]
+enemy_wave_count = [ 1, 1, 1, 1, 1, 2, 2, 2, 2.0, 3 ]
 spawn_point = NodePath("Spawn")
 player_spawn_point = NodePath("Player_Spawn")
 chest_spawn_point = NodePath("Chest_Spawn")
+gate_node = NodePath("Gate")
 armor_helm_pool = [ 1001, 1002, 0 ]
 armor_chest_pool = [ 2001, 2002, 0 ]
 armor_legs_pool = [ 3001, 3002 ]
@@ -47,7 +49,7 @@ position = Vector2( -1.58667, -409.361 )
 position = Vector2( -1.58667, -247.879 )
 
 [node name="Chest_Spawn" type="Position2D" parent="."]
-position = Vector2( -1.58667, -380.266 )
+position = Vector2( -1.58667, -336.896 )
 
 [node name="Objects" type="Node2D" parent="."]
 
@@ -330,6 +332,7 @@ position = Vector2( -500.985, -444.714 )
 texture = ExtResource( 4 )
 
 [node name="Traps" type="Node2D" parent="Objects"]
+editor/display_folded = true
 
 [node name="SpikeTrap" parent="Objects/Traps" instance=ExtResource( 5 )]
 position = Vector2( -136.162, 131.937 )
@@ -571,31 +574,27 @@ _sections_unfolded = [ "Z Index" ]
 position = Vector2( -168.024, -484.974 )
 collision_layer = 1
 _sections_unfolded = [ "Collision", "Transform", "Z Index" ]
-interactable_name = ""
 
 [node name="Torch2" parent="Objects/Torches" instance=ExtResource( 6 )]
-position = Vector2( 191.136, -483.187 )
+position = Vector2( 191.513, -485.074 )
 collision_layer = 1
-interactable_name = ""
 
 [node name="Torch3" parent="Objects/Torches" instance=ExtResource( 6 )]
 position = Vector2( 445.152, -428.899 )
 collision_layer = 1
-interactable_name = ""
 
 [node name="Torch5" parent="Objects/Torches" instance=ExtResource( 6 )]
 position = Vector2( -1.01974, 73.0442 )
 collision_layer = 1
-interactable_name = ""
 
 [node name="Torch4" parent="Objects/Torches" instance=ExtResource( 6 )]
 position = Vector2( -452.596, -430.799 )
 collision_layer = 1
-interactable_name = ""
 
 [node name="Navigation2D" type="Navigation2D" parent="." groups=[
 "Navigation",
 ]]
+editor/display_folded = true
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
 position = Vector2( -6.42242, -1.629 )
@@ -603,8 +602,14 @@ navpoly = SubResource( 1 )
 enabled = true
 _sections_unfolded = [ "navpoly" ]
 
-[node name="Banner" parent="." instance=ExtResource( 7 )]
+[node name="Gate" parent="." instance=ExtResource( 7 )]
+position = Vector2( 0.60397, -457.266 )
+action_string = "Travel to next"
+object_string = "Level"
+
+[node name="Banner" parent="." instance=ExtResource( 8 )]
 position = Vector2( -1, -94 )
+object_string = "Banner"
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="interact" from="Banner" to="." method="_on_Banner_interact"]

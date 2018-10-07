@@ -12,7 +12,7 @@ var _current_proj = null
 func _ready():
     wep_sprite.set_flip_v(false)
     hitbox.disabled = true
-
+    knockback_force = 100
 func see_target(target):
     if rc_mid.is_colliding() && rc_top.is_colliding() && rc_bot.is_colliding():
         return rc_mid.get_collider().owner == target && rc_top.get_collider().owner == target && rc_bot.get_collider().owner == target
@@ -65,11 +65,16 @@ func _fire_ammo(combo=true):
 func is_ready():
     return .is_ready() && _ammo_loaded()
 
+func apply_slow():
+    holder.stats.add_effect_fac("Ranged Reload", STAT.MOVEMENT, -30, STAT.PERCENT, cooldown_timer.wait_time)
+
 func _action_attack():
+    apply_slow()
     _fire_ammo()
     _clear_attack(false)
 
 func _action_ult_attack():
+    apply_slow()
     reset_combo()
     _fire_ammo(false)
     _reload()

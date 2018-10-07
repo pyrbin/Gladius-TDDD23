@@ -7,7 +7,6 @@ enum ATTACK_STATE { IDLE, ATTACKING, HOLSTERED }
 
 const WeaponData = preload("res://data/weapon_data.gd")
 const HITABLE_GROUP_NAME = "Hitable"
-const KNOCKBACK_FORCE = 250
 const COMBO_MAX_POINTS = 3
 const ATK_FASTEST = 0.2
 
@@ -34,6 +33,7 @@ var _knockback_air_mod = 1
 var _interuppted = false
 var _target = null
 var _current_hit_targets = []
+var knockback_force = 250
 
 func _ready():
     $Pivot/Area2D.connect("area_entered", self, "_on_body_entered_root")
@@ -147,7 +147,7 @@ func _on_ComboTimer_timeout():
 func _knockback():
     var angle = holder.global_position.angle_to_point(holder.get_aim_position())
     var dir = Vector2(-cos(angle), -sin(angle))
-    _knockback_force = dir * KNOCKBACK_FORCE
+    _knockback_force = dir * knockback_force
     var time = 0.12
     if _target.dead:
         time *= 1.5

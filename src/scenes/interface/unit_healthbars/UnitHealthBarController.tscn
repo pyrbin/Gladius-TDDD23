@@ -71,5 +71,5 @@ anchor_bottom = 0.0
 margin_left = 4.0
 margin_right = 30.0
 margin_bottom = 0.0
-_sections_unfolded = [ "Margin", "Rect" ]
+_sections_unfolded = [ "Margin", "Material", "Rect" ]
 

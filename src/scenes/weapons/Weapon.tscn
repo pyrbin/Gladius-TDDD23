@@ -27,6 +27,7 @@ playback_speed = 1.0
 blend_times = [  ]
 
 [node name="Pivot" type="Position2D" parent="."]
+editor/display_folded = true
 use_parent_material = true
 _sections_unfolded = [ "Material", "Transform" ]
 

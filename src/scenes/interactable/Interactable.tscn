@@ -53,6 +53,10 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform" ]
+interactable_name = ""
+action_string = "Interact with"
+object_string = ""
+disabled = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("..")
@@ -68,6 +72,7 @@ position = Vector2( -0.364784, -24.5024 )
 shape = SubResource( 2 )
 
 [node name="Visuals" type="Position2D" parent="."]
+editor/display_folded = true
 position = Vector2( -0.621811, -23.6028 )
 
 [node name="Shadow" type="Sprite" parent="Visuals"]

@@ -13,4 +13,4 @@ func add(p_modifier):
         vsum += p_modifier.value
         
 func compute(p_value):
-    return (p_value * (1 + (msum/100.0))) + vsum
+    return (p_value + vsum) * (1 + (msum/100.0))
