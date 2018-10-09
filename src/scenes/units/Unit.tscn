@@ -600,7 +600,7 @@ disabled = true
 editor/display_folded = true
 use_parent_material = true
 position = Vector2( -10.7167, 15.6651 )
-z_index = 3
+z_index = 4
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="U_Hand" type="Sprite" parent="Visuals/Pivot/U_Hand_Pivot"]
@@ -614,7 +614,7 @@ _sections_unfolded = [ "Material", "Region", "Transform", "Z Index" ]
 editor/display_folded = true
 use_parent_material = true
 position = Vector2( 10.2365, 16.2947 )
-z_index = 3
+z_index = 4
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="L_Hand" type="Sprite" parent="Visuals/Pivot/L_Hand_Pivot"]

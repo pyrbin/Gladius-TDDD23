@@ -182,7 +182,7 @@
         "STATS": {},
         "WEAPON_TYPE": 2,
         "MODEL" : "ranged_weapon/sling/Sling.tscn",
-        "DAMAGE" : 3,
+        "DAMAGE" : 30000,
         "ATTACK_SPEED": 600,
         "COOLDOWN" : 0.8,
         "AMMO" : "weapon/wooden_weapon/sling_stone.png"

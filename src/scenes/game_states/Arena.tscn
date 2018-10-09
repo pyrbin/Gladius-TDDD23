@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://scripts/level_manager.gd" type="Script" id=1]
-[ext_resource path="res://assets/theme1.ogg" type="AudioStream" id=2]
-[ext_resource path="res://scenes/levels/Level_1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/game_states/level_loader.gd" type="Script" id=1]
+[ext_resource path="res://scenes/levels/Level_1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/theme2.ogg" type="AudioStream" id=3]
 [ext_resource path="res://scenes/interactable/lootable/chests/Chest.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/units/player/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/interface/Interface.tscn" type="PackedScene" id=6]
@@ -14,23 +14,28 @@
 ]]
 script = ExtResource( 1 )
 _sections_unfolded = [ "levels" ]
-levels = [ null, null, null, null ]
+level_one = ExtResource( 2 )
+level_two = null
+level_three = null
+level_four = null
+level_five = null
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Game"]
-stream = ExtResource( 2 )
+stream = ExtResource( 3 )
 volume_db = -9.244
 pitch_scale = 1.0
 autoplay = true
 stream_paused = false
 mix_target = 0
 bus = "Master"
+_sections_unfolded = [ "stream" ]
 
 [node name="World" type="Node2D" parent="Game"]
 _sections_unfolded = [ "Transform" ]
 
-[node name="Level_One" parent="Game/World" instance=ExtResource( 3 )]
-armor_helm_pool = [ 1001, 1002, null ]
-armor_weapon_pool = [ 4001, 4002, 4003, 4004, 4006 ]
+[node name="Root_Level" type="Node2D" parent="Game/World" groups=[
+"Root_Level",
+]]
 
 [node name="Root_Items" type="Node2D" parent="Game/World" groups=[
 "Root_Items",

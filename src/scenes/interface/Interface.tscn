@@ -126,6 +126,7 @@ margin_right = 264.0
 margin_bottom = -206.0
 _sections_unfolded = [ "Theme" ]
 
-[node name="WaveManager" parent="." instance=ExtResource( 9 )]
-visible = false
+[node name="WaveManager" parent="." groups=[
+"WaveManager",
+] instance=ExtResource( 9 )]
 

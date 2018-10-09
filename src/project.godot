@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Gladius"
-run/main_scene="res://main.tscn"
+run/main_scene="res://scenes/game_states/StartScreen.tscn"
 config/icon="res://assets/flagtemp.png"
 
 [autoload]
@@ -24,6 +24,7 @@ config/icon="res://assets/flagtemp.png"
 CONFIG="*res://scripts/global/gb_config.gd"
 STAT="*res://scripts/global/gb_attributes_table.gd"
 utils="*res://scripts/global/gb_utils.gd"
+game="*res://scripts/global/gb_game.gd"
 gb_DataParser="*res://scripts/global/gb_data_parser.gd"
 gb_ItemDatabase="*res://scripts/global/gb_item_database.gd"
 gb_Z_Index_Orderer="*res://scripts/global/gb_z_index_orderer.gd"

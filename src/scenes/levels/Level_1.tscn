@@ -30,6 +30,7 @@ spawn_point = NodePath("Spawn")
 player_spawn_point = NodePath("Player_Spawn")
 chest_spawn_point = NodePath("Chest_Spawn")
 gate_node = NodePath("Gate")
+banner_node = NodePath("Banner")
 armor_helm_pool = [ 1001, 1002, 0 ]
 armor_chest_pool = [ 2001, 2002, 0 ]
 armor_legs_pool = [ 3001, 3002 ]
@@ -612,4 +613,3 @@ position = Vector2( -1, -94 )
 object_string = "Banner"
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-[connection signal="interact" from="Banner" to="." method="_on_Banner_interact"]

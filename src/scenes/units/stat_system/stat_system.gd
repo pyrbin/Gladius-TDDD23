@@ -36,7 +36,7 @@ func _ready():
     }
 
 func _process(d):
-    for i in range(0, _effects.size()):
+    for i in range(0, len(_effects)):
         var effect = _effects[i]
         if effect == null: continue
         effect.update(d, owner)
@@ -58,7 +58,7 @@ func add_effect(p_effect):
             found = effect
     if found != null:
         found.refresh()
-    else:
+    elif first_empty != -1:
         _effects[first_empty] = p_effect
     emit_signal("effect_applied", p_effect)
 

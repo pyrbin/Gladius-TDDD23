@@ -10,6 +10,7 @@ export (NodePath) onready var spawn_point = get_node(spawn_point)
 export (NodePath) onready var player_spawn_point = get_node(player_spawn_point)
 export (NodePath) onready var chest_spawn_point = get_node(chest_spawn_point)
 export (NodePath) onready var gate_node = get_node(gate_node)
+export (NodePath) onready var banner_node = get_node(banner_node)
 
 export (Array, int) onready var armor_helm_pool
 export (Array, int) onready var armor_chest_pool
@@ -18,6 +19,8 @@ export (Array, int) onready var armor_weapon_pool
 export (Array, int) onready var chest_reward
 
 signal level_end
+signal level_next
+signal level_start
 
 var ended = false
 
@@ -41,6 +44,9 @@ func _ready():
 	utils.get_player().global_position = player_spawn_point.position
 	utils.get_player().invunerable = false
 	gate_node.disabled = true
+	banner_node.disabled = false
+	gate_node.connect("interact", self, "_on_gate_interact")
+	banner_node.connect("interact", self, "_on_banner_interact")
 
 func _process(d):
 	if len(current_enemy_wave) > 0:
@@ -79,7 +85,12 @@ func end_level():
 	chest.init(chest_reward)
 	gate_node.disabled = false
 
-func _on_Banner_interact():
-	$Banner.disabled = true
+func _on_gate_interact():
+	emit_signal("level_next")
+	gate_node.disabled = true
+
+func _on_banner_interact():
+	banner_node.disabled = true
+	emit_signal("level_start")
 	next_wave()
 	
