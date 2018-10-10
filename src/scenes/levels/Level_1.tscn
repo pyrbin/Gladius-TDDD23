@@ -20,7 +20,7 @@ outlines = [ PoolVector2Array( -553.764, 105.509, -318.861, 103.293, -313.321, 1
 ]]
 position = Vector2( -4.52209, -3.01468 )
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "armor_chest_pool", "armor_helm_pool", "armor_weapon_pool" ]
 level_name = "Training Grounds"
 current_wave = 0
 total_wave = 10
@@ -31,10 +31,10 @@ player_spawn_point = NodePath("Player_Spawn")
 chest_spawn_point = NodePath("Chest_Spawn")
 gate_node = NodePath("Gate")
 banner_node = NodePath("Banner")
-armor_helm_pool = [ 1001, 1002, 0 ]
-armor_chest_pool = [ 2001, 2002, 0 ]
+armor_helm_pool = [ 1001, 1002, 0, 0 ]
+armor_chest_pool = [ 2001, 2002, 0, 0 ]
 armor_legs_pool = [ 3001, 3002 ]
-armor_weapon_pool = [ 4001, 4002, 4003, 4005, 4006 ]
+armor_weapon_pool = [ 4001, 4002, 4003, 4005, 4006, 4004 ]
 chest_reward = [ 1001, 2001, 3001, 4001, 4004 ]
 
 [node name="Timer" type="Timer" parent="."]
@@ -44,15 +44,16 @@ one_shot = true
 autostart = true
 
 [node name="Spawn" type="Position2D" parent="."]
-position = Vector2( -1.58667, -409.361 )
+position = Vector2( 86.7985, -410.382 )
 
 [node name="Player_Spawn" type="Position2D" parent="."]
-position = Vector2( -1.58667, -247.879 )
+position = Vector2( -1.58667, -219.247 )
 
 [node name="Chest_Spawn" type="Position2D" parent="."]
-position = Vector2( -1.58667, -336.896 )
+position = Vector2( -1.58667, -289.409 )
 
 [node name="Objects" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Audience_Top" type="YSort" parent="Objects"]
 editor/display_folded = true
@@ -612,4 +613,3 @@ object_string = "Level"
 position = Vector2( -1, -94 )
 object_string = "Banner"
 
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

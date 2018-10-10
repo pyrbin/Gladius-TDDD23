@@ -1,6 +1,6 @@
 extends Control
 
-onready var button = $Button
+onready var start = $VBoxContainer/Start
 
 func _on_Button_pressed():
-    get_tree().change_scene("res://scenes/game_states/LevelSelect.tscn")
+    utils.scene_changer().transition("LevelSelect.tscn")

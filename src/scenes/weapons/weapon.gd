@@ -121,7 +121,7 @@ func _on_body_entered(body, count_for_combo=true):
     _target = body
     var tar = _target.damage(data.damage+holder.stats.get_stat(STAT.POWER), self)
     if holder == utils.get_player():
-        utils.freeze_time(0.028)
+        #utils.freeze_time(0.028)
         if data.damage > 0:
             holder.camera.shake(0.30, 50, 3)
     if _target != utils.get_player():

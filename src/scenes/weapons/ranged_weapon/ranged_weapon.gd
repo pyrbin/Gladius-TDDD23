@@ -13,6 +13,7 @@ func _ready():
     wep_sprite.set_flip_v(false)
     hitbox.disabled = true
     knockback_force = 100
+    
 func see_target(target):
     if rc_mid.is_colliding() && rc_top.is_colliding() && rc_bot.is_colliding():
         return rc_mid.get_collider().owner == target && rc_top.get_collider().owner == target && rc_bot.get_collider().owner == target

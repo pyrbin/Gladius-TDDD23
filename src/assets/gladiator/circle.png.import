@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tileset_level1_02.png-30f7fa65763e74a1a11517cefff4da42.stex"
+path="res://.import/circle.png-c0451056b0fedc8e8b6fe3a667653117.stex"
 
 [deps]
 
-source_file="res://assets/tilesets/tileset_level1_02.png"
-dest_files=[ "res://.import/tileset_level1_02.png-30f7fa65763e74a1a11517cefff4da42.stex" ]
+source_file="res://assets/gladiator/circle.png"
+dest_files=[ "res://.import/circle.png-c0451056b0fedc8e8b6fe3a667653117.stex" ]
 
 [params]
 

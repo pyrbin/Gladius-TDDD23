@@ -126,7 +126,7 @@ func attack_weapon():
     if weapon.attack():
         if weapon.data.weapon_type != 2 && name == "Player":
             charge(400, 0.1)
-        else:
+        if weapon.data.weapon_type == 2:
             charge(200, 0.1, -get_aim_direction())
         emit_signal("attacking")
     if use_holster:

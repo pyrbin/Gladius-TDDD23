@@ -21,7 +21,7 @@ func _on_level_ended():
     wave_manager.end()
 
 func _on_level_next():
-    get_tree().change_scene("res://scenes/game_states/LevelSelect.tscn")
+    utils.scene_changer().transition("LevelSelect.tscn")
 
 func current_level():
     return root_level.get_child(0)

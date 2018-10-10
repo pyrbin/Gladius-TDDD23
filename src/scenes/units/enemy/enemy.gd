@@ -29,6 +29,13 @@ func _setup():
     if not disable_AI:
         nav = get_tree().get_nodes_in_group("Navigation")[0]
     get_player().connect("attacking", self, "_on_player_attack")
+    randomize()
+
+    if randi()%1 == 0:
+        can_jump = false
+        $AIBehaviour/CanJump.start()
+        can_bash= false
+        $AIBehaviour/CanBash.start()
 
     if utils.is_bit(ai_difficulty, 0):
         $AIBehaviour/CanBash.wait_time = EASY_WAIT_BASH

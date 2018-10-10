@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Gladius"
-run/main_scene="res://scenes/game_states/StartScreen.tscn"
+run/main_scene="res://scenes/game_states/Main.tscn"
 config/icon="res://assets/flagtemp.png"
 
 [autoload]
@@ -50,6 +50,7 @@ window/size/test_width=1366
 window/size/test_height=768
 window/allow_per_pixel_transparency=true
 mouse_cursor/custom_image="res://assets/crosshair149.png"
+window/stretch/aspect="keep"
 window/stretch/shrink="1"
 
 [editor_plugins]
