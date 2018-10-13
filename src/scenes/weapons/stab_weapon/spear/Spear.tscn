@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/weapons/stab_weapon/StabWeapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sounds/arrow-damage.ogg" type="AudioStream" id=2]
 
 [sub_resource type="Animation" id=1]
 
@@ -46,9 +47,12 @@ tracks/2/keys = {
 }
 
 [node name="StabWeapon" instance=ExtResource( 1 )]
+_sections_unfolded = [ "Material", "Transform", "sfx_on_hit" ]
 holster_offset = Vector2( 30, 0 )
+weapon_attack_speed = 350
+sfx_on_hit = ExtResource( 2 )
 
-[node name="AnimationPlayer" parent="." index="1"]
+[node name="AnimationPlayer" parent="." index="3"]
 anims/stab_ult = SubResource( 1 )
 
 [node name="Sprite" parent="Pivot/Area2D" index="0"]

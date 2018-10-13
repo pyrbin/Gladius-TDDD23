@@ -90,7 +90,6 @@
         "WEAPON_TYPE": 0,
         "MODEL" : "swing_weapon/shortsword/Shortsword.tscn",
         "DAMAGE" : 3,
-        "ATTACK_SPEED": 300,
         "COOLDOWN" : 0.6
     },
     "4005": {
@@ -104,7 +103,6 @@
         "WEAPON_TYPE": 0,
         "MODEL" : "swing_weapon/shortsword/Shortsword.tscn",
         "DAMAGE" : 2,
-        "ATTACK_SPEED": 300,
         "COOLDOWN" : 0.6
     },
     "4006": {
@@ -117,8 +115,7 @@
         "STATS": {},
         "WEAPON_TYPE": 1,
         "MODEL" : "stab_weapon/spear/Spear.tscn",
-        "DAMAGE" : 4,
-        "ATTACK_SPEED": 300,
+        "DAMAGE" : 2,
         "COOLDOWN" : 1
     },
     "4002": {
@@ -128,15 +125,10 @@
         "SLOT": 4,
         "DESC": "LOREM IPSUM LOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUM",
         "SPRITE": "weapon/iron_weapon/iron_spear.png",
-        "STATS": {
-            "POWER": {
-                "PERCENT" : 10
-            }
-        },
+        "STATS": {},
         "WEAPON_TYPE": 1,
         "MODEL" : "stab_weapon/spear/Spear.tscn",
-        "DAMAGE" : 6,
-        "ATTACK_SPEED": 300,
+        "DAMAGE" : 3,
         "COOLDOWN" : 1
     },
     "4003": {
@@ -154,7 +146,6 @@
         "WEAPON_TYPE": 0,
         "MODEL" : "stab_weapon/dagger/Dagger.tscn",
         "DAMAGE" : 4,
-        "ATTACK_SPEED": 300,
         "COOLDOWN" : 0.4
     },
     "4004": {
@@ -168,7 +159,6 @@
         "WEAPON_TYPE": 2,
         "MODEL" : "ranged_weapon/crossbow/Crossbow.tscn",
         "DAMAGE" : 3,
-        "ATTACK_SPEED": 600,
         "COOLDOWN" : 0.8,
         "AMMO" : "weapon/iron_weapon/iron_arrow.png"
     },
@@ -183,7 +173,6 @@
         "WEAPON_TYPE": 2,
         "MODEL" : "ranged_weapon/sling/Sling.tscn",
         "DAMAGE" : 30000,
-        "ATTACK_SPEED": 600,
         "COOLDOWN" : 0.8,
         "AMMO" : "weapon/wooden_weapon/sling_stone.png"
     },

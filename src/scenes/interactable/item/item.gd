@@ -33,6 +33,7 @@ func set_item(item_id):
         set_shader_color()
 
 func interact():
+    .interact()
     var item = gb_ItemDatabase.get_item(item_id)
     player.queue_interactable(self, false)
     player.add_item(item_id)

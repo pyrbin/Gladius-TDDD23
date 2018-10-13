@@ -41,7 +41,7 @@ func handle_input(event):
 
 func _on_staggered(actor):
     emit_signal("finished", "stagger")
-
+    
 func _on_took_damage(amount, actor, soft):
     if not soft:
         emit_signal("finished", "stagger")

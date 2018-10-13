@@ -10,7 +10,7 @@ func _action_attack():
 	anim_player.play("stab")
 
 func _action_ult_attack():
-	anim_player.play("stab_ult")
+	anim_player.play("stab")
 
 func _on_body_entered(body, count_for_combo=true):
 	if _current_hit_targets.size() > 1:

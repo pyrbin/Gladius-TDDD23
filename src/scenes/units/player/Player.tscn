@@ -5,9 +5,9 @@
 [ext_resource path="res://scenes/units/player/camera/camera_pivot.gd" type="Script" id=3]
 [ext_resource path="res://scenes/units/player/camera/player_camera.gd" type="Script" id=4]
 [ext_resource path="res://scenes/units/player/interact_controller.gd" type="Script" id=5]
-[ext_resource path="res://scenes/interface/world_ui_player/WeaponCooldownTracker.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/interface/world_life_bar_grn_fill.png" type="Texture" id=7]
-[ext_resource path="res://assets/interface/aim_arrow.png" type="Texture" id=8]
+[ext_resource path="res://assets/interface/aim_arrow.png" type="Texture" id=6]
+[ext_resource path="res://scenes/interface/world_ui_player/WeaponCooldownTracker.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/interface/world_life_bar_grn_fill.png" type="Texture" id=8]
 
 [node name="Player" index="0" groups=[
 "Player",
@@ -16,7 +16,7 @@ position = Vector2( -5.96046e-008, 5.96046e-008 )
 collision_mask = 25
 script = ExtResource( 2 )
 use_holster = true
-stagger_time = 0.2
+stagger_time = 0.3
 equipped_items = [ 0, 0, 0 ]
 equipped_weapons = [ 0, 0 ]
 weapon_collision = 13
@@ -35,9 +35,6 @@ max_health = 50.0
 max_endurance = 30.0
 endurance_regen = 2.0
 health_regen = 2.0
-
-[node name="Hitbox" parent="." index="4"]
-editor/display_folded = true
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( 0.015216, -20 )
@@ -88,22 +85,31 @@ wait_time = 0.44
 one_shot = true
 autostart = false
 
-[node name="WeaponCooldownTracker" parent="Static_World_UI" index="0" instance=ExtResource( 6 )]
-margin_left = -26.0
-margin_top = 24.0
-margin_right = 24.0
-margin_bottom = 27.0
-disabled = true
-
 [node name="Visuals" parent="." index="9"]
 _sections_unfolded = [ "Material", "Transform", "Visibility", "material" ]
+
+[node name="Selection" type="Sprite" parent="Visuals" index="1"]
+visible = false
+modulate = Color( 1, 0, 0, 0.678431 )
+position = Vector2( -0.49741, 19.3759 )
+scale = Vector2( 0.772294, 0.772294 )
+texture = ExtResource( 6 )
+offset = Vector2( 38.7394, 3.99323 )
+_sections_unfolded = [ "Pause", "Transform", "Visibility", "Z Index" ]
 
 [node name="Dynamic_WorldUI" parent="Visuals/Pivot" index="0"]
 z_index = 1000
 
-[node name="UnitHealthBarController" parent="Visuals/Pivot/Dynamic_WorldUI" index="0"]
+[node name="WeaponCooldownTracker" parent="Visuals/Pivot/Dynamic_WorldUI" index="0" instance=ExtResource( 7 )]
+margin_left = -21.0
+margin_top = 58.0
+margin_right = 19.0
+margin_bottom = 61.0
+rect_min_size = Vector2( 40, 0 )
+
+[node name="UnitHealthBarController" parent="Visuals/Pivot/Dynamic_WorldUI" index="1"]
 disabled = false
-hp_fill_texture = ExtResource( 7 )
+hp_fill_texture = ExtResource( 8 )
 
 [node name="U_Hand_Pivot" parent="Visuals/Pivot" index="1"]
 editor/display_folded = false
@@ -128,16 +134,7 @@ rotation = -0.000304921
 region_rect = Rect2( 0, 0, 72, 72 )
 _sections_unfolded = [ "Material", "Offset", "Region", "Transform", "Visibility", "Z Index", "material", "texture" ]
 
-[node name="Selection" type="Sprite" parent="Visuals" index="1"]
-visible = false
-modulate = Color( 1, 0, 0, 0.678431 )
-position = Vector2( -0.49741, 19.3759 )
-scale = Vector2( 0.772294, 0.772294 )
-texture = ExtResource( 8 )
-offset = Vector2( 38.7394, 3.99323 )
-_sections_unfolded = [ "Pause", "Transform", "Visibility", "Z Index" ]
-
-[node name="Shadow" parent="Visuals" index="2"]
+[node name="Shadow" parent="Visuals" index="3"]
 position = Vector2( 0.917812, 35.7277 )
 scale = Vector2( 0.376539, 0.174777 )
 

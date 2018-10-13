@@ -11,6 +11,7 @@ func get_action_string():
 	return make_action_string("Put out" if flame_on else "Light") + " [color=orange]" + "Torch" + "[/color] \n"
 
 func interact():
+	.interact()
 	if not flame_on:
 		anim_player.play("active")
 	else:

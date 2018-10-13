@@ -5,6 +5,7 @@ signal interact
 export (String) var interactable_name = ""
 export (String) var action_string = "Interact with"
 export (String) var object_string = ""
+export (AudioStream) var sfx_interact
 export (bool) var disabled = false setget set_disabled
 
 onready var anim_player = $AnimationPlayer
@@ -30,6 +31,9 @@ func set_shader_color(color=Color(0,0,0,0)):
     sprite.material.set_shader_param("outline_color", outline_color)
 
 func interact():
+    if sfx_interact:
+        print("SOUND")
+        utils.play_sound(sfx_interact, $AudioPlayer)
     emit_signal("interact")
 
 func set_disabled(val):

@@ -53,8 +53,8 @@ align = 1
 visible = false
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_top = -246.0
-margin_bottom = 204.0
+margin_top = -284.0
+margin_bottom = 166.0
 
 [node name="ItemMenu_WindowDialog" parent="." groups=[
 "ItemMenu",
@@ -65,9 +65,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = 206.0
-margin_top = -214.0
+margin_top = -247.0
 margin_right = 526.0
-margin_bottom = 68.0
+margin_bottom = 35.0
 custom_fonts/title_font = ExtResource( 4 )
 custom_colors/title_color = Color( 1, 0, 0, 1 )
 custom_constants/title_height = 10
@@ -121,12 +121,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 margin_left = -263.0
-margin_top = -278.0
+margin_top = -200.0
 margin_right = 264.0
-margin_bottom = -206.0
+margin_bottom = -128.0
 _sections_unfolded = [ "Theme" ]
 
 [node name="WaveManager" parent="." groups=[
 "WaveManager",
 ] instance=ExtResource( 9 )]
+visible = false
 

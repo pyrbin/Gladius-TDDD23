@@ -1,5 +1,7 @@
 extends "../weapon.gd"
 
+export (AudioStream) var sfx_fire;
+
 onready var projectile = preload("Projectile.tscn")
 onready var projectile_pivot = $Pivot/Area2D/Sprite/Projectile_Pivot
 onready var root_projs = get_tree().get_nodes_in_group("Root_Projs")[0]
@@ -61,15 +63,16 @@ func _fire_ammo(combo=true):
     _current_proj.position = proj_pos
     _current_proj.direction = dir
     _current_proj.look_at(pos)
-    _current_proj.fire(data.attack_speed, combo)
+    _current_proj.fire(weapon_attack_speed, combo)
 
 func is_ready():
     return .is_ready() && _ammo_loaded()
 
 func apply_slow():
-    holder.stats.add_effect_fac("Ranged Reload", STAT.MOVEMENT, -30, STAT.PERCENT, cooldown_timer.wait_time)
+    holder.stats.add_effect_fac("Ranged Reload", STAT.MOVEMENT, -65, STAT.PERCENT, cooldown_timer.wait_time)
 
 func _action_attack():
+    utils.play_sound(sfx_fire, wep_sfx_pl)
     apply_slow()
     _fire_ammo()
     _clear_attack(false)

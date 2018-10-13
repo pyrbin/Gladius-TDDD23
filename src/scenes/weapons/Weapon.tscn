@@ -1,14 +1,39 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/weapons/weapon.gd" type="Script" id=1]
-[ext_resource path="res://assets/sword.png" type="Texture" id=2]
+[ext_resource path="res://assets/sounds/cut-through-armor-slice.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/sword.png" type="Texture" id=3]
 
 [node name="Weapon" type="Node2D"]
 use_parent_material = true
 script = ExtResource( 1 )
 _sections_unfolded = [ "Material", "Transform" ]
 holster_offset = Vector2( 52, 0 )
+weapon_attack_speed = 300
 hit_range = 50
+sfx_on_hit = ExtResource( 2 )
+
+[node name="WeaponSFX" type="AudioStreamPlayer2D" parent="."]
+stream = null
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+stream_paused = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="OnHitSFX" type="AudioStreamPlayer2D" parent="."]
+stream = null
+volume_db = 8.089
+pitch_scale = 1.0
+autoplay = false
+stream_paused = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 [node name="KnockbackTween" type="Tween" parent="."]
 repeat = false
@@ -21,10 +46,11 @@ playback/speed = 1.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("..")
 autoplay = ""
-playback_process_mode = 1
+playback_process_mode = 0
 playback_default_blend_time = 0.0
 playback_speed = 1.0
 blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
 
 [node name="Pivot" type="Position2D" parent="."]
 editor/display_folded = true
@@ -46,7 +72,7 @@ _sections_unfolded = [ "Collision", "Material", "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="Pivot/Area2D"]
 use_parent_material = true
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Material" ]
 
 [node name="U_Hand_Pivot" type="Position2D" parent="Pivot/Area2D/Sprite"]

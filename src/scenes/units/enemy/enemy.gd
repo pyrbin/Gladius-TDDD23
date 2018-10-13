@@ -1,12 +1,12 @@
 extends "res://scenes/units/unit.gd"
 
 export (bool) var disable_AI = false
-
 export(int, "Easy", "Advanced", "Master") var ai_difficulty = 0
 
 enum AI_STATE {
     SEEK
     COMBAT
+    THINKING
 }
 
 const EASY_WAIT_BASH = 10
@@ -24,6 +24,7 @@ var last_player_pos = Vector2()
 var ai_state = AI_STATE.SEEK
 var can_bash = true
 var can_jump = true
+var last_dir = Vector2()
 
 func _setup():
     if not disable_AI:
@@ -52,11 +53,19 @@ func _process(delta):
     if disable_AI: return
 
     match ai_state:
-        SEEK:   logic_seek()
-        COMBAT: logic_combat()
+        SEEK:     logic_seek()
+        COMBAT:   logic_combat()
+        THINKING: logic_thinking()
 
     if path && position.distance_to(to_move()) <= 10:
         path.remove(0)
+
+func logic_thinking():
+    if $AIBehaviour/Thinking.is_stopped():
+        $AIBehaviour/Thinking.start()
+
+func _on_Thinking_timeout():
+    ai_state = SEEK
 
 func logic_seek():
     if can_jump && player_aim_near_me() && player_used_weapon():
@@ -69,8 +78,12 @@ func logic_seek():
 func logic_combat():
     if get_weapon_node().is_ready():
         _send_action("attack")
+        last_dir = get_aim_position()
+        ai_state = THINKING
+        yield(utils.timer(1.2), "timeout")
+        ai_state = SEEK
     if not weapon_in_range():
-        yield(utils.timer(0.2), "timeout")
+        yield(utils.timer(0.4), "timeout")
         ai_state = AI_STATE.SEEK
 
 func get_movement_direction():
@@ -90,7 +103,7 @@ func get_movement_direction():
 
     
 func _on_player_attack():
-    if can_bash && is_in_bash(get_player()):
+    if can_bash && is_in_bash(get_player()) && ai_state != THINKING:
         _send_action("block")
         can_bash = false
         $AIBehaviour/CanBash.start()
@@ -130,3 +143,7 @@ func _on_CanBash_timeout():
 
 func _on_CanJump_timeout():
     can_jump = true
+
+func set_dead(value):
+    disable_AI = value;
+    return .set_dead(value)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/weapons/ranged_weapon/RangedWeapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/weapons/ranged_weapon/sling/Sling.gd" type="Script" id=2]
-[ext_resource path="res://assets/items/weapon/wooden_weapon/leather_slinger.png" type="Texture" id=3]
+[ext_resource path="res://assets/sounds/sword-swipe-short-2.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/items/weapon/wooden_weapon/leather_slinger.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=1]
 
@@ -95,14 +96,16 @@ tracks/2/keys = {
 
 [node name="Sling" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-_sections_unfolded = [ "Material", "Script", "Transform" ]
+_sections_unfolded = [ "Material", "Script", "Transform", "sfx_fire" ]
 hit_range = 400.0
+sfx_fire = ExtResource( 3 )
 
-[node name="AnimationPlayer" parent="." index="1"]
+[node name="AnimationPlayer" parent="." index="3"]
+playback_process_mode = 1
 anims/swing_down = SubResource( 1 )
 anims/swing_up = SubResource( 2 )
 
-[node name="Pivot" parent="." index="2"]
+[node name="Pivot" parent="." index="4"]
 position = Vector2( 30, 0 )
 
 [node name="Raycasts" parent="Pivot" index="0"]
@@ -114,7 +117,7 @@ position = Vector2( 59.7444, 3.05859 )
 [node name="Sprite" parent="Pivot/Area2D" index="0"]
 position = Vector2( -58.4293, -1.68793 )
 rotation = -4.06487
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 offset = Vector2( 70.0041, 3.52055 )
 _sections_unfolded = [ "Material", "Offset", "Transform", "texture" ]
 

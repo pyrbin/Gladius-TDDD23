@@ -11,7 +11,9 @@ collision_layer = 4
 collision_mask = 13
 collision/safe_margin = 6.48
 script = ExtResource( 2 )
-stagger_time = 0.4
+_sections_unfolded = [ "Collision", "Z Index", "collision", "sfx_hurt", "sfx_hurt_sounds" ]
+reach = 30.0
+stagger_time = 0.5
 equipped_items = [ 1001, 0, 0 ]
 equipped_weapons = [ 3001, 0 ]
 weapon_collision = 3
@@ -19,7 +21,6 @@ disable_AI = false
 ai_difficulty = 0
 
 [node name="AIBehaviour" type="Node" parent="." index="0"]
-editor/display_folded = true
 
 [node name="CanBash" type="Timer" parent="AIBehaviour" index="0"]
 process_mode = 1
@@ -33,11 +34,17 @@ wait_time = 5.0
 one_shot = true
 autostart = false
 
+[node name="Thinking" type="Timer" parent="AIBehaviour" index="2"]
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
 [node name="Jump" parent="StateMachine" index="2"]
 JUMP_FORCE = 300
 
 [node name="Stats" parent="." index="2"]
-attack_speed = -200.0
+attack_speed = -300.0
 movement_speed = 125.0
 
 [node name="Status" parent="." index="3"]
@@ -66,16 +73,14 @@ margin_right = 17.0
 _sections_unfolded = [ "Grow Direction", "Rect", "custom_constants" ]
 disabled = false
 
-[node name="Container" parent="Visuals/Pivot" index="4"]
-editor/display_folded = true
-
-[node name="Shadow" parent="Visuals" index="1"]
-position = Vector2( 0.0041523, 34.9553 )
-
 [node name="AimIndicator" parent="Visuals" index="2" instance=ExtResource( 3 )]
 visible = false
 position = Vector2( -0.386523, 15.9241 )
 offset = Vector2( 27.6019, 0.208817 )
 
+[node name="Shadow" parent="Visuals" index="3"]
+position = Vector2( 0.0041523, 34.9553 )
+
 [connection signal="timeout" from="AIBehaviour/CanBash" to="." method="_on_CanBash_timeout"]
 [connection signal="timeout" from="AIBehaviour/CanJump" to="." method="_on_CanJump_timeout"]
+[connection signal="timeout" from="AIBehaviour/Thinking" to="." method="_on_Thinking_timeout"]

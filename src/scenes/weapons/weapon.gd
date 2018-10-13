@@ -1,7 +1,9 @@
 extends Node2D
 
 export (Vector2) var holster_offset = Vector2(52,0)
+export (int) var weapon_attack_speed = 300 
 export (float) var hit_range = 50
+export (AudioStream) var sfx_on_hit;
 
 enum ATTACK_STATE { IDLE, ATTACKING, HOLSTERED }
 
@@ -17,6 +19,8 @@ onready var l_hand_pivot = $Pivot/Area2D/Sprite/L_Hand_Pivot
 onready var knockback_tween = $KnockbackTween
 onready var cooldown_timer = $Timer
 onready var hitbox = $Pivot/Area2D/Hitbox
+onready var wep_sfx_pl = $WeaponSFX
+onready var onhit_sfx_pl = $OnHitSFX
 
 signal combo(point)
 signal lost_combo(point)
@@ -83,7 +87,7 @@ func _action_ult_attack():
     pass
 
 func attack():
-    var atk_bonus = clamp(data.attack_speed-holder.stats.get_stat(STAT.ATK_SPEED), ATK_FASTEST, 99999)/1000.0
+    var atk_bonus = clamp(weapon_attack_speed-holder.stats.get_stat(STAT.ATK_SPEED), ATK_FASTEST, 99999)/1000.0
     anim_player.playback_speed = 1/atk_bonus
     _interuppted = false
     if not _is_loaded: return false
@@ -111,6 +115,7 @@ func is_hitable(body):
     && !_interuppted
 
 func _on_body_entered_root(area):
+    if holder.dead: return
     if _attack_state != ATTACKING: return
     var body = area.owner
     if not is_hitable(body): return
@@ -119,9 +124,13 @@ func _on_body_entered_root(area):
 
 func _on_body_entered(body, count_for_combo=true):
     _target = body
-    var tar = _target.damage(data.damage+holder.stats.get_stat(STAT.POWER), self)
+    var damage = data.damage+holder.stats.get_stat(STAT.POWER)
+    var do_crit = false
+    if _combo_sequence == COMBO_MAX_POINTS:
+        damage += data.damage
+        do_crit = true
+    var tar = _target.damage(damage, self, false, false, do_crit)
     if holder == utils.get_player():
-        #utils.freeze_time(0.028)
         if data.damage > 0:
             holder.camera.shake(0.30, 50, 3)
     if _target != utils.get_player():
@@ -134,6 +143,7 @@ func _on_body_entered(body, count_for_combo=true):
                 emit_signal("combo", _combo_sequence)
         elif len(_current_hit_targets) <= 1:
             reset_combo()
+    utils.play_sound(sfx_on_hit, onhit_sfx_pl)
 
 func reset_combo():
     $ComboTimer.stop()

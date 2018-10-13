@@ -14,7 +14,6 @@ func load():
 	$Title.set_text(level.level_name)
 	show()
 	utils.lock_player(true)
-	print(level.current_wave)
 	$AnimationPlayer.play("screen_open")
 
 func get_level():

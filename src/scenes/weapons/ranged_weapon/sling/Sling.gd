@@ -10,6 +10,7 @@ var swing_state = UP
 
 func _action_attack():
     apply_slow()
+    utils.play_sound(sfx_fire, wep_sfx_pl)
     _swing_sling()
 
 func _action_ult_attack():

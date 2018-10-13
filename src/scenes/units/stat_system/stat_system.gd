@@ -37,6 +37,7 @@ func _ready():
 
 func _process(d):
     for i in range(0, len(_effects)):
+        if i > len(_effects) - 1: continue
         var effect = _effects[i]
         if effect == null: continue
         effect.update(d, owner)

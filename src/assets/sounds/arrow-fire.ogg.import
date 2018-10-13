@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/arrow-fire.ogg-c1d39b37ced622969e7d41d4c85a2040.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/arrow-fire.ogg"
+dest_files=[ "res://.import/arrow-fire.ogg-c1d39b37ced622969e7d41d4c85a2040.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

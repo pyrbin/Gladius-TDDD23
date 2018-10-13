@@ -45,6 +45,7 @@ func set_inventory(array):
         container.set(d, array[d])
 
 func interact():
+    .interact()
     var c = 0
     for i in range(0, container.size()):
         if container.get(i) == null: continue

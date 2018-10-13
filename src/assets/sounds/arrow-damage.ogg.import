@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/arrow-damage.ogg-1dca77d7d99ff7802197bc7f39744eff.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/arrow-damage.ogg"
+dest_files=[ "res://.import/arrow-damage.ogg-1dca77d7d99ff7802197bc7f39744eff.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

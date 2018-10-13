@@ -3,6 +3,9 @@ extends Node
 func get_player():
     return get_tree().get_nodes_in_group("Player")[0]
 
+func singleton(name):
+    return get_tree().get_nodes_in_group(name)[0]
+
 func scene_changer():
     return get_tree().get_nodes_in_group("SceneChanger")[0]
 
@@ -35,6 +38,10 @@ static func disable_bit(mask, index):
 
 static func rng_chance(percent):
     return (randi()%100+1) <= percent
+
+static func play_sound(sound, player):
+    player.stream = sound;
+    player.play()
 
 static func deep_copy(v):
     var t = typeof(v)

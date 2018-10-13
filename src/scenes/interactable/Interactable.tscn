@@ -56,7 +56,19 @@ _sections_unfolded = [ "Collision", "Transform" ]
 interactable_name = ""
 action_string = "Interact with"
 object_string = ""
+sfx_interact = null
 disabled = false
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = null
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+stream_paused = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("..")

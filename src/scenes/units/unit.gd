@@ -9,6 +9,7 @@ signal attacking
 signal used_special(special)
 signal combo(point)
 signal lost_combo(point)
+signal weapon_equipped(weapon)
 
 const Equippable = preload("res://data/equippable.gd")
 
@@ -25,6 +26,9 @@ export (Array, int, "DEFAULT", "HELM", "CHEST", "LEGS", "WEAPON", "SPECIAL") var
 export (Array, int) var equipped_items = []
 export (Array, int) var equipped_weapons = []
 export (int, FLAGS, "Neutral", "Player", "Enemy", "Bosses") var weapon_collision 
+export (AudioStream) var sfx_bash
+export (AudioStream) var sfx_bashed
+export (AudioStream) var sfx_hurt
 
 # visuals
 onready var body = $Visuals/Pivot/Container/Body
@@ -139,32 +143,35 @@ func charge(force, speed, direction = get_aim_direction()):
 
 func bash():
     if bashing || not bash_timer.is_stopped(): return
-    charge(600, 0.2)
+    utils.play_sound(sfx_bash, $VoicePlayer)
+    charge(700, 0.15)
     iframe = true
     bashing = true
     sprite_player.play("iframe")
-    yield(utils.timer(0.05), 'timeout')
     for unit in $Hitbox.get_overlapping_bodies():
         if unit != self:
             _on_Hitbox_body_entered(unit)
             return
-    yield(utils.timer(0.3), 'timeout')
+    yield(utils.timer(0.2), 'timeout')
     _reset_bash()
     
 func bashed(basher, direction):
+    if basher == utils.get_player():
+        utils.get_player().camera.shake(0.30, 50, 3)
+    charge(-800, 0.15, direction)
     if !weapon.is_ready() && !weapon.is_holstered():
         weapon.interuppt()
         var action = gb_CombatText.HitInfo.ACTION.BLOCK
         var type = gb_CombatText.HitInfo.TYPE.NORMAL
         var hit_info = gb_CombatText.HitInfo.new(0, basher, self, type, action)
         gb_CombatText.popup(hit_info, global_position)
-    if basher == utils.get_player():
-        utils.get_player().camera.shake(0.30, 50, 3)
-    charge(-400, 0.2, direction)
+        utils.play_sound(sfx_bashed, $VoicePlayer)
+    else:
+        utils.play_sound(sfx_hurt, $VoicePlayer)
     stagger(basher)
     
 func is_in_bash(target):
-    return target.global_position.distance_to(global_position) < 80
+    return target.global_position.distance_to(global_position) < 100
 
 func _reset_bash():
     $Tween.stop_all()
@@ -185,30 +192,22 @@ func stagger(actor):
     #sprite_player.play("stagger")
     emit_signal("staggered", actor)
 
-func soft_damage(amount, actor):
-    damage(amount, actor, true, true)
+func soft_damage(amount, actor, crit=false):
+    damage(amount, actor, true, true, crit)
     
-func damage(amount, actor, unblockable=false, soft_attack=false):
+func damage(amount, actor, unblockable=false, soft_attack=false, crit=false):
     if dead || invunerable: return false
     if iframe && not soft_attack: return false
     var hit_info = null
     var action = null
     var type = null
-    """
-        action = gb_CombatText.HitInfo.ACTION.BLOCK
-        type = gb_CombatText.HitInfo.TYPE.NORMAL
-        hit_info = gb_CombatText.HitInfo.new(amount, actor, self, type, action)
-        gb_CombatText.popup(hit_info, global_position)
-        sprite_player.play("blocked")
-        _unblock()
-        return false
-    """
     status.damage(amount)
     emit_signal("took_damage", amount, actor, soft_attack)
     action = gb_CombatText.HitInfo.ACTION.HEAL if amount <= 0 else gb_CombatText.HitInfo.ACTION.DAMAGE
-    type = gb_CombatText.HitInfo.TYPE.NORMAL
+    type = gb_CombatText.HitInfo.TYPE.NORMAL if not crit else gb_CombatText.HitInfo.TYPE.CRIT
     hit_info = gb_CombatText.HitInfo.new(amount, actor, self, type, action)
     gb_CombatText.popup(hit_info, global_position)
+    utils.play_sound(sfx_hurt, $VoicePlayer)
     return true
 
 func fatigue(amount, actor, unblockable=false):
@@ -310,6 +309,7 @@ func equip_weapon(wep_data):
         holster_timer.start()
     weapon.connect("combo", self, "_on_wep_combo")
     weapon.connect("lost_combo", self, "_on_wep_lost_combo")
+    emit_signal("weapon_equipped", weapon)
 
 func _on_wep_combo(point):
     emit_signal("combo", point)
@@ -436,6 +436,10 @@ func set_dead(value):
     dead = value
     $Hitbox/CollisionShape2D.disabled = dead
     stats.clear_effects()
+
+func has_ranged_wep():
+    if not weapon: return false
+    return weapon.data.weapon_type == 2
 
 func get_aim_position():
     return Vector2()

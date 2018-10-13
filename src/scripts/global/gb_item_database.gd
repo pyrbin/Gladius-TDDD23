@@ -28,7 +28,6 @@ func _ready():
                 it["WEAPON_TYPE"],
                 it["MODEL"],
                 it["DAMAGE"],
-                it["ATTACK_SPEED"],
                 it["COOLDOWN"],
                 it["AMMO"] if it.has("AMMO") else null
             )
