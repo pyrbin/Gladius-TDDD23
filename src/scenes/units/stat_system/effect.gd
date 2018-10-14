@@ -11,6 +11,8 @@ var _last_tick = 0
 var _last_second = 0
 var _start_duration
 var _one_time = false
+var _first_tick = false
+var _refreshed = false
 
 func _init(p_identifier, p_affected, p_modifiers, p_duration=null, p_interval=null):
     identifier = p_identifier
@@ -41,11 +43,17 @@ func get_duration():
     return _start_duration
 
 func update(delta, affected):
+
+    if not _first_tick && not _one_time && _interval:
+        _first_tick = true
+        _trigger()
+        
     if not _interval && _one_time:
         _trigger()
         _one_time = false
         if not _duration || _duration == 0:
             to_expire = true
+
     if to_expire: return
     _affected = affected
     _elapsed_time += delta
@@ -65,7 +73,9 @@ func _trigger():
             _affected.fatigue(modifier.value, null, true)
         elif not _one_time:
             modifier.value += _start_values[i]
+
 func refresh():
+    _refreshed = true
     if not _duration: return
     if _duration - _last_second != _start_duration:
         _duration = _start_duration + _last_second

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/tilesets/tileset_level1.png" type="Texture" id=1]
 
@@ -7,56 +7,21 @@
 custom_solver_bias = 0.0
 extents = Vector2( 23.8091, 23.8882 )
 
-[sub_resource type="NavigationPolygon" id=11]
+[sub_resource type="NavigationPolygon" id=2]
 
 vertices = PoolVector2Array( -23.9683, -23.985, 23.9667, -23.985, 23.8382, 24.0785, -24.0968, 23.95 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 outlines = [ PoolVector2Array( -23.9683, -23.985, 23.9667, -23.985, 23.8382, 24.0785, -24.0968, 23.95 ) ]
 
-[sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
-extents = Vector2( 24.0902, 24.1486 )
-
 [sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
-extents = Vector2( 24.1484, 17.2073 )
+extents = Vector2( 24.1261, 26.5703 )
 
 [sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
-extents = Vector2( 24.3998, 17.1209 )
-
-[sub_resource type="RectangleShape2D" id=5]
-
-custom_solver_bias = 0.0
-extents = Vector2( 24.0506, 17.7345 )
-
-[sub_resource type="RectangleShape2D" id=6]
-
-custom_solver_bias = 0.0
-extents = Vector2( 6.01768, 24.4749 )
-
-[sub_resource type="RectangleShape2D" id=7]
-
-custom_solver_bias = 0.0
-extents = Vector2( 6.19505, 24.3303 )
-
-[sub_resource type="RectangleShape2D" id=8]
-
-custom_solver_bias = 0.0
-extents = Vector2( 6.06903, 23.9665 )
-
-[sub_resource type="RectangleShape2D" id=9]
-
-custom_solver_bias = 0.0
-extents = Vector2( 6.00111, 17.0316 )
-
-[sub_resource type="RectangleShape2D" id=10]
-
-custom_solver_bias = 0.0
-extents = Vector2( 6.12921, 17.1767 )
+extents = Vector2( 24.0902, 24.1486 )
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 31.6989, 17.5563 )
@@ -83,6 +48,7 @@ region_rect = Rect2( 96, 0, 48, 48 )
 _sections_unfolded = [ "Region" ]
 
 [node name="floor4" type="Sprite" parent="."]
+editor/display_folded = true
 position = Vector2( 38.3011, -47.5563 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -101,18 +67,51 @@ physics_material_override = null
 shape = SubResource( 1 )
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="floor4/StaticBody2D"]
-navpoly = SubResource( 11 )
+navpoly = SubResource( 2 )
+enabled = true
+
+[node name="boundary" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 118.301, -57.5563 )
+region_enabled = true
+region_rect = Rect2( 144, 0, 48, 48 )
+_sections_unfolded = [ "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="boundary"]
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+physics_material_override = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boundary/StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="boundary/StaticBody2D"]
+navpoly = SubResource( 2 )
 enabled = true
 
 [node name="floor5" type="Sprite" parent="."]
+editor/display_folded = true
 position = Vector2( -105.825, 39.014 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 192, 0, 48, 48 )
 _sections_unfolded = [ "Region" ]
 
+[node name="StaticBody2D" type="StaticBody2D" parent="floor5"]
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+physics_material_override = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor5/StaticBody2D"]
+shape = SubResource( 3 )
+
 [node name="wall" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 174.588, 4.87676 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -128,87 +127,35 @@ constant_angular_velocity = 0.0
 physics_material_override = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wall/StaticBody2D"]
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 
 [node name="wall2" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( -106.801, -27.7974 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 288, 0, 48, 48 )
 _sections_unfolded = [ "Region" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="wall2"]
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-physics_material_override = null
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wall2/StaticBody2D"]
-position = Vector2( 0, 6.95893 )
-shape = SubResource( 3 )
-
 [node name="wall3" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 250.177, -68.7621 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 48, 48, 48 )
 _sections_unfolded = [ "Region" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="wall3"]
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-physics_material_override = null
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wall3/StaticBody2D"]
-position = Vector2( 0.135254, 6.89907 )
-shape = SubResource( 4 )
-
 [node name="wall4" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( -46.8168, 94.6089 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 48, 48, 48, 48 )
 _sections_unfolded = [ "Region" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="wall4"]
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-physics_material_override = null
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wall4/StaticBody2D"]
-position = Vector2( 0, 7.40458 )
-shape = SubResource( 5 )
-
 [node name="wall5" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 181.903, 115.091 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 96, 48, 48, 48 )
 _sections_unfolded = [ "Region" ]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="wall5"]
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-physics_material_override = null
-
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="wall5/StaticBody2D"]
-build_mode = 0
-polygon = PoolVector2Array( 11.8886, -23.9922, 23.9099, -23.9922, 23.9952, -1.99571, -24.0048, -1.73994, -24.0048, -9.92467, 11.8886, -10.0099 )
 
 [node name="wall6" type="Sprite" parent="."]
 position = Vector2( 23.8961, 101.924 )
@@ -217,38 +164,12 @@ region_enabled = true
 region_rect = Rect2( 144, 48, 48, 48 )
 _sections_unfolded = [ "Region" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="wall6"]
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-physics_material_override = null
-
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="wall6/StaticBody2D"]
-position = Vector2( 1.89335, -5.67216 )
-build_mode = 0
-polygon = PoolVector2Array( -25.8884, -18.3115, -13.938, -18.3421, -13.8118, -4.31207, 21.9329, -4.23897, 21.8871, 4.19101, -26.0082, 4.00207 )
-_sections_unfolded = [ "shape" ]
-
 [node name="wall7" type="Sprite" parent="."]
 position = Vector2( 30.7235, 16.0933 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 192, 48, 48, 48 )
 _sections_unfolded = [ "Region" ]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="wall7"]
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-physics_material_override = null
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wall7/StaticBody2D"]
-position = Vector2( 18.0069, 0.174828 )
-shape = SubResource( 6 )
 
 [node name="wall8" type="Sprite" parent="."]
 position = Vector2( -24.4701, 3.18571 )
@@ -257,36 +178,12 @@ region_enabled = true
 region_rect = Rect2( 240, 48, 48, 48 )
 _sections_unfolded = [ "Region" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="wall8"]
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-physics_material_override = null
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wall8/StaticBody2D"]
-position = Vector2( -18.0688, -0.122086 )
-shape = SubResource( 7 )
-
 [node name="wall9" type="Sprite" parent="."]
 position = Vector2( 0.561554, 9.78088 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 288, 48, 48, 48 )
 _sections_unfolded = [ "Region" ]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="wall9"]
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-physics_material_override = null
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wall9/StaticBody2D"]
-position = Vector2( -17.9467, 0.122087 )
-shape = SubResource( 8 )
 
 [node name="wall10" type="Sprite" parent="."]
 position = Vector2( -46.5711, 5.32796 )
@@ -295,34 +192,10 @@ region_enabled = true
 region_rect = Rect2( 336, 48, 48, 48 )
 _sections_unfolded = [ "Region" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="wall10"]
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-physics_material_override = null
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wall10/StaticBody2D"]
-position = Vector2( -17.9438, 7.04074 )
-shape = SubResource( 9 )
-
 [node name="wall11" type="Sprite" parent="."]
 position = Vector2( 96.0719, 56.0826 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 336, 48, 48, 48 )
 _sections_unfolded = [ "Region" ]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="wall11"]
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-physics_material_override = null
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wall11/StaticBody2D"]
-position = Vector2( -17.9772, 7.07491 )
-shape = SubResource( 10 )
 

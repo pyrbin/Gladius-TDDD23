@@ -536,9 +536,9 @@ tracks/5/keys = {
 }
 
 [node name="Unit" type="KinematicBody2D" groups=[
+"Hitable",
 "Units",
 "Z_Index",
-"Hitable",
 ]]
 position = Vector2( 0.868469, -0.523365 )
 rotation = -0.000760796
@@ -637,7 +637,6 @@ z_as_relative = false
 _sections_unfolded = [ "Z Index" ]
 
 [node name="Visuals" type="Position2D" parent="."]
-editor/display_folded = true
 position = Vector2( -0.477157, -35.5066 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 

@@ -103,7 +103,7 @@
         "WEAPON_TYPE": 0,
         "MODEL" : "swing_weapon/shortsword/Shortsword.tscn",
         "DAMAGE" : 2,
-        "COOLDOWN" : 0.6
+        "COOLDOWN" : 2
     },
     "4006": {
         "NAME": "Wooden Spear",

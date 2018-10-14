@@ -46,8 +46,8 @@ func _ready():
     hitbox.disabled = true
 
 func _physics_process(d):
-    if knockback_tween.is_active() && _target:
-        _target.velocity = _knockback_force
+    if knockback_tween.is_active() && _target && _target.has_method("set_velocity"):
+        _target.set_velocity(_knockback_force);
 
 func see_target(target):
     return target.global_position.distance_to(global_position) < hit_range
@@ -87,7 +87,11 @@ func _action_ult_attack():
     pass
 
 func attack():
-    var atk_bonus = clamp(weapon_attack_speed-holder.stats.get_stat(STAT.ATK_SPEED), ATK_FASTEST, 99999)/1000.0
+    var atk_bonus;
+    if holder.get("stats"):
+        atk_bonus = clamp(weapon_attack_speed-holder.stats.get_stat(STAT.ATK_SPEED), ATK_FASTEST, 99999)/1000.0
+    else:
+        atk_bonus = clamp(weapon_attack_speed, ATK_FASTEST, 99999)/1000.0
     anim_player.playback_speed = 1/atk_bonus
     _interuppted = false
     if not _is_loaded: return false
@@ -124,7 +128,9 @@ func _on_body_entered_root(area):
 
 func _on_body_entered(body, count_for_combo=true):
     _target = body
-    var damage = data.damage+holder.stats.get_stat(STAT.POWER)
+    var damage = data.damage
+    if holder.get("stats"):
+        damage += holder.stats.get_stat(STAT.POWER)
     var do_crit = false
     if _combo_sequence == COMBO_MAX_POINTS:
         damage += data.damage
@@ -143,7 +149,10 @@ func _on_body_entered(body, count_for_combo=true):
                 emit_signal("combo", _combo_sequence)
         elif len(_current_hit_targets) <= 1:
             reset_combo()
-    utils.play_sound(sfx_on_hit, onhit_sfx_pl)
+    if _target.has_method("on_hit"):
+        _target.on_hit(onhit_sfx_pl);
+    else: 
+        utils.play_sound(sfx_on_hit, onhit_sfx_pl)
 
 func reset_combo():
     $ComboTimer.stop()

@@ -1,7 +1,47 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/interface/wave_manager/wave_manager_controller.gd" type="Script" id=1]
-[ext_resource path="res://assets/fonts/pixel_large.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/fonts/ExpressionPro.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/fonts/pixel_large.tres" type="DynamicFont" id=3]
+
+[sub_resource type="StyleBoxFlat" id=4]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+bg_color = Color( 0.0862745, 0.0862745, 0.0862745, 1 )
+draw_center = true
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.223529, 0.247059, 0.298039, 1 )
+border_blend = false
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+corner_detail = 8
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+shadow_color = Color( 0, 0, 0, 0.6 )
+shadow_size = 0
+anti_aliasing = true
+anti_aliasing_size = 1
+_sections_unfolded = [ "Border", "Shadow" ]
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 32
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Settings" ]
 
 [sub_resource type="Animation" id=1]
 
@@ -142,8 +182,8 @@ anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
 anchor_bottom = 0.0
-margin_left = -683.0
-margin_right = 683.0
+margin_left = -682.0
+margin_right = 684.0
 margin_bottom = 768.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -152,17 +192,35 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
+_sections_unfolded = [ "Rect" ]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-editor/display_folded = true
+[node name="Panel" type="Panel" parent="."]
 anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
 anchor_bottom = 0.0
-margin_left = -684.0
-margin_top = 25.0
-margin_right = 683.0
-margin_bottom = 687.0
+margin_left = -109.0
+margin_top = 33.0
+margin_right = 110.0
+margin_bottom = 83.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/panel = SubResource( 4 )
+_sections_unfolded = [ "custom_styles", "custom_styles/panel", "custom_styles/panelf" ]
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -76.0
+margin_top = -14.0
+margin_right = 74.0
+margin_bottom = 14.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -171,52 +229,51 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 
-[node name="WaveLabel" type="Label" parent="VBoxContainer"]
+[node name="WaveLevel2" type="Label" parent="Panel/VBoxContainer"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1367.0
-margin_bottom = 42.0
+margin_right = 80.0
+margin_bottom = 28.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 2 )
-text = "Wave "
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.223529, 0.247059, 0.298039, 1 )
+text = "WAVE: "
 align = 1
 valign = 1
-uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts", "custom_fonts/font" ]
 
-[node name="WaveLevel" type="Label" parent="VBoxContainer"]
+[node name="WaveLevel" type="Label" parent="Panel/VBoxContainer"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 46.0
-margin_right = 1367.0
-margin_bottom = 133.0
+margin_left = 84.0
+margin_right = 122.0
+margin_bottom = 28.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 2 )
-text = "1/5
-"
+custom_fonts/font = SubResource( 3 )
+text = "1/5"
 align = 1
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts" ]
+_sections_unfolded = [ "Rect", "custom_fonts", "custom_fonts/font" ]
 
 [node name="NinePatchRect" type="ColorRect" parent="."]
 anchor_left = 0.0
@@ -250,7 +307,6 @@ blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
 [node name="Title" type="Label" parent="."]
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -263,7 +319,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Level Completed"
 align = 1
 valign = 1

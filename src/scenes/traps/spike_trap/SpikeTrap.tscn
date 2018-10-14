@@ -29,6 +29,8 @@ tracks/0/keys = {
 
 [node name="SpikeTrap" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+impact_damage = 3
+dot_damage = 1
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 3 )

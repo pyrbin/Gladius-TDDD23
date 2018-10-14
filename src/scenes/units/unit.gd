@@ -149,6 +149,7 @@ func bash():
     bashing = true
     sprite_player.play("iframe")
     for unit in $Hitbox.get_overlapping_bodies():
+        print(unit)
         if unit != self:
             _on_Hitbox_body_entered(unit)
             return
@@ -158,8 +159,8 @@ func bash():
 func bashed(basher, direction):
     if basher == utils.get_player():
         utils.get_player().camera.shake(0.30, 50, 3)
-    charge(-800, 0.15, direction)
-    if !weapon.is_ready() && !weapon.is_holstered():
+    if !weapon.is_idle() && !weapon.is_holstered():
+        charge(-800, 0.15, direction)
         weapon.interuppt()
         var action = gb_CombatText.HitInfo.ACTION.BLOCK
         var type = gb_CombatText.HitInfo.TYPE.NORMAL
@@ -168,6 +169,7 @@ func bashed(basher, direction):
         utils.play_sound(sfx_bashed, $VoicePlayer)
     else:
         utils.play_sound(sfx_hurt, $VoicePlayer)
+    charge(-400, 0.15, direction)
     stagger(basher)
     
 func is_in_bash(target):
@@ -184,7 +186,7 @@ func _reset_bash():
     bash_timer.start()
 
 func _on_Hitbox_body_entered(body):
-    if bashing && body.has_method("bashed") && not body.iframe:
+    if bashing && body.has_method("bashed") && not body.has_iframe():
         body.bashed(self, -get_aim_direction())
         _reset_bash()
 
@@ -207,7 +209,8 @@ func damage(amount, actor, unblockable=false, soft_attack=false, crit=false):
     type = gb_CombatText.HitInfo.TYPE.NORMAL if not crit else gb_CombatText.HitInfo.TYPE.CRIT
     hit_info = gb_CombatText.HitInfo.new(amount, actor, self, type, action)
     gb_CombatText.popup(hit_info, global_position)
-    utils.play_sound(sfx_hurt, $VoicePlayer)
+    if amount >= 0:
+        utils.play_sound(sfx_hurt, $VoicePlayer)
     return true
 
 func fatigue(amount, actor, unblockable=false):
@@ -217,6 +220,9 @@ func fatigue(amount, actor, unblockable=false):
 func add_to_body(child):
     $Visuals/Pivot/Container.add_child(child)
     
+func set_velocity(value):
+    velocity = value
+
 func has_iframe():
     return iframe
 

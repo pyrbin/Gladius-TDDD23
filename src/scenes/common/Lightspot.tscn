@@ -5,6 +5,7 @@
 [node name="Light2D" type="Light2D"]
 position = Vector2( -165.262, -120.565 )
 scale = Vector2( 1.44682, 1.44682 )
+z_as_relative = false
 enabled = true
 editor_only = false
 texture = ExtResource( 1 )
@@ -26,5 +27,5 @@ shadow_gradient_length = 0.0
 shadow_filter = 0
 shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
-_sections_unfolded = [ "texture" ]
+_sections_unfolded = [ "Z Index", "texture" ]
 

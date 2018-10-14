@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/objects/Obstacle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sounds/wood_hit.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/sounds/wood_destroy.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/small_fence.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32.9142, 7.24646 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32.9501, 22.485 )
+
+[node name="SmallFence" instance=ExtResource( 1 )]
+sfx_onhit = ExtResource( 2 )
+sfx_destroy = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2( 0.327851, -7.8985 )
+shape = SubResource( 1 )
+
+[node name="Area2D" parent="Pivot" index="0"]
+editor/display_folded = false
+collision_layer = 0
+_sections_unfolded = [ "Audio Bus", "Collision" ]
+
+[node name="CollisionShape2D" parent="Pivot/Area2D" index="0"]
+shape = SubResource( 2 )
+
+[node name="Sprite" parent="Pivot" index="1"]
+texture = ExtResource( 4 )
+

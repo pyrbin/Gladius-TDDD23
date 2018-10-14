@@ -47,7 +47,7 @@ func _on_Projectile_area_entered(area):
     if not fly: return
     var body = area.owner
     if body == owner: return
-    if not body.is_in_group(HITABLE_GROUP_NAME) || body.iframe: return
+    if not body.is_in_group(HITABLE_GROUP_NAME) || body.has_iframe(): return
     #   if body.has_method("add_to_body"):
     #       root_projs.remove_child(self)
     #       body.add_to_body(self)

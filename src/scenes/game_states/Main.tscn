@@ -13,7 +13,7 @@ script = ExtResource( 1 )
 "MainAudio",
 ]]
 stream = ExtResource( 2 )
-volume_db = -1.0
+volume_db = -80.0
 pitch_scale = 1.0
 autoplay = false
 stream_paused = false

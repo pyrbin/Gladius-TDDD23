@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/wood_destroy.ogg-c5563dcd945fda257777cb868615f9db.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/wood_destroy.ogg"
+dest_files=[ "res://.import/wood_destroy.ogg-c5563dcd945fda257777cb868615f9db.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -14,11 +14,12 @@ func trigger(unit):
     if !unit.has_method("damage"): return
     var hit = unit.damage(impact_damage, self, true);
     if not hit: return
+    _targets.remove(_targets.find(unit))
+    yield(utils.timer(0.5), "timeout")
     unit.stats.add_effect(\
     Effect.new("Trap Bleed", unit, \
         Modifier.new(STAT.HEALTH, STAT.VALUE, dot_damage),\
-     5, 1))
-    _targets.remove(_targets.find(unit))
+     4, 1))
 
 func _on_Downtime_timeout():
     activated = true

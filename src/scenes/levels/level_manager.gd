@@ -12,6 +12,7 @@ export (NodePath) onready var player_spawn_point = get_node(player_spawn_point)
 export (NodePath) onready var chest_spawn_point = get_node(chest_spawn_point)
 export (NodePath) onready var gate_node = get_node(gate_node)  
 export (NodePath) onready var banner_node = get_node(banner_node)
+export (AudioStream) var sfx_spawn
 
 export (Array, int) onready var armor_helm_pool
 export (Array, int) onready var armor_chest_pool
@@ -67,8 +68,10 @@ func _process(d):
 			next_wave()	
 
 func next_wave():
-	current_wave+=1
 	current_enemy_wave.clear()
+	yield(utils.timer(2), "timeout")
+	utils.play_sound(sfx_spawn, $AudioPlayer)
+	current_wave+=1
 	spawn()
 
 func end_level():

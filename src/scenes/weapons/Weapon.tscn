@@ -15,7 +15,7 @@ sfx_on_hit = ExtResource( 2 )
 
 [node name="WeaponSFX" type="AudioStreamPlayer2D" parent="."]
 stream = null
-volume_db = 0.0
+volume_db = 4.0
 pitch_scale = 1.0
 autoplay = false
 stream_paused = false
@@ -26,7 +26,7 @@ area_mask = 1
 
 [node name="OnHitSFX" type="AudioStreamPlayer2D" parent="."]
 stream = null
-volume_db = 8.089
+volume_db = 8.0
 pitch_scale = 1.0
 autoplay = false
 stream_paused = false

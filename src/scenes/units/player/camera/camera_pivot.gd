@@ -6,5 +6,5 @@ func _ready():
 	pass
 
 func _process(delta):
-	var pos = (get_global_mouse_position() + player.global_position)/3
-	global_position = pos
+	var pos = (get_global_mouse_position() + player.global_position)
+	global_position = player.global_position

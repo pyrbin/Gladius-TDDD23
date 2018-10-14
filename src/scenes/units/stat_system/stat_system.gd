@@ -48,6 +48,7 @@ func _process(d):
 
 func add_effect(p_effect):
     var found = null
+    var size = 0
     var first_empty = -1
     for i in range(0, _effects.size()):
         var effect = _effects[i]
@@ -57,9 +58,11 @@ func add_effect(p_effect):
             continue
         if effect.compare(p_effect):
             found = effect
+        size += 1
     if found != null:
         found.refresh()
     elif first_empty != -1:
+        print("NEW")
         _effects[first_empty] = p_effect
     emit_signal("effect_applied", p_effect)
 

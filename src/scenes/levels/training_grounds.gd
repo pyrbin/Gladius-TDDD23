@@ -32,3 +32,7 @@ func get_weapon_by_level():
 	if current_wave >= 13 && current_wave <= 15:
 		weapon = 4004
 	return [weapon, 0]
+
+func _on_GateEnter_interact():
+	utils.get_player().global_position = $Arena_Spawn.global_position
+	player_spawn_point.global_position = $Player_Spawn_End.global_position

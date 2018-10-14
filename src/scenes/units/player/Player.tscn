@@ -9,7 +9,7 @@
 [ext_resource path="res://scenes/interface/world_ui_player/WeaponCooldownTracker.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/interface/world_life_bar_grn_fill.png" type="Texture" id=8]
 
-[node name="Player" index="0" groups=[
+[node name="Player" groups=[
 "Player",
 ] instance=ExtResource( 1 )]
 position = Vector2( -5.96046e-008, 5.96046e-008 )
@@ -43,7 +43,6 @@ position = Vector2( 0.015216, -20 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index", "shape" ]
 
 [node name="CameraPivot" type="Position2D" parent="." index="6"]
-editor/display_folded = true
 script = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
