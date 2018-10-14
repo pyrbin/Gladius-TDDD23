@@ -64,7 +64,7 @@ func add_effect(p_effect):
     elif first_empty != -1:
         _effects[first_empty] = p_effect
     emit_signal("effect_applied", p_effect)
-
+    return found != null
 
 func add_effect_fac(p_name, p_stat, p_val, p_mod=STAT.VALUE, p_duration=null, p_interval=null):
     add_effect(Effect.new(p_name, owner, Modifier.new(p_stat, p_mod, p_val), p_duration, p_interval))
@@ -119,6 +119,15 @@ func get_effects():
         if efx == null: continue
         tmp.append(efx)
     return tmp    
+
+func has_effect(p_effect):
+    for i in range(0, _effects.size()):
+        var effect = _effects[i]
+        if effect == null: continue
+        if effect.compare(p_effect):
+            return true
+    return false
+
 
 func clear_effects():
     _effects.clear()

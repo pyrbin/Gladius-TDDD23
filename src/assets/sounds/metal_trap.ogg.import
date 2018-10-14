@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/metal_trap.ogg-56f61b28ecbe2abf8a7de34f5b5bf355.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/metal_trap.ogg"
+dest_files=[ "res://.import/metal_trap.ogg-56f61b28ecbe2abf8a7de34f5b5bf355.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

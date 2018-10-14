@@ -14,8 +14,8 @@ custom_solver_bias = 0.0
 extents = Vector2( 15.529, 36.804 )
 
 [node name="Obstacle" type="KinematicBody2D" groups=[
-"Hitable",
 "Z_Index",
+"Hitable",
 "Obstacles",
 ]]
 position = Vector2( 3.7655, 921.318 )
@@ -65,7 +65,7 @@ blend_times = [  ]
 
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = null
-volume_db = 8.0
+volume_db = -20.0
 pitch_scale = 1.0
 autoplay = false
 stream_paused = false

@@ -36,5 +36,38 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 blend_times = [  ]
 
+[node name="IdlePlayer" type="AudioStreamPlayer2D" parent="."]
+stream = null
+volume_db = -15.0
+pitch_scale = 1.0
+autoplay = false
+stream_paused = false
+max_distance = 400.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="TriggerPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = null
+volume_db = -15.0
+pitch_scale = 1.0
+autoplay = false
+stream_paused = false
+max_distance = 400.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="OnHitPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = null
+volume_db = -15.0
+pitch_scale = 1.0
+autoplay = false
+stream_paused = false
+max_distance = 400.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
 [connection signal="body_entered" from="." to="." method="_on_Trap_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Trap_body_exited"]

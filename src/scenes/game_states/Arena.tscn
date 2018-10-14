@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/game_states/level_loader.gd" type="Script" id=1]
 [ext_resource path="res://scenes/levels/TrainingGrounds.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/levels/Arena2.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/interactable/lootable/chests/Chest.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/units/player/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/interface/Interface.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/units/player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/interface/Interface.tscn" type="PackedScene" id=5]
 
 [node name="Root" type="Node"]
 
@@ -40,18 +39,7 @@ _sections_unfolded = [ "Transform" ]
 "Root_Units",
 ]]
 
-[node name="Chest" parent="Game/World/Actors" instance=ExtResource( 4 )]
-position = Vector2( 259.033, -184.788 )
-rotation = -0.000760796
-_sections_unfolded = [ "Collision", "Transform", "container_items" ]
-interactable_name = "Chest"
-action_string = "Interact with"
-object_string = ""
-sfx_interact = null
-disabled = false
-container_items = [ 4001, 4002, 4003, 4004 ]
-
-[node name="Player" parent="Game/World/Actors" instance=ExtResource( 5 )]
+[node name="Player" parent="Game/World/Actors" instance=ExtResource( 4 )]
 position = Vector2( 0.508621, -174.746 )
 rotation = 0.0
 collision/safe_margin = 0.08
@@ -62,7 +50,6 @@ equipped_weapons = [ 4007, 0 ]
 [node name="GUI" type="CanvasLayer" parent="." groups=[
 "GUI",
 ]]
-editor/display_folded = true
 layer = 128
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -70,5 +57,5 @@ scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 _sections_unfolded = [ "Pause", "Script" ]
 
-[node name="Interface" parent="GUI" instance=ExtResource( 6 )]
+[node name="Interface" parent="GUI" instance=ExtResource( 5 )]
 

@@ -51,6 +51,8 @@ func _setup():
 
 func _process(delta):
     if disable_AI: return
+    if get_player().dead:
+        disable_AI = true
 
     match ai_state:
         SEEK:     logic_seek()
@@ -80,7 +82,7 @@ func logic_combat():
         _send_action("attack")
         last_dir = get_aim_position()
         ai_state = THINKING
-        yield(utils.timer(1.2), "timeout")
+        yield(utils.timer(1.65), "timeout")
         ai_state = SEEK
     if not weapon_in_range():
         yield(utils.timer(0.4), "timeout")
@@ -127,7 +129,7 @@ func to_move():
     return path[0] if path else Vector2()
 
 func get_player():
-    return get_tree().get_nodes_in_group("Player")[0]
+    return utils.get_player()
 
 func get_range():
     return get_weapon_node().hit_range if get_weapon_node() else -99999

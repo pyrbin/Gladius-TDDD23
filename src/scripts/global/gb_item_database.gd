@@ -8,11 +8,20 @@ const Equippable = preload("res://data/equippable.gd")
 const WeaponData = preload("res://data/weapon_data.gd")
 const ItemData = preload("res://data/item_data.gd")
 
-var _url_database_item = "res://data/items.json"
+const DATABASES = [
+    "wooden.json",
+    "iron.json",
+    "potions.json",
+]
+
 var _item_database = {}
 
 func _ready():
-    var db_string = gb_DataParser.load_data(_url_database_item)
+    for collection in DATABASES:
+        _load_from_json(collection)
+  
+func _load_from_json(url):
+    var db_string = gb_DataParser.load_data("res://data/json/"+url)
     for i in db_string:
         var it = db_string[i]
         var int_id = int(i)
@@ -52,7 +61,7 @@ func _ready():
                 it["SPRITE"],
                 it["SLOT"], 
                 it["STATS"]
-            )
+            )   
 
 func has_item(id):
     return _item_database.has(id)

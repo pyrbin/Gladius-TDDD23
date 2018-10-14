@@ -7,30 +7,30 @@ func spawn():
 		var helm = armor_helm_pool[randi()%len(armor_helm_pool)]
 		var chest = armor_chest_pool[randi()%len(armor_chest_pool)]
 		var legs = armor_legs_pool[randi()%len(armor_legs_pool)]
-		var weapon = armor_weapon_pool[randi()%len(armor_weapon_pool)]
 		unit.equip_armor([helm, chest, legs])
 		unit.equip_wep(get_weapon_by_level())
 		unit.position = spawn_point.position + Vector2(i - 100 + (i*10), i)
 		current_enemy_wave.append(unit)
+		unit.connect("dead", self, "_on_unit_killed")
 		yield(utils.timer(0.5), "timeout")
 
 func get_weapon_by_level():
-	var weapon = 4001
+	var weapon = 4100
 	# SWORD
 	if current_wave >= 1 && current_wave <= 3:
-		weapon = 4001
+		weapon = 4100
 	# DAGGER
 	if current_wave >= 4 && current_wave <= 6:
-		weapon = 4003
+		weapon = 4102
 	# SPEAR
 	if current_wave >= 7 && current_wave <= 9:
-		weapon = 4002
+		weapon = 4101
 	# HAMMER
 	if current_wave >= 10 && current_wave <= 12:
-		weapon = 4001
+		weapon = 4103
 	# RANGED
 	if current_wave >= 13 && current_wave <= 15:
-		weapon = 4004
+		weapon = 4104
 	return [weapon, 0]
 
 func _on_GateEnter_interact():

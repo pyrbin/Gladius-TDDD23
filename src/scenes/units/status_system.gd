@@ -21,6 +21,8 @@ var regenerating_endurance = false
 var _max_health_cache = 0
 var _max_endurance_cache = 0
 
+var dead = false
+
 func _ready():
     set_process(true)
     $EnduranceRegen.connect("timeout", self, "_on_regen_endurance")
@@ -31,9 +33,11 @@ func _ready():
 func damage(amount):
     var hp = health
     health = round(clamp(health-amount, 0, get_max_health()))
-    if health == 0:
+    if health == 0 && not dead:
+        dead = true
         emit_signal("on_health_zero")
-    if hp == 0 && health > hp:
+    if hp == 0 && health > hp && dead:
+        dead = false
         emit_signal("on_revive")
 
 func fatigue(amount):

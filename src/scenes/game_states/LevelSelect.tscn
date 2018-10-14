@@ -19,7 +19,7 @@ script = ExtResource( 1 )
 [node name="ArenaProgressView" parent="." instance=ExtResource( 2 )]
 levels = {
 0: "Training Grounds",
-1: "Arena 2",
+1: "Emperor Garden",
 2: "Arena 3",
 3: "Arena 4",
 4: "Arena Boss"

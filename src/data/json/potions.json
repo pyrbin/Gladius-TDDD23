@@ -1,0 +1,23 @@
+{
+    "5001": {
+        "NAME": "Potion of Health",
+        "ICON": "consumable/potion_of_health_icon.png",
+        "TYPE": 1,
+        "SLOT": 5,
+        "DESC": "Potion of health",
+        "SPRITE": "consumable/potion_of_health_icon.png",
+        "STATS": {},
+        "COOLDOWN" : 30,
+        "EFFECTS": {
+            "Health Potion": {
+                "DURATION" : 0,
+                "INTERVAL" : 0,
+                "MODIFIERS": {
+                    "HEALTH": {
+                        "VALUE" : -30
+                    }
+                }
+            }
+        }
+    }
+}

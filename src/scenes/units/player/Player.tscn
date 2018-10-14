@@ -9,7 +9,7 @@
 [ext_resource path="res://scenes/interface/world_ui_player/WeaponCooldownTracker.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/interface/world_life_bar_grn_fill.png" type="Texture" id=8]
 
-[node name="Player" groups=[
+[node name="Player" index="0" groups=[
 "Player",
 ] instance=ExtResource( 1 )]
 position = Vector2( -5.96046e-008, 5.96046e-008 )
@@ -29,9 +29,9 @@ movement_speed = 150.0
 
 [node name="Status" parent="." index="2"]
 status_settings = 6
-health = 50.0
+health = 30.0
 endurance = 30.0
-max_health = 50.0
+max_health = 30.0
 max_endurance = 30.0
 endurance_regen = 2.0
 health_regen = 2.0
@@ -60,7 +60,7 @@ limit_smoothed = false
 drag_margin_h_enabled = false
 drag_margin_v_enabled = false
 smoothing_enabled = true
-smoothing_speed = 50.0
+smoothing_speed = 5.0
 offset_v = 0.0
 offset_h = 0.0
 drag_margin_left = 0.06

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/crowd_small_1.ogg-271a0909dd25f6b30484f48c6344b7aa.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/crowd_small_1.ogg"
+dest_files=[ "res://.import/crowd_small_1.ogg-271a0909dd25f6b30484f48c6344b7aa.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

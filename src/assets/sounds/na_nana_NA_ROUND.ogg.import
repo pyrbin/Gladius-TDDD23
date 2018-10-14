@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/na_nana_NA_ROUND.ogg-7512b3569d9aef6dfd059f6129ae5c8e.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/na_nana_NA_ROUND.ogg"
+dest_files=[ "res://.import/na_nana_NA_ROUND.ogg-7512b3569d9aef6dfd059f6129ae5c8e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -16,7 +16,7 @@ func load():
 	$AnimationPlayer.play("screen_open")
 
 func get_level():
-	var root = get_tree().get_nodes_in_group("Root_Level")[0]
+	var root = utils.singleton("Root_Level")
 	if len(root.get_children()) != 1:
 		return null
 	return root.get_child(0)
@@ -28,11 +28,11 @@ func _process(d):
 
 func end():
 	utils.lock_player(true)
-	$AnimationPlayer.play("wave_complete")
+	$AnimationPlayer.play("screen_close")
 	$Panel.hide()
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "screen_open":
 		utils.lock_player(false)
-	if anim_name == "wave_complete":
+	if anim_name == "screen_close":
 		$AnimationPlayer.play("screen_open")

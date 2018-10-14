@@ -4,7 +4,8 @@ func _ready():
     activated = true
 
 func trigger(unit):
-    unit.stats.add_effect(\
-    Effect.new("Burn", unit, \
-        Modifier.new(STAT.HEALTH, STAT.VALUE, 6),\
-     2, 1))
+    if !unit.has_method("damage"): return
+    var effect = Effect.new("Burn", unit, Modifier.new(STAT.HEALTH, STAT.VALUE, 3), 2, 1)
+    var has_effect = unit.stats.add_effect(effect)
+    if not has_effect:
+        $OnHitPlayer.play()

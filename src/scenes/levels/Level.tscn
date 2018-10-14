@@ -1,17 +1,24 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/levels/level_manager.gd" type="Script" id=1]
-[ext_resource path="res://assets/sounds/bong_dry.ogg" type="AudioStream" id=2]
-[ext_resource path="res://scenes/interactable/gate/Gate.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/interactable/banner/Banner.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/fonts/pixel_small.tres" type="DynamicFont" id=5]
+[ext_resource path="res://assets/sounds/crowd_small_1.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/sounds/crowd_small_2.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/sounds/crowd_small_3.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/sounds/crowd_small_4.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/sounds/na_nana_NA_START.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/sounds/crowd_ambience.ogg" type="AudioStream" id=7]
+[ext_resource path="res://assets/sounds/BIG_CROWD.ogg" type="AudioStream" id=8]
+[ext_resource path="res://scenes/interactable/gate/Gate.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/interactable/banner/Banner.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/fonts/pixel_small.tres" type="DynamicFont" id=11]
+[ext_resource path="res://assets/theme2.ogg" type="AudioStream" id=12]
 
 [node name="Level" type="Node2D" groups=[
 "Level",
 ]]
 position = Vector2( -4.52209, -3.01468 )
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform", "armor_helm_pool" ]
+_sections_unfolded = [ "Transform" ]
 level_name = "Training Grounds"
 current_wave = 0
 total_wave = 0
@@ -24,11 +31,14 @@ player_spawn_point = NodePath("Player_Spawn")
 chest_spawn_point = NodePath("Chest_Spawn")
 gate_node = NodePath("Gate")
 banner_node = NodePath("Banner")
-sfx_spawn = ExtResource( 2 )
-armor_helm_pool = [ 0 ]
+sfx_cheers = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ]
+sfx_spawn = ExtResource( 6 )
+sfx_audience = ExtResource( 7 )
+sfx_big_cheers = ExtResource( 8 )
+armor_helm_pool = null
 armor_chest_pool = [  ]
-armor_legs_pool = [ 0 ]
-armor_weapon_pool = [ 4001 ]
+armor_legs_pool = null
+armor_weapon_pool = null
 chest_reward = [  ]
 
 [node name="Timer" type="Timer" parent="."]
@@ -49,16 +59,17 @@ position = Vector2( -1.58667, -219.247 )
 [node name="Chest_Spawn" type="Position2D" parent="."]
 position = Vector2( -1.58667, -289.409 )
 
-[node name="Gate" parent="." instance=ExtResource( 3 )]
+[node name="Gate" parent="." instance=ExtResource( 9 )]
 position = Vector2( 0.60397, -457.266 )
 action_string = "Travel to next"
 object_string = "Level"
 
-[node name="Banner" parent="." instance=ExtResource( 4 )]
+[node name="Banner" parent="." instance=ExtResource( 10 )]
 position = Vector2( -1, -94 )
 object_string = "Banner"
 
 [node name="Objects" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Audience_Top" type="YSort" parent="Objects"]
 sort_enabled = true
@@ -141,6 +152,7 @@ _sections_unfolded = [ "Cell", "Transform", "Z Index" ]
 [node name="Navigation2D" type="Navigation2D" parent="." groups=[
 "Navigation",
 ]]
+editor/display_folded = true
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
 position = Vector2( -7.89245, -1.629 )
@@ -169,7 +181,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 11 )
 text = "Interact with banner
 to start level"
 percent_visible = 1.0
@@ -193,7 +205,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 11 )
 text = "Interact to open
 chest & collect loot"
 percent_visible = 1.0
@@ -217,7 +229,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 11 )
 text = "Interact with the 
 gate to get to next level"
 percent_visible = 1.0
@@ -226,12 +238,37 @@ max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -1.948, -126.622 )
 stream = null
-volume_db = 0.0
+volume_db = -15.0
 pitch_scale = 1.0
 autoplay = false
 stream_paused = false
 max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="CheersPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 12 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+stream_paused = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+_sections_unfolded = [ "stream" ]
+
+[node name="SpecPlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -1.948, -126.622 )
+stream = ExtResource( 3 )
+volume_db = -5.0
+pitch_scale = 1.0
+autoplay = false
+stream_paused = false
+max_distance = 1000.0
 attenuation = 1.0
 bus = "Master"
 area_mask = 1

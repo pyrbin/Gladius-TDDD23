@@ -10,6 +10,7 @@ signal used_special(special)
 signal combo(point)
 signal lost_combo(point)
 signal weapon_equipped(weapon)
+signal dead(status)
 
 const Equippable = preload("res://data/equippable.gd")
 
@@ -443,6 +444,7 @@ func set_dead(value):
     dead = value
     $Hitbox/CollisionShape2D.disabled = dead
     stats.clear_effects()
+    emit_signal("dead", value)
 
 func has_ranged_wep():
     if not weapon: return false

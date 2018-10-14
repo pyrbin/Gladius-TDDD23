@@ -14,6 +14,7 @@ func trigger(unit):
     if !unit.has_method("damage"): return
     var hit = unit.damage(impact_damage, self, true);
     if not hit: return
+    $OnHitPlayer.play()
     _targets.remove(_targets.find(unit))
     yield(utils.timer(0.5), "timeout")
     unit.stats.add_effect(\
@@ -25,6 +26,7 @@ func _on_Downtime_timeout():
     activated = true
     collision.disabled = not activated
     anim_player.play("trigger")
+    $TriggerPlayer.play()
 
 func _on_Trap_body_entered(body):
     return ._on_Trap_body_entered(body)
