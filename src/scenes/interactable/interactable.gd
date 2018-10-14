@@ -32,7 +32,6 @@ func set_shader_color(color=Color(0,0,0,0)):
 
 func interact():
     if sfx_interact:
-        print("SOUND")
         utils.play_sound(sfx_interact, $AudioPlayer)
     emit_signal("interact")
 

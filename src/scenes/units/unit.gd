@@ -151,7 +151,6 @@ func bash():
     bashing = true
     sprite_player.play("iframe")
     for unit in $Hitbox.get_overlapping_bodies():
-        print(unit)
         if unit != self:
             _on_Hitbox_body_entered(unit)
             return

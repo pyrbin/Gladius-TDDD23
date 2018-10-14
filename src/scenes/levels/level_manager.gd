@@ -58,6 +58,8 @@ func spawn_random():
 func _ready():
 	utils.get_player().global_position = player_spawn_point.position
 	utils.get_player().invunerable = false
+	utils.get_player().equip_armor(game.player_equipment)
+	utils.get_player().equip_wep(game.player_weapons)
 	gate_node.disabled = true
 	banner_node.disabled = false
 	gate_node.connect("interact", self, "_on_gate_interact")
@@ -86,6 +88,7 @@ func end_level():
 	if not hide_labels:
 		$Labels/ChestLabel.show()
 		$Labels/GateLabel.show()
+	
 	ended = true
 	current_enemy_wave.clear()
 	emit_signal("level_end")
@@ -93,6 +96,7 @@ func end_level():
 	get_tree().get_nodes_in_group("Root_Items")[0].add_child(chest)
 	utils.get_player().stats.clear_effects()
 	utils.get_player().invunerable = true
+	utils.get_player().damage(-utils.get_player().status.get_max_health(), utils.get_player())
 	yield(utils.timer(2), "timeout")
 	utils.get_player().global_position = player_spawn_point.position
 	chest.global_position = chest_spawn_point.global_position
@@ -100,6 +104,8 @@ func end_level():
 	gate_node.disabled = false
 
 func _on_gate_interact():
+	game.player_equipment = utils.get_player().equipment.get_list()
+	game.player_weapons = utils.get_player().action_equipment.get_list()
 	emit_signal("level_next")
 	gate_node.disabled = true
 
