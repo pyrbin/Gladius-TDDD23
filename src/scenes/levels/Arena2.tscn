@@ -105,9 +105,6 @@ position = Vector2( -167.358, -146.476 )
 [node name="SpikeTrap6" parent="Objects/Traps" index="5" instance=ExtResource( 5 )]
 position = Vector2( 313.643, -146.476 )
 
-[node name="Navigation2D" parent="." index="10"]
-editor/display_folded = false
-
 [node name="NavigationPolygonInstance" parent="Navigation2D" index="0"]
 position = Vector2( -6.60012, -1.629 )
 navpoly = SubResource( 1 )

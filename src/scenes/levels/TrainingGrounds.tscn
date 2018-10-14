@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/sounds/bong_dry.ogg" type="AudioStream" id=2]
 [ext_resource path="res://scenes/interactable/gate/Gate.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/interactable/banner/Banner.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/gladiator_mini_mini.png" type="Texture" id=5]
+[ext_resource path="res://scenes/common/Spectator.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/levels/Level_one_tileset.tres" type="TileSet" id=6]
 [ext_resource path="res://assets/flagtemp.png" type="Texture" id=7]
 [ext_resource path="res://scenes/traps/fire/FireTrap.tscn" type="PackedScene" id=8]
@@ -58,7 +58,7 @@ autostart = true
 position = Vector2( 86.7985, -410.382 )
 
 [node name="Player_Spawn" type="Position2D" parent="."]
-position = Vector2( -6.39709, 2180.77 )
+position = Vector2( -153.663, -0.819458 )
 
 [node name="Arena_Spawn" type="Position2D" parent="."]
 position = Vector2( -0.534363, 77.0523 )
@@ -94,173 +94,215 @@ z_as_relative = false
 sort_enabled = true
 _sections_unfolded = [ "Z Index" ]
 
-[node name="gladiator_mini_mini2" type="Sprite" parent="Objects/Audience_Bot"]
-position = Vector2( -522.702, 141.867 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator21" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( -79.5091, 137.668 )
 
-[node name="gladiator_mini_mini3" type="Sprite" parent="Objects/Audience_Bot"]
-position = Vector2( -379.252, 154.216 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator22" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( -41.0195, 156.33 )
 
-[node name="gladiator_mini_mini4" type="Sprite" parent="Objects/Audience_Bot"]
-position = Vector2( -297.552, 184.616 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator23" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( 4.70145, 138.776 )
 
-[node name="gladiator_mini_mini5" type="Sprite" parent="Objects/Audience_Bot"]
-position = Vector2( -174.052, 184.616 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator27" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( 5.8678, 169.102 )
+_sections_unfolded = [ "chests", "hairs" ]
 
-[node name="gladiator_mini_mini6" type="Sprite" parent="Objects/Audience_Bot"]
-position = Vector2( -236.752, 184.616 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator28" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( 64.1853, 176.1 )
+_sections_unfolded = [ "chests", "hairs" ]
 
-[node name="gladiator_mini_mini7" type="Sprite" parent="Objects/Audience_Bot"]
-position = Vector2( -95.2025, 187.466 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator29" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( 136.499, 144.608 )
+_sections_unfolded = [ "chests", "hairs" ]
 
-[node name="gladiator_mini_mini8" type="Sprite" parent="Objects/Audience_Bot"]
-position = Vector2( 26.3973, 184.616 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator30" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( 128.335, 171.434 )
+_sections_unfolded = [ "chests", "hairs" ]
 
-[node name="gladiator_mini_mini9" type="Sprite" parent="Objects/Audience_Bot"]
-position = Vector2( 155.597, 189.366 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator31" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( 183.153, 134.111 )
+_sections_unfolded = [ "chests", "hairs" ]
 
-[node name="gladiator_mini_mini10" type="Sprite" parent="Objects/Audience_Bot"]
-position = Vector2( 238.247, 199.816 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator32" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( 191.318, 173.767 )
+_sections_unfolded = [ "chests", "hairs" ]
 
-[node name="gladiator_mini_mini11" type="Sprite" parent="Objects/Audience_Bot"]
-position = Vector2( 297.147, 187.466 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator33" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( 229.807, 138.776 )
+_sections_unfolded = [ "chests", "hairs" ]
 
-[node name="gladiator_mini_mini12" type="Sprite" parent="Objects/Audience_Bot"]
-position = Vector2( 369.347, 142.817 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator34" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( 267.13, 172.601 )
+_sections_unfolded = [ "chests", "hairs" ]
 
-[node name="gladiator_mini_mini13" type="Sprite" parent="Objects/Audience_Bot"]
-position = Vector2( 438.696, 142.817 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator35" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( 297.456, 136.444 )
+_sections_unfolded = [ "chests", "hairs" ]
 
-[node name="gladiator_mini_mini14" type="Sprite" parent="Objects/Audience_Bot"]
-position = Vector2( 526.096, 144.717 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator36" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( 363.938, 88.6233 )
+_sections_unfolded = [ "chests", "hairs" ]
 
-[node name="gladiator_mini_mini15" type="Sprite" parent="Objects/Audience_Bot"]
-position = Vector2( 557.446, 129.517 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator37" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( 439.75, 93.2887 )
+_sections_unfolded = [ "chests", "hairs" ]
 
-[node name="gladiator_mini_mini16" type="Sprite" parent="Objects/Audience_Bot"]
-position = Vector2( 486.196, 131.417 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator38" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( 368.603, 150.44 )
+_sections_unfolded = [ "chests", "hairs" ]
 
-[node name="gladiator_mini_mini17" type="Sprite" parent="Objects/Audience_Bot"]
-position = Vector2( 400.697, 133.317 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator39" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( 321.949, 179.599 )
+_sections_unfolded = [ "chests", "hairs" ]
 
-[node name="gladiator_mini_mini18" type="Sprite" parent="Objects/Audience_Bot"]
-position = Vector2( -476.985, 132.984 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator40" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( 398.928, 120.115 )
+_sections_unfolded = [ "chests", "hairs" ]
 
-[node name="gladiator_mini_mini19" type="Sprite" parent="Objects/Audience_Bot"]
-position = Vector2( -366.785, 128.234 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator41" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( 486.404, 95.6214 )
+_sections_unfolded = [ "chests", "hairs" ]
 
-[node name="gladiator_mini_mini20" type="Sprite" parent="Objects/Audience_Bot"]
-position = Vector2( -554.885, 128.234 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator42" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( 543.556, 94.455 )
+_sections_unfolded = [ "chests", "hairs" ]
 
-[node name="gladiator_mini_mini21" type="Sprite" parent="Objects/Audience_Bot"]
-position = Vector2( -136.004, 193.287 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator43" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( 528.393, 145.775 )
+_sections_unfolded = [ "chests", "hairs" ]
 
-[node name="gladiator_mini_mini22" type="Sprite" parent="Objects/Audience_Bot"]
-position = Vector2( -26.5235, 191.701 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator44" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( 465.41, 142.275 )
+_sections_unfolded = [ "chests", "hairs" ]
 
-[node name="gladiator_mini_mini23" type="Sprite" parent="Objects/Audience_Bot"]
-position = Vector2( 94.0635, 196.461 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator45" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( 405.926, 160.937 )
+_sections_unfolded = [ "chests", "hairs" ]
 
-[node name="gladiator_mini_mini24" type="Sprite" parent="Objects/Audience_Bot"]
-position = Vector2( 203.544, 196.461 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator46" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( 480.265, 170.111 )
+_sections_unfolded = [ "chests", "hairs" ]
 
-[node name="gladiator_mini_mini25" type="Sprite" parent="Objects/Audience_Bot"]
-position = Vector2( 203.544, 196.461 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator47" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( 507.091, 129.289 )
+_sections_unfolded = [ "chests", "hairs" ]
+
+[node name="Spectator48" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( 556.078, 126.956 )
+_sections_unfolded = [ "chests", "hairs" ]
+
+[node name="Spectator49" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( 552.578, 178.275 )
+_sections_unfolded = [ "chests", "hairs" ]
+
+[node name="Spectator50" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( -77.2513, 174.776 )
+_sections_unfolded = [ "chests", "hairs" ]
+
+[node name="Spectator51" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( -182.395, 136.444 )
+_sections_unfolded = [ "chests", "hairs" ]
+
+[node name="Spectator52" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( -294.365, 142.275 )
+_sections_unfolded = [ "chests", "hairs" ]
+
+[node name="Spectator53" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( -235.478, 144.608 )
+_sections_unfolded = [ "chests", "hairs" ]
+
+[node name="Spectator54" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( -135.172, 179.599 )
+_sections_unfolded = [ "chests", "hairs" ]
+
+[node name="Spectator55" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( -200.487, 184.264 )
+_sections_unfolded = [ "chests", "hairs" ]
+
+[node name="Spectator56" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( -279.799, 179.599 )
+_sections_unfolded = [ "chests", "hairs" ]
+
+[node name="Spectator57" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( -235.478, 183.015 )
+_sections_unfolded = [ "chests", "hairs" ]
+
+[node name="Spectator58" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( -366.109, 95.5384 )
+_sections_unfolded = [ "chests", "hairs" ]
+
+[node name="Spectator59" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( -418.595, 96.7047 )
+_sections_unfolded = [ "chests", "hairs" ]
+
+[node name="Spectator60" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( -500.24, 96.7047 )
+_sections_unfolded = [ "chests", "hairs" ]
+
+[node name="Spectator61" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( -549.226, 93.2057 )
+_sections_unfolded = [ "chests", "hairs" ]
+
+[node name="Spectator62" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( -461.75, 96.7047 )
+_sections_unfolded = [ "chests", "hairs" ]
+
+[node name="Spectator63" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( -361.444, 139.86 )
+_sections_unfolded = [ "chests", "hairs" ]
+
+[node name="Spectator64" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( -332.285, 167.852 )
+_sections_unfolded = [ "chests", "hairs" ]
+
+[node name="Spectator65" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( -432.735, 156.115 )
+_sections_unfolded = [ "chests", "hairs" ]
+
+[node name="Spectator66" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( -403.576, 129.289 )
+_sections_unfolded = [ "chests", "hairs" ]
+
+[node name="Spectator67" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( -477.056, 138.62 )
+_sections_unfolded = [ "chests", "hairs" ]
+
+[node name="Spectator68" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( -536.54, 138.62 )
+_sections_unfolded = [ "chests", "hairs" ]
+
+[node name="Spectator69" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( -552.869, 185.274 )
+_sections_unfolded = [ "chests", "hairs" ]
+
+[node name="Spectator70" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( -500.383, 158.447 )
+_sections_unfolded = [ "chests", "hairs" ]
+
+[node name="Spectator71" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( -452.563, 194.604 )
+_sections_unfolded = [ "chests", "hairs" ]
+
+[node name="Spectator72" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( -390.746, 172.444 )
+_sections_unfolded = [ "chests", "hairs" ]
+
+[node name="Spectator73" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( -361.587, 193.438 )
+_sections_unfolded = [ "chests", "hairs" ]
+
+[node name="Spectator74" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( -50.6833, 189.737 )
+_sections_unfolded = [ "chests", "hairs" ]
+
+[node name="Spectator24" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( -124.938, 140.993 )
+
+[node name="Spectator25" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( 42.3746, 139.884 )
+
+[node name="Spectator26" parent="Objects/Audience_Bot" instance=ExtResource( 5 )]
+position = Vector2( 86.696, 139.884 )
 
 [node name="Floor" type="TileMap" parent="Objects" groups=[
 "World",
@@ -282,7 +324,7 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( -524295, 1, 0, -524294, 1, 0, -524293, 1, 0, -524292, 1, 0, -524291, 1, 0, -524290, 1, 0, -524289, 1, 0, -589824, 1, 0, -589823, 1, 0, -589822, 1, 0, -589821, 1, 0, -589820, 1, 0, -589819, 1, 0, -589818, 1, 0, -458764, 1, 0, -458763, 1, 0, -458762, 1, 0, -458761, 1, 0, -458760, 1, 0, -458759, 2, 0, -458758, 536870912, 0, -458757, 536870912, 0, -458756, 536870912, 0, -458755, 536870912, 0, -458754, 536870912, 0, -458753, 536870912, 0, -524288, 536870912, 0, -524287, 536870912, 0, -524286, 536870912, 0, -524285, 536870912, 0, -524284, 536870912, 0, -524283, 536870912, 0, -524282, 536870912, 0, -524281, 536870913, 0, -524280, 1, 0, -524279, 1, 0, -524278, 1, 0, -524277, 1, 0, -393228, 536870912, 0, -393227, 536870912, 0, -393226, 536870912, 0, -393225, 536870912, 0, -393224, 536870912, 0, -393223, 2, 0, -393222, 536870912, 0, -393221, 536870912, 0, -393220, 536870912, 0, -393219, 536870912, 0, -393218, 536870912, 0, -393217, 536870912, 0, -458752, 536870912, 0, -458751, 536870912, 0, -458750, 536870912, 0, -458749, 536870912, 0, -458748, 536870912, 0, -458747, 536870912, 0, -458746, 536870912, 0, -458745, 536870912, 0, -458744, 536870912, 0, -458743, 536870912, 0, -458742, 536870912, 0, -458741, 536870912, 0, -327692, 536870912, 0, -327691, 536870912, 0, -327690, 2, 0, -327689, 2, 0, -327688, 536870912, 0, -327687, 536870912, 0, -327686, 536870912, 0, -327685, 536870912, 0, -327684, 536870912, 0, -327683, 2, 0, -327682, 536870912, 0, -327681, 2, 0, -393216, 2, 0, -393215, 536870912, 0, -393214, 536870912, 0, -393213, 536870912, 0, -393212, 536870912, 0, -393211, 2, 0, -393210, 2, 0, -393209, 536870912, 0, -393208, 536870912, 0, -393207, 536870912, 0, -393206, 536870912, 0, -393205, 536870912, 0, -262156, 536870912, 0, -262155, 536870912, 0, -262154, 536870912, 0, -262153, 536870912, 0, -262152, 536870912, 0, -262151, 536870912, 0, -262150, 536870912, 0, -262149, 536870912, 0, -262148, 536870912, 0, -262147, 2, 0, -262146, 2, 0, -262145, 2, 0, -327680, 536870912, 0, -327679, 536870912, 0, -327678, 536870912, 0, -327677, 536870912, 0, -327676, 536870912, 0, -327675, 536870912, 0, -327674, 2, 0, -327673, -2147483648, 0, -327672, 536870912, 0, -327671, 536870912, 0, -327670, 536870912, 0, -327669, 536870912, 0, -196620, 536870912, 0, -196619, 536870912, 0, -196618, 536870912, 0, -196617, 536870912, 0, -196616, 2, 0, -196615, 536870912, 0, -196614, 536870912, 0, -196613, 536870912, 0, -196612, 536870912, 0, -196611, 536870912, 0, -196610, 536870912, 0, -196609, 536870912, 0, -262144, 536870912, 0, -262143, 536870912, 0, -262142, 536870912, 0, -262141, 536870912, 0, -262140, -2147483648, 0, -262139, 536870912, 0, -262138, 536870912, 0, -262137, -2147483648, 0, -262136, 536870912, 0, -262135, 536870912, 0, -262134, 536870912, 0, -262133, 536870912, 0, -131084, 536870912, 0, -131083, 2, 0, -131082, 536870912, 0, -131081, 536870912, 0, -131080, 536870912, 0, -131079, 536870912, 0, -131078, 536870912, 0, -131077, 536870912, 0, -131076, 536870912, 0, -131075, 536870912, 0, -131074, 2, 0, -131073, 536870912, 0, -196608, 536870912, 0, -196607, 536870912, 0, -196606, 536870912, 0, -196605, 536870912, 0, -196604, -2147483648, 0, -196603, -2147483648, 0, -196602, -2147483648, 0, -196601, 536870912, 0, -196600, 536870912, 0, -196599, 536870912, 0, -196598, 536870912, 0, -196597, 536870912, 0, -65548, 2, 0, -65547, 2, 0, -65546, 536870912, 0, -65545, 536870912, 0, -65544, 536870912, 0, -65543, 536870912, 0, -65542, 536870912, 0, -65541, 536870912, 0, -65540, 536870912, 0, -65539, 536870912, 0, -65538, 536870912, 0, -65537, 536870912, 0, -131072, 536870912, 0, -131071, 536870912, 0, -131070, 536870912, 0, -131069, 536870912, 0, -131068, -2147483648, 0, -131067, 536870912, 0, -131066, 536870912, 0, -131065, 536870912, 0, -131064, 536870912, 0, -131063, 536870912, 0, -131062, 536870912, 0, -131061, 536870912, 0, -12, 536870912, 0, -11, 2, 0, -10, 2, 0, -9, 536870912, 0, -8, 2, 0, -7, 536870912, 0, -6, 536870912, 0, -5, 536870912, 0, -4, 536870912, 0, -3, 536870912, 0, -2, 536870912, 0, -1, 536870912, 0, -65536, 536870912, 0, -65535, 536870912, 0, -65534, 536870912, 0, -65533, 536870912, 0, -65532, -2147483648, 0, -65531, -2147483648, 0, -65530, 536870912, 0, -65529, 536870912, 0, -65528, 536870912, 0, -65527, 2, 0, -65526, 2, 0, -65525, 536870912, 0, 65524, 536870912, 0, 65525, 536870912, 0, 65526, 536870912, 0, 65527, 536870912, 0, 65528, 536870912, 0, 65529, 2, 0, 65530, 536870912, 0, 65531, 536870912, 0, 65532, 536870912, 0, 65533, 536870912, 0, 65534, 536870912, 0, 65535, 536870912, 0, 0, 536870912, 0, 1, 536870912, 0, 2, 536870912, 0, 3, 536870912, 0, 4, 536870912, 0, 5, 536870912, 0, 6, 536870912, 0, 7, 536870912, 0, 8, 536870912, 0, 9, 2, 0, 10, 536870912, 0, 11, 536870912, 0, 131060, 1073741825, 0, 131061, 1073741825, 0, 131062, 1073741825, 0, 131063, 1073741825, 0, 131064, 1073741825, 0, 131065, 536870912, 0, 131066, 536870912, 0, 131067, 536870912, 0, 131068, 536870912, 0, 131069, 536870912, 0, 131070, 2, 0, 131071, 2, 0, 65536, 2, 0, 65537, 536870912, 0, 65538, 536870912, 0, 65539, 536870912, 0, 65540, 536870912, 0, 65541, 2, 0, 65542, 2, 0, 65543, 1073741825, 0, 65544, 1073741825, 0, 65545, 1073741825, 0, 65546, 1073741825, 0, 65547, 1073741825, 0, 196601, 1073741825, 0, 196602, 1073741825, 0, 196603, 1073741825, 0, 196604, 2, 0, 196605, 1073741825, 0, 196606, 1073741825, 0, 196607, 1073741825, 0, 131072, 1073741825, 0, 131073, 1073741825, 0, 131074, 2, 0, 131075, 2, 0, 131076, 1073741825, 0, 131077, 1073741825, 0, 131078, 1073741825, 0, 524286, -1610612736, 0, 524287, -1610612736, 0, 458752, -1610612736, 0, 458753, -1610612736, 0, 589822, -2147483647, 0, 589823, -1610612736, 0, 524288, -1610612736, 0, 524289, -1610612735, 0, 655358, -2147483647, 0, 655359, -1610612736, 0, 589824, 536870914, 0, 589825, -1610612735, 0, 720894, -2147483647, 0, 720895, 536870914, 0, 655360, 536870914, 0, 655361, -1610612735, 0, 786430, -2147483647, 0, 786431, -1610612736, 0, 720896, -1610612736, 0, 720897, -1610612735, 0, 851966, -2147483647, 0, 851967, 536870914, 0, 786432, -1610612736, 0, 786433, -1610612735, 0, 917502, -2147483647, 0, 917503, 536870914, 0, 851968, -1610612736, 0, 851969, -1610612735, 0, 983038, -2147483647, 0, 983039, -1610612736, 0, 917504, -1610612736, 0, 917505, -1610612735, 0, 1048574, -2147483647, 0, 1048575, -1610612736, 0, 983040, -1610612736, 0, 983041, -1610612735, 0, 1114110, -2147483647, 0, 1114111, -1610612736, 0, 1048576, -1610612736, 0, 1048577, -1610612735, 0, 1179646, -2147483647, 0, 1179647, -1610612736, 0, 1114112, -1610612736, 0, 1114113, -1610612735, 0, 1245182, -2147483647, 0, 1245183, -1610612736, 0, 1179648, -1610612736, 0, 1179649, -1610612735, 0, 1310718, -2147483647, 0, 1310719, -1610612736, 0, 1245184, -1610612736, 0, 1245185, -1610612735, 0, 1376254, -2147483647, 0, 1376255, -1610612736, 0, 1310720, -1610612736, 0, 1310721, -1610612735, 0, 1441790, -2147483647, 0, 1441791, -1610612736, 0, 1376256, -1610612736, 0, 1376257, -1610612735, 0, 1507326, -2147483647, 0, 1507327, -1610612736, 0, 1441792, -1610612736, 0, 1441793, -1610612735, 0, 1572862, -2147483647, 0, 1572863, -1610612736, 0, 1507328, -1610612736, 0, 1507329, -1610612735, 0, 1638398, -2147483647, 0, 1638399, -1610612736, 0, 1572864, -1610612736, 0, 1572865, -1610612735, 0, 1703934, -2147483647, 0, 1703935, -1610612736, 0, 1638400, -1610612736, 0, 1638401, -1610612736, 0, 1638402, 536870914, 0, 1638403, 536870914, 0, 1638404, 536870914, 0, 1638405, 536870914, 0, 1638406, -1610612736, 0, 1638407, 536870914, 0, 1638408, -1610612736, 0, 1769470, -2147483647, 0, 1769471, -1610612736, 0, 1703936, -1610612736, 0, 1703937, -1610612736, 0, 1703938, -1610612736, 0, 1703939, -1610612736, 0, 1703940, -1610612736, 0, 1703941, 536870914, 0, 1703942, -1610612736, 0, 1703943, -1610612736, 0, 1703944, -1610612736, 0, 1835006, -2147483647, 0, 1835007, -1610612736, 0, 1769472, -1610612736, 0, 1769473, -1610612735, 0, 1769479, -1610612736, 0, 1769480, -1610612736, 0, 1900542, -2147483647, 0, 1900543, -1610612736, 0, 1835008, -1610612736, 0, 1835009, -1610612735, 0, 1835015, -1610612736, 0, 1835016, -1610612736, 0, 1966078, -2147483647, 0, 1966079, -1610612736, 0, 1900544, -1610612736, 0, 1900545, -1610612735, 0, 1900551, -1610612736, 0, 1900552, -1610612736, 0, 2031614, -2147483647, 0, 2031615, -1610612736, 0, 1966080, -1610612736, 0, 1966081, -1610612735, 0, 1966087, -1610612736, 0, 1966088, -1610612736, 0, 2097150, -2147483647, 0, 2097151, -1610612736, 0, 2031616, -1610612736, 0, 2031617, -1610612735, 0, 2031623, -1610612736, 0, 2031624, -1610612736, 0, 2162686, -2147483647, 0, 2162687, -1610612736, 0, 2097152, -1610612736, 0, 2097153, -1610612735, 0, 2097159, -1610612736, 0, 2097160, -1610612736, 0, 2228222, -2147483647, 0, 2228223, -1610612736, 0, 2162688, -1610612736, 0, 2162689, -1610612735, 0, 2162695, -1610612736, 0, 2162696, -1610612736, 0, 2293758, -2147483647, 0, 2293759, -1610612736, 0, 2228224, -1610612736, 0, 2228225, -1610612735, 0, 2228231, -1610612736, 0, 2228232, -1610612736, 0, 2359294, -2147483647, 0, 2359295, -1610612736, 0, 2293760, -1610612736, 0, 2293761, -1610612735, 0, 2293767, -1610612736, 0, 2293768, -1610612736, 0, 2424830, -2147483647, 0, 2424831, -1610612736, 0, 2359296, -1610612736, 0, 2359297, -1610612736, 0, 2359298, -1610612736, 0, 2359299, 536870914, 0, 2359300, 536870914, 0, 2359301, 536870914, 0, 2359302, 536870914, 0, 2359303, -1610612736, 0, 2359304, -1610612736, 0, 2490366, -2147483647, 0, 2490367, 536870914, 0, 2424832, -1610612736, 0, 2424833, -1610612736, 0, 2424834, -1610612736, 0, 2424835, -1610612736, 0, 2424836, 536870914, 0, 2424837, 536870914, 0, 2424838, -1610612736, 0, 2424839, -1610612736, 0, 2424840, -1610612736, 0, 2555902, -2147483647, 0, 2555903, 536870914, 0, 2490368, -1610612736, 0, 2490369, -1610612735, 0, 2621438, -2147483647, 0, 2621439, 536870914, 0, 2555904, -1610612736, 0, 2555905, -1610612735, 0, 2686974, -2147483647, 0, 2686975, 536870914, 0, 2621440, 536870914, 0, 2621441, -1610612735, 0, 2752510, -2147483647, 0, 2752511, -1610612736, 0, 2686976, 536870914, 0, 2686977, -1610612735, 0, 2818046, -2147483647, 0, 2818047, -1610612736, 0, 2752512, -1610612736, 0, 2752513, -1610612735, 0, 2883582, -2147483647, 0, 2883583, 536870914, 0, 2818048, -1610612736, 0, 2818049, -1610612735, 0, 2949118, -2147483647, 0, 2949119, 536870914, 0, 2883584, -1610612736, 0, 2883585, -1610612735, 0, 3014654, -2147483647, 0, 3014655, 536870914, 0, 2949120, -1610612736, 0, 2949121, -1610612735, 0, 3080190, -2147483647, 0, 3080191, 536870914, 0, 3014656, 536870914, 0, 3014657, -1610612735, 0, 3145726, -2147483647, 0, 3145727, -1610612736, 0, 3080192, -1610612736, 0, 3080193, -1610612735, 0 )
+tile_data = PoolIntArray( -655361, 3, 0, -720896, 3, 0, -589825, 3, 0, -655360, 3, 0, -524295, 1, 0, -524294, 1, 0, -524293, 1, 0, -524292, 1, 0, -524291, 1, 0, -524290, 1, 0, -524289, 1, 0, -589824, 1, 0, -589823, 1, 0, -589822, 1, 0, -589821, 1, 0, -589820, 1, 0, -589819, 1, 0, -589818, 1, 0, -458764, 1, 0, -458763, 1, 0, -458762, 1, 0, -458761, 1, 0, -458760, 1, 0, -458759, 2, 0, -458758, 536870912, 0, -458757, 536870912, 0, -458756, 536870912, 0, -458755, 536870912, 0, -458754, 536870912, 0, -458753, 536870912, 0, -524288, 536870912, 0, -524287, 536870912, 0, -524286, 536870912, 0, -524285, 536870912, 0, -524284, 536870912, 0, -524283, 536870912, 0, -524282, 536870912, 0, -524281, 536870913, 0, -524280, 1, 0, -524279, 1, 0, -524278, 1, 0, -524277, 1, 0, -393228, 536870912, 0, -393227, 536870912, 0, -393226, 536870912, 0, -393225, 536870912, 0, -393224, 536870912, 0, -393223, 2, 0, -393222, 536870912, 0, -393221, 536870912, 0, -393220, 536870912, 0, -393219, 536870912, 0, -393218, 536870912, 0, -393217, 536870912, 0, -458752, 536870912, 0, -458751, 536870912, 0, -458750, 536870912, 0, -458749, 536870912, 0, -458748, 536870912, 0, -458747, 536870912, 0, -458746, 536870912, 0, -458745, 536870912, 0, -458744, 536870912, 0, -458743, 536870912, 0, -458742, 536870912, 0, -458741, 536870912, 0, -327692, 536870912, 0, -327691, 536870912, 0, -327690, 2, 0, -327689, 2, 0, -327688, 536870912, 0, -327687, 536870912, 0, -327686, 536870912, 0, -327685, 536870912, 0, -327684, 536870912, 0, -327683, 2, 0, -327682, 536870912, 0, -327681, 2, 0, -393216, 2, 0, -393215, 536870912, 0, -393214, 536870912, 0, -393213, 536870912, 0, -393212, 536870912, 0, -393211, 2, 0, -393210, 2, 0, -393209, 536870912, 0, -393208, 536870912, 0, -393207, 536870912, 0, -393206, 536870912, 0, -393205, 536870912, 0, -262156, 536870912, 0, -262155, 536870912, 0, -262154, 536870912, 0, -262153, 536870912, 0, -262152, 536870912, 0, -262151, 536870912, 0, -262150, 536870912, 0, -262149, 536870912, 0, -262148, 536870912, 0, -262147, 2, 0, -262146, 2, 0, -262145, 2, 0, -327680, 536870912, 0, -327679, 536870912, 0, -327678, 536870912, 0, -327677, 536870912, 0, -327676, 536870912, 0, -327675, 536870912, 0, -327674, 2, 0, -327673, -2147483648, 0, -327672, 536870912, 0, -327671, 536870912, 0, -327670, 536870912, 0, -327669, 536870912, 0, -196620, 536870912, 0, -196619, 536870912, 0, -196618, 536870912, 0, -196617, 536870912, 0, -196616, 2, 0, -196615, 536870912, 0, -196614, 536870912, 0, -196613, 536870912, 0, -196612, 536870912, 0, -196611, 536870912, 0, -196610, 536870912, 0, -196609, 536870912, 0, -262144, 536870912, 0, -262143, 536870912, 0, -262142, 536870912, 0, -262141, 536870912, 0, -262140, -2147483648, 0, -262139, 536870912, 0, -262138, 536870912, 0, -262137, -2147483648, 0, -262136, 536870912, 0, -262135, 536870912, 0, -262134, 536870912, 0, -262133, 536870912, 0, -131084, 536870912, 0, -131083, 2, 0, -131082, 536870912, 0, -131081, 536870912, 0, -131080, 536870912, 0, -131079, 536870912, 0, -131078, 536870912, 0, -131077, 536870912, 0, -131076, 536870912, 0, -131075, 536870912, 0, -131074, 2, 0, -131073, 536870912, 0, -196608, 536870912, 0, -196607, 536870912, 0, -196606, 536870912, 0, -196605, 536870912, 0, -196604, -2147483648, 0, -196603, -2147483648, 0, -196602, -2147483648, 0, -196601, 536870912, 0, -196600, 536870912, 0, -196599, 536870912, 0, -196598, 536870912, 0, -196597, 536870912, 0, -65548, 2, 0, -65547, 2, 0, -65546, 536870912, 0, -65545, 536870912, 0, -65544, 536870912, 0, -65543, 536870912, 0, -65542, 536870912, 0, -65541, 536870912, 0, -65540, 536870912, 0, -65539, 536870912, 0, -65538, 536870912, 0, -65537, 536870912, 0, -131072, 536870912, 0, -131071, 536870912, 0, -131070, 536870912, 0, -131069, 536870912, 0, -131068, -2147483648, 0, -131067, 536870912, 0, -131066, 536870912, 0, -131065, 536870912, 0, -131064, 536870912, 0, -131063, 536870912, 0, -131062, 536870912, 0, -131061, 536870912, 0, -12, 536870912, 0, -11, 2, 0, -10, 2, 0, -9, 536870912, 0, -8, 2, 0, -7, 536870912, 0, -6, 536870912, 0, -5, 536870912, 0, -4, 536870912, 0, -3, 536870912, 0, -2, 536870912, 0, -1, 536870912, 0, -65536, 536870912, 0, -65535, 536870912, 0, -65534, 536870912, 0, -65533, 536870912, 0, -65532, -2147483648, 0, -65531, -2147483648, 0, -65530, 536870912, 0, -65529, 536870912, 0, -65528, 536870912, 0, -65527, 2, 0, -65526, 2, 0, -65525, 536870912, 0, 65524, 536870912, 0, 65525, 536870912, 0, 65526, 536870912, 0, 65527, 536870912, 0, 65528, 536870912, 0, 65529, 2, 0, 65530, 536870912, 0, 65531, 536870912, 0, 65532, 536870912, 0, 65533, 536870912, 0, 65534, 536870912, 0, 65535, 536870912, 0, 0, 536870912, 0, 1, 536870912, 0, 2, 536870912, 0, 3, 536870912, 0, 4, 536870912, 0, 5, 536870912, 0, 6, 536870912, 0, 7, 536870912, 0, 8, 536870912, 0, 9, 2, 0, 10, 536870912, 0, 11, 536870912, 0, 131060, 1073741825, 0, 131061, 1073741825, 0, 131062, 1073741825, 0, 131063, 1073741825, 0, 131064, 1073741825, 0, 131065, 536870912, 0, 131066, 536870912, 0, 131067, 536870912, 0, 131068, 536870912, 0, 131069, 536870912, 0, 131070, 2, 0, 131071, 2, 0, 65536, 2, 0, 65537, 536870912, 0, 65538, 536870912, 0, 65539, 536870912, 0, 65540, 536870912, 0, 65541, 2, 0, 65542, 2, 0, 65543, 1073741825, 0, 65544, 1073741825, 0, 65545, 1073741825, 0, 65546, 1073741825, 0, 65547, 1073741825, 0, 196601, 1073741825, 0, 196602, 1073741825, 0, 196603, 1073741825, 0, 196604, 2, 0, 196605, 1073741825, 0, 196606, 1073741825, 0, 196607, 1073741825, 0, 131072, 1073741825, 0, 131073, 1073741825, 0, 131074, 2, 0, 131075, 2, 0, 131076, 1073741825, 0, 131077, 1073741825, 0, 131078, 1073741825, 0, 524286, -1610612736, 0, 524287, -1610612736, 0, 458752, -1610612736, 0, 458753, -1610612736, 0, 589822, -2147483647, 0, 589823, -1610612736, 0, 524288, -1610612736, 0, 524289, -1610612735, 0, 655358, -2147483647, 0, 655359, -1610612736, 0, 589824, 536870914, 0, 589825, -1610612735, 0, 720894, -2147483647, 0, 720895, 536870914, 0, 655360, 536870914, 0, 655361, -1610612735, 0, 786430, -2147483647, 0, 786431, -1610612736, 0, 720896, -1610612736, 0, 720897, -1610612735, 0, 851966, -2147483647, 0, 851967, 536870914, 0, 786432, -1610612736, 0, 786433, -1610612735, 0, 917502, -2147483647, 0, 917503, 536870914, 0, 851968, -1610612736, 0, 851969, -1610612735, 0, 983038, -2147483647, 0, 983039, -1610612736, 0, 917504, -1610612736, 0, 917505, -1610612735, 0, 1048574, -2147483647, 0, 1048575, -1610612736, 0, 983040, -1610612736, 0, 983041, -1610612735, 0, 1114110, -2147483647, 0, 1114111, -1610612736, 0, 1048576, -1610612736, 0, 1048577, -1610612735, 0, 1179646, -2147483647, 0, 1179647, -1610612736, 0, 1114112, -1610612736, 0, 1114113, -1610612735, 0, 1245182, -2147483647, 0, 1245183, -1610612736, 0, 1179648, -1610612736, 0, 1179649, -1610612735, 0, 1310718, -2147483647, 0, 1310719, -1610612736, 0, 1245184, -1610612736, 0, 1245185, -1610612735, 0, 1376254, -2147483647, 0, 1376255, -1610612736, 0, 1310720, -1610612736, 0, 1310721, -1610612735, 0, 1441790, -2147483647, 0, 1441791, -1610612736, 0, 1376256, -1610612736, 0, 1376257, -1610612735, 0, 1507326, -2147483647, 0, 1507327, -1610612736, 0, 1441792, -1610612736, 0, 1441793, -1610612735, 0, 1572862, -2147483647, 0, 1572863, -1610612736, 0, 1507328, -1610612736, 0, 1507329, -1610612735, 0, 1638398, -2147483647, 0, 1638399, -1610612736, 0, 1572864, -1610612736, 0, 1572865, -1610612735, 0, 1703934, -2147483647, 0, 1703935, -1610612736, 0, 1638400, -1610612736, 0, 1638401, -1610612736, 0, 1638402, 536870914, 0, 1638403, 536870914, 0, 1638404, 536870914, 0, 1638405, 536870914, 0, 1638406, -1610612736, 0, 1638407, 536870914, 0, 1638408, -1610612736, 0, 1769470, -2147483647, 0, 1769471, -1610612736, 0, 1703936, -1610612736, 0, 1703937, -1610612736, 0, 1703938, -1610612736, 0, 1703939, -1610612736, 0, 1703940, -1610612736, 0, 1703941, 536870914, 0, 1703942, -1610612736, 0, 1703943, -1610612736, 0, 1703944, -1610612736, 0, 1835006, -2147483647, 0, 1835007, -1610612736, 0, 1769472, -1610612736, 0, 1769473, -1610612735, 0, 1769479, -1610612736, 0, 1769480, -1610612736, 0, 1900542, -2147483647, 0, 1900543, -1610612736, 0, 1835008, -1610612736, 0, 1835009, -1610612735, 0, 1835015, -1610612736, 0, 1835016, -1610612736, 0, 1966078, -2147483647, 0, 1966079, -1610612736, 0, 1900544, -1610612736, 0, 1900545, -1610612735, 0, 1900551, -1610612736, 0, 1900552, -1610612736, 0, 2031614, -2147483647, 0, 2031615, -1610612736, 0, 1966080, -1610612736, 0, 1966081, -1610612735, 0, 1966087, -1610612736, 0, 1966088, -1610612736, 0, 2097150, -2147483647, 0, 2097151, -1610612736, 0, 2031616, -1610612736, 0, 2031617, -1610612735, 0, 2031623, -1610612736, 0, 2031624, -1610612736, 0, 2162686, -2147483647, 0, 2162687, -1610612736, 0, 2097152, -1610612736, 0, 2097153, -1610612735, 0, 2097159, -1610612736, 0, 2097160, -1610612736, 0, 2228222, -2147483647, 0, 2228223, -1610612736, 0, 2162688, -1610612736, 0, 2162689, -1610612735, 0, 2162695, -1610612736, 0, 2162696, -1610612736, 0, 2293758, -2147483647, 0, 2293759, -1610612736, 0, 2228224, -1610612736, 0, 2228225, -1610612735, 0, 2228231, -1610612736, 0, 2228232, -1610612736, 0, 2359294, -2147483647, 0, 2359295, -1610612736, 0, 2293760, -1610612736, 0, 2293761, -1610612735, 0, 2293767, -1610612736, 0, 2293768, -1610612736, 0, 2424830, -2147483647, 0, 2424831, -1610612736, 0, 2359296, -1610612736, 0, 2359297, -1610612736, 0, 2359298, -1610612736, 0, 2359299, 536870914, 0, 2359300, 536870914, 0, 2359301, 536870914, 0, 2359302, 536870914, 0, 2359303, -1610612736, 0, 2359304, -1610612736, 0, 2490366, -2147483647, 0, 2490367, 536870914, 0, 2424832, -1610612736, 0, 2424833, -1610612736, 0, 2424834, -1610612736, 0, 2424835, -1610612736, 0, 2424836, 536870914, 0, 2424837, 536870914, 0, 2424838, -1610612736, 0, 2424839, -1610612736, 0, 2424840, -1610612736, 0, 2555902, -2147483647, 0, 2555903, 536870914, 0, 2490368, -1610612736, 0, 2490369, -1610612735, 0, 2621438, -2147483647, 0, 2621439, 536870914, 0, 2555904, -1610612736, 0, 2555905, -1610612735, 0, 2686974, -2147483647, 0, 2686975, 536870914, 0, 2621440, 536870914, 0, 2621441, -1610612735, 0, 2752510, -2147483647, 0, 2752511, -1610612736, 0, 2686976, 536870914, 0, 2686977, -1610612735, 0, 2818046, -2147483647, 0, 2818047, -1610612736, 0, 2752512, -1610612736, 0, 2752513, -1610612735, 0, 2883582, -2147483647, 0, 2883583, 536870914, 0, 2818048, -1610612736, 0, 2818049, -1610612735, 0, 2949118, -2147483647, 0, 2949119, 536870914, 0, 2883584, -1610612736, 0, 2883585, -1610612735, 0, 3014654, -2147483647, 0, 3014655, 536870914, 0, 2949120, -1610612736, 0, 2949121, -1610612735, 0, 3080190, -2147483647, 0, 3080191, 536870914, 0, 3014656, 536870914, 0, 3014657, -1610612735, 0, 3145726, -2147483647, 0, 3145727, -1610612736, 0, 3080192, -1610612736, 0, 3080193, -1610612735, 0 )
 _sections_unfolded = [ "Cell", "Collision", "Transform", "Z Index" ]
 
 [node name="Walls" type="TileMap" parent="Objects" groups=[
@@ -364,207 +406,175 @@ tile_data = PoolIntArray( -786444, 536870916, 0, -786443, 536870916, 0, -786442,
 _sections_unfolded = [ "Cell", "Collision", "Transform", "Z Index" ]
 
 [node name="Audience_Top" type="YSort" parent="Objects"]
-editor/display_folded = true
 position = Vector2( 15.4751, -1.6994 )
 z_as_relative = false
 sort_enabled = true
 _sections_unfolded = [ "Z Index" ]
 
-[node name="gladiator_mini_mini" type="Sprite" parent="Objects/Audience_Top"]
-position = Vector2( -527.652, -533.368 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( -496.164, -537.592 )
 
-[node name="gladiator_mini_mini2" type="Sprite" parent="Objects/Audience_Top"]
-position = Vector2( -459.425, -527.022 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator32" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( -570.886, -614.409 )
 
-[node name="gladiator_mini_mini3" type="Sprite" parent="Objects/Audience_Top"]
-position = Vector2( -335.665, -585.729 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator33" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( 64.6009, -580.889 )
 
-[node name="gladiator_mini_mini4" type="Sprite" parent="Objects/Audience_Top"]
-position = Vector2( -256.331, -584.142 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator34" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( 98.1211, -619.996 )
 
-[node name="gladiator_mini_mini5" type="Sprite" parent="Objects/Audience_Top"]
-position = Vector2( -153.198, -579.382 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator35" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( 135.688, -588.216 )
 
-[node name="gladiator_mini_mini6" type="Sprite" parent="Objects/Audience_Top"]
-position = Vector2( 21.3359, -580.969 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator36" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( 172.002, -618.245 )
 
-[node name="gladiator_mini_mini7" type="Sprite" parent="Objects/Audience_Top"]
-position = Vector2( -59.5844, -580.969 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator37" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( 106.358, -584.026 )
 
-[node name="gladiator_mini_mini8" type="Sprite" parent="Objects/Audience_Top"]
-position = Vector2( 145.096, -571.449 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator38" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( 185.27, -581.931 )
 
-[node name="gladiator_mini_mini9" type="Sprite" parent="Objects/Audience_Top"]
-position = Vector2( 290, -563.022 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator39" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( 219.489, -612.658 )
 
-[node name="gladiator_mini_mini10" type="Sprite" parent="Objects/Audience_Top"]
-position = Vector2( 390, -524.1 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator40" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( 250.216, -583.328 )
 
-[node name="gladiator_mini_mini11" type="Sprite" parent="Objects/Audience_Top"]
-position = Vector2( 490.096, -527.016 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator41" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( 308.178, -592.406 )
 
-[node name="gladiator_mini_mini12" type="Sprite" parent="Objects/Audience_Top"]
-position = Vector2( 540, -524.1 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator42" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( 353.569, -535.143 )
 
-[node name="gladiator_mini_mini13" type="Sprite" parent="Objects/Audience_Top"]
-position = Vector2( 425.76, -524.1 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator43" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( 398.962, -534.444 )
 
-[node name="gladiator_mini_mini14" type="Sprite" parent="Objects/Audience_Top"]
-position = Vector2( 450, -567.016 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator44" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( 458.32, -537.936 )
 
-[node name="gladiator_mini_mini15" type="Sprite" parent="Objects/Audience_Top"]
-position = Vector2( 368.526, -577.016 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator45" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( 510.695, -539.332 )
 
-[node name="gladiator_mini_mini16" type="Sprite" parent="Objects/Audience_Top"]
-position = Vector2( 220.966, -583.363 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator46" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( 375.218, -583.328 )
 
-[node name="gladiator_mini_mini17" type="Sprite" parent="Objects/Audience_Top"]
-position = Vector2( 100, -587.016 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator47" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( 429.688, -578.439 )
 
-[node name="gladiator_mini_mini18" type="Sprite" parent="Objects/Audience_Top"]
-position = Vector2( -31.6937, -596.536 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator48" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( 486.952, -584.724 )
 
-[node name="gladiator_mini_mini19" type="Sprite" parent="Objects/Audience_Top"]
-position = Vector2( -98.3339, -588.603 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator49" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( 540.724, -586.82 )
 
-[node name="gladiator_mini_mini20" type="Sprite" parent="Objects/Audience_Top"]
-position = Vector2( -200.752, -597.016 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator50" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( 456.924, -616.848 )
 
-[node name="gladiator_mini_mini21" type="Sprite" parent="Objects/Audience_Top"]
-position = Vector2( -294.366, -595.429 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator51" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( 519.076, -617.546 )
 
-[node name="gladiator_mini_mini22" type="Sprite" parent="Objects/Audience_Top"]
-position = Vector2( -384.806, -538.309 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator52" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( 405.945, -624.53 )
 
-[node name="gladiator_mini_mini23" type="Sprite" parent="Objects/Audience_Top"]
-position = Vector2( -426.059, -551.003 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator53" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( 349.38, -618.943 )
 
-[node name="gladiator_mini_mini24" type="Sprite" parent="Objects/Audience_Top"]
-position = Vector2( -489.526, -554.176 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator54" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( 280.244, -618.245 )
 
-[node name="gladiator_mini_mini25" type="Sprite" parent="Objects/Audience_Top"]
-position = Vector2( 514.836, -568.456 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator55" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( 343.793, -581.233 )
 
-[node name="gladiator_mini_mini26" type="Sprite" parent="Objects/Audience_Top"]
-position = Vector2( 402.696, -577.016 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator30" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( -517.114, -615.107 )
 
-[node name="gladiator_mini_mini27" type="Sprite" parent="Objects/Audience_Top"]
-position = Vector2( 58.3889, -592.883 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator31" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( -517.114, -615.107 )
 
-[node name="gladiator_mini_mini28" type="Sprite" parent="Objects/Audience_Top"]
-position = Vector2( -384.292, -588.123 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 72, 72 )
-_sections_unfolded = [ "Region" ]
+[node name="Spectator2" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( -462.644, -530.609 )
+
+[node name="Spectator4" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( -539.461, -535.497 )
+
+[node name="Spectator5" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( -577.171, -541.782 )
+
+[node name="Spectator6" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( -442.392, -553.654 )
+
+[node name="Spectator7" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( -494.069, -561.335 )
+
+[node name="Spectator8" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( -545.048, -589.967 )
+
+[node name="Spectator9" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( -489.181, -600.442 )
+
+[node name="Spectator10" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( -444.863, -600.442 )
+
+[node name="Spectator11" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( -402.265, -583.682 )
+
+[node name="Spectator12" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( -384.108, -538.29 )
+
+[node name="Spectator13" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( -338.716, -587.174 )
+
+[node name="Spectator14" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( -375.029, -608.124 )
+
+[node name="Spectator15" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( -294.721, -591.364 )
+
+[node name="Spectator16" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( -314.274, -622.091 )
+
+[node name="Spectator17" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( -261.899, -619.996 )
+
+[node name="Spectator18" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( -250.027, -588.57 )
+
+[node name="Spectator19" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( -218.602, -614.409 )
+
+[node name="Spectator20" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( -199.049, -589.967 )
+
+[node name="Spectator21" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( -165.528, -611.616 )
+
+[node name="Spectator22" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( -149.467, -592.761 )
+
+[node name="Spectator23" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( -114.55, -619.996 )
+
+[node name="Spectator24" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( -98.4879, -588.57 )
+
+[node name="Spectator25" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( -67.0627, -613.012 )
+
+[node name="Spectator26" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( -48.9059, -585.079 )
+
+[node name="Spectator27" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( -16.084, -610.917 )
+
+[node name="Spectator28" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( 16.7378, -587.174 )
+
+[node name="Spectator3" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( -422.14, -532.704 )
+
+[node name="Spectator29" parent="Objects/Audience_Top" instance=ExtResource( 5 )]
+position = Vector2( 38.0641, -613.711 )
 
 [node name="WallsTop" type="TileMap" parent="Objects" groups=[
 "World",
@@ -695,7 +705,6 @@ destroy_on_combo = true
 weapon_id = 4005
 
 [node name="Torches" type="Node2D" parent="Objects"]
-editor/display_folded = true
 z_index = 4
 _sections_unfolded = [ "Visibility", "Z Index" ]
 
@@ -706,12 +715,12 @@ collision_layer = 1
 _sections_unfolded = [ "Collision", "Transform", "Z Index" ]
 
 [node name="Torch2" parent="Objects/Torches" instance=ExtResource( 14 )]
-position = Vector2( 191.513, -485.074 )
+position = Vector2( 191.513, -485.587 )
 z_as_relative = false
 collision_layer = 1
 
 [node name="Torch3" parent="Objects/Torches" instance=ExtResource( 14 )]
-position = Vector2( 469.7, -464.823 )
+position = Vector2( 448.14, -434.536 )
 z_as_relative = false
 collision_layer = 1
 
@@ -726,7 +735,7 @@ z_as_relative = false
 collision_layer = 1
 
 [node name="Torch4" parent="Objects/Torches" instance=ExtResource( 14 )]
-position = Vector2( -445.411, -452.952 )
+position = Vector2( -446.951, -438.065 )
 z_as_relative = false
 collision_layer = 1
 
