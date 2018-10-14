@@ -28,6 +28,7 @@ export (Array, int) var equipped_weapons = []
 export (int, FLAGS, "Neutral", "Player", "Enemy", "Bosses") var weapon_collision 
 export (AudioStream) var sfx_bash
 export (AudioStream) var sfx_bashed
+export (AudioStream) var sfx_drink
 export (AudioStream) var sfx_hurt
 
 # visuals
@@ -121,6 +122,7 @@ func use_consumable():
     var special = gb_ItemDatabase.get_item(id)
     if not special || not $SpecialHandler.cooldown.is_stopped(): return
     $SpecialHandler.use(special)
+    utils.play_sound(sfx_drink, $VoicePlayer)
     emit_signal("used_special", special)
     
 func attack_weapon():

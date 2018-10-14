@@ -3,23 +3,26 @@ extends Node2D
 export (String) var level_name = "Training Grounds"
 export (int) var current_wave = 0
 export (int) var total_wave = 0
+export (bool) var hide_labels = true
 
 export (Array, int) var current_enemy_wave = []
 export (Array, int) var enemy_wave_count = []
 
 export (NodePath) onready var spawn_point = get_node(spawn_point)
+export (NodePath) onready var spawn_point_two = get_node(spawn_point_two)
+
 export (NodePath) onready var player_spawn_point = get_node(player_spawn_point)
 export (NodePath) onready var chest_spawn_point = get_node(chest_spawn_point)
 export (NodePath) onready var gate_node = get_node(gate_node)  
 export (NodePath) onready var banner_node = get_node(banner_node)
 export (AudioStream) var sfx_spawn
 
-export (Array, int) onready var armor_helm_pool
-export (Array, int) onready var armor_chest_pool
-export (Array, int) onready var armor_legs_pool
+export (Array, int) onready var armor_helm_pool = [0]
+export (Array, int) onready var armor_chest_pool = [0]
+export (Array, int) onready var armor_legs_pool = [0]
 
-export (Array, int) onready var armor_weapon_pool
-export (Array, int) onready var chest_reward
+export (Array, int) onready var armor_weapon_pool = [4001]
+export (Array, int) onready var chest_reward = [0]
 
 signal level_end
 signal level_next
@@ -43,7 +46,12 @@ func spawn_random():
 		var weapon = armor_weapon_pool[randi()%len(armor_weapon_pool)]
 		unit.equip_armor([helm, chest, legs])
 		unit.equip_wep([weapon, 0])
-		unit.position = spawn_point.position + Vector2(i - 100 + (i*10), i)
+		var s_pos = null
+		if current_wave % 2 == 0:
+			s_pos = spawn_point_two
+		else:
+			s_pos = spawn_point
+		unit.position = s_pos.position + Vector2(i - 100 + (i*10), i)
 		current_enemy_wave.append(unit)
 		yield(utils.timer(1), "timeout")
 
@@ -75,8 +83,9 @@ func next_wave():
 	spawn()
 
 func end_level():
-	$Labels/ChestLabel.show()
-	$Labels/GateLabel.show()
+	if not hide_labels:
+		$Labels/ChestLabel.show()
+		$Labels/GateLabel.show()
 	ended = true
 	current_enemy_wave.clear()
 	emit_signal("level_end")

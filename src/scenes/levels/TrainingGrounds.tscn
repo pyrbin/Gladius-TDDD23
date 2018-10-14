@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scenes/levels/training_grounds.gd" type="Script" id=1]
 [ext_resource path="res://assets/sounds/bong_dry.ogg" type="AudioStream" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://assets/tilesets/tileset_level1.png" type="Texture" id=14]
 [ext_resource path="res://scenes/interactable/torch/Torch.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/fonts/pixel_small.tres" type="DynamicFont" id=16]
+[ext_resource path="res://assets/arrow.png" type="Texture" id=17]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -223,9 +224,9 @@ _sections_unfolded = [ "5", "7/shape" ]
 
 [sub_resource type="NavigationPolygon" id=6]
 
-vertices = PoolVector2Array( 187.631, 72.4782, 559.626, -373.62, 562.784, 110.592, 329.099, 109.539, 182.966, 94.6388, 187.631, 42.1531, 185.299, -5.66714, 338.147, -377.209, 182.966, -41.8239, 177.134, -73.3154, 165.471, -95.476, 150.308, -105.973, -313.007, 106.381, -553.764, 105.509, -550.902, -376.777, -323.533, -377.83, -142.445, -100.141, -154.109, -84.9789, -320.375, -426.251, 338.147, -424.855, 114.151, -107.139, 84.9926, -108.306, 22.0098, -102.474, -7.14893, -101.308, -32.8086, -105.973, -56.1356, -109.472, -92.2924, -114.138, -112.12, -111.805, -158.774, -60.4855, -158.774, -41.8239, -162.273, -20.8297, -164.606, 0.164583, -164.606, 24.6579, -164.606, 44.4858, -163.44, 64.3138, -158.774, 88.8071, -309.849, 153.75, -156.442, 100.471, 326.994, 157.96, 163.138, 116.799, -149.443, 110.968, -148.277, 112.134, -133.115, 121.465, -94.6251, 119.132, 66.331, 130.796, 129.314, 127.297, -54.9692, 115.633, -18.8124, 115.633, 23.1761, 124.964 )
-polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ), PoolIntArray( 1, 0, 5 ), PoolIntArray( 1, 5, 6, 7 ), PoolIntArray( 7, 6, 8 ), PoolIntArray( 7, 8, 9 ), PoolIntArray( 7, 9, 10 ), PoolIntArray( 7, 10, 11 ), PoolIntArray( 12, 13, 14, 15, 16, 17 ), PoolIntArray( 18, 19, 7, 11, 20, 21 ), PoolIntArray( 18, 21, 22, 23, 24 ), PoolIntArray( 18, 24, 25 ), PoolIntArray( 18, 25, 26, 15 ), PoolIntArray( 15, 26, 27 ), PoolIntArray( 15, 27, 16 ), PoolIntArray( 12, 17, 28 ), PoolIntArray( 12, 28, 29, 30 ), PoolIntArray( 12, 30, 31 ), PoolIntArray( 12, 31, 32 ), PoolIntArray( 12, 32, 33 ), PoolIntArray( 12, 33, 34 ), PoolIntArray( 12, 34, 35, 36 ), PoolIntArray( 36, 35, 37 ), PoolIntArray( 4, 3, 38, 39 ), PoolIntArray( 36, 37, 40 ), PoolIntArray( 36, 40, 41 ), PoolIntArray( 36, 41, 42 ), PoolIntArray( 38, 36, 42, 43, 44 ), PoolIntArray( 45, 39, 38 ), PoolIntArray( 46, 47, 48, 43 ), PoolIntArray( 44, 45, 38 ), PoolIntArray( 48, 44, 43 ) ]
-outlines = [ PoolVector2Array( -553.764, 105.509, -313.007, 106.381, -309.849, 153.75, 326.994, 157.96, 329.099, 109.539, 562.784, 110.592, 559.626, -373.62, 338.147, -377.209, 338.147, -424.855, -320.375, -426.251, -323.533, -377.83, -550.902, -376.777 ), PoolVector2Array( -148.277, 112.134, -149.443, 110.968, -156.442, 100.471, -158.774, 88.8071, -163.44, 64.3138, -164.606, 44.4858, -164.606, 24.6579, -164.606, 0.164583, -162.273, -20.8297, -158.774, -41.8239, -158.774, -60.4855, -154.109, -84.9789, -142.445, -100.141, -112.12, -111.805, -92.2924, -114.138, -56.1356, -109.472, -32.8086, -105.973, -7.14893, -101.308, 22.0098, -102.474, 84.9926, -108.306, 114.151, -107.139, 150.308, -105.973, 165.471, -95.476, 177.134, -73.3154, 182.966, -41.8239, 185.299, -5.66714, 187.631, 42.1531, 187.631, 72.4782, 182.966, 94.6388, 163.138, 116.799, 129.314, 127.297, 66.331, 130.796, 23.1761, 124.964, -18.8124, 115.633, -54.9692, 115.633, -94.6251, 119.132, -133.115, 121.465 ) ]
+vertices = PoolVector2Array( -323.533, -377.83, 338.147, -377.209, 559.626, -373.62, 562.784, 110.592, 329.099, 109.539, -313.007, 106.381, -550.902, -376.777, -553.764, 105.509, -320.375, -426.251, 338.147, -424.855, -309.849, 153.75, 326.994, 157.96 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5, 6 ), PoolIntArray( 5, 7, 6 ), PoolIntArray( 8, 9, 1, 0 ), PoolIntArray( 10, 5, 4, 11 ) ]
+outlines = [ PoolVector2Array( -553.764, 105.509, -313.007, 106.381, -309.849, 153.75, 326.994, 157.96, 329.099, 109.539, 562.784, 110.592, 559.626, -373.62, 338.147, -377.209, 338.147, -424.855, -320.375, -426.251, -323.533, -377.83, -550.902, -376.777 ) ]
 
 [node name="TrainingGrounds" type="Node2D" groups=[
 "Level",
@@ -236,9 +237,11 @@ _sections_unfolded = [ "Transform" ]
 level_name = "Training Grounds"
 current_wave = 0
 total_wave = 15
+hide_labels = true
 current_enemy_wave = [  ]
 enemy_wave_count = [ 1, 1, 2, 1, 1, 2, 1, 1, 2, 1, 1, 2, 1, 1, 1 ]
 spawn_point = NodePath("Spawn")
+spawn_point_two = NodePath("Spawn")
 player_spawn_point = NodePath("Player_Spawn")
 chest_spawn_point = NodePath("Chest_Spawn")
 gate_node = NodePath("Gate")
@@ -543,9 +546,9 @@ position = Vector2( -500.985, -444.714 )
 texture = ExtResource( 7 )
 
 [node name="Traps" type="Node2D" parent="Objects"]
-editor/display_folded = true
 
 [node name="Fire" type="Node2D" parent="Objects/Traps"]
+editor/display_folded = true
 position = Vector2( 0, 18.1359 )
 
 [node name="FireTrap" parent="Objects/Traps/Fire" instance=ExtResource( 8 )]
@@ -604,20 +607,15 @@ position = Vector2( 407.77, 1386.35 )
 
 [node name="SpikeTrap" parent="Objects/Traps" instance=ExtResource( 9 )]
 position = Vector2( -62.5235, 1972.4 )
-scale = Vector2( 2, 2 )
-_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="SpikeTrap9" parent="Objects/Traps" instance=ExtResource( 9 )]
 position = Vector2( 1.65308, 1971.99 )
-scale = Vector2( 2, 2 )
-_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="SpikeTrap2" parent="Objects/Traps" instance=ExtResource( 9 )]
 position = Vector2( 66.2201, 1972.23 )
-scale = Vector2( 2, 2 )
-_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="Obstacles" type="Node2D" parent="Objects"]
+editor/display_folded = true
 
 [node name="SmallFence" parent="Objects/Obstacles" instance=ExtResource( 10 )]
 position = Vector2( -56.327, 679.747 )
@@ -939,11 +937,9 @@ collision_layer = 1
 [node name="Navigation2D" type="Navigation2D" parent="." groups=[
 "Navigation",
 ]]
-editor/display_folded = true
-visible = false
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
-position = Vector2( -7.89245, -1.629 )
+position = Vector2( -4.46972, -1.67017 )
 navpoly = SubResource( 6 )
 enabled = true
 _sections_unfolded = [ "navpoly" ]
@@ -1223,5 +1219,11 @@ max_distance = 2000.0
 attenuation = 1.0
 bus = "Master"
 area_mask = 1
+
+[node name="arrow" type="Sprite" parent="."]
+position = Vector2( -0.54158, -376.384 )
+rotation = 3.14159
+texture = ExtResource( 17 )
+_sections_unfolded = [ "Transform" ]
 
 [connection signal="interact" from="GateEnter" to="." method="_on_GateEnter_interact"]

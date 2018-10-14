@@ -28,7 +28,9 @@ tracks/0/keys = {
 }
 
 [node name="SpikeTrap" instance=ExtResource( 1 )]
+scale = Vector2( 2, 2 )
 script = ExtResource( 2 )
+_sections_unfolded = [ "Collision", "Transform" ]
 impact_damage = 3
 dot_damage = 1
 
