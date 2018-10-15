@@ -2,6 +2,7 @@ extends "res://scenes/common/obstacle.gd"
 
 export (int) var weapon_id = 0
 export (int, FLAGS, "Neutral", "Player", "Enemy", "Bosses") var weapon_collision = 0
+export (int, FLAGS, "North", "East", "South", "West") var aim_direction = 0
 export (float) var reach = 40
 export (AudioStream) var sfx_bashed
 
@@ -31,7 +32,18 @@ func _physics_process(delta):
     velocity = Vector2()
 
 func get_aim_position():
-    return global_position + Vector2(0, 50)
+    var offset = Vector2()
+
+    if utils.is_bit(0, aim_direction):
+        offset = Vector2(0, -150)
+    elif utils.is_bit(1, aim_direction):
+        offset = Vector2(150, 0)
+    elif utils.is_bit(2, aim_direction):
+        offset = Vector2(0, 150)
+    elif utils.is_bit(3, aim_direction):
+        offset = Vector2(-150, 0)
+
+    return global_position + offset
 
 func equip_weapon(wep_data):
     weapon_pivot.add_child(load(wep_data.model).instance())

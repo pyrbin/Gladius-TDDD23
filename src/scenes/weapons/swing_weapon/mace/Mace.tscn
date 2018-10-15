@@ -9,6 +9,7 @@ custom_solver_bias = 0.0
 extents = Vector2( 12.4613, 19.9992 )
 
 [node name="SwingWeapon" instance=ExtResource( 1 )]
+weapon_attack_speed = 150
 
 [node name="Pivot" parent="." index="5"]
 editor/display_folded = false

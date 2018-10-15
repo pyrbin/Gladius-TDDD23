@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/armor_icon_1.png-189f4f67a790e6b03798a75ee343fc6c.stex"
+path="res://.import/potion_of_power_icon.png-48444d83ed91a511aef9035d18b781b3.stex"
 
 [deps]
 
-source_file="res://assets/items/armor/plate_armor/armor_icon_1.png"
-dest_files=[ "res://.import/armor_icon_1.png-189f4f67a790e6b03798a75ee343fc6c.stex" ]
+source_file="res://assets/items/consumable/potion_of_power_icon.png"
+dest_files=[ "res://.import/potion_of_power_icon.png-48444d83ed91a511aef9035d18b781b3.stex" ]
 
 [params]
 

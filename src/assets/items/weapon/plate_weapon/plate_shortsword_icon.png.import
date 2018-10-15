@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/armor_icon_1.png-189f4f67a790e6b03798a75ee343fc6c.stex"
+path="res://.import/plate_shortsword_icon.png-3183f0dcb30f816c76ae5eb13477405e.stex"
 
 [deps]
 
-source_file="res://assets/items/armor/plate_armor/armor_icon_1.png"
-dest_files=[ "res://.import/armor_icon_1.png-189f4f67a790e6b03798a75ee343fc6c.stex" ]
+source_file="res://assets/items/weapon/plate_weapon/plate_shortsword_icon.png"
+dest_files=[ "res://.import/plate_shortsword_icon.png-3183f0dcb30f816c76ae5eb13477405e.stex" ]
 
 [params]
 

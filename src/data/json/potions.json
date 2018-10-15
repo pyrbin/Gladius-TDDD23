@@ -19,5 +19,68 @@
                 }
             }
         }
+    },
+    "5002": {
+        "NAME": "Potion of Speed",
+        "ICON": "consumable/potion_of_speed_icon.png",
+        "TYPE": 1,
+        "SLOT": 5,
+        "DESC": "Potion of health",
+        "SPRITE": "consumable/potion_of_speed_icon.png",
+        "STATS": {},
+        "COOLDOWN" : 40,
+        "EFFECTS": {
+            "Speed Potion": {
+                "DURATION" : 10,
+                "INTERVAL" : 0,
+                "MODIFIERS": {
+                    "MOVEMENT": {
+                        "PERCENT" : 30
+                    }
+                }
+            }
+        }
+    },
+    "5003": {
+        "NAME": "Potion of Power",
+        "ICON": "consumable/potion_of_power_icon.png",
+        "TYPE": 1,
+        "SLOT": 5,
+        "DESC": "Potion of health",
+        "SPRITE": "consumable/potion_of_power_icon.png",
+        "STATS": {},
+        "COOLDOWN" : 40,
+        "EFFECTS": {
+            "Power Potion": {
+                "DURATION" : 10,
+                "INTERVAL" : 0,
+                "MODIFIERS": {
+                    "POWER": {
+                        "VALUE" : 5
+                    }
+                }
+            }
+        }
+    },
+    "5004": {
+        "NAME": "Potion of Endurance",
+        "ICON": "consumable/potion_of_endurance_icon.png",
+        "TYPE": 1,
+        "SLOT": 5,
+        "DESC": "Potion of health",
+        "SPRITE": "consumable/potion_of_endurance_icon.png",
+        "STATS": {},
+        "COOLDOWN" : 30,
+        "EFFECTS": {
+            "Endurance Potion": {
+                "DURATION" : 0,
+                "INTERVAL" : 0,
+                "MODIFIERS": {
+                    "ENDURANCE": {
+                        "VALUE" : -50
+                    }
+                }
+            }
+        }
     }
 }

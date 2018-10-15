@@ -205,6 +205,10 @@ func damage(amount, actor, unblockable=false, soft_attack=false, crit=false):
     var hit_info = null
     var action = null
     var type = null
+
+    for ef in stats.get_effects():
+        print(ef.identifier)
+
     status.damage(amount)
     emit_signal("took_damage", amount, actor, soft_attack)
     action = gb_CombatText.HitInfo.ACTION.HEAL if amount <= 0 else gb_CombatText.HitInfo.ACTION.DAMAGE

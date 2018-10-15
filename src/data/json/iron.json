@@ -8,7 +8,10 @@
         "SPRITE": "armor/iron_armor/iron_armor_helm.png",
         "STATS": {
             "POWER": {
-                "VALUE" : 2
+                "VALUE" : 1
+            },
+            "VITALITY": {
+                "VALUE" : 5
             }
         }
     },
@@ -21,7 +24,7 @@
         "SPRITE": "armor/iron_armor/iron_armor_chest.png",
         "STATS": {
             "VITALITY": {
-                "VALUE" : 5
+                "VALUE" : 10
             },
             "STAMINA": {
                 "VALUE" : 5

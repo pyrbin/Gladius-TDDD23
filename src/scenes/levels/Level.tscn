@@ -27,6 +27,7 @@ current_enemy_wave = [  ]
 enemy_wave_count = [  ]
 spawn_point = NodePath("Spawn")
 spawn_point_two = NodePath("Spawn2")
+spawn_point_three = null
 player_spawn_point = NodePath("Player_Spawn")
 chest_spawn_point = NodePath("Chest_Spawn")
 gate_node = NodePath("Gate")
@@ -53,6 +54,9 @@ position = Vector2( 0.856544, -425.115 )
 [node name="Spawn2" type="Position2D" parent="."]
 position = Vector2( 0.856483, -425.115 )
 
+[node name="Spawn3" type="Position2D" parent="."]
+position = Vector2( 0.856483, -425.115 )
+
 [node name="Player_Spawn" type="Position2D" parent="."]
 position = Vector2( -1.58667, -219.247 )
 
@@ -69,7 +73,6 @@ position = Vector2( -1, -94 )
 object_string = "Banner"
 
 [node name="Objects" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Audience_Top" type="YSort" parent="Objects"]
 sort_enabled = true
@@ -123,6 +126,29 @@ _sections_unfolded = [ "Cell", "Transform" ]
 z_index = 2001
 sort_enabled = true
 _sections_unfolded = [ "Z Index" ]
+
+[node name="WallsTopFloor" type="TileMap" parent="Objects" groups=[
+"World",
+]]
+z_as_relative = false
+mode = 0
+tile_set = null
+cell_size = Vector2( 48, 48 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+_sections_unfolded = [ "Cell", "Transform", "Z Index" ]
 
 [node name="WallsTop" type="TileMap" parent="Objects" groups=[
 "World",

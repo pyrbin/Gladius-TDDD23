@@ -10,6 +10,7 @@ export (Array, int) var enemy_wave_count = []
 
 export (NodePath) onready var spawn_point = get_node(spawn_point)
 export (NodePath) onready var spawn_point_two = get_node(spawn_point_two)
+export (NodePath) onready var spawn_point_three = get_node(spawn_point_three)
 
 export (NodePath) onready var player_spawn_point = get_node(player_spawn_point)
 export (NodePath) onready var chest_spawn_point = get_node(chest_spawn_point)
@@ -60,6 +61,8 @@ func spawn_random():
         var s_pos = null
         if current_wave % 2 == 0:
             s_pos = spawn_point_two
+        elif current_wave % 3 == 0:
+            s_pos = spawn_point_three
         else:
             s_pos = spawn_point
         unit.position = s_pos.position + Vector2(i - 100 + (i*10), i)

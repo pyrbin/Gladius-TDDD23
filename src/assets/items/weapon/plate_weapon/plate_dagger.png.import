@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/armor_icon_1.png-189f4f67a790e6b03798a75ee343fc6c.stex"
+path="res://.import/plate_dagger.png-db8e07940d60e0083e938b89f30fc800.stex"
 
 [deps]
 
-source_file="res://assets/items/armor/plate_armor/armor_icon_1.png"
-dest_files=[ "res://.import/armor_icon_1.png-189f4f67a790e6b03798a75ee343fc6c.stex" ]
+source_file="res://assets/items/weapon/plate_weapon/plate_dagger.png"
+dest_files=[ "res://.import/plate_dagger.png-db8e07940d60e0083e938b89f30fc800.stex" ]
 
 [params]
 

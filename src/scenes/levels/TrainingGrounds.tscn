@@ -44,6 +44,7 @@ current_enemy_wave = [  ]
 enemy_wave_count = [ 1, 1, 2, 1, 1, 2, 1, 1, 2, 1, 1, 2, 1, 1, 1 ]
 spawn_point = NodePath("Spawn")
 spawn_point_two = NodePath("Spawn")
+spawn_point_three = NodePath("Spawn")
 player_spawn_point = NodePath("Player_Spawn")
 chest_spawn_point = NodePath("Chest_Spawn")
 gate_node = NodePath("Gate")
@@ -56,7 +57,7 @@ armor_helm_pool = [ 0, 1100, 1100, 0, 0, 0, 1100 ]
 armor_chest_pool = [ 0, 2100, 2100, 0, 0, 0 ]
 armor_legs_pool = [ 0, 0, 3100, 3100 ]
 armor_weapon_pool = [ 4002 ]
-chest_reward = [ 1100, 2100, 3100, 1000, 4101, 4104, 4000, 4002, 1100, 4003 ]
+chest_reward = [ 1100, 2100, 3100, 1000, 4101, 4104, 4000, 4002, 1100, 4003, 5002, 5003, 5004 ]
 
 [node name="Timer" type="Timer" parent="."]
 process_mode = 1
@@ -713,6 +714,7 @@ item_id = 4100
 position = Vector2( 3.6535, 692.552 )
 destroy_on_combo = true
 weapon_id = 4100
+aim_direction = 4
 
 [node name="Torches" type="Node2D" parent="Objects"]
 editor/display_folded = true

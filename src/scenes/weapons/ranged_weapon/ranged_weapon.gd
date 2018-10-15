@@ -69,7 +69,8 @@ func is_ready():
     return .is_ready() && _ammo_loaded()
 
 func apply_slow():
-    holder.stats.add_effect_fac("Ranged Reload", STAT.MOVEMENT, -65, STAT.PERCENT, cooldown_timer.wait_time)
+    if holder.get("stats"):
+        holder.stats.add_effect_fac("Ranged Reload", STAT.MOVEMENT, -65, STAT.PERCENT, cooldown_timer.wait_time)
 
 func _action_attack():
     utils.play_sound(sfx_fire, wep_sfx_pl)

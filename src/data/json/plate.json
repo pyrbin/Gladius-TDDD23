@@ -1,0 +1,105 @@
+{
+    "1200": {
+        "NAME": "Plate Helm",
+        "ICON": "armor/plate_armor/armor_icon_0.png",
+        "TYPE": 1,
+        "SLOT": 1,
+        "DESC": "A helmet made of iron",
+        "SPRITE": "armor/plate_armor/plate_armor_helm.png",
+        "STATS": {
+            "POWER": {
+                "VALUE" : 2
+            },
+            "VITALITY": {
+                "PERCENT" : 15
+            }
+        }
+    },
+    "2200": {
+        "NAME": "Plate Chest",
+        "ICON": "armor/plate_armor/armor_icon_1.png",
+        "TYPE": 1,
+        "SLOT": 2,
+        "DESC": "A helmet made of iron",
+        "SPRITE": "armor/plate_armor/plate_armor_chest.png",
+        "STATS": {
+            "VITALITY": {
+                "VALUE" : 20
+            },
+            "STAMINA": {
+                "VALUE" : 40
+            },
+            "MOVEMENT": {
+                "PERCENT" : -20
+            }
+        }
+    },
+    "3200": {
+        "NAME": "Plate Legs",
+        "ICON": "armor/plate_armor/armor_icon_2.png",
+        "TYPE": 1,
+        "SLOT": 3,
+        "DESC": "A helmet made of iron",
+        "SPRITE": "armor/plate_armor/plate_armor_legs.png",
+        "STATS": {
+            "VITALITY": {
+                "VALUE" : 25
+            },
+            "STAMINA": {
+                "VALUE" : 20
+            }
+        }
+    },
+    "4200": {
+        "NAME": "Plate Shortsword",
+        "ICON": "weapon/plate_weapon/plate_shortsword_icon.png",
+        "TYPE": 1,
+        "SLOT": 4,
+        "DESC": "LOREM IPSUM LOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUM",
+        "SPRITE": "weapon/plate_weapon/plate_shortsword.png",
+        "STATS": {},
+        "WEAPON_TYPE": 0,
+        "MODEL" : "swing_weapon/shortsword/Shortsword.tscn",
+        "DAMAGE" : 6,
+        "COOLDOWN" : 0.7
+    },
+    "4201": {
+        "NAME": "Plate Spear",
+        "ICON": "weapon/plate_weapon/plate_spear_icon.png",
+        "TYPE": 1,
+        "SLOT": 4,
+        "DESC": "LOREM IPSUM LOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUM",
+        "SPRITE": "weapon/plate_weapon/plate_spear.png",
+        "STATS": {},
+        "WEAPON_TYPE": 1,
+        "MODEL" : "stab_weapon/spear/Spear.tscn",
+        "DAMAGE" : 6,
+        "COOLDOWN" : 0.9
+    },
+    "4202": {
+        "NAME": "Plate Dagger",
+        "ICON": "weapon/plate_weapon/plate_dagger_icon.png",
+        "TYPE": 1,
+        "SLOT": 4,
+        "DESC": "LOREM IPSUM LOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUM",
+        "SPRITE": "weapon/plate_weapon/plate_dagger.png",
+        "STATS": {},
+        "WEAPON_TYPE": 1,
+        "MODEL" : "stab_weapon/dagger/Dagger.tscn",
+        "DAMAGE" : 8,
+        "COOLDOWN" : 0.4
+    },
+    "4203": {
+        "NAME": "Plate Hammer",
+        "ICON": "weapon/plate_weapon/plate_hammer_icon.png",
+        "TYPE": 1,
+        "SLOT": 4,
+        "DESC": "LOREM IPSUM LOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUM",
+        "SPRITE": "weapon/plate_weapon/plate_hammer.png",
+        "STATS": {},
+        "WEAPON_TYPE": 0,
+        "MODEL" : "swing_weapon/mace/Mace.tscn",
+        "DAMAGE" : 7,
+        "COOLDOWN" : 1
+    }
+}
