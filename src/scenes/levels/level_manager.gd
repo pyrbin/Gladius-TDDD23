@@ -21,6 +21,8 @@ export (AudioStream) var sfx_spawn
 export (AudioStream) var sfx_audience
 export (AudioStream) var sfx_big_cheers
 
+export (int, "Easy", "Advanced", "Master") onready var max_ai_difficulty = 0
+
 export (Array, int) onready var armor_helm_pool
 export (Array, int) onready var armor_chest_pool
 export (Array, int) onready var armor_legs_pool
@@ -38,7 +40,7 @@ const Enemy = preload("res://scenes/units/enemy/Enemy.tscn")
 const Chest = preload("res://scenes/interactable/lootable/chests/Chest.tscn")
 
 const REWARD_COUNT_MAX = 5
-const REWARD_COUNT_MIN = 2
+const REWARD_COUNT_MIN = 3
 
 var spawning = false
 
@@ -48,7 +50,6 @@ func spawn():
     spawning = false
 
 func spawn_random():
-    if current_wave == total_wave: return
     for i in range(0, enemy_wave_count[current_wave-1]):
         var unit = Enemy.instance()
         get_tree().get_nodes_in_group("Root_Units")[0].add_child(unit)
@@ -65,6 +66,9 @@ func spawn_random():
             s_pos = spawn_point_three
         else:
             s_pos = spawn_point
+        if max_ai_difficulty > 0:
+            if randi()%2 == 2:
+                unit.set_ai_difficulty(max_ai_difficulty)
         unit.position = s_pos.position + Vector2(i - 100 + (i*10), i)
         current_enemy_wave.append(unit)
         unit.connect("dead", self, "_on_unit_killed")
@@ -96,8 +100,6 @@ func _ready():
 
 func _process(d):
     if len(current_enemy_wave) > 0:
-        if spawning:
-            return
         var flag = true
         for unit in current_enemy_wave:
             flag = unit.dead

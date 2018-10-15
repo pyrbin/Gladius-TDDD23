@@ -39,7 +39,6 @@ func current_level():
     return root_level.get_child(0)
 
 func get_level():
-    print(game.current_level)
     match game.current_level:
         1: return level_one
         2: return level_two

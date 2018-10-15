@@ -26,7 +26,7 @@ export (float) var stagger_time = 4
 export (Array, int, "DEFAULT", "HELM", "CHEST", "LEGS", "WEAPON", "SPECIAL") var equipment_container_slots = []
 export (Array, int) var equipped_items = []
 export (Array, int) var equipped_weapons = []
-export (int, FLAGS, "Neutral", "Player", "Enemy", "Bosses") var weapon_collision 
+export (int, "Neutral", "Player", "Enemy", "Bosses") var weapon_collision 
 export (AudioStream) var sfx_bash
 export (AudioStream) var sfx_bashed
 export (AudioStream) var sfx_drink
@@ -205,9 +205,6 @@ func damage(amount, actor, unblockable=false, soft_attack=false, crit=false):
     var hit_info = null
     var action = null
     var type = null
-
-    for ef in stats.get_effects():
-        print(ef.identifier)
 
     status.damage(amount)
     emit_signal("took_damage", amount, actor, soft_attack)

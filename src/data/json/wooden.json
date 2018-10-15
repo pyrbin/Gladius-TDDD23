@@ -9,6 +9,9 @@
         "STATS": {
             "STAMINA": {
                 "VALUE" : 5
+            },
+            "VITALITY": {
+                "VALUE": 5
             }
         }
     },

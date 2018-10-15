@@ -36,6 +36,7 @@ sfx_cheers = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource
 sfx_spawn = ExtResource( 6 )
 sfx_audience = ExtResource( 7 )
 sfx_big_cheers = ExtResource( 8 )
+max_ai_difficulty = 0
 armor_helm_pool = null
 armor_chest_pool = [  ]
 armor_legs_pool = null

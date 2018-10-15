@@ -1,7 +1,7 @@
 extends "res://scenes/units/unit.gd"
 
 export (bool) var disable_AI = false
-export(int, "Easy", "Advanced", "Master") var ai_difficulty = 0
+export (int, "Easy", "Advanced", "Master") var ai_difficulty = 0
 
 enum AI_STATE {
     SEEK
@@ -37,17 +37,19 @@ func _setup():
         $AIBehaviour/CanJump.start()
         can_bash= false
         $AIBehaviour/CanBash.start()
+    set_ai_difficulty(ai_difficulty)
 
-    if utils.is_bit(ai_difficulty, 0):
+func set_ai_difficulty(id):
+    ai_difficulty = id
+    if ai_difficulty == 0:
         $AIBehaviour/CanBash.wait_time = EASY_WAIT_BASH
         $AIBehaviour/CanJump.wait_time = EASY_WAIT_JUMP
-    if utils.is_bit(ai_difficulty, 1):
+    if ai_difficulty == 1:
         $AIBehaviour/CanBash.wait_time = ADV_WAIT_BASH
         $AIBehaviour/CanJump.wait_time = ADV_WAIT_JUMP
-    if utils.is_bit(ai_difficulty, 2):
+    if ai_difficulty == 2:
         $AIBehaviour/CanBash.wait_time = MAS_WAIT_BASH
         $AIBehaviour/CanJump.wait_time = MAS_WAIT_JUMP
-
 
 func _process(delta):
     if disable_AI: return
