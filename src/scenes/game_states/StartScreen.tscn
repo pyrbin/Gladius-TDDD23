@@ -155,3 +155,4 @@ flat = false
 align = 1
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_Exit_pressed"]

@@ -11,4 +11,6 @@ func _ready():
 
 func _on_Button_pressed():
     utils.scene_changer().transition("LevelSelect.tscn")
-    
+
+func _on_Exit_pressed():
+    get_tree().quit()    

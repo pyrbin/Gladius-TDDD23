@@ -1,13 +1,13 @@
 extends Node
 
 func get_player():
-    return get_tree().get_nodes_in_group("Player")[0]
+    return singleton("Player")
 
 func singleton(name):
     return get_tree().get_nodes_in_group(name)[0]
 
 func scene_changer():
-    return get_tree().get_nodes_in_group("SceneChanger")[0]
+    return singleton("SceneChanger")
 
 func timer(seconds):
     return get_tree().create_timer(seconds)
@@ -16,6 +16,9 @@ func lock_player(status):
     var player = get_player()
     player.locked = status
     
+func pause_game(value):
+    get_tree().paused = value
+
 func freeze_time(time):
     get_tree().paused = true
     yield(get_tree().create_timer(time), 'timeout')
