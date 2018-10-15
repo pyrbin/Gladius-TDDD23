@@ -39,4 +39,6 @@ func interact():
     player.add_item(item_id)
     visible = false
     set_shader_color()
+    hide()
+    yield(utils.timer(2), "timeout")
     queue_free()

@@ -65,11 +65,11 @@ blend_times = [  ]
 
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = null
-volume_db = -20.0
+volume_db = -5.0
 pitch_scale = 1.0
 autoplay = false
 stream_paused = false
-max_distance = 1.0
+max_distance = 200.0
 attenuation = 19.6983
 bus = "Master"
 area_mask = 1

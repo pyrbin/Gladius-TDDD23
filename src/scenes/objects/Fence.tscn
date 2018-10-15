@@ -34,7 +34,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 4 ) ]
 }
 
-[node name="Fence" index="0" instance=ExtResource( 1 )]
+[node name="Fence" instance=ExtResource( 1 )]
 _sections_unfolded = [ "Collision", "motion", "sfx_destroy" ]
 sfx_onhit = ExtResource( 2 )
 sfx_destroy = ExtResource( 3 )

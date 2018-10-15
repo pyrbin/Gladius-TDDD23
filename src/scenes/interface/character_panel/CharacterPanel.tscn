@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/interface/character_panel/character_panel.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/pixel_medium.tres" type="DynamicFont" id=2]
 [ext_resource path="res://scenes/interface/character_panel/StatLabel.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/interface/slot_containers/ItemContainerController.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/interface/vitlaity.png" type="Texture" id=4]
+[ext_resource path="res://assets/interface/endurance.png" type="Texture" id=5]
+[ext_resource path="res://assets/interface/power.png" type="Texture" id=6]
+[ext_resource path="res://assets/interface/movement.png" type="Texture" id=7]
+[ext_resource path="res://scenes/interface/slot_containers/ItemContainerController.tscn" type="PackedScene" id=8]
 
 [sub_resource type="StyleBoxFlat" id=1]
 
@@ -137,6 +141,7 @@ alignment = 0
 margin_left = 0.0
 margin_right = 293.0
 margin_bottom = 24.0
+stat_icon = ExtResource( 4 )
 stat_name = "Vitality"
 
 [node name="Stamina" parent="Content/StatsContainer/VBoxContainer" instance=ExtResource( 3 )]
@@ -144,6 +149,7 @@ margin_left = 0.0
 margin_top = 28.0
 margin_right = 293.0
 margin_bottom = 52.0
+stat_icon = ExtResource( 5 )
 stat_name = "Stamina"
 
 [node name="Power" parent="Content/StatsContainer/VBoxContainer" instance=ExtResource( 3 )]
@@ -151,6 +157,7 @@ margin_left = 0.0
 margin_top = 56.0
 margin_right = 293.0
 margin_bottom = 80.0
+stat_icon = ExtResource( 6 )
 stat_name = "Power"
 
 [node name="Atk_Speed" parent="Content/StatsContainer/VBoxContainer" instance=ExtResource( 3 )]
@@ -166,6 +173,7 @@ margin_left = 0.0
 margin_top = 84.0
 margin_right = 293.0
 margin_bottom = 108.0
+stat_icon = ExtResource( 7 )
 stat_name = "Movement"
 stat_mod_value = 2000.0
 
@@ -219,7 +227,7 @@ _sections_unfolded = [ "Margin", "Rect" ]
 
 [node name="ItemSlotContainer" parent="Content/CenterContainer" groups=[
 "Equipment_ItemContainer",
-] instance=ExtResource( 4 )]
+] instance=ExtResource( 8 )]
 margin_left = 137.0
 margin_right = 233.0
 _sections_unfolded = [ "Margin", "Rect", "Theme" ]

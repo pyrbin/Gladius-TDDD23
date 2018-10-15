@@ -27,7 +27,7 @@ area_mask = 1
 [node name="OnHitSFX" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 0, -0.307354 )
 stream = null
-volume_db = -20.0
+volume_db = -15.0
 pitch_scale = 1.0
 autoplay = false
 stream_paused = false
