@@ -31,8 +31,8 @@ func set_shader_color(color=Color(0,0,0,0)):
     sprite.material.set_shader_param("outline_color", outline_color)
 
 func interact():
-    if sfx_interact:
-        utils.play_sound(sfx_interact, $AudioPlayer)
+    #if sfx_interact:
+       # utils.play_sound(sfx_interact, $AudioPlayer)
     emit_signal("interact")
 
 func set_disabled(val):

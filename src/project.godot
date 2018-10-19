@@ -49,9 +49,8 @@ window/size/height=768
 window/size/test_width=1366
 window/size/test_height=768
 window/allow_per_pixel_transparency=true
-window/vsync/use_vsync=false
 mouse_cursor/custom_image="res://assets/crosshair149.png"
-window/stretch/aspect="keep_height"
+window/stretch/aspect="keep"
 window/stretch/shrink="1"
 
 [editor_plugins]
@@ -157,5 +156,4 @@ ui_hide={
 
 quality/2d/use_pixel_snap=true
 quality/filters/use_nearest_mipmap_filter=true
-environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"

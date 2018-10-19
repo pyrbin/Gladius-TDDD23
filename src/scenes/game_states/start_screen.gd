@@ -10,7 +10,7 @@ func _ready():
     game.reset()
 
 func _on_Button_pressed():
-    utils.scene_changer().transition("LevelSelect.tscn")
+    utils.scene_changer().transition("IntroScreen.tscn")
 
 func _on_Exit_pressed():
     get_tree().quit()    
