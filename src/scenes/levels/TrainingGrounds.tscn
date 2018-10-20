@@ -35,13 +35,13 @@ outlines = [ PoolVector2Array( -553.764, 105.509, -313.007, 106.381, -309.849, 1
 ]]
 position = Vector2( -4.52209, -3.01468 )
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform", "armor_chest_pool", "armor_helm_pool", "armor_legs_pool", "armor_weapon_pool", "chest_reward" ]
+_sections_unfolded = [ "Transform", "chest_reward_chest", "chest_reward_helm", "chest_reward_legs", "chest_reward_potion", "chest_reward_weapon", "enemy_wave_count" ]
 level_name = "Training Grounds"
 current_wave = 0
-total_wave = 15
+total_wave = 5
 hide_labels = false
 current_enemy_wave = [  ]
-enemy_wave_count = [ 1, 1, 2, 1, 1, 2, 1, 1, 2, 1, 1, 2, 1, 1, 1 ]
+enemy_wave_count = [ 1, 1, 1, 1, 1 ]
 spawn_point = NodePath("Spawn")
 spawn_point_two = NodePath("Spawn")
 spawn_point_three = NodePath("Spawn")
@@ -53,11 +53,16 @@ sfx_cheers = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource
 sfx_spawn = ExtResource( 6 )
 sfx_audience = ExtResource( 7 )
 sfx_big_cheers = ExtResource( 8 )
+max_ai_difficulty = 0
 armor_helm_pool = [ 0, 1100, 1100, 0, 0, 0, 1100 ]
 armor_chest_pool = [ 0, 2100, 2100, 0, 0, 0 ]
 armor_legs_pool = [ 0, 0, 3100, 3100 ]
 armor_weapon_pool = [ 4002 ]
-chest_reward = [ 1100, 2100, 3100, 1000, 4101, 4104, 4000, 4002, 1100, 4003, 5002, 5003, 5004 ]
+chest_reward_helm = [ 1100, 1100, 0, 1100 ]
+chest_reward_legs = [ 3000, 0, 0, 0 ]
+chest_reward_chest = [ 2100, 2100, 0, 0 ]
+chest_reward_weapon = [ 4100, 4101, 4102, 4103, 4104, 4000, 4003, 0 ]
+chest_reward_potion = [ 5001, 5002, 0, 0 ]
 
 [node name="Timer" type="Timer" parent="."]
 process_mode = 1

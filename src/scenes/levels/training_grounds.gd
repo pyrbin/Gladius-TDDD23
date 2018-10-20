@@ -17,19 +17,19 @@ func spawn():
 func get_weapon_by_level():
 	var weapon = 4100
 	# SWORD
-	if current_wave >= 1 && current_wave <= 3:
+	if current_wave >= 1:
 		weapon = 4100
 	# DAGGER
-	if current_wave >= 4 && current_wave <= 6:
+	if current_wave >= 2:
 		weapon = 4102
 	# SPEAR
-	if current_wave >= 7 && current_wave <= 9:
+	if current_wave >= 3:
 		weapon = 4101
 	# HAMMER
-	if current_wave >= 10 && current_wave <= 12:
+	if current_wave >= 4:
 		weapon = 4103
 	# RANGED
-	if current_wave >= 13 && current_wave <= 15:
+	if current_wave >= 5:
 		weapon = 4104
 	return [weapon, 0]
 

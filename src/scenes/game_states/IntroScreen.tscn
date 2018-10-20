@@ -84,7 +84,7 @@ texture = ExtResource( 4 )
 stretch_mode = 0
 
 [node name="Start" type="Label" parent="."]
-modulate = Color( 1, 1, 1, 0.47629 )
+modulate = Color( 1, 1, 1, 0.575484 )
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5

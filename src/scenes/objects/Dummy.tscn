@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/objects/dummy.gd" type="Script" id=1]
 [ext_resource path="res://assets/sounds/metal_clang.ogg" type="AudioStream" id=2]
@@ -14,6 +14,13 @@ radius = 14.7595
 
 custom_solver_bias = 0.0
 extents = Vector2( 15.529, 36.804 )
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "dead"
+length = 1.0
+loop = true
+step = 0.1
 
 [node name="Dummy" type="KinematicBody2D" groups=[
 "Z_Index",
@@ -33,6 +40,7 @@ sfx_destroy = null
 destroy_on_combo = false
 weapon_id = 0
 weapon_collision = 14
+aim_direction = 0
 reach = 30.0
 sfx_bashed = ExtResource( 2 )
 
@@ -87,6 +95,7 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
+anims/dead = SubResource( 3 )
 blend_times = [  ]
 
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]

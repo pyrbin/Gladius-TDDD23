@@ -40,10 +40,10 @@
         "SPRITE": "armor/iron_armor/iron_armor_legs.png",
         "STATS": {
             "MOVEMENT": {
-                "VALUE" : -20
+                "VALUE" : -10
             },
             "VITALITY": {
-                "VALUE" : 10
+                "VALUE" : 7
             }
         }
     },
@@ -113,8 +113,8 @@
         "STATS": {},
         "WEAPON_TYPE": 2,
         "MODEL" : "ranged_weapon/crossbow/Crossbow.tscn",
-        "DAMAGE" : 4,
-        "COOLDOWN" : 0.8,
+        "DAMAGE" : 3,
+        "COOLDOWN" : 1.2,
         "AMMO" : "weapon/iron_weapon/iron_arrow.png"
     }
 }

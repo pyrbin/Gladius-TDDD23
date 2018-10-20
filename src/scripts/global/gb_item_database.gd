@@ -13,6 +13,7 @@ const DATABASES = [
     "iron.json",
     "potions.json",
     "plate.json",
+    "glad.json"
 ]
 
 var _item_database = {}

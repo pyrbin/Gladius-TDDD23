@@ -19,7 +19,6 @@ func _process(delta):
     get_visible_characters()
     char_num = lapsed / type_speed
     set_visible_characters(char_num)
-    print(char_num)
     if is_done():
         emit_signal("is_done")
         

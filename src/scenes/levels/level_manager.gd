@@ -26,9 +26,13 @@ export (int, "Easy", "Advanced", "Master") onready var max_ai_difficulty = 0
 export (Array, int) onready var armor_helm_pool
 export (Array, int) onready var armor_chest_pool
 export (Array, int) onready var armor_legs_pool
-
 export (Array, int) onready var armor_weapon_pool
-export (Array, int) onready var chest_reward
+export (Array, int) onready var chest_reward_helm
+export (Array, int) onready var chest_reward_legs
+export (Array, int) onready var chest_reward_chest
+export (Array, int) onready var chest_reward_weapon
+export (Array, int) onready var chest_reward_potion
+
 
 signal level_end
 signal level_next
@@ -135,13 +139,14 @@ func end_level():
     chest.global_position = chest_spawn_point.global_position
 
     var reward_list = []
-    for i in range(0, (randi()%REWARD_COUNT_MAX) + REWARD_COUNT_MIN):
-        var item = chest_reward[randi()%len(chest_reward)]
+
+    for rewards in [chest_reward_chest, chest_reward_helm, chest_reward_legs, chest_reward_potion, chest_reward_weapon]:
+        var item = rewards[randi()%len(rewards)]
         reward_list.append(item)
 
     chest.init(reward_list)
     gate_node.disabled = false
-
+    
 func _on_gate_interact():
     game.player_equipment = utils.get_player().equipment.get_list()
     game.player_weapons = utils.get_player().action_equipment.get_list()

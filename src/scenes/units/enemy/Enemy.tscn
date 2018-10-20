@@ -49,9 +49,9 @@ movement_speed = 125.0
 
 [node name="Status" parent="." index="3"]
 status_settings = 7
-health = 10.0
+health = 5.0
 endurance = 15.0
-max_health = 10.0
+max_health = 5.0
 max_endurance = 15.0
 endurance_regen = 2.0
 health_regen = 0.33
