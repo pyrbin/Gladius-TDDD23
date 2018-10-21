@@ -1,0 +1,302 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scenes/levels/level_manager.gd" type="Script" id=1]
+[ext_resource path="res://assets/sounds/crowd_small_1.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/sounds/crowd_small_2.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/sounds/crowd_small_3.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/sounds/crowd_small_4.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/sounds/na_nana_NA_START.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/sounds/crowd_ambience.ogg" type="AudioStream" id=7]
+[ext_resource path="res://assets/sounds/BIG_CROWD.ogg" type="AudioStream" id=8]
+[ext_resource path="res://scenes/interactable/gate/Gate.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/interactable/banner/Banner.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/fonts/pixel_small.tres" type="DynamicFont" id=11]
+[ext_resource path="res://assets/theme2.ogg" type="AudioStream" id=12]
+
+[node name="Level" type="Node2D" groups=[
+"Level",
+]]
+position = Vector2( -4.52209, -3.01468 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+level_name = "Training Grounds"
+current_wave = 0
+total_wave = 0
+hide_labels = true
+current_enemy_wave = [  ]
+enemy_wave_count = [  ]
+spawn_point = NodePath("Spawn")
+spawn_point_two = NodePath("Spawn2")
+spawn_point_three = null
+player_spawn_point = NodePath("Player_Spawn")
+chest_spawn_point = NodePath("Chest_Spawn")
+gate_node = NodePath("Gate")
+banner_node = NodePath("Banner")
+sfx_cheers = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ]
+sfx_spawn = ExtResource( 6 )
+sfx_audience = ExtResource( 7 )
+sfx_big_cheers = ExtResource( 8 )
+max_ai_difficulty = 0
+armor_helm_pool = null
+armor_chest_pool = [  ]
+armor_legs_pool = null
+armor_weapon_pool = null
+chest_reward = [  ]
+
+[node name="Timer" type="Timer" parent="."]
+process_mode = 1
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="Spawn" type="Position2D" parent="."]
+position = Vector2( 0.856544, -425.115 )
+
+[node name="Spawn2" type="Position2D" parent="."]
+position = Vector2( 0.856483, -425.115 )
+
+[node name="Spawn3" type="Position2D" parent="."]
+position = Vector2( 0.856483, -425.115 )
+
+[node name="Player_Spawn" type="Position2D" parent="."]
+position = Vector2( -1.58667, -219.247 )
+
+[node name="Chest_Spawn" type="Position2D" parent="."]
+position = Vector2( -1.58667, -289.409 )
+
+[node name="Gate" parent="." instance=ExtResource( 9 )]
+position = Vector2( 0.60397, -457.266 )
+action_string = "Travel to next"
+object_string = "Level"
+
+[node name="Banner" parent="." instance=ExtResource( 10 )]
+position = Vector2( -1, -94 )
+object_string = "Banner"
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Audience_Top" type="YSort" parent="Objects"]
+sort_enabled = true
+
+[node name="Floor" type="TileMap" parent="Objects" groups=[
+"World",
+]]
+z_index = -1
+mode = 0
+tile_set = null
+cell_size = Vector2( 48, 48 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+_sections_unfolded = [ "Cell", "Collision", "Transform", "Z Index" ]
+
+[node name="Walls" type="TileMap" parent="Objects" groups=[
+"World",
+]]
+mode = 0
+tile_set = null
+cell_size = Vector2( 48, 48 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 0, 0, 0, 0, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+_sections_unfolded = [ "Cell", "Transform" ]
+
+[node name="Audience_Bot" type="YSort" parent="Objects"]
+z_index = 2001
+sort_enabled = true
+_sections_unfolded = [ "Z Index" ]
+
+[node name="WallsTopFloor" type="TileMap" parent="Objects" groups=[
+"World",
+]]
+z_as_relative = false
+mode = 0
+tile_set = null
+cell_size = Vector2( 48, 48 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+_sections_unfolded = [ "Cell", "Transform", "Z Index" ]
+
+[node name="WallsTop" type="TileMap" parent="Objects" groups=[
+"World",
+]]
+z_as_relative = false
+mode = 0
+tile_set = null
+cell_size = Vector2( 48, 48 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+_sections_unfolded = [ "Cell", "Transform", "Z Index" ]
+
+[node name="Traps" type="Node2D" parent="Objects"]
+
+[node name="Navigation2D" type="Navigation2D" parent="." groups=[
+"Navigation",
+]]
+editor/display_folded = true
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
+position = Vector2( -7.89245, -1.629 )
+navpoly = null
+enabled = true
+_sections_unfolded = [ "navpoly" ]
+
+[node name="Labels" type="Node2D" parent="."]
+editor/display_folded = true
+z_index = 2000
+z_as_relative = false
+_sections_unfolded = [ "Z Index" ]
+
+[node name="BannerLabel" type="Label" parent="Labels"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 44.0
+margin_top = -147.0
+margin_right = 205.0
+margin_bottom = -109.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 11 )
+text = "Interact with banner
+to start level"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="ChestLabel" type="Label" parent="Labels"]
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 47.0
+margin_top = -307.0
+margin_right = 193.0
+margin_bottom = -269.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 11 )
+text = "Interact to open
+chest & collect loot"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="GateLabel" type="Label" parent="Labels"]
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -245.0
+margin_top = -473.0
+margin_right = -53.0
+margin_bottom = -422.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 11 )
+text = "Interact with the 
+gate to get to next level"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -1.948, -126.622 )
+stream = null
+volume_db = -15.0
+pitch_scale = 1.0
+autoplay = false
+stream_paused = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="CheersPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 12 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+stream_paused = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+_sections_unfolded = [ "stream" ]
+
+[node name="SpecPlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -1.948, -126.622 )
+stream = ExtResource( 3 )
+volume_db = -5.0
+pitch_scale = 1.0
+autoplay = false
+stream_paused = false
+max_distance = 1000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+

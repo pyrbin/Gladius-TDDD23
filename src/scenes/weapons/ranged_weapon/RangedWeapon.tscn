@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/weapons/Weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/weapons/ranged_weapon/ranged_weapon.gd" type="Script" id=2]
+[ext_resource path="res://assets/sounds/arrow-damage.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/sounds/arrow-fire.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/items/weapon/iron_weapon/iron_crossbow.png" type="Texture" id=5]
+
+[node name="RangedWeapon" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+weapon_attack_speed = 600
+sfx_on_hit = ExtResource( 3 )
+sfx_fire = ExtResource( 4 )
+
+[node name="Pivot" parent="." index="4"]
+position = Vector2( 60, 0 )
+
+[node name="Raycasts" type="Node2D" parent="Pivot" index="0"]
+
+[node name="RC_Top" type="RayCast2D" parent="Pivot/Raycasts" index="0"]
+position = Vector2( -45.8421, -8.54211 )
+rotation = -1.57079
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 50 )
+collision_mask = 3
+collide_with_areas = true
+collide_with_bodies = true
+
+[node name="RC_Mid" type="RayCast2D" parent="Pivot/Raycasts" index="1"]
+position = Vector2( -45.8421, 0 )
+rotation = -1.57079
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 50 )
+collision_mask = 3
+collide_with_areas = true
+collide_with_bodies = true
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="RC_Bot" type="RayCast2D" parent="Pivot/Raycasts" index="2"]
+position = Vector2( -45.8421, 8.5303 )
+rotation = -1.57079
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 50 )
+collision_mask = 3
+collide_with_areas = true
+collide_with_bodies = true
+_sections_unfolded = [ "Collide With" ]
+
+[node name="Area2D" parent="Pivot" index="1"]
+collision_layer = 2
+
+[node name="Sprite" parent="Pivot/Area2D" index="0"]
+texture = ExtResource( 5 )
+
+[node name="Projectile_Pivot" type="Position2D" parent="Pivot/Area2D/Sprite" index="2"]
+use_parent_material = true
+position = Vector2( -50.8526, 0 )
+_sections_unfolded = [ "Material", "Z Index" ]
+

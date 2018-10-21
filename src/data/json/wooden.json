@@ -1,0 +1,113 @@
+{
+    "1100": {
+        "NAME": "Leather Cap",
+        "ICON": "armor/leather_armor/leather_armor_icon_0.png",
+        "TYPE": 1,
+        "SLOT": 1,
+        "DESC": "Rugged leather cap, most likely crafted in a tent far in the woods by a single person.",
+        "SPRITE": "armor/leather_armor/leather_armor_0.png",
+        "STATS": {
+            "STAMINA": {
+                "VALUE" : 5
+            },
+            "VITALITY": {
+                "VALUE": 5
+            }
+        }
+    },
+    "2100": {
+        "NAME": "Leather Chest",
+        "ICON": "armor/leather_armor/leather_armor_icon_1.png",
+        "TYPE": 1,
+        "SLOT": 2,
+        "DESC": "A leather vest",
+        "SPRITE": "armor/leather_armor/leather_armor_1.png",
+        "STATS": {
+            "STAMINA": {
+                "VALUE" : 5
+            }
+        }
+    },
+    "3100": {
+        "NAME": "Leather Legs",
+        "ICON": "armor/leather_armor/leather_armor_icon_2.png",
+        "TYPE": 1,
+        "SLOT": 3,
+        "DESC": "Leather pants that has been poorly stiched together.",
+        "SPRITE": "armor/leather_armor/leather_armor_2.png",
+        "STATS": {
+            "STAMINA": {
+                "VALUE" : 20
+            },
+            "MOVEMENT": {
+                "VALUE" : 20
+            }
+        }
+    },
+    "4100": {
+        "NAME": "Wooden Shortsword",
+        "ICON": "weapon/wooden_weapon/wood_shortsword_icon.png",
+        "TYPE": 1,
+        "SLOT": 4,
+        "DESC": "Used by early gladiators in their training, not very effective.",
+        "SPRITE": "weapon/wooden_weapon/wood_shortsword.png",
+        "STATS": {},
+        "WEAPON_TYPE": 0,
+        "MODEL" : "swing_weapon/shortsword/Shortsword.tscn",
+        "DAMAGE" : 2,
+        "COOLDOWN" : 0.8
+    },
+    "4101": {
+        "NAME": "Wooden Spear",
+        "ICON": "weapon/wooden_weapon/wood_spear_icon.png",
+        "TYPE": 1,
+        "SLOT": 4,
+        "DESC": "Glorified wooden stick.",
+        "SPRITE": "weapon/wooden_weapon/wood_spear.png",
+        "STATS": {},
+        "WEAPON_TYPE": 1,
+        "MODEL" : "stab_weapon/spear/Spear.tscn",
+        "DAMAGE" : 2,
+        "COOLDOWN" : 1
+    },
+    "4102": {
+        "NAME": "Wooden Dagger",
+        "ICON": "weapon/wooden_weapon/wood_dagger_icon.png",
+        "TYPE": 1,
+        "SLOT": 4,
+        "DESC": "Often refered to as a broken wooden sword.",
+        "SPRITE": "weapon/wooden_weapon/wood_dagger.png",
+        "STATS": {},
+        "WEAPON_TYPE": 1,
+        "MODEL" : "stab_weapon/dagger/Dagger.tscn",
+        "DAMAGE" : 3,
+        "COOLDOWN" : 0.4
+    },
+    "4103": {
+        "NAME": "Wooden Hammer",
+        "ICON": "weapon/wooden_weapon/wood_hammer_icon.png",
+        "TYPE": 1,
+        "SLOT": 4,
+        "DESC": "A hammer of wood.",
+        "SPRITE": "weapon/wooden_weapon/wood_hammer.png",
+        "STATS": {},
+        "WEAPON_TYPE": 0,
+        "MODEL" : "swing_weapon/mace/Mace.tscn",
+        "DAMAGE" : 3,
+        "COOLDOWN" : 1
+    },
+    "4104": {
+        "NAME": "Leather Sling",
+        "ICON": "weapon/wooden_weapon/leather_slinger_icon.png",
+        "TYPE": 1,
+        "SLOT": 4,
+        "DESC": "Throw stones.",
+        "SPRITE": "weapon/wooden_weapon/leather_slinger.png",
+        "STATS": {},
+        "WEAPON_TYPE": 2,
+        "MODEL" : "ranged_weapon/sling/Sling.tscn",
+        "DAMAGE" : 2,
+        "COOLDOWN" : 0.8,
+        "AMMO" : "weapon/wooden_weapon/sling_stone.png"
+    }
+}

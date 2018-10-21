@@ -1,0 +1,104 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/interface/player_action_bar/player_action_bar.gd" type="Script" id=1]
+[ext_resource path="res://scenes/interface/progess_bars/lifebar/LifeBar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/interface/progess_bars/energybar/EnergyBar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/interface/slot_containers/ItemContainerController.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/interface/slot_containers/SlotKey.tscn" type="PackedScene" id=5]
+
+[node name="PlayerActionBar" type="HBoxContainer"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/separation = 0
+alignment = 0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Rect", "custom_constants" ]
+
+[node name="StatusBars" type="VBoxContainer" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 313.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 313, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/separation = -2
+alignment = 0
+_sections_unfolded = [ "Margin", "Rect", "custom_constants" ]
+
+[node name="LifeBar" parent="StatusBars" instance=ExtResource( 2 )]
+margin_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="StatusBars"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 38.0
+margin_right = 313.0
+margin_bottom = 90.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/margin_right = 0
+custom_constants/margin_top = 4
+custom_constants/margin_left = 53
+custom_constants/margin_bottom = 0
+_sections_unfolded = [ "Grow Direction", "Rect", "custom_constants" ]
+
+[node name="EnergyBar" parent="StatusBars/MarginContainer" instance=ExtResource( 3 )]
+margin_left = 53.0
+margin_top = 4.0
+margin_right = 313.0
+margin_bottom = 52.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 313.0
+margin_right = 507.0
+margin_bottom = 96.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/margin_left = 2
+_sections_unfolded = [ "Margin", "Theme", "custom_constants" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ItemSlotContainer" parent="MarginContainer" groups=[
+"ActionBar_ItemContainer",
+] instance=ExtResource( 4 )]
+margin_left = 2.0
+margin_right = 194.0
+rect_min_size = Vector2( 192, 96 )
+_sections_unfolded = [ "Anchor", "Margin", "Rect", "Theme", "custom_constants" ]
+key_slot_scene = ExtResource( 5 )
+item_menu = NodePath("")
+

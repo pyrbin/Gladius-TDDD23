@@ -1,0 +1,234 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://themes/default.theme" type="Theme" id=1]
+[ext_resource path="res://scenes/interface/character_panel/CharacterPanel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/interface/slot_containers/ItemMenu_WindowDialog.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/fonts/pixel_medium.tres" type="DynamicFont" id=4]
+[ext_resource path="res://scenes/interface/player_action_bar/PlayerActionBar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/fonts/pixel_small.tres" type="DynamicFont" id=6]
+[ext_resource path="res://scenes/interface/version_label.gd" type="Script" id=7]
+[ext_resource path="res://scenes/interface/interact_display/Interact_Display.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/interface/wave_manager/WaveManagerController.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/interface/pause_menu.gd" type="Script" id=10]
+[ext_resource path="res://assets/fonts/pixel_large.tres" type="DynamicFont" id=11]
+[ext_resource path="res://scenes/interface/CharacerDialog.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/interface/big_boss_healthbar/BigBossHealthbar.tscn" type="PackedScene" id=13]
+
+[node name="Interface" type="Control"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 1 )
+_sections_unfolded = [ "Pause", "Script", "Theme", "theme" ]
+
+[node name="CharacterPanel" parent="." instance=ExtResource( 2 )]
+visible = false
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -284.0
+margin_bottom = 166.0
+
+[node name="ItemMenu_WindowDialog" parent="." groups=[
+"ItemMenu",
+] instance=ExtResource( 3 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 206.0
+margin_top = -247.0
+margin_right = 526.0
+margin_bottom = 35.0
+custom_fonts/title_font = ExtResource( 4 )
+custom_colors/title_color = Color( 1, 0, 0, 1 )
+custom_constants/title_height = 10
+_sections_unfolded = [ "Theme", "custom_colors", "custom_constants", "custom_fonts", "custom_fonts/title_font", "custom_icons", "custom_styles", "custom_styles/panel", "theme" ]
+
+[node name="PlayerActionBar" parent="." instance=ExtResource( 5 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -263.0
+margin_top = -127.0
+margin_right = 403.0
+margin_bottom = -31.0
+_sections_unfolded = [ "Margin", "Rect", "Theme", "custom_constants" ]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+margin_left = -346.0
+margin_right = -175.0
+margin_bottom = 19.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+size_flags_stretch_ratio = 2.0
+custom_fonts/normal_font = ExtResource( 6 )
+custom_colors/default_color = Color( 1, 1, 1, 0.745098 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 2
+text = "GAME TITLE"
+scroll_active = false
+scroll_following = true
+selection_enabled = false
+override_selected_font_color = false
+script = ExtResource( 7 )
+_sections_unfolded = [ "Theme", "custom_fonts", "custom_fonts/normal_font" ]
+
+[node name="Interact_Display" parent="." instance=ExtResource( 8 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+margin_left = -263.0
+margin_top = -200.0
+margin_right = 264.0
+margin_bottom = -128.0
+_sections_unfolded = [ "Theme" ]
+
+[node name="WaveManager" parent="." groups=[
+"WaveManager",
+] instance=ExtResource( 9 )]
+visible = false
+
+[node name="PauseMenu" type="Panel" parent="."]
+pause_mode = 2
+editor/display_folded = true
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -173.0
+margin_top = -173.0
+margin_right = 173.0
+margin_bottom = 173.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 10 )
+_sections_unfolded = [ "Pause" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -108.0
+margin_top = -91.5
+margin_right = 108.0
+margin_bottom = 91.5
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/separation = 20
+alignment = 0
+_sections_unfolded = [ "custom_constants" ]
+
+[node name="Label" type="Label" parent="PauseMenu/VBoxContainer"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 216.0
+margin_bottom = 87.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 11 )
+text = "Pause Menu
+"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Start" type="Button" parent="PauseMenu/VBoxContainer"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 107.0
+margin_right = 216.0
+margin_bottom = 135.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 4 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Return to Menu"
+flat = false
+align = 1
+
+[node name="Exit" type="Button" parent="PauseMenu/VBoxContainer"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 155.0
+margin_right = 216.0
+margin_bottom = 183.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 4 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Exit"
+flat = false
+align = 1
+
+[node name="CharacerDialog" parent="." instance=ExtResource( 12 )]
+visible = false
+
+[node name="BigBossHealthbar" parent="." instance=ExtResource( 13 )]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -683.0
+margin_right = 683.0
+margin_bottom = 768.0
+
+[connection signal="pressed" from="PauseMenu/VBoxContainer/Start" to="PauseMenu" method="_on_Start_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/Exit" to="PauseMenu" method="_on_Exit_pressed"]

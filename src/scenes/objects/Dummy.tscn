@@ -1,0 +1,120 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/objects/dummy.gd" type="Script" id=1]
+[ext_resource path="res://assets/sounds/metal_clang.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/dummy.png" type="Texture" id=3]
+[ext_resource path="res://assets/dummy_hand.png" type="Texture" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 14.7595
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 15.529, 36.804 )
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "dead"
+length = 1.0
+loop = true
+step = 0.1
+
+[node name="Dummy" type="KinematicBody2D" groups=[
+"Z_Index",
+"Hitable",
+"Obstacles",
+]]
+position = Vector2( 3.7655, 921.318 )
+input_pickable = false
+collision_layer = 5
+collision_mask = 31
+collision/safe_margin = 0.08
+motion/sync_to_physics = false
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
+sfx_onhit = null
+sfx_destroy = null
+destroy_on_combo = false
+weapon_id = 0
+weapon_collision = 14
+aim_direction = 0
+reach = 30.0
+sfx_bashed = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.84416, -18.1537 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform", "shape" ]
+
+[node name="Pivot" type="Position2D" parent="."]
+position = Vector2( 0, -23.0692 )
+
+[node name="Area2D" type="Area2D" parent="Pivot"]
+position = Vector2( 1.85318, -16.6785 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Area2D"]
+position = Vector2( -4.16962, -1.38983 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "shape" ]
+
+[node name="Sprite" type="Sprite" parent="Pivot"]
+position = Vector2( 0, -31.5038 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="U_Hand_Pivot" type="Position2D" parent="Pivot"]
+
+[node name="U_Hand" type="Sprite" parent="Pivot/U_Hand_Pivot"]
+position = Vector2( -13.9671, -19.759 )
+texture = ExtResource( 4 )
+
+[node name="L_Hand_Pivot" type="Position2D" parent="Pivot"]
+
+[node name="L_Hand" type="Sprite" parent="Pivot/L_Hand_Pivot"]
+position = Vector2( 12.4335, -19.0615 )
+texture = ExtResource( 4 )
+
+[node name="Weapon_Pivot" type="Position2D" parent="Pivot"]
+position = Vector2( -1.43396, -16.1319 )
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/dead = SubResource( 3 )
+blend_times = [  ]
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = null
+volume_db = -20.0
+pitch_scale = 1.0
+autoplay = false
+stream_paused = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Tween" type="Tween" parent="."]
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]

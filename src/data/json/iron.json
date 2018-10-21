@@ -1,0 +1,133 @@
+{
+    "100": {
+        "NAME": "Iron Helmer",
+        "ICON": "armor/iron_armor/iron_armor_helm_icon.png",
+        "TYPE": 1,
+        "SLOT": 1,
+        "DESC": "A helmet made of iron.",
+        "SPRITE": "armor/iron_armor/iron_armor_helm.png",
+        "STATS": {
+            "POWER": {
+                "VALUE" : 1
+            },
+            "VITALITY": {
+                "VALUE" : 5
+            }
+        }
+    },
+    "2000": {
+        "NAME": "Iron Chest",
+        "ICON": "armor/iron_armor/iron_armor_chest_icon.png",
+        "TYPE": 1,
+        "SLOT": 2,
+        "DESC": "A chest made of iron.",
+        "SPRITE": "armor/iron_armor/iron_armor_chest.png",
+        "STATS": {
+            "VITALITY": {
+                "VALUE" : 10
+            },
+            "STAMINA": {
+                "VALUE" : 5
+            }
+        }
+    },
+    "3000": {
+        "NAME": "Iron Legs",
+        "ICON": "armor/iron_armor/iron_armor_legs_icon.png",
+        "TYPE": 1,
+        "SLOT": 3,
+        "DESC": "A pair of legs made of iron.",
+        "SPRITE": "armor/iron_armor/iron_armor_legs.png",
+        "STATS": {
+            "MOVEMENT": {
+                "VALUE" : -10
+            },
+            "VITALITY": {
+                "VALUE" : 7
+            }
+        }
+    },
+    "4000": {
+        "NAME": "Iron Shortsword",
+        "ICON": "weapon/iron_weapon/iron_shortsword_icon.png",
+        "TYPE": 1,
+        "SLOT": 4,
+        "DESC": "An iron sword",
+        "SPRITE": "weapon/iron_weapon/iron_shortsword.png",
+        "STATS": {},
+        "WEAPON_TYPE": 0,
+        "MODEL" : "swing_weapon/shortsword/Shortsword.tscn",
+        "DAMAGE" : 4,
+        "COOLDOWN" : 0.8
+    },
+    "4001": {
+        "NAME": "Iron Spear",
+        "ICON": "weapon/iron_weapon/iron_spear_icon.png",
+        "TYPE": 1,
+        "SLOT": 4,
+        "DESC": "A wooden stick with a sharp stone attached.",
+        "SPRITE": "weapon/iron_weapon/iron_spear.png",
+        "STATS": {},
+        "WEAPON_TYPE": 1,
+        "MODEL" : "stab_weapon/spear/Spear.tscn",
+        "DAMAGE" : 4,
+        "COOLDOWN" : 1
+    },
+    "4002": {
+        "NAME": "Iron Dagger",
+        "ICON": "weapon/iron_weapon/iron_dagger_icon.png",
+        "TYPE": 1,
+        "SLOT": 4,
+        "DESC": "An iron dagger.",
+        "SPRITE": "weapon/iron_weapon/iron_dagger.png",
+        "STATS": {
+            "MOVEMENT" : {
+                "VALUE" : 20
+            }
+        },
+        "WEAPON_TYPE": 1,
+        "MODEL" : "stab_weapon/dagger/Dagger.tscn",
+        "DAMAGE" : 6,
+        "COOLDOWN" : 0.4
+    },
+    "4003": {
+        "NAME": "Iron Hammer",
+        "ICON": "weapon/iron_weapon/iron_hammer_icon.png",
+        "TYPE": 1,
+        "SLOT": 4,
+        "DESC": "An iron hammer.",
+        "SPRITE": "weapon/iron_weapon/iron_hammer.png",
+        "STATS": {},
+        "WEAPON_TYPE": 0,
+        "MODEL" : "swing_weapon/mace/Mace.tscn",
+        "DAMAGE" : 5,
+        "COOLDOWN" : 1
+    },
+    "4005": {
+        "NAME": "Iron Axe",
+        "ICON": "weapon/iron_weapon/iron_hammer_icon.png",
+        "TYPE": 1,
+        "SLOT": 4,
+        "DESC": "IRON AXE OF DOOM XD XD",
+        "SPRITE": "weapon/iron_weapon/iron_axe.png",
+        "STATS": {},
+        "WEAPON_TYPE": 0,
+        "MODEL" : "swing_weapon/axe/Axe.tscn",
+        "DAMAGE" : 5,
+        "COOLDOWN" : 1
+    },
+    "4004": {
+        "NAME": "Iron Crossbow",
+        "ICON": "weapon/iron_weapon/iron_crossbow_icon.png",
+        "TYPE": 1,
+        "SLOT": 4,
+        "DESC": "A crossbow firing iron bolts, very effective.",
+        "SPRITE": "weapon/iron_weapon/iron_crossbow.png",
+        "STATS": {},
+        "WEAPON_TYPE": 2,
+        "MODEL" : "ranged_weapon/crossbow/Crossbow.tscn",
+        "DAMAGE" : 3,
+        "COOLDOWN" : 1.2,
+        "AMMO" : "weapon/iron_weapon/iron_arrow.png"
+    }
+}

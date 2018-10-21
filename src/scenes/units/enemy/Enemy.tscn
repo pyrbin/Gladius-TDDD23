@@ -1,0 +1,86 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/units/Unit.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/units/enemy/enemy.gd" type="Script" id=2]
+[ext_resource path="res://scenes/units/enemy/aim_indicator.tscn" type="PackedScene" id=3]
+
+[node name="Enemy" groups=[
+"Enemies",
+] instance=ExtResource( 1 )]
+collision_layer = 4
+collision_mask = 5
+collision/safe_margin = 6.48
+script = ExtResource( 2 )
+_sections_unfolded = [ "Collision", "Z Index", "collision", "sfx_hurt", "sfx_hurt_sounds" ]
+reach = 30.0
+stagger_time = 0.5
+equipped_items = [ 1001, 0, 0 ]
+equipped_weapons = [ 3001, 0 ]
+weapon_collision = 3
+disable_AI = false
+ai_difficulty = 0
+
+[node name="AIBehaviour" type="Node" parent="." index="0"]
+
+[node name="CanBash" type="Timer" parent="AIBehaviour" index="0"]
+process_mode = 1
+wait_time = 5.0
+one_shot = true
+autostart = false
+
+[node name="CanJump" type="Timer" parent="AIBehaviour" index="1"]
+process_mode = 1
+wait_time = 5.0
+one_shot = true
+autostart = false
+
+[node name="Thinking" type="Timer" parent="AIBehaviour" index="2"]
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="Jump" parent="StateMachine" index="2"]
+JUMP_FORCE = 300
+
+[node name="Stats" parent="." index="2"]
+attack_speed = -300.0
+movement_speed = 125.0
+
+[node name="Status" parent="." index="3"]
+status_settings = 7
+health = 5.0
+endurance = 15.0
+max_health = 5.0
+max_endurance = 15.0
+endurance_regen = 2.0
+health_regen = 0.33
+
+[node name="Hitbox" parent="." index="5"]
+collision_layer = 4
+collision_mask = 14
+
+[node name="Collision" parent="." index="6"]
+position = Vector2( 0.0833834, -3.73248 )
+polygon = PoolVector2Array( -18.1021, -10.5436, -17.5676, 11.5186, 15.2503, 12.0424, 15.0806, -10.2645 )
+
+[node name="Dynamic_WorldUI" parent="Visuals/Pivot" index="0"]
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Transform", "Visibility", "Z Index" ]
+
+[node name="UnitHealthBarController" parent="Visuals/Pivot/Dynamic_WorldUI" index="0"]
+margin_left = -7.0
+margin_right = 17.0
+_sections_unfolded = [ "Grow Direction", "Rect", "custom_constants" ]
+disabled = false
+
+[node name="AimIndicator" parent="Visuals" index="2" instance=ExtResource( 3 )]
+visible = false
+position = Vector2( -0.386523, 15.9241 )
+offset = Vector2( 27.6019, 0.208817 )
+
+[node name="Shadow" parent="Visuals" index="3"]
+position = Vector2( 0.0041523, 34.9553 )
+
+[connection signal="timeout" from="AIBehaviour/CanBash" to="." method="_on_CanBash_timeout"]
+[connection signal="timeout" from="AIBehaviour/CanJump" to="." method="_on_CanJump_timeout"]
+[connection signal="timeout" from="AIBehaviour/Thinking" to="." method="_on_Thinking_timeout"]

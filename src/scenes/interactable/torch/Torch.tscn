@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/interactable/Interactable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/interactable/torch/torch.gd" type="Script" id=2]
+[ext_resource path="res://scenes/common/Lightspot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/common/Fire.tscn" type="PackedScene" id=4]
+[ext_resource path="res://shaders/pixel_outline.shader" type="Shader" id=5]
+[ext_resource path="res://scenes/interactable/torch/torch_10.png" type="Texture" id=6]
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "active"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Visuals/Pivot/Light2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.95 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.44682, 1.44682 ), Vector2( 1.364, 1.364 ), Vector2( 1.44682, 1.44682 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 111.584
+
+[sub_resource type="ShaderMaterial" id=3]
+
+render_priority = 0
+shader = ExtResource( 5 )
+shader_param/intensity = 100
+shader_param/sizex = 16.0
+shader_param/sizey = 32.0
+shader_param/outline_color = Color( 1, 1, 1, 1 )
+_sections_unfolded = [ "shader_param" ]
+
+[node name="Torch" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+flame_on = false
+
+[node name="AnimationPlayer" parent="." index="1"]
+anims/active = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2( -0.364784, -7.91703 )
+shape = SubResource( 2 )
+
+[node name="Visuals" parent="." index="3"]
+editor/display_folded = false
+
+[node name="Shadow" parent="Visuals" index="0"]
+visible = false
+
+[node name="Pivot" parent="Visuals" index="1"]
+position = Vector2( 0, -2.82972 )
+
+[node name="Light2D" parent="Visuals/Pivot" index="0" instance=ExtResource( 3 )]
+position = Vector2( 0, 0 )
+scale = Vector2( 1.42441, 1.42441 )
+z_index = 2001
+enabled = false
+_sections_unfolded = [ "Transform", "Z Index", "texture" ]
+
+[node name="Particles2D" parent="Visuals/Pivot" index="1" instance=ExtResource( 4 )]
+
+[node name="Sprite" parent="Visuals/Pivot" index="2"]
+material = SubResource( 3 )
+scale = Vector2( 1.75, 1.75 )
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 16, 32 )
+_sections_unfolded = [ "Material", "Visibility", "Z Index", "material" ]
+

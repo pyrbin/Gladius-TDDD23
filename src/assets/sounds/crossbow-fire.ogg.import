@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/crossbow-fire.ogg-b64f41dc07f3ba463d075a80da4f8023.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/crossbow-fire.ogg"
+dest_files=[ "res://.import/crossbow-fire.ogg-b64f41dc07f3ba463d075a80da4f8023.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

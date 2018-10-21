@@ -1,0 +1,107 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/interactable/interactable.gd" type="Script" id=1]
+[ext_resource path="res://assets/shadow.png" type="Texture" id=2]
+[ext_resource path="res://shaders/pixel_outline.shader" type="Shader" id=3]
+[ext_resource path="res://assets/items/unknown_icon.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "idle"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Visuals/Pivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -4.64905 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 56.5719
+
+[sub_resource type="ShaderMaterial" id=3]
+
+render_priority = 0
+shader = ExtResource( 3 )
+shader_param/intensity = 100
+shader_param/sizex = 72.0
+shader_param/sizey = 72.0
+shader_param/outline_color = null
+_sections_unfolded = [ "shader_param" ]
+
+[node name="Interactable" type="Area2D" groups=[
+"Z_Index",
+"Interactable",
+]]
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 16
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+interactable_name = ""
+action_string = "Interact with"
+object_string = ""
+sfx_interact = null
+disabled = false
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = null
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+stream_paused = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/idle = SubResource( 1 )
+blend_times = [  ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.364784, -24.5024 )
+shape = SubResource( 2 )
+
+[node name="Visuals" type="Position2D" parent="."]
+editor/display_folded = true
+position = Vector2( -0.621811, -23.6028 )
+
+[node name="Shadow" type="Sprite" parent="Visuals"]
+modulate = Color( 1, 1, 1, 0.480392 )
+position = Vector2( 0, 20.0275 )
+scale = Vector2( 0.505134, 0.234466 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="Pivot" type="Position2D" parent="Visuals"]
+z_index = 1
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Sprite" type="Sprite" parent="Visuals/Pivot"]
+material = SubResource( 3 )
+position = Vector2( 0.250351, 0.250343 )
+z_index = 1
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Material", "Z Index", "material" ]
+

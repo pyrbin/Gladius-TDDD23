@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/theme2.ogg" type="AudioStream" id=1]
+[ext_resource path="res://scenes/common/audio_player_ext.gd" type="Script" id=2]
+
+[node name="ExtAudioPlayer" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+volume_db = -15.0
+pitch_scale = 1.0
+autoplay = false
+stream_paused = false
+mix_target = 0
+bus = "Master"
+script = ExtResource( 2 )
+_sections_unfolded = [ "stream" ]
+transition_duration = 1.0
+transition_type = 1
+
+[node name="TweenOut" type="Tween" parent="."]
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="TweenIn" type="Tween" parent="."]
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+

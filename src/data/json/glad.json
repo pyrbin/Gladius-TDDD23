@@ -1,0 +1,66 @@
+{
+    "1300": {
+        "NAME": "Gladiators' Helm",
+        "ICON": "armor/gladiator_armor/glad_armor_icon_0.png",
+        "TYPE": 1,
+        "SLOT": 1,
+        "DESC": "A helmet given to the most fierce gladiators.",
+        "SPRITE": "armor/gladiator_armor/glad_armor_helm.png",
+        "STATS": {
+            "POWER": {
+                "VALUE" : 2
+            },
+            "VITALITY": {
+                "PERCENT" : 15
+            }
+        }
+    },
+    "2300": {
+        "NAME": "Gladiators' Chest",
+        "ICON": "armor/gladiator_armor/glad_armor_icon_1.png",
+        "TYPE": 1,
+        "SLOT": 2,
+        "DESC": "A chestpiece given to the most fierce gladiators.",
+        "SPRITE": "armor/gladiator_armor/glad_armor_chest.png",
+        "STATS": {
+            "VITALITY": {
+                "VALUE" : 20
+            },
+            "STAMINA": {
+                "VALUE" : 40
+            },
+            "MOVEMENT": {
+                "PERCENT" : -20
+            }
+        }
+    },
+    "3300": {
+        "NAME": "Gladiators' Legs",
+        "ICON": "armor/gladiator_armor/glad_armor_icon_2.png",
+        "TYPE": 1,
+        "SLOT": 3,
+        "DESC": "A pair of legs given to the most fierce gladiators.",
+        "SPRITE": "armor/gladiator_armor/glad_armor_legs.png",
+        "STATS": {
+            "VITALITY": {
+                "VALUE" : 25
+            },
+            "STAMINA": {
+                "VALUE" : 20
+            }
+        }
+    },
+    "4300": {
+        "NAME": "Gladiators' Shortsword",
+        "ICON": "weapon/gladiator_weapon/glad_sword_icon.png",
+        "TYPE": 1,
+        "SLOT": 4,
+        "DESC": "A sword worn by the mightiest gladiators.",
+        "SPRITE": "weapon/gladiator_weapon/glad_sword.png",
+        "STATS": {},
+        "WEAPON_TYPE": 0,
+        "MODEL" : "swing_weapon/shortsword/Shortsword.tscn",
+        "DAMAGE" : 9,
+        "COOLDOWN" : 0.7
+    }
+}

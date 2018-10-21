@@ -1,0 +1,235 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/interface/character_panel/character_panel.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/pixel_medium.tres" type="DynamicFont" id=2]
+[ext_resource path="res://scenes/interface/character_panel/StatLabel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/interface/vitlaity.png" type="Texture" id=4]
+[ext_resource path="res://assets/interface/endurance.png" type="Texture" id=5]
+[ext_resource path="res://assets/interface/power.png" type="Texture" id=6]
+[ext_resource path="res://assets/interface/movement.png" type="Texture" id=7]
+[ext_resource path="res://scenes/interface/slot_containers/ItemContainerController.tscn" type="PackedScene" id=8]
+
+[sub_resource type="StyleBoxFlat" id=1]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+bg_color = Color( 0.0862745, 0.0862745, 0.0862745, 1 )
+draw_center = true
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color( 0.223529, 0.247059, 0.298039, 1 )
+border_blend = false
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+corner_detail = 8
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+shadow_color = Color( 0, 0, 0, 0.6 )
+shadow_size = 0
+anti_aliasing = true
+anti_aliasing_size = 1
+_sections_unfolded = [ "Border", "Border Width", "Corner Radius" ]
+
+[node name="CharacterPanel" type="Panel" groups=[
+"Character_Panel",
+]]
+anchor_left = 0.5
+anchor_top = 0.08857
+anchor_right = 0.5
+anchor_bottom = 0.08857
+margin_left = -200.0
+margin_top = 43.9782
+margin_right = 200.0
+margin_bottom = 409.978
+rect_min_size = Vector2( 400, 450 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Rect", "Theme", "custom_styles", "custom_styles/panel", "custom_styles/panelf" ]
+
+[node name="Content" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -185.0
+margin_top = 18.0
+margin_right = 185.0
+margin_bottom = 433.0
+rect_min_size = Vector2( 370, 120 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+alignment = 2
+_sections_unfolded = [ "Margin", "Rect", "Size Flags", "Theme", "custom_constants" ]
+
+[node name="Label_Character" type="Label" parent="Content"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 35.0
+margin_right = 370.0
+margin_bottom = 57.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 2 )
+text = "CHARACTER PANEL"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Theme", "custom_fonts" ]
+
+[node name="StatsContainer" type="CenterContainer" parent="Content"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 67.0
+margin_right = 370.0
+margin_bottom = 277.0
+rect_min_size = Vector2( 330, 210 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+_sections_unfolded = [ "Grow Direction", "Margin", "Rect", "Size Flags" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Content/StatsContainer"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 38.0
+margin_top = 51.0
+margin_right = 331.0
+margin_bottom = 159.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Vitality" parent="Content/StatsContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_left = 0.0
+margin_right = 293.0
+margin_bottom = 24.0
+stat_icon = ExtResource( 4 )
+stat_name = "Vitality"
+
+[node name="Stamina" parent="Content/StatsContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_left = 0.0
+margin_top = 28.0
+margin_right = 293.0
+margin_bottom = 52.0
+stat_icon = ExtResource( 5 )
+stat_name = "Stamina"
+
+[node name="Power" parent="Content/StatsContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_left = 0.0
+margin_top = 56.0
+margin_right = 293.0
+margin_bottom = 80.0
+stat_icon = ExtResource( 6 )
+stat_name = "Power"
+
+[node name="Atk_Speed" parent="Content/StatsContainer/VBoxContainer" instance=ExtResource( 3 )]
+visible = false
+margin_left = 0.0
+margin_top = 84.0
+margin_right = 293.0
+margin_bottom = 108.0
+stat_name = "Attack Speed"
+
+[node name="Mov_Speed" parent="Content/StatsContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_left = 0.0
+margin_top = 84.0
+margin_right = 293.0
+margin_bottom = 108.0
+stat_icon = ExtResource( 7 )
+stat_name = "Movement"
+stat_mod_value = 2000.0
+
+[node name="Crit" parent="Content/StatsContainer/VBoxContainer" instance=ExtResource( 3 )]
+visible = false
+margin_left = 0.0
+margin_top = 112.0
+margin_right = 293.0
+margin_bottom = 136.0
+stat_name = "Crit"
+
+[node name="Label_Equipment" type="Label" parent="Content"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 287.0
+margin_right = 370.0
+margin_bottom = 309.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 2 )
+text = "EQUIPMENT"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="CenterContainer" type="CenterContainer" parent="Content"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 319.0
+margin_right = 370.0
+margin_bottom = 415.0
+rect_min_size = Vector2( 0, 96 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="ItemSlotContainer" parent="Content/CenterContainer" groups=[
+"Equipment_ItemContainer",
+] instance=ExtResource( 8 )]
+margin_left = 137.0
+margin_right = 233.0
+_sections_unfolded = [ "Margin", "Rect", "Theme" ]
+item_menu = NodePath("")
+

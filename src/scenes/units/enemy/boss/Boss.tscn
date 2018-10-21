@@ -1,0 +1,389 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://scenes/units/enemy/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/units/enemy/boss/boss.gd" type="Script" id=2]
+[ext_resource path="res://scenes/units/enemy/boss/Pitfall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/gladiator/boss.png" type="Texture" id=4]
+[ext_resource path="res://shaders/white.material" type="Material" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 24.1856, 32.1925 )
+
+[sub_resource type="Animation" id=2]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Visuals/Pivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Visuals/Pivot:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Visuals/Blood:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Visuals/Blood:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=3]
+
+length = 0.7
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Visuals/Pivot/Container/Body:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 2,
+"values": [ Rect2( 0, 0, 64, 64 ), Rect2( 192, 0, 64, 64 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Visuals/Pivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Visuals/Shadow:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Visuals/Pivot/Container/Legs:region_rect")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Visuals/Pivot/Container/Body:region_rect")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=5]
+
+length = 0.3
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Visuals/Shadow:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.01, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.7, 0.323 ), Vector2( 0.818985, 0.380145 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Visuals/Pivot/Container/Body:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 2,
+"values": [ Rect2( 64, 0, 64, 64 ), Rect2( 128, 0, 64, 64 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+
+length = 0.3
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Visuals/Pivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Visuals/Pivot:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=7]
+
+length = 0.4
+loop = false
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Visuals/Pivot:material")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ null, ExtResource( 5 ), null ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=8]
+
+resource_name = "stunned"
+length = 0.7
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Visuals/Pivot/Container/Body:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Visuals/Pivot/Container/Chest:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Visuals/Pivot/Container/Helm:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Visuals/Stunned:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+
+[node name="Boss" groups=[
+"Boss",
+] instance=ExtResource( 1 )]
+scale = Vector2( 2, 2 )
+collision_layer = 12
+collision/safe_margin = 0.001
+script = ExtResource( 2 )
+_sections_unfolded = [ "Collision", "Transform", "Z Index", "collision", "equipped_weapons", "motion", "sfx_hurt", "sfx_hurt_sounds" ]
+random_skin_color = false
+bashable = false
+equipment_container_slots = [  ]
+equipped_items = [  ]
+equipped_weapons = [ 4005, 0 ]
+boss_name = "Glutton"
+pitfall = ExtResource( 3 )
+
+[node name="AIBehaviour" parent="." index="0"]
+editor/display_folded = true
+
+[node name="Thinking" parent="AIBehaviour" index="2"]
+wait_time = 2.5
+
+[node name="Phase" type="Node" parent="." index="2"]
+
+[node name="Pitfalls" type="Timer" parent="Phase" index="0"]
+process_mode = 1
+wait_time = 5.0
+one_shot = false
+autostart = true
+
+[node name="Status" parent="." index="4"]
+health = 300.0
+endurance = 30.0
+max_health = 300.0
+max_endurance = 30.0
+
+[node name="Hitbox" parent="." index="6"]
+editor/display_folded = false
+visible = false
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2( -0.831588, -29.9456 )
+shape = SubResource( 1 )
+
+[node name="Collision" parent="." index="7"]
+position = Vector2( -1.31366, -4.02885 )
+scale = Vector2( 0.818336, 0.608664 )
+polygon = PoolVector2Array( -18.9857, -16.5662, -21.4939, -8.13666, -20.7787, 1.05931, -17.5676, 11.5186, -10.1369, 14.9949, -1.11684, 16.6465, 8.46885, 15.0139, 15.2503, 12.0424, 19.2807, 5.29693, 21.1665, -6.0716, 18.7756, -16.8876, 11.102, -23.2566, -0.143752, -27.2288, -11.5722, -23.8799 )
+
+[node name="Visuals" parent="." index="9"]
+position = Vector2( -0.0612597, -31.9999 )
+
+[node name="Stunned" parent="Visuals" index="0"]
+editor/display_folded = true
+
+[node name="white_circle2" parent="Visuals/Stunned" index="0"]
+editor/display_folded = true
+
+[node name="Dynamic_WorldUI" parent="Visuals/Pivot" index="0"]
+editor/display_folded = true
+visible = false
+
+[node name="U_Hand_Pivot" parent="Visuals/Pivot" index="1"]
+editor/display_folded = false
+
+[node name="U_Hand" parent="Visuals/Pivot/U_Hand_Pivot" index="0"]
+position = Vector2( -6.77445, -9.22168 )
+
+[node name="L_Hand_Pivot" parent="Visuals/Pivot" index="2"]
+editor/display_folded = false
+
+[node name="L_Hand" parent="Visuals/Pivot/L_Hand_Pivot" index="0"]
+position = Vector2( 9.19889, -11.8662 )
+
+[node name="WeaponPivot" parent="Visuals/Pivot" index="3"]
+position = Vector2( 5.1607, 5.43825 )
+z_index = 5
+
+[node name="WorldUI" type="Node2D" parent="Visuals/Pivot/Container" index="0"]
+position = Vector2( -7.7486e-007, 0 )
+z_index = 1000
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "Z Index" ]
+
+[node name="Legs" parent="Visuals/Pivot/Container" index="1"]
+region_rect = Rect2( 72, 0, 72, 72 )
+
+[node name="Body" parent="Visuals/Pivot/Container" index="3"]
+position = Vector2( -0.000516087, 0.677805 )
+texture = ExtResource( 4 )
+flip_h = false
+region_rect = Rect2( 192, 0, 64, 64 )
+
+[node name="Shadow" parent="Visuals" index="3"]
+position = Vector2( -0.680823, 30.6452 )
+scale = Vector2( 0.762537, 0.353035 )
+
+[node name="AnimationPlayer" parent="." index="10"]
+anims/death = SubResource( 2 )
+anims/idle = SubResource( 3 )
+anims/jump = SubResource( 4 )
+anims/move = SubResource( 5 )
+anims/revive = SubResource( 6 )
+anims/stagger = SubResource( 7 )
+anims/stunned = SubResource( 8 )
+
+[connection signal="timeout" from="Phase/Pitfalls" to="." method="_on_Pitfalls_timeout"]
