@@ -103,6 +103,19 @@
         "DAMAGE" : 5,
         "COOLDOWN" : 1
     },
+    "4005": {
+        "NAME": "Iron Axe",
+        "ICON": "weapon/iron_weapon/iron_hammer_icon.png",
+        "TYPE": 1,
+        "SLOT": 4,
+        "DESC": "LOREM IPSUM LOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUM",
+        "SPRITE": "weapon/iron_weapon/iron_axe.png",
+        "STATS": {},
+        "WEAPON_TYPE": 0,
+        "MODEL" : "swing_weapon/axe/Axe.tscn",
+        "DAMAGE" : 5,
+        "COOLDOWN" : 1
+    },
     "4004": {
         "NAME": "Iron Crossbow",
         "ICON": "weapon/iron_weapon/iron_crossbow_icon.png",

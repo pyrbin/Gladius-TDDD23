@@ -8,10 +8,10 @@ var player = null
 var player_equipment = [0, 0, 0]
 var player_weapons = [0, 0]
 
-const END_LEVEL = 4
+const END_LEVEL = 5
 
 func reset():
-    current_level = 0
+    current_level = 4
     player = null
     player_equipment = [0, 0, 0]
     player_weapons = [0, 0]

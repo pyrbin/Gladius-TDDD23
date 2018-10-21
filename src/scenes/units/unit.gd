@@ -20,6 +20,8 @@ enum LOOK_STATE {TOP_RIGHT, TOP_LEFT, BOTTOM_RIGHT, BOTTOM_LEFT}
 # exports
 export (bool) var use_hands = false
 export (bool) var use_holster = true
+export (bool) var random_skin_color = true
+export (bool) var bashable = true
 export (float) var reach = 40
 export (float) var stagger_time = 4
 
@@ -70,7 +72,7 @@ var velocity_mod = Vector2()
 # weapon
 var weapon = null
 var weapon_sprite = null
-var skin_color = null
+var skin_color = Color("#ff9a6d")
 
 # equipment
 var equipment = null
@@ -90,9 +92,10 @@ func _ready():
     
     # Skin tones
     randomize()
-    var skin_tones = [Color("#ffb695"), Color("#784734"), Color("#ff9a6d"), Color("#965738")]
-    skin_color = skin_tones[randi()%len(skin_tones)]
-    body.modulate = skin_color
+    if random_skin_color:
+        var skin_tones = [Color("#ffb695"), Color("#784734"), Color("#ff9a6d"), Color("#965738")]
+        skin_color = skin_tones[randi()%len(skin_tones)]
+        body.modulate = skin_color
     u_hand.modulate = skin_color
     l_hand.modulate = skin_color
     sprite_player.get_animation("stagger").track_set_key_value(0, 1, skin_color)
@@ -159,6 +162,7 @@ func bash():
     _reset_bash()
     
 func bashed(basher, direction):
+    if not bashable: return;
     if basher == utils.get_player():
         utils.get_player().camera.shake(0.30, 50, 3)
     if !weapon.is_idle() && !weapon.is_holstered():
@@ -256,6 +260,7 @@ func reset_modulate():
         u_hand.modulate = skin_color
         l_hand.modulate = skin_color
     $Visuals/Pivot.material = null
+    
 #   Sprite manipulation
 #   =========================
 func _set_look_state(look_position):

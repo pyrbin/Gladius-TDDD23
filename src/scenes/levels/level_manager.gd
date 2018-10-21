@@ -43,9 +43,6 @@ var ended = false
 const Enemy = preload("res://scenes/units/enemy/Enemy.tscn")
 const Chest = preload("res://scenes/interactable/lootable/chests/Chest.tscn")
 
-const REWARD_COUNT_MAX = 5
-const REWARD_COUNT_MIN = 3
-
 var spawning = false
 
 func spawn():
@@ -56,7 +53,7 @@ func spawn():
 func spawn_random():
     for i in range(0, enemy_wave_count[current_wave-1]):
         var unit = Enemy.instance()
-        get_tree().get_nodes_in_group("Root_Units")[0].add_child(unit)
+        utils.singleton("Root_Units").add_child(unit)
         var helm = armor_helm_pool[randi()%len(armor_helm_pool)]
         var chest = armor_chest_pool[randi()%len(armor_chest_pool)]
         var legs = armor_legs_pool[randi()%len(armor_legs_pool)]
@@ -130,7 +127,7 @@ func end_level():
     current_enemy_wave.clear()
     emit_signal("level_end")
     var chest = Chest.instance()
-    get_tree().get_nodes_in_group("Root_Items")[0].add_child(chest)
+    utils.singleton("Root_Items").add_child(chest)
     utils.get_player().stats.clear_effects()
     utils.get_player().invunerable = true
     utils.get_player().damage(-utils.get_player().status.get_max_health(), utils.get_player())

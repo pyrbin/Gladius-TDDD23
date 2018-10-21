@@ -29,12 +29,13 @@ tracks/0/keys = {
 "values": [ Rect2( 224, 0, 32, 32 ), Rect2( 192, 0, 32, 32 ) ]
 }
 
-[node name="SpikeTrap" index="0" instance=ExtResource( 1 )]
+[node name="SpikeTrap" instance=ExtResource( 1 )]
 scale = Vector2( 2, 2 )
 script = ExtResource( 2 )
 _sections_unfolded = [ "Collision", "Transform" ]
 impact_damage = 3
 dot_damage = 1
+delay = 3
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 3 )

@@ -1,5 +1,7 @@
 extends Area2D
 
+signal trigger
+
 onready var anim_player = $AnimationPlayer
 onready var collision = $CollisionShape2D
 

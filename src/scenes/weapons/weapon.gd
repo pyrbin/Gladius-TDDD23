@@ -3,6 +3,7 @@ extends Node2D
 export (Vector2) var holster_offset = Vector2(52,0)
 export (int) var weapon_attack_speed = 300 
 export (float) var hit_range = 50
+export (bool) var force_knockback = false
 export (AudioStream) var sfx_on_hit;
 
 enum ATTACK_STATE { IDLE, ATTACKING, HOLSTERED }
@@ -139,7 +140,7 @@ func _on_body_entered(body, count_for_combo=true):
     if holder == utils.get_player():
         if data.damage > 0:
             holder.camera.shake(0.30, 50, 3)
-    if _target != utils.get_player():
+    if _target != utils.get_player() || force_knockback:
         _knockback()
     if count_for_combo:
         if tar && _combo_sequence != COMBO_MAX_POINTS:

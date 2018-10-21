@@ -2,12 +2,14 @@ extends "res://scenes/traps/trap.gd"
 
 export (int) var impact_damage = 3
 export (int) var dot_damage = 1
+export (float) var delay = 3
 
 onready var downtime_timer = $Downtime
 
 func _ready():
     activated = false
     collision.disabled = not activated
+    downtime_timer.wait_time = delay
     downtime_timer.start()
 
 func trigger(unit):
@@ -23,6 +25,7 @@ func trigger(unit):
      4, 1))
 
 func _on_Downtime_timeout():
+    emit_signal("trigger")
     activated = true
     collision.disabled = not activated
     anim_player.play("trigger")

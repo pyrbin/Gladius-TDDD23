@@ -1,6 +1,5 @@
 extends Control
 
-onready var wave_label = $Panel/VBoxContainer/WaveLabel
 onready var wave_level = $Panel/VBoxContainer/WaveLevel
 
 var level = null

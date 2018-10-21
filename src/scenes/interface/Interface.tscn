@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://themes/default.theme" type="Theme" id=1]
 [ext_resource path="res://scenes/interface/character_panel/CharacterPanel.tscn" type="PackedScene" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://scenes/interface/wave_manager/WaveManagerController.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/interface/pause_menu.gd" type="Script" id=10]
 [ext_resource path="res://assets/fonts/pixel_large.tres" type="DynamicFont" id=11]
+[ext_resource path="res://scenes/interface/CharacerDialog.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/interface/big_boss_healthbar/BigBossHealthbar.tscn" type="PackedScene" id=13]
 
 [node name="Interface" type="Control"]
 anchor_left = 0.0
@@ -216,6 +218,17 @@ group = null
 text = "Exit"
 flat = false
 align = 1
+
+[node name="CharacerDialog" parent="." instance=ExtResource( 12 )]
+visible = false
+
+[node name="BigBossHealthbar" parent="." instance=ExtResource( 13 )]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -683.0
+margin_right = 683.0
+margin_bottom = 768.0
 
 [connection signal="pressed" from="PauseMenu/VBoxContainer/Start" to="PauseMenu" method="_on_Start_pressed"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/Exit" to="PauseMenu" method="_on_Exit_pressed"]

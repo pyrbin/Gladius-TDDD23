@@ -1,0 +1,137 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/interface/characer_dialog.gd" type="Script" id=1]
+[ext_resource path="res://assets/blavk.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/pixel_large.tres" type="DynamicFont" id=3]
+[ext_resource path="res://scenes/common/typewriter.gd" type="Script" id=4]
+[ext_resource path="res://scenes/common/Spectator.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "idle"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Start:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( -7.45058e-009, 0.5, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.0666667 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="CharacterDialog" type="Control" groups=[
+"CharacterDialog",
+]]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -683.0
+margin_top = -200.0
+margin_right = 683.0
+rect_min_size = Vector2( 0, 200 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -2275.0
+margin_top = -345.0
+margin_right = 2274.0
+margin_bottom = 2.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -372.0
+margin_top = -169.0
+margin_right = 522.0
+margin_bottom = 8.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+text = "Welcome to your final stand gladiator. To claim your freedom you have to defeat my champion. Good Luck."
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 4 )
+_sections_unfolded = [ "custom_fonts" ]
+start = true
+type_speed = 0.05
+
+[node name="Position2D" type="Position2D" parent="Label"]
+position = Vector2( -210.393, 25.183 )
+scale = Vector2( 4, 4 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Spectator" parent="Label/Position2D" instance=ExtResource( 5 )]
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
+random_hair_color = true
+random_skin_color = true
+
+[node name="Start" type="Label" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.18864 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -447.0
+margin_top = -96.0
+margin_right = 447.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.313726, 1, 0, 1 )
+text = "Press (Space) to continue"
+align = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility", "custom_colors", "custom_fonts" ]
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/idle = SubResource( 1 )
+blend_times = [  ]
+

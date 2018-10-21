@@ -157,5 +157,5 @@ ui_hide={
 
 quality/2d/use_pixel_snap=true
 quality/filters/use_nearest_mipmap_filter=true
-environment/default_clear_color=Color( 0, 0, 0, 1 )
+environment/default_clear_color=Color( 0.145098, 0.137255, 0.211765, 1 )
 environment/default_environment="res://default_env.tres"

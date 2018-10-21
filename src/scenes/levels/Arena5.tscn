@@ -1,0 +1,398 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://scenes/levels/Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/levels/final_stand.gd" type="Script" id=2]
+[ext_resource path="res://scenes/units/enemy/boss/Boss.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/common/Spectator.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/items/armor/cosmetics/ceasar_head.png" type="Texture" id=5]
+[ext_resource path="res://assets/items/armor/cosmetics/ceasar_garnment.png" type="Texture" id=6]
+[ext_resource path="res://scenes/levels/Level_3_tileset.tres" type="TileSet" id=7]
+[ext_resource path="res://assets/arrow.png" type="Texture" id=8]
+[ext_resource path="res://assets/flagtemp.png" type="Texture" id=9]
+[ext_resource path="res://scenes/interactable/torch/Torch.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/interactable/item/Item.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/units/enemy/boss/Pitfall.tscn" type="PackedScene" id=12]
+
+[sub_resource type="NavigationPolygon" id=1]
+
+vertices = PoolVector2Array( -381.505, -319.764, 399.339, -319.764, 407.933, -312.398, 412.844, -290.299, 410.065, 287.929, 389.07, 297.26, -384.223, 291.428, -404.051, 273.933, -399.386, -311.577 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5, 6, 7, 8 ) ]
+outlines = [ PoolVector2Array( -381.505, -319.764, 399.339, -319.764, 407.933, -312.398, 412.844, -290.299, 410.065, 287.929, 389.07, 297.26, -384.223, 291.428, -404.051, 273.933, -399.386, -311.577 ) ]
+
+[node name="Arena5" instance=ExtResource( 1 )]
+position = Vector2( 0, 0 )
+script = ExtResource( 2 )
+level_name = "Final Stand"
+total_wave = 1
+spawn_point_two = NodePath("Spawn")
+spawn_point_three = NodePath("Spawn")
+armor_chest_pool = null
+chest_reward_helm = null
+chest_reward_legs = null
+chest_reward_chest = null
+chest_reward_weapon = null
+chest_reward_potion = null
+boss = ExtResource( 3 )
+
+[node name="Spawn" parent="." index="1"]
+position = Vector2( 0.856544, -262.278 )
+
+[node name="Player_Spawn" parent="." index="4"]
+position = Vector2( -1.58667, 149.755 )
+
+[node name="Chest_Spawn" parent="." index="5"]
+position = Vector2( 1059.51, -289.409 )
+
+[node name="Gate" parent="." index="6"]
+position = Vector2( 0.60397, -361.958 )
+
+[node name="Banner" parent="." index="7"]
+position = Vector2( -1, 1.94263 )
+
+[node name="Audience_Top" parent="Objects" index="0"]
+editor/display_folded = true
+
+[node name="Spectator" parent="Objects/Audience_Top" index="0" instance=ExtResource( 4 )]
+position = Vector2( -57.507, -569.928 )
+random_hair_color = false
+
+[node name="Spectator2" parent="Objects/Audience_Top" index="1" instance=ExtResource( 4 )]
+position = Vector2( -3.84512, -568.458 )
+random_hair_color = false
+
+[node name="Spectator4" parent="Objects/Audience_Top" index="2" instance=ExtResource( 4 )]
+position = Vector2( 49.8168, -572.869 )
+random_hair_color = false
+
+[node name="Spectator5" parent="Objects/Audience_Top" index="3" instance=ExtResource( 4 )]
+position = Vector2( 118.916, -492.743 )
+
+[node name="Spectator6" parent="Objects/Audience_Top" index="4" instance=ExtResource( 4 )]
+position = Vector2( 162.286, -489.068 )
+
+[node name="Spectator7" parent="Objects/Audience_Top" index="5" instance=ExtResource( 4 )]
+position = Vector2( 206.392, -492.008 )
+
+[node name="Spectator8" parent="Objects/Audience_Top" index="6" instance=ExtResource( 4 )]
+position = Vector2( 256.378, -492.743 )
+
+[node name="Spectator9" parent="Objects/Audience_Top" index="7" instance=ExtResource( 4 )]
+position = Vector2( 298.279, -494.949 )
+
+[node name="Spectator10" parent="Objects/Audience_Top" index="8" instance=ExtResource( 4 )]
+position = Vector2( 340.179, -493.479 )
+
+[node name="Spectator11" parent="Objects/Audience_Top" index="9" instance=ExtResource( 4 )]
+position = Vector2( 383.55, -493.479 )
+
+[node name="Spectator12" parent="Objects/Audience_Top" index="10" instance=ExtResource( 4 )]
+position = Vector2( 417.364, -492.008 )
+
+[node name="Spectator13" parent="Objects/Audience_Top" index="11" instance=ExtResource( 4 )]
+position = Vector2( 398.987, -533.174 )
+
+[node name="Spectator14" parent="Objects/Audience_Top" index="12" instance=ExtResource( 4 )]
+position = Vector2( 360.027, -530.233 )
+
+[node name="Spectator15" parent="Objects/Audience_Top" index="13" instance=ExtResource( 4 )]
+position = Vector2( 315.186, -530.233 )
+
+[node name="Spectator16" parent="Objects/Audience_Top" index="14" instance=ExtResource( 4 )]
+position = Vector2( 274.021, -530.233 )
+
+[node name="Spectator17" parent="Objects/Audience_Top" index="15" instance=ExtResource( 4 )]
+position = Vector2( 226.975, -528.763 )
+
+[node name="Spectator18" parent="Objects/Audience_Top" index="16" instance=ExtResource( 4 )]
+position = Vector2( 187.28, -528.028 )
+
+[node name="Spectator19" parent="Objects/Audience_Top" index="17" instance=ExtResource( 4 )]
+position = Vector2( 141.704, -525.823 )
+
+[node name="Spectator20" parent="Objects/Audience_Top" index="18" instance=ExtResource( 4 )]
+position = Vector2( 111.565, -537.584 )
+
+[node name="Spectator21" parent="Objects/Audience_Top" index="19" instance=ExtResource( 4 )]
+position = Vector2( -115.58, -530.233 )
+
+[node name="Spectator22" parent="Objects/Audience_Top" index="20" instance=ExtResource( 4 )]
+position = Vector2( -114.844, -492.743 )
+
+[node name="Spectator23" parent="Objects/Audience_Top" index="21" instance=ExtResource( 4 )]
+position = Vector2( -148.659, -491.273 )
+
+[node name="Spectator24" parent="Objects/Audience_Top" index="22" instance=ExtResource( 4 )]
+position = Vector2( -144.983, -527.293 )
+
+[node name="Spectator25" parent="Objects/Audience_Top" index="23" instance=ExtResource( 4 )]
+position = Vector2( -178.798, -522.882 )
+
+[node name="Spectator26" parent="Objects/Audience_Top" index="24" instance=ExtResource( 4 )]
+position = Vector2( -182.473, -483.922 )
+
+[node name="Spectator27" parent="Objects/Audience_Top" index="25" instance=ExtResource( 4 )]
+position = Vector2( -219.228, -483.922 )
+
+[node name="Spectator28" parent="Objects/Audience_Top" index="26" instance=ExtResource( 4 )]
+position = Vector2( -216.288, -528.763 )
+
+[node name="Spectator29" parent="Objects/Audience_Top" index="27" instance=ExtResource( 4 )]
+position = Vector2( -253.042, -490.538 )
+
+[node name="Spectator30" parent="Objects/Audience_Top" index="28" instance=ExtResource( 4 )]
+position = Vector2( -254.512, -530.233 )
+
+[node name="Spectator31" parent="Objects/Audience_Top" index="29" instance=ExtResource( 4 )]
+position = Vector2( -297.883, -524.352 )
+
+[node name="Spectator32" parent="Objects/Audience_Top" index="30" instance=ExtResource( 4 )]
+position = Vector2( -293.472, -492.743 )
+
+[node name="Spectator33" parent="Objects/Audience_Top" index="31" instance=ExtResource( 4 )]
+position = Vector2( -332.432, -492.008 )
+
+[node name="Spectator34" parent="Objects/Audience_Top" index="32" instance=ExtResource( 4 )]
+position = Vector2( -328.022, -525.087 )
+
+[node name="Spectator35" parent="Objects/Audience_Top" index="33" instance=ExtResource( 4 )]
+position = Vector2( -364.777, -524.352 )
+
+[node name="Spectator36" parent="Objects/Audience_Top" index="34" instance=ExtResource( 4 )]
+position = Vector2( -364.042, -493.478 )
+
+[node name="Spectator37" parent="Objects/Audience_Top" index="35" instance=ExtResource( 4 )]
+position = Vector2( -402.267, -492.743 )
+
+[node name="Spectator38" parent="Objects/Audience_Top" index="36" instance=ExtResource( 4 )]
+position = Vector2( -402.267, -534.643 )
+
+[node name="Spectator3" parent="Objects/Audience_Top" index="37" groups=[
+"Ceasar",
+] instance=ExtResource( 4 )]
+position = Vector2( 0.47644, -506.265 )
+_sections_unfolded = [ "chests", "hairs" ]
+hairs = [ ExtResource( 5 ) ]
+chests = [ ExtResource( 6 ) ]
+random_hair_color = false
+random_skin_color = false
+
+[node name="Floor" parent="Objects" index="1"]
+tile_set = ExtResource( 7 )
+tile_data = PoolIntArray( -786434, 8, 0, -786433, 6, 0, -851968, 6, 0, -851967, 7, 0, -720905, 4, 0, -720904, 4, 0, -720903, 4, 0, -720902, 4, 0, -720901, 4, 0, -720900, 4, 0, -720899, 4, 0, -720898, 3, 0, -720897, 3, 0, -786432, 3, 0, -786431, 3, 0, -786430, 4, 0, -786429, 4, 0, -786428, 4, 0, -786427, 4, 0, -786426, 4, 0, -786425, 4, 0, -786424, 4, 0, -655369, 4, 0, -655368, 4, 0, -655367, 4, 0, -655366, 4, 0, -655365, 4, 0, -655364, 4, 0, -655363, 4, 0, -655362, 3, 0, -655361, 3, 0, -720896, 3, 0, -720895, 3, 0, -720894, 4, 0, -720893, 4, 0, -720892, 4, 0, -720891, 4, 0, -720890, 4, 0, -720889, 4, 0, -720888, 4, 0, -589833, 4, 0, -589832, 4, 0, -589831, 4, 0, -589830, 4, 0, -589829, 4, 0, -589828, 4, 0, -589827, 4, 0, -589826, 3, 0, -589825, 3, 0, -655360, 3, 0, -655359, 3, 0, -655358, 4, 0, -655357, 4, 0, -655356, 4, 0, -655355, 4, 0, -655354, 4, 0, -655353, 4, 0, -655352, 4, 0, -393225, 1, 0, -393224, 1, 0, -393223, 1, 0, -393222, 1, 0, -393221, 1, 0, -393220, 1, 0, -393219, 1, 0, -393218, 1, 0, -393217, 1, 0, -458752, 1, 0, -458751, 1, 0, -458750, 1, 0, -458749, 1, 0, -458748, 1, 0, -458747, 1, 0, -458746, 1, 0, -458745, 1, 0, -458744, 1, 0, -327689, 2, 0, -327688, 0, 0, -327687, 2, 0, -327686, 0, 0, -327685, 2, 0, -327684, 2, 0, -327683, 0, 0, -327682, 0, 0, -327681, 0, 0, -393216, 0, 0, -393215, 0, 0, -393214, 2, 0, -393213, 2, 0, -393212, 2, 0, -393211, 0, 0, -393210, 0, 0, -393209, 0, 0, -393208, 0, 0, -262153, 0, 0, -262152, 0, 0, -262151, 0, 0, -262150, 0, 0, -262149, 0, 0, -262148, 0, 0, -262147, 2, 0, -262146, 0, 0, -262145, 0, 0, -327680, 0, 0, -327679, 0, 0, -327678, 0, 0, -327677, 0, 0, -327676, 2, 0, -327675, 0, 0, -327674, 2, 0, -327673, 2, 0, -327672, 0, 0, -196617, 0, 0, -196616, 0, 0, -196615, 0, 0, -196614, 0, 0, -196613, 0, 0, -196612, 0, 0, -196611, 2, 0, -196610, 0, 0, -196609, 0, 0, -262144, 0, 0, -262143, 0, 0, -262142, 0, 0, -262141, 0, 0, -262140, 0, 0, -262139, 0, 0, -262138, 0, 0, -262137, 0, 0, -262136, 0, 0, -131081, 0, 0, -131080, 0, 0, -131079, 0, 0, -131078, 2, 0, -131077, 0, 0, -131076, 0, 0, -131075, 0, 0, -131074, 0, 0, -131073, 0, 0, -196608, 0, 0, -196607, 0, 0, -196606, 0, 0, -196605, 0, 0, -196604, 0, 0, -196603, 0, 0, -196602, 0, 0, -196601, 0, 0, -196600, 0, 0, -65545, 0, 0, -65544, 0, 0, -65543, 0, 0, -65542, 0, 0, -65541, 0, 0, -65540, 0, 0, -65539, 2, 0, -65538, 2, 0, -65537, 0, 0, -131072, 0, 0, -131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 0, 0, -131066, 0, 0, -131065, 2, 0, -131064, 0, 0, -9, 0, 0, -8, 0, 0, -7, 2, 0, -6, 0, 0, -5, 2, 0, -4, 2, 0, -3, 0, 0, -2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 2, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 2, 0, -65528, 0, 0, 65527, 0, 0, 65528, 0, 0, 65529, 2, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 2, 0, 2, 2, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 131063, 0, 0, 131064, 0, 0, 131065, 2, 0, 131066, 0, 0, 131067, 0, 0, 131068, 2, 0, 131069, 0, 0, 131070, 0, 0, 131071, 2, 0, 65536, 0, 0, 65537, 0, 0, 65538, 2, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 196599, 0, 0, 196600, 0, 0, 196601, 0, 0, 196602, 0, 0, 196603, 0, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 262135, 0, 0, 262136, 0, 0, 262137, 0, 0, 262138, 0, 0, 262139, 0, 0, 262140, 0, 0, 262141, 2, 0, 262142, 0, 0, 262143, 2, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 2, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 327671, 0, 0, 327672, 0, 0, 327673, 0, 0, 327674, 0, 0, 327675, 0, 0, 327676, 0, 0, 327677, 0, 0, 327678, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 2, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 393207, 2, 0, 393208, 2, 0, 393209, 0, 0, 393210, 0, 0, 393211, 2, 0, 393212, 0, 0, 393213, 2, 0, 393214, 0, 0, 393215, 2, 0, 327680, 2, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 458743, 1073741825, 0, 458744, 1073741825, 0, 458745, 1073741825, 0, 458746, 1073741825, 0, 458747, 1073741825, 0, 458748, 1073741825, 0, 458749, 1073741825, 0, 458750, 1073741825, 0, 458751, 1073741825, 0, 393216, 1073741825, 0, 393217, 1073741825, 0, 393218, 1073741825, 0, 393219, 1073741825, 0, 393220, 1073741825, 0, 393221, 1073741825, 0, 393222, 1073741825, 0, 393223, 1073741825, 0, 393224, 1073741825, 0, 524279, 4, 0, 524280, 4, 0, 524281, 4, 0, 524282, 4, 0, 524283, 4, 0, 524284, 4, 0, 524285, 4, 0, 524286, 4, 0, 524287, 4, 0, 458752, 4, 0, 458753, 4, 0, 458754, 4, 0, 458755, 4, 0, 458756, 4, 0, 458757, 4, 0, 458758, 4, 0, 458759, 4, 0, 458760, 4, 0, 589815, 4, 0, 589816, 4, 0, 589817, 4, 0, 589818, 4, 0, 589819, 4, 0, 589820, 4, 0, 589821, 4, 0, 589822, 4, 0, 589823, 4, 0, 524288, 4, 0, 524289, 4, 0, 524290, 4, 0, 524291, 4, 0, 524292, 4, 0, 524293, 4, 0, 524294, 4, 0, 524295, 4, 0, 524296, 4, 0, 655351, 4, 0, 655352, 4, 0, 655353, 4, 0, 655354, 4, 0, 655355, 4, 0, 655356, 4, 0, 655357, 4, 0, 655358, 4, 0, 655359, 4, 0, 589824, 4, 0, 589825, 4, 0, 589826, 4, 0, 589827, 4, 0, 589828, 4, 0, 589829, 4, 0, 589830, 4, 0, 589831, 4, 0, 589832, 4, 0 )
+
+[node name="Walls" parent="Objects" index="2"]
+tile_set = ExtResource( 7 )
+tile_data = PoolIntArray( -524297, 5, 0, -524296, 5, 0, -524295, 5, 0, -524294, 5, 0, -524293, 5, 0, -524292, 5, 0, -524291, 5, 0, -524290, 5, 0, -524289, 3, 0, -589824, 3, 0, -589823, 5, 0, -589822, 5, 0, -589821, 5, 0, -589820, 5, 0, -589819, 5, 0, -589818, 5, 0, -589817, 5, 0, -589816, 5, 0, -458761, 5, 0, -458760, 5, 0, -458759, 5, 0, -458758, 5, 0, -458757, 5, 0, -458756, 5, 0, -458755, 5, 0, -458754, 5, 0, -458753, 3, 0, -524288, 3, 0, -524287, 5, 0, -524286, 5, 0, -524285, 5, 0, -524284, 5, 0, -524283, 5, 0, -524282, 5, 0, -524281, 5, 0, -524280, 5, 0 )
+
+[node name="arrow" type="Sprite" parent="Objects" index="3"]
+position = Vector2( 1.42636, -267.703 )
+rotation = 3.14159
+texture = ExtResource( 8 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Audience_Bot" parent="Objects" index="4"]
+editor/display_folded = true
+
+[node name="Spectator" parent="Objects/Audience_Bot" index="0" instance=ExtResource( 4 )]
+position = Vector2( -375.786, 330.677 )
+
+[node name="Spectator2" parent="Objects/Audience_Bot" index="1" instance=ExtResource( 4 )]
+position = Vector2( -330.298, 329.51 )
+
+[node name="Spectator3" parent="Objects/Audience_Bot" index="2" instance=ExtResource( 4 )]
+position = Vector2( -409.61, 329.51 )
+
+[node name="Spectator4" parent="Objects/Audience_Bot" index="3" instance=ExtResource( 4 )]
+position = Vector2( -291.808, 330.677 )
+
+[node name="Spectator5" parent="Objects/Audience_Bot" index="4" instance=ExtResource( 4 )]
+position = Vector2( -250.986, 328.344 )
+
+[node name="Spectator6" parent="Objects/Audience_Bot" index="5" instance=ExtResource( 4 )]
+position = Vector2( -210.164, 328.344 )
+
+[node name="Spectator7" parent="Objects/Audience_Bot" index="6" instance=ExtResource( 4 )]
+position = Vector2( -169.341, 328.344 )
+
+[node name="Spectator8" parent="Objects/Audience_Bot" index="7" instance=ExtResource( 4 )]
+position = Vector2( -128.519, 328.344 )
+
+[node name="Spectator9" parent="Objects/Audience_Bot" index="8" instance=ExtResource( 4 )]
+position = Vector2( -83.0308, 328.344 )
+
+[node name="Spectator10" parent="Objects/Audience_Bot" index="9" instance=ExtResource( 4 )]
+position = Vector2( -35.2102, 329.51 )
+
+[node name="Spectator11" parent="Objects/Audience_Bot" index="10" instance=ExtResource( 4 )]
+position = Vector2( -1.38586, 326.011 )
+
+[node name="Spectator12" parent="Objects/Audience_Bot" index="11" instance=ExtResource( 4 )]
+position = Vector2( 41.7693, 322.512 )
+
+[node name="Spectator13" parent="Objects/Audience_Bot" index="12" instance=ExtResource( 4 )]
+position = Vector2( 80.259, 328.344 )
+
+[node name="Spectator14" parent="Objects/Audience_Bot" index="13" instance=ExtResource( 4 )]
+position = Vector2( 118.749, 327.178 )
+
+[node name="Spectator15" parent="Objects/Audience_Bot" index="14" instance=ExtResource( 4 )]
+position = Vector2( 159.571, 323.679 )
+
+[node name="Spectator16" parent="Objects/Audience_Bot" index="15" instance=ExtResource( 4 )]
+position = Vector2( 196.895, 323.679 )
+
+[node name="Spectator17" parent="Objects/Audience_Bot" index="16" instance=ExtResource( 4 )]
+position = Vector2( 244.715, 327.178 )
+
+[node name="Spectator18" parent="Objects/Audience_Bot" index="17" instance=ExtResource( 4 )]
+position = Vector2( 286.704, 331.843 )
+
+[node name="Spectator19" parent="Objects/Audience_Bot" index="18" instance=ExtResource( 4 )]
+position = Vector2( 328.693, 330.677 )
+
+[node name="Spectator20" parent="Objects/Audience_Bot" index="19" instance=ExtResource( 4 )]
+position = Vector2( 374.691, 327.178 )
+
+[node name="Spectator21" parent="Objects/Audience_Bot" index="20" instance=ExtResource( 4 )]
+position = Vector2( 410.848, 328.344 )
+
+[node name="Spectator22" parent="Objects/Audience_Bot" index="21" instance=ExtResource( 4 )]
+position = Vector2( 409.682, 372.666 )
+
+[node name="Spectator23" parent="Objects/Audience_Bot" index="22" instance=ExtResource( 4 )]
+position = Vector2( 366.527, 362.168 )
+
+[node name="Spectator24" parent="Objects/Audience_Bot" index="23" instance=ExtResource( 4 )]
+position = Vector2( 326.871, 369.166 )
+
+[node name="Spectator25" parent="Objects/Audience_Bot" index="24" instance=ExtResource( 4 )]
+position = Vector2( 287.214, 365.667 )
+
+[node name="Spectator26" parent="Objects/Audience_Bot" index="25" instance=ExtResource( 4 )]
+position = Vector2( 239.394, 365.667 )
+
+[node name="Spectator27" parent="Objects/Audience_Bot" index="26" instance=ExtResource( 4 )]
+position = Vector2( 190.407, 361.002 )
+
+[node name="Spectator28" parent="Objects/Audience_Bot" index="27" instance=ExtResource( 4 )]
+position = Vector2( 139.087, 361.002 )
+
+[node name="Spectator29" parent="Objects/Audience_Bot" index="28" instance=ExtResource( 4 )]
+position = Vector2( 90.1003, 364.501 )
+
+[node name="Spectator30" parent="Objects/Audience_Bot" index="29" instance=ExtResource( 4 )]
+position = Vector2( 39.9471, 362.168 )
+
+[node name="Spectator31" parent="Objects/Audience_Bot" index="30" instance=ExtResource( 4 )]
+position = Vector2( -12.5389, 364.501 )
+
+[node name="Spectator32" parent="Objects/Audience_Bot" index="31" instance=ExtResource( 4 )]
+position = Vector2( -67.3577, 369.166 )
+
+[node name="Spectator33" parent="Objects/Audience_Bot" index="32" instance=ExtResource( 4 )]
+position = Vector2( -111.679, 369.166 )
+
+[node name="Spectator34" parent="Objects/Audience_Bot" index="33" instance=ExtResource( 4 )]
+position = Vector2( -166.498, 370.333 )
+
+[node name="Spectator35" parent="Objects/Audience_Bot" index="34" instance=ExtResource( 4 )]
+position = Vector2( -223.649, 373.832 )
+
+[node name="Spectator36" parent="Objects/Audience_Bot" index="35" instance=ExtResource( 4 )]
+position = Vector2( -270, 372.666 )
+
+[node name="Spectator37" parent="Objects/Audience_Bot" index="36" instance=ExtResource( 4 )]
+position = Vector2( -328.318, 371.499 )
+
+[node name="Spectator38" parent="Objects/Audience_Bot" index="37" instance=ExtResource( 4 )]
+position = Vector2( -383.136, 372.666 )
+
+[node name="Spectator39" parent="Objects/Audience_Bot" index="38" instance=ExtResource( 4 )]
+position = Vector2( -359.809, 412.322 )
+
+[node name="Spectator40" parent="Objects/Audience_Bot" index="39" instance=ExtResource( 4 )]
+position = Vector2( -295.66, 412.322 )
+
+[node name="Spectator41" parent="Objects/Audience_Bot" index="40" instance=ExtResource( 4 )]
+position = Vector2( -237.342, 421.652 )
+
+[node name="Spectator42" parent="Objects/Audience_Bot" index="41" instance=ExtResource( 4 )]
+position = Vector2( -184.856, 419.32 )
+
+[node name="Spectator43" parent="Objects/Audience_Bot" index="42" instance=ExtResource( 4 )]
+position = Vector2( -131.204, 420.486 )
+
+[node name="Spectator44" parent="Objects/Audience_Bot" index="43" instance=ExtResource( 4 )]
+position = Vector2( -77.5513, 419.32 )
+
+[node name="Spectator45" parent="Objects/Audience_Bot" index="44" instance=ExtResource( 4 )]
+position = Vector2( -26.6787, 419.32 )
+
+[node name="Spectator46" parent="Objects/Audience_Bot" index="45" instance=ExtResource( 4 )]
+position = Vector2( 36.4764, 420.486 )
+
+[node name="Spectator47" parent="Objects/Audience_Bot" index="46" instance=ExtResource( 4 )]
+position = Vector2( 87.7961, 420.486 )
+
+[node name="Spectator48" parent="Objects/Audience_Bot" index="47" instance=ExtResource( 4 )]
+position = Vector2( 134.45, 422.819 )
+
+[node name="Spectator49" parent="Objects/Audience_Bot" index="48" instance=ExtResource( 4 )]
+position = Vector2( 178.772, 420.486 )
+
+[node name="Spectator50" parent="Objects/Audience_Bot" index="49" instance=ExtResource( 4 )]
+position = Vector2( 225.426, 421.652 )
+
+[node name="Spectator51" parent="Objects/Audience_Bot" index="50" instance=ExtResource( 4 )]
+position = Vector2( 280.245, 414.654 )
+
+[node name="Spectator52" parent="Objects/Audience_Bot" index="51" instance=ExtResource( 4 )]
+position = Vector2( 345.561, 422.819 )
+
+[node name="Spectator53" parent="Objects/Audience_Bot" index="52" instance=ExtResource( 4 )]
+position = Vector2( 390.864, 417.514 )
+
+[node name="WallsTopFloor" parent="Objects" index="5"]
+tile_set = ExtResource( 7 )
+
+[node name="WallsTop" parent="Objects" index="6"]
+editor/display_folded = true
+tile_set = ExtResource( 7 )
+tile_data = PoolIntArray( -720898, 13, 0, -786431, 536870925, 0, -655362, 13, 0, -720895, 536870925, 0, -589833, 8, 0, -589832, 6, 0, -589831, 6, 0, -589830, 6, 0, -589829, 6, 0, -589828, 6, 0, -589827, 6, 0, -589826, 10, 0, -589825, 6, 0, -655360, 6, 0, -655359, 9, 0, -655358, 6, 0, -655357, 6, 0, -655356, 6, 0, -655355, 6, 0, -655354, 6, 0, -655353, 6, 0, -655352, 7, 0, -524297, 13, 0, -589816, 536870925, 0, -458761, 13, 0, -524280, 536870925, 0, -393225, 13, 0, -458744, 536870925, 0, -327689, 13, 0, -393208, 536870925, 0, -262153, 13, 0, -327672, 536870925, 0, -196617, 13, 0, -262136, 536870925, 0, -131081, 13, 0, -196600, 536870925, 0, -65545, 13, 0, -131064, 536870925, 0, -9, 13, 0, -65528, 536870925, 0, 65527, 13, 0, 8, 536870925, 0, 131063, 13, 0, 65544, 536870925, 0, 196599, 13, 0, 131080, 536870925, 0, 262135, 13, 0, 196616, 536870925, 0, 327671, 13, 0, 262152, 536870925, 0, 393207, 13, 0, 327688, 536870925, 0, 458743, 10, 0, 458744, 6, 0, 458745, 6, 0, 458746, 6, 0, 458747, 6, 0, 458748, 6, 0, 458749, 6, 0, 458750, 6, 0, 458751, 6, 0, 393216, 6, 0, 393217, 6, 0, 393218, 6, 0, 393219, 6, 0, 393220, 6, 0, 393221, 6, 0, 393222, 6, 0, 393223, 6, 0, 393224, 9, 0 )
+
+[node name="flagtemp" type="Sprite" parent="Objects/WallsTop" index="0"]
+editor/display_folded = true
+position = Vector2( -164.568, -403.621 )
+texture = ExtResource( 9 )
+
+[node name="Torch" parent="Objects/WallsTop/flagtemp" index="0" instance=ExtResource( 10 )]
+position = Vector2( -75.0432, 8.85437 )
+
+[node name="Torch2" parent="Objects/WallsTop/flagtemp" index="1" instance=ExtResource( 10 )]
+position = Vector2( 403.374, 10.5691 )
+
+[node name="flagtemp2" type="Sprite" parent="Objects/WallsTop" index="1"]
+position = Vector2( 162.345, -405.682 )
+texture = ExtResource( 9 )
+
+[node name="flagtemp3" type="Sprite" parent="Objects/WallsTop" index="2"]
+position = Vector2( -320.516, -401.473 )
+texture = ExtResource( 9 )
+
+[node name="flagtemp4" type="Sprite" parent="Objects/WallsTop" index="3"]
+position = Vector2( 311.741, -405.683 )
+texture = ExtResource( 9 )
+
+[node name="NavigationPolygonInstance" parent="Navigation2D" index="0"]
+navpoly = SubResource( 1 )
+
+[node name="Labels" parent="." index="10"]
+visible = false
+
+[node name="Item" parent="." index="14" instance=ExtResource( 11 )]
+position = Vector2( 94.1375, 114.732 )
+item_id = 4300
+
+[node name="Pitfall" parent="." index="15" instance=ExtResource( 12 )]
+position = Vector2( 197.384, -122.358 )
+

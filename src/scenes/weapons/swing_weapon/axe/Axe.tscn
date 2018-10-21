@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/weapons/swing_weapon/shortsword/Shortsword.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/items/weapon/iron_weapon/iron_axe.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 40.1521, 14.3972 )
+
+[node name="Axe" instance=ExtResource( 1 )]
+hit_range = 110.0
+force_knockback = true
+
+[node name="Pivot" parent="." index="5"]
+editor/display_folded = false
+
+[node name="Sprite" parent="Pivot/Area2D" index="0"]
+position = Vector2( -9.8063, -6.03595e-005 )
+texture = ExtResource( 2 )
+
+[node name="U_Hand_Pivot" parent="Pivot/Area2D/Sprite" index="0"]
+position = Vector2( -11.5767, 1.03448 )
+
+[node name="L_Hand_Pivot" parent="Pivot/Area2D/Sprite" index="1"]
+position = Vector2( -8.69281, -1.30754 )
+
+[node name="Hitbox" parent="Pivot/Area2D" index="1"]
+position = Vector2( 7.98781, 0.00789547 )
+shape = SubResource( 1 )
+

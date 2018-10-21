@@ -2,6 +2,8 @@ extends Node2D
 
 export (Array) var hairs = []
 export (Array) var chests = []
+export (bool) var random_hair_color = true
+export (bool) var random_skin_color = true
 
 onready var body = $Visuals/Body
 onready var r_hand = $Visuals/Equipments/RHand
@@ -11,12 +13,18 @@ onready var hair = $Visuals/Equipments/Helm
 onready var chest = $Visuals/Equipments/Chest
 
 var hair_color = Color.white
-var skin_color = Color.white
+var skin_color = Color("#ffb695")
+    
+func dress_up(p_hair, p_chest):
+    hair.set_texture(p_hair)
+    chest.set_texture(p_chest)
+    body.modulate = skin_color
+    r_hand.modulate = skin_color
+    l_hand.modulate = skin_color
+    hair.modulate = hair_color
 
 func _ready():
-    $AnimPlayer.play("idle")
     randomize()
-
     var hair_tones = [
         Color("#090806"),\
         Color("#8D4A43"),\
@@ -33,10 +41,10 @@ func _ready():
         Color("#ff9a6d"),\
         Color("#965738")]
 
-    skin_color = skin_tones[randi()%len(skin_tones)]
-    body.modulate = skin_color
-    r_hand.modulate = skin_color
-    l_hand.modulate = skin_color
-    hair.set_texture(hairs[randi()%len(hairs)])
-    hair.modulate = hair_tones[randi()%len(hair_tones)]
-    chest.set_texture(chests[randi()%len(chests)])
+    if random_skin_color:
+        skin_color = skin_tones[randi()%len(skin_tones)]
+    if random_hair_color:
+        hair_color = hair_tones[randi()%len(hair_tones)]
+
+    dress_up(hairs[randi()%len(hairs)], chests[randi()%len(chests)])
+

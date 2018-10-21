@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/game_states/level_loader.gd" type="Script" id=1]
 [ext_resource path="res://scenes/levels/TrainingGrounds.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/levels/Arena2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/levels/Arena3.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/levels/Arena4.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/units/player/Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/interface/Interface.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/levels/Arena5.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/units/player/Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/interface/Interface.tscn" type="PackedScene" id=8]
 
 [node name="Root" type="Node"]
 
@@ -14,12 +15,12 @@
 "Game",
 ]]
 script = ExtResource( 1 )
-_sections_unfolded = [ "level_four", "levels" ]
+_sections_unfolded = [ "levels" ]
 level_one = ExtResource( 2 )
 level_two = ExtResource( 3 )
 level_three = ExtResource( 4 )
 level_four = ExtResource( 5 )
-level_five = null
+level_five = ExtResource( 6 )
 
 [node name="World" type="Node2D" parent="Game"]
 _sections_unfolded = [ "Transform" ]
@@ -41,13 +42,13 @@ _sections_unfolded = [ "Transform" ]
 "Root_Units",
 ]]
 
-[node name="Player" parent="Game/World/Actors" instance=ExtResource( 6 )]
+[node name="Player" parent="Game/World/Actors" instance=ExtResource( 7 )]
 position = Vector2( 0.508621, -174.746 )
 rotation = 0.0
 collision/safe_margin = 0.08
 _sections_unfolded = [ "Collision", "Transform", "Z Index", "collision", "equipped_items", "equipped_weapons", "sfx_hurt" ]
 reach = 33.0
-equipped_weapons = [ 4007, 0 ]
+equipped_weapons = [ 4000, 0 ]
 
 [node name="GUI" type="CanvasLayer" parent="." groups=[
 "GUI",
@@ -59,5 +60,5 @@ scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 _sections_unfolded = [ "Pause", "Script" ]
 
-[node name="Interface" parent="GUI" instance=ExtResource( 7 )]
+[node name="Interface" parent="GUI" instance=ExtResource( 8 )]
 

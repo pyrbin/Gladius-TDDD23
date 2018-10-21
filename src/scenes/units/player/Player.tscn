@@ -25,13 +25,14 @@ weapon_collision = 13
 editor/display_folded = false
 
 [node name="Stats" parent="." index="1"]
+power = 300.0
 movement_speed = 150.0
 
 [node name="Status" parent="." index="2"]
 status_settings = 6
-health = 30.0
+health = 3000.0
 endurance = 30.0
-max_health = 30.0
+max_health = 3000.0
 max_endurance = 30.0
 endurance_regen = 2.0
 health_regen = 2.0
@@ -42,11 +43,15 @@ position = Vector2( 0.015216, -20 )
 [node name="Collision" parent="." index="5"]
 _sections_unfolded = [ "Transform", "Visibility", "Z Index", "shape" ]
 
-[node name="CameraPivot" type="Position2D" parent="." index="6"]
+[node name="CameraPivot" type="Position2D" parent="." index="6" groups=[
+"MainCameraPivot",
+]]
 script = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Camera2D" type="Camera2D" parent="CameraPivot" index="0"]
+[node name="Camera2D" type="Camera2D" parent="CameraPivot" index="0" groups=[
+"MainCamera",
+]]
 position = Vector2( 0.0139254, -18.3036 )
 anchor_mode = 1
 rotating = true
