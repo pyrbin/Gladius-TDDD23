@@ -4,7 +4,7 @@
         "ICON": "armor/gladiator_armor/glad_armor_icon_0.png",
         "TYPE": 1,
         "SLOT": 1,
-        "DESC": "A helmet made of iron",
+        "DESC": "A helmet given to the most fierce gladiators.",
         "SPRITE": "armor/gladiator_armor/glad_armor_helm.png",
         "STATS": {
             "POWER": {
@@ -20,7 +20,7 @@
         "ICON": "armor/gladiator_armor/glad_armor_icon_1.png",
         "TYPE": 1,
         "SLOT": 2,
-        "DESC": "A helmet made of iron",
+        "DESC": "A chestpiece given to the most fierce gladiators.",
         "SPRITE": "armor/gladiator_armor/glad_armor_chest.png",
         "STATS": {
             "VITALITY": {
@@ -39,7 +39,7 @@
         "ICON": "armor/gladiator_armor/glad_armor_icon_2.png",
         "TYPE": 1,
         "SLOT": 3,
-        "DESC": "A helmet made of iron",
+        "DESC": "A pair of legs given to the most fierce gladiators.",
         "SPRITE": "armor/gladiator_armor/glad_armor_legs.png",
         "STATS": {
             "VITALITY": {
@@ -60,7 +60,7 @@
         "STATS": {},
         "WEAPON_TYPE": 0,
         "MODEL" : "swing_weapon/shortsword/Shortsword.tscn",
-        "DAMAGE" : 6,
+        "DAMAGE" : 9,
         "COOLDOWN" : 0.7
     }
 }

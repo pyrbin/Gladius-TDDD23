@@ -294,7 +294,7 @@ bashable = false
 equipment_container_slots = [  ]
 equipped_items = [  ]
 equipped_weapons = [ 4005, 0 ]
-boss_name = "Boss123"
+boss_name = "Glutton"
 pitfall = ExtResource( 3 )
 
 [node name="AIBehaviour" parent="." index="0"]
@@ -312,9 +312,9 @@ one_shot = false
 autostart = true
 
 [node name="Status" parent="." index="4"]
-health = 2000.0
+health = 300.0
 endurance = 30.0
-max_health = 2000.0
+max_health = 300.0
 max_endurance = 30.0
 
 [node name="Hitbox" parent="." index="6"]

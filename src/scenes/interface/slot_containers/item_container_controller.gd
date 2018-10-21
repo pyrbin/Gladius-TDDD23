@@ -190,13 +190,16 @@ func _on_Container_List_item_rmb_selected(index, at_position):
     item_menu_icon = item_menu.get_node("ItemMenu_Icon")
     item_menu_info = item_menu.get_node("ItemMenu_Info")
     
-    item_menu.set_title(item_data.name)
+    item_menu.set_title("")
     item_menu_icon.set_texture(load(item_data.icon))
 
-    var str_item_info = ""
+    var str_item_info = "[color=yellow]NAME: [/color]" + item_data.name + "\n"
     match item_data.type:
         ItemData.ITEM_TYPE.EQUIPPABLE:
             str_item_info += "[color=blue]SLOT: [/color]" + gb_ItemDatabase.get_slot_str(item_data.slot) + "\n"
+            if item_data.slot == Equippable.SLOT.WEAPON:
+                str_item_info += "[color=red]DAMAGE: [/color]" + String(item_data.damage) + "\n"
+                str_item_info += "[color=teal]COOLDOWN: [/color]" + String(item_data.cooldown) + "\n"
             for stat in item_data.stats:
                 var mods = item_data.stats[stat]
                 str_item_info += "[color=purple]"+ stat +": [/color]"

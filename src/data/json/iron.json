@@ -4,7 +4,7 @@
         "ICON": "armor/iron_armor/iron_armor_helm_icon.png",
         "TYPE": 1,
         "SLOT": 1,
-        "DESC": "A helmet made of iron",
+        "DESC": "A helmet made of iron.",
         "SPRITE": "armor/iron_armor/iron_armor_helm.png",
         "STATS": {
             "POWER": {
@@ -20,7 +20,7 @@
         "ICON": "armor/iron_armor/iron_armor_chest_icon.png",
         "TYPE": 1,
         "SLOT": 2,
-        "DESC": "A helmet made of iron",
+        "DESC": "A chest made of iron.",
         "SPRITE": "armor/iron_armor/iron_armor_chest.png",
         "STATS": {
             "VITALITY": {
@@ -36,7 +36,7 @@
         "ICON": "armor/iron_armor/iron_armor_legs_icon.png",
         "TYPE": 1,
         "SLOT": 3,
-        "DESC": "A helmet made of iron",
+        "DESC": "A pair of legs made of iron.",
         "SPRITE": "armor/iron_armor/iron_armor_legs.png",
         "STATS": {
             "MOVEMENT": {
@@ -52,7 +52,7 @@
         "ICON": "weapon/iron_weapon/iron_shortsword_icon.png",
         "TYPE": 1,
         "SLOT": 4,
-        "DESC": "LOREM IPSUM LOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUM",
+        "DESC": "An iron sword",
         "SPRITE": "weapon/iron_weapon/iron_shortsword.png",
         "STATS": {},
         "WEAPON_TYPE": 0,
@@ -65,7 +65,7 @@
         "ICON": "weapon/iron_weapon/iron_spear_icon.png",
         "TYPE": 1,
         "SLOT": 4,
-        "DESC": "LOREM IPSUM LOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUM",
+        "DESC": "A wooden stick with a sharp stone attached.",
         "SPRITE": "weapon/iron_weapon/iron_spear.png",
         "STATS": {},
         "WEAPON_TYPE": 1,
@@ -78,7 +78,7 @@
         "ICON": "weapon/iron_weapon/iron_dagger_icon.png",
         "TYPE": 1,
         "SLOT": 4,
-        "DESC": "LOREM IPSUM LOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUM",
+        "DESC": "An iron dagger.",
         "SPRITE": "weapon/iron_weapon/iron_dagger.png",
         "STATS": {
             "MOVEMENT" : {
@@ -95,7 +95,7 @@
         "ICON": "weapon/iron_weapon/iron_hammer_icon.png",
         "TYPE": 1,
         "SLOT": 4,
-        "DESC": "LOREM IPSUM LOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUM",
+        "DESC": "An iron hammer.",
         "SPRITE": "weapon/iron_weapon/iron_hammer.png",
         "STATS": {},
         "WEAPON_TYPE": 0,
@@ -108,7 +108,7 @@
         "ICON": "weapon/iron_weapon/iron_hammer_icon.png",
         "TYPE": 1,
         "SLOT": 4,
-        "DESC": "LOREM IPSUM LOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUM",
+        "DESC": "IRON AXE OF DOOM XD XD",
         "SPRITE": "weapon/iron_weapon/iron_axe.png",
         "STATS": {},
         "WEAPON_TYPE": 0,
@@ -121,7 +121,7 @@
         "ICON": "weapon/iron_weapon/iron_crossbow_icon.png",
         "TYPE": 1,
         "SLOT": 4,
-        "DESC": "LOREM IPSUM LOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUM",
+        "DESC": "A crossbow firing iron bolts, very effective.",
         "SPRITE": "weapon/iron_weapon/iron_crossbow.png",
         "STATS": {},
         "WEAPON_TYPE": 2,
