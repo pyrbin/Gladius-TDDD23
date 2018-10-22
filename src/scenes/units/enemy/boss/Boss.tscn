@@ -281,7 +281,7 @@ tracks/3/keys = {
 "values": [  ]
 }
 
-[node name="Boss" groups=[
+[node name="Boss" index="0" groups=[
 "Boss",
 ] instance=ExtResource( 1 )]
 scale = Vector2( 2, 2 )
@@ -311,7 +311,11 @@ wait_time = 5.0
 one_shot = false
 autostart = true
 
+[node name="Stats" parent="." index="3"]
+power = 10.0
+
 [node name="Status" parent="." index="4"]
+status_settings = 6
 health = 300.0
 endurance = 30.0
 max_health = 300.0

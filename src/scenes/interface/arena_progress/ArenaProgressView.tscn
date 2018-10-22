@@ -52,10 +52,10 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Script", "levels" ]
 levels = {
 0: "Training Grounds",
-1: "Arena 2",
-2: "Arena 3",
-3: "Arena 4",
-4: "Arena Boss"
+1: "Emperor Garden",
+2: "Heroes' End",
+3: "Fighters' Wreath",
+4: "Final Stand"
 }
 
 [node name="Bg" type="TextureRect" parent="."]

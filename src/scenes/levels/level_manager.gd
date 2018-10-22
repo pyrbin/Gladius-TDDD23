@@ -131,7 +131,7 @@ func end_level():
     utils.get_player().stats.clear_effects()
     utils.get_player().invunerable = true
     utils.get_player().damage(-utils.get_player().status.get_max_health(), utils.get_player())
-    yield(utils.timer(2), "timeout")
+    yield(utils.timer(1), "timeout")
     utils.get_player().global_position = player_spawn_point.position
     chest.global_position = chest_spawn_point.global_position
 
