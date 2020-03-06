@@ -1,16 +1,16 @@
-# Gladius (temporary) - TDDD23
+# Gladius
 
 ## Game Idea
-Gladius is a single-player top-down action roguelike where the player plays a gladiator. The setting is fictional ancient Rome and the goal of the game is
-to end victorious in a chain of arenas to finally reach Rome where the final boss resides. In the arenas opponents will come in waves and there will be different traps such as spike traps that has to be avoided or used to your advantage.
+Gladius is a single-player top-down action roguelike where the player plays a gladiator. 
 
-## Game Tech
-The technologies used are:
+The setting is fictional ancient Rome and the goal of the game is
+to end victorious in a chain of arenas to finally reach Rome where the final boss resides. In the arenas opponents will come in waves and there will be different traps such as spike traps that has to be avoided or be used to your advantage.
 
-* Godot 3.0
-* Pyxel Edit (pixel graphics)
-* Photoshop 
-* FL Studio (sound)
+## Technology stack
+- Godot 3.0
+- Pyxel Edit (pixel graphics)
+- Photoshop 
+- FL Studio (sound)
 
 ## Progression in the Game
 The game's progression will  act as a typical roguelike where the player starts with nothing and has to progress different levels (arenas) to get better and get random loot. The player will progressively get stronger by loot however the arenas will as well. The game experience will vary depending on the loot the player aquires (ranged weapons or swing weapon (swords) for an example). If the player dies they lose everything and has to restart.
